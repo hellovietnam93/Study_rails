@@ -29,6 +29,8 @@ gem "redis-rails"
 gem "redis-rack-cache"
 gem "sidekiq"
 gem "activerecord-import"
+gem "friendly_id", "~> 5.1.0"
+gem "figaro"
 
 group :development, :test do
   gem "pry"
