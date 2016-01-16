@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
 
+  enum role: [:admin, :lecturer, :student]
+
   extend FriendlyId
   friendly_id :email, use: :slugged
 end

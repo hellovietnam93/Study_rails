@@ -2,7 +2,7 @@ class CreatePrimeUsers < ActiveRecord::Migration
   def change
     create_table :prime_users do |t|
       t.string :uid
-      t.string :name
+      t.string :first_name
       t.datetime :birthday
       t.string :program
       t.string :class_name

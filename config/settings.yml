@@ -1,0 +1,44 @@
+imports:
+  file_types:
+    csv:
+      - ".csv"
+      - ".xls"
+      - ".xlsx"
+    json: ".json"
+  primeuser:
+    id: id
+    uid: uid
+    first_name: first_name
+    middle_name: middle_name
+    last_name: last_name
+    birthday: birthday
+    program: program
+    class_name: class_name
+    status: status
+    cohort: cohort
+  primeclass:
+    id: id
+    semester: semester
+    student_id: student_id
+    class_id: class_id
+    class_type: class_type
+    course_id: course_id
+    course_title: course_title
+    reg_status: reg_status
+  data_types:
+    - model: prime_user
+      verify_attributes:
+        - uid
+    - model: prime_class
+      verify_attributes:
+        - semester
+        - student_id
+        - class_id
+        - course_id
+  image_loading_size: "30x30"
+data_types_import:
+  prime_user: "prime_user"
+  prime_class: "prime_class"
+collum_check_import:
+  prime_user: "uid"
+  prime_class: "semester"

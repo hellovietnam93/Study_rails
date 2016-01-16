@@ -20,4 +20,8 @@ module ApplicationHelper
       t "flashs.messages.#{flash_type}", models_name: params[0].join(", ") unless params[0].empty?
     end
   end
+
+  def allowed_file model
+    Settings.imports.data_types[0].model == model ? ".csv" : ".csv, .json"
+  end
 end
