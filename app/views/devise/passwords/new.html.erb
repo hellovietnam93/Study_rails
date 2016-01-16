@@ -1,0 +1,30 @@
+<div id="reset-password">
+  <h2 class="text-center"><%= t "users.views.sign_in_form.forgot_password" %></h2>
+  <%= form_for resource, as: resource_name, url: password_path(resource_name),
+    html: {method: :post} do |f| %>
+    <%= render "shared/errors_massages", object: resource %>
+    <div class="form-group">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-envelope"></i>
+          </span>
+          <%= f.email_field :email, autofocus: true, class: "form-control",
+            placeholder: t("users.fields.email") %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group formSubmit">
+      <div class="col-sm-offset-7 col-sm-5 submitWrap">
+        <%= f.submit t("users.title.reset_password"), class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="form-group formNotice">
+      <div class="col-xs-12">
+        <p class="text-center">
+          <span><%= render "devise/shared/links" %></span>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>

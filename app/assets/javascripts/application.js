@@ -13,4 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
 //= require_tree .
+
+$(document).on("ready", function() {
+  $(".alert").delay(3000).slideUp();
+});

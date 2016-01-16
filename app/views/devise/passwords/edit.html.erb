@@ -1,0 +1,43 @@
+<div id="reset-password">
+  <h2 class="text-center"><%= t "users.title.change_password" %></h2>
+  <%= form_for resource, as: resource_name, url: password_path(resource_name),
+    html: {method: :put} do |f| %>
+    <%= render "shared/errors_massages", object: resource %>>
+    <%= f.hidden_field :reset_password_token %>
+    <div class="form-group">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock"></i>
+          </span>
+          <%= f.password_field :password_confirmation, autocomplete: "off",
+            class: "form-control", placeholder: t("users.fields.new_password") %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock"></i>
+          </span>
+          <%= f.password_field :password_confirmation, autocomplete: "off",
+            class: "form-control", placeholder: t("users.fields.confirmation_new_password") %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group formSubmit">
+      <div class="col-sm-offset-7 col-sm-5 submitWrap">
+        <%= f.submit t("users.title.change_password"), class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="form-group formNotice">
+      <div class="col-xs-12">
+        <p class="text-center">
+          <span><%= render "devise/shared/links" %></span>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
+

@@ -1,0 +1,81 @@
+<div id="sign_up">
+  <h2 class="text-center">
+    <%= t "users.views.sign_in_form.edit", resource: resource_name.to_s.humanize %>
+  </h2>
+  <%= form_for resource, as: resource_name, url: registration_path(resource_name),
+    html: {method: :put} do |f| %>
+    <%= render "shared/errors_massages", object: resource %>
+    <div class="form-group">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-envelope"></i>
+          </span>
+          <%= f.email_field :email, class: "form-control",
+            placeholder: t("users.fields.email") %>
+        </div>
+      </div>
+    </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>
+        <b class="text-warning">
+          <%= t "users.views.sign_in_form.waiting_email", email: resource.unconfirmed_email %>
+        </b>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <div class="col-xs-12">
+        <i><%= t "users.views.sign_in_form.password_none_require" %></i>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock"></i>
+          </span>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control",
+            placeholder: t("users.fields.password") %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock"></i>
+          </span>
+          <%= f.password_field :password_confirmation, autocomplete: "off",
+            class: "form-control", placeholder: t("users.fields.password_confirmation") %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-12">
+        <i>
+          <%= t "users.views.sign_in_form.password_require" %>
+        </i>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock"></i>
+          </span>
+          <%= f.password_field :current_password, autocomplete: "off",
+            class: "form-control", placeholder: t("users.fields.current_password") %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group formSubmit">
+      <div class="col-sm-7 submitWrap">
+        <%= link_to t("users.views.sign_in_form.cancel_account"),
+          registration_path(resource_name), data: {confirm: t("form.confirmation")},
+          method: :delete, class: "btn btn-danger" %>
+      </div>
+      <div class="col-sm-5 submitWrap">
+        <%= f.submit t("form.buttons.update"), class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="form-group formNotice">
+      <div class="col-xs-12">
+        <p class="text-center">
+          <span><%= render "devise/shared/links" %></span>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>

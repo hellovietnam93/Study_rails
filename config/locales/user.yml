@@ -1,0 +1,33 @@
+en:
+  users:
+    title:
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      account: "Account"
+      sign_out: "Sign out"
+      confirmation: "Resend confirmation instructions"
+      reset_password: "Send me reset password instructions"
+      change_password: "Change password"
+      unlock: "Resend unlock instructions"
+    fields:
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Password confirmation"
+      new_password: "New password"
+      confirmation_new_password: "Confirm new password"
+      current_password: "Current password"
+    views:
+      sign_in_form:
+        none_account: "Don't have account?"
+        forgot_password: "Forgot your password?"
+        confirmation: "Didn't receive confirmation instructions?"
+        unlock: "Didn't receive unlock instructions?"
+        omiauth: "Sign in with %{provider}"
+        edit: "Edit %{resource}"
+        password_require: "We need your current password to confirm your changes"
+        password_none_require: "Leave blank if you don't want to change it"
+        cancel_account: "Cancel my account"
+        waiting_email: "Currently waiting confirmation for: %{email}"
+      menu:
+        profile: "Profile"
+        setting: "Setting"
