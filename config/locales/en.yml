@@ -1,23 +1,35 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  static_page:
+    app_name: "Studyhub"
+    home: "Studyhub"
+  form:
+    error: "error"
+    inform_error: "The form contain"
+    confirmation: "Are you sure?"
+    buttons:
+      update: "Update"
+  flashs:
+    messages:
+      created: "%{model_name} was created successfully!"
+      assigned: "Project assigned successfully!"
+      fail_assign: "Project didn't assign successfully!"
+      deleted: "%{model_name} was deleted successfully!"
+      no_record_exist: "No record exists"
+      no_strong_point_exist: "No strong point"
+      imported: "Salaries was imported successfully"
+      not_deleted: "%{model_name} couldn't be deleted!"
+      not_imported: "Salaries couldn't be imported"
+      not_synchronized: "Couldn't synchronize data from HR system!"
+      not_updated: "%{model_name} couldn't be updated"
+      invalid_link: "Wrong link! Please enter a salary google drive link"
+      synchronized: "Synchronize successfully!"
+      updated: "%{model_name} was updated successfully!"
+      restored: "%{model_name} was restored successfully"
+      not_restore: "%{model_name} couldn't be restored"
+      google_sync_success: "%{function} synchronized"
+      google_sync_fail: "%{function} could'nt synchronize"
+      invalid_params_month: "Month parameter is not valid or missing"
+      import:
+        success: "%{models_name} was imported successfully!"
+        alert: "%{models_name} was imported fail!"
+        no_select_file: "No files selected"

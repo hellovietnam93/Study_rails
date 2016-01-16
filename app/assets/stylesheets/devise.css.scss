@@ -1,0 +1,20 @@
+#sign_in, #sign_up, #confirmation, #reset-password, #unlock {
+  width: 480px;
+  margin: 5% auto 0px;
+  padding: 20px 40px;
+
+  .formSubmit {
+    margin-bottom: 25px;
+  }
+  .submitWrap {
+    text-align: right;
+  }
+  .formNotice {
+    margin: 0px;
+    font-size: 13px;
+  }
+
+  .input-group {
+    margin-bottom: 15px;
+  }
+}
