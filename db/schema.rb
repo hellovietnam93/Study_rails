@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116113236) do
+ActiveRecord::Schema.define(version: 20160116135248) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -105,15 +105,17 @@ ActiveRecord::Schema.define(version: 20160116113236) do
   end
 
   create_table "prime_users", force: :cascade do |t|
-    t.string   "uid",        limit: 255
-    t.string   "name",       limit: 255
+    t.string   "uid",         limit: 255
+    t.string   "first_name",  limit: 255
     t.datetime "birthday"
-    t.string   "program",    limit: 255
-    t.string   "class_name", limit: 255
-    t.string   "status",     limit: 255
-    t.string   "cohort",     limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "program",     limit: 255
+    t.string   "class_name",  limit: 255
+    t.string   "status",      limit: 255
+    t.string   "cohort",      limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "middle_name", limit: 255
+    t.string   "last_name",   limit: 255
   end
 
   create_table "semesters", force: :cascade do |t|
