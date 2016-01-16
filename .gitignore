@@ -13,6 +13,7 @@ capybara-*.html
 /public/system/*
 /coverage/
 /spec/tmp/*
+doc/
 **.orig
 rerun.txt
 pickle-email-*.html
@@ -25,3 +26,6 @@ config/environments/*.local.yml
 .DS_Store
 /.idea
 /config/settings/production.yml
+
+# Ignore application configuration
+/config/application.yml
