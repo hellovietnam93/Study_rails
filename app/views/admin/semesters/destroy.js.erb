@@ -1,0 +1,8 @@
+<% if @semester.destroyed? %>
+  $(".tbody").html("<%= j render @semesters %>");
+  $("#new-semester").hide();
+  $(".btn-new-semester").show();
+  if($(".semester-new").hasClass("edit_semester")){
+    $(".edit_semester").hide();
+  }
+<% end %>

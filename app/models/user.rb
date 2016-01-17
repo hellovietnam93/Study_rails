@@ -10,5 +10,5 @@ class User < ActiveRecord::Base
   enum role: [:admin, :lecturer, :student]
 
   extend FriendlyId
-  friendly_id :email, use: :slugged
+  friendly_id :email, use: [:slugged, :finders]
 end

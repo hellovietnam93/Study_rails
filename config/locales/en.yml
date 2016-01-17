@@ -2,12 +2,20 @@ en:
   static_page:
     app_name: "Studyhub"
     home: "Studyhub"
+    actions: "Actions"
   form:
     error: "error"
-    inform_error: "The form contain"
+    inform_error: "The form contain %{error}"
     confirmation: "Are you sure?"
     buttons:
       update: "Update"
+      save: "Save"
+      edit: "Edit"
+      editing: "Editing..."
+      delete: "Delete"
+      deleting: "Deleting..."
+      saving: "Saving..."
+      add_more: "Add more"
   flashs:
     messages:
       created: "%{model_name} was created successfully!"

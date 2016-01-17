@@ -17,5 +17,10 @@
 //= require_tree .
 
 $(document).on("ready", function() {
-  $(".alert").delay(3000).slideUp();
+  set_timetout();
 });
+
+
+function set_timetout() {
+  $(".alert").delay(3000).slideUp();
+}

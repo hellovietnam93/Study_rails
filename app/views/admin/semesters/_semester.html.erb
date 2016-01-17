@@ -1,0 +1,13 @@
+<tr class="semester-<%= semester.id %> trow" >
+  <td class="stt"><%= semester_counter + 1 %></td>
+  <td class="name"><%= link_to semester.name, admin_semester_path(semester) %></td>
+  <td class="action">
+    <%= link_to t("form.buttons.edit"), edit_admin_semester_path(semester),
+      class: "icon icon-edit button-edit",
+      id: "semester_link_#{semester.id}", remote: true %>
+    <%= link_to t("form.buttons.delete"),
+      admin_semester_path(semester), remote: true,
+      data: {confirm: t("form.confirmation")},
+      method: :delete, class: "icon icon-delete delete-semester" %>
+  </td>
+</tr>
