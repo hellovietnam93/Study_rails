@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :imports, only: [:index, :create]
     resources :semesters
+    resources :courses
   end
 end

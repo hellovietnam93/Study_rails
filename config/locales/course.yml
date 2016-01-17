@@ -1,0 +1,18 @@
+en:
+  courses:
+    all: "All courses"
+    course: "Course"
+    fields:
+      uid: "Id"
+      name: "Name"
+      description: "Description"
+      credit: "Credit"
+      credit_fee: "Credit fee"
+      theory_duration: "Theory duration"
+      exercise_duration: "Exercise duration"
+      practice_duration: "Practice duration"
+      weight: "Weight"
+      en_name: "En_name"
+      abbr_name: "Abbr name"
+      language: "Language"
+      evaluation: "Evaluation"

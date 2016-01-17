@@ -1,0 +1,19 @@
+<tr class="course-<%= course.id %> trow" >
+  <td class="stt"><%= course_counter + 1 %></td>
+  <td class="uid"><%= link_to course.uid, admin_course_path(course) %></td>
+  <td class="name"><%= course.name %></td>
+  <td class="description">
+    <%= course.description %>
+  </td>
+  <td class="language"><%= course.language %></td>
+  <td class="evaluation"><%= course.evaluation %></td>
+  <td class="action">
+    <%= link_to t("form.buttons.edit"), edit_admin_course_path(course),
+      class: "icon icon-edit button-edit",
+      id: "course_link_#{course.id}", remote: true %>
+    <%= link_to t("form.buttons.delete"),
+      admin_course_path(course), remote: true,
+      data: {confirm: t("form.confirmation")},
+      method: :delete, class: "icon icon-delete delete-course" %>
+  </td>
+</tr>

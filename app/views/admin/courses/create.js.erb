@@ -1,0 +1,11 @@
+$("#error_explanation").remove()
+<% if @course.errors.any? %>
+  $("#errors-create-course").
+    html("<%= j render 'shared/errors_messages', object: @course %>")
+<% else %>
+  $(".tbody").html("<%= j render @courses %>");
+  $("form#new_course")[0].reset();
+  $("#new_course").hide();
+  $(".btn-new-course").show();
+<% end %>
+set_timetout()

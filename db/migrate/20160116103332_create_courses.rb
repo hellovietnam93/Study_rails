@@ -13,7 +13,7 @@ class CreateCourses < ActiveRecord::Migration
       t.string :en_name
       t.string :abbr_name
       t.string :language
-      t.text :evaludation
+      t.text :evaluation
       t.string :slug
 
       t.timestamps null: false

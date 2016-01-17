@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20160116135248) do
     t.string   "en_name",           limit: 255
     t.string   "abbr_name",         limit: 255
     t.string   "language",          limit: 255
-    t.text     "evaludation",       limit: 65535
+    t.text     "evaluation",        limit: 65535
     t.string   "slug",              limit: 255
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
