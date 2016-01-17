@@ -1,0 +1,41 @@
+#courses {
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+
+  .list-all {
+    background-color: white;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .devide {
+    height: 10px;
+  }
+
+  .course-new, .courses {
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+
+  .courses {
+    text-align: center;
+    border: 1px #CCC solid;
+
+    .header {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .trow {
+      border: 1px #CCC solid;
+    }
+  }
+
+  .course-new {
+    margin-top: 20px;
+  }
+}
