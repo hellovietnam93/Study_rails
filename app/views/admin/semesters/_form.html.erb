@@ -1,0 +1,17 @@
+<div class="col-md-6">
+  <div class="row">
+    <%= form_for [:admin, @semester], remote: true do |f| %>
+      <div id="errors-create-semester"></div>
+
+      <div class="form-group">
+        <%= f.label :name, class: "control-label" %>
+        <%= f.text_field :name, class: "form-control", id: "focus", required: true,
+          autofocus: true %>
+      </div>
+
+      <%= f.submit t("form.buttons.save"), data: {disable_with: t("form.buttons.saving")},
+        class: "btn btn-primary btn-sm" %>
+      <input type="button" class="btn btn-cancel" value="Cancel"/>
+    <% end %>
+  </div>
+</div>

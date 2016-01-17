@@ -1,0 +1,32 @@
+<div id="semesters">
+  <div class="title-semester">
+    <h3 class="title"><%= t "semesters.all" %></h3>
+  </div>
+  <div class="list-all">
+    <div class="devide"></div>
+    <table class="semesters">
+      <thead>
+        <tr class="theader">
+          <th class="stt"><strong>#</strong></div>
+          <th class="name">
+            <strong><%= t "semesters.fields.name" %></strong>
+          </th>
+          <th class="action">
+            <strong><%= t "semesters.fields.action" %><strong>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <%= render @semesters %>
+      </tbody>
+    </table>
+
+    <div class="semeter-new">
+      <div id="new-semester"><%= render "form" %></div>
+      <div class="btn-new-semester btn btn-primary">
+        <%= t "form.buttons.add_more" %>
+      </div>
+    </div>
+  </div>
+</div>
+

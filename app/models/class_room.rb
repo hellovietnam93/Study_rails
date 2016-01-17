@@ -8,5 +8,5 @@ class ClassRoom < ActiveRecord::Base
   belongs_to :semester
 
   extend FriendlyId
-  friendly_id :uid, use: :slugged
+  friendly_id :uid, use: [:slugged, :finders]
 end

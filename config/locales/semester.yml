@@ -1,0 +1,7 @@
+en:
+  semesters:
+    semester: Semester
+    all: "All semesters"
+    fields:
+      name: "Name"
+      action: "Action"

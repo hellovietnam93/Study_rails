@@ -1,0 +1,12 @@
+$("#error_explanation").remove()
+
+<% if @semester.errors.any? %>
+  $(".edit_semester #errors-create-semester").
+    html("<%= j render 'shared/errors_messages', object: @semester %>");
+<% else %>
+  $(".tbody").html("<%= j render @semesters %>");
+  $("form.edit_semester")[0].reset();
+  $("#new-semester").hide();
+  $(".btn-new-semester").show();
+<% end %>
+set_timetout()

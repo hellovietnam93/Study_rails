@@ -2,7 +2,7 @@
   <h2 class="text-center"><%= t "users.views.sign_in_form.forgot_password" %></h2>
   <%= form_for resource, as: resource_name, url: password_path(resource_name),
     html: {method: :post} do |f| %>
-    <%= render "shared/errors_massages", object: resource %>
+    <%= render "shared/errors_messages", object: resource %>
     <div class="form-group">
       <div class="col-xs-12">
         <div class="input-group">
