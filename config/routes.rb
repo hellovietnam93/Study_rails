@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :imports, only: [:index, :create]
     resources :semesters
-    resources :courses
+    resources :courses do
+      resources :class_rooms, except: [:index, :new]
+    end
+    resources :class_rooms
   end
 end

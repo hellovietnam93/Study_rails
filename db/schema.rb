@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116135248) do
+ActiveRecord::Schema.define(version: 20160117041744) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -33,12 +33,13 @@ ActiveRecord::Schema.define(version: 20160116135248) do
     t.integer  "course_id",          limit: 4
     t.integer  "semester_id",        limit: 4
     t.string   "enroll_key",         limit: 255
-    t.integer  "type",               limit: 4
+    t.integer  "class_type",         limit: 4
     t.integer  "registered_student", limit: 4
     t.integer  "max_student",        limit: 4
     t.string   "slug",               limit: 255
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.integer  "status",             limit: 4
   end
 
   add_index "class_rooms", ["course_id"], name: "index_class_rooms_on_course_id", using: :btree

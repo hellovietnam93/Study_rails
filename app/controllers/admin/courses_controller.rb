@@ -20,7 +20,9 @@ class Admin::CoursesController < ApplicationController
   end
 
   def show
-
+    @semesters = Semester.all.order name: :asc
+    @class_rooms = @course.class_rooms
+    @class_room = @class_rooms.build
   end
 
   def edit

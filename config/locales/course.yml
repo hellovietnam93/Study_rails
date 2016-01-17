@@ -2,6 +2,7 @@ en:
   courses:
     all: "All courses"
     course: "Course"
+    class_rooms: "All class in course %{course}"
     fields:
       uid: "Id"
       name: "Name"

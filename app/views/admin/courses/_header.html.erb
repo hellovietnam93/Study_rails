@@ -1,0 +1,23 @@
+<tr class="theader">
+  <% unless params[:action] == "show" %>
+    <th class="stt"><strong>#</strong></th>
+  <% end %>
+  <th class="uid">
+    <strong><%= t "courses.fields.uid" %></strong>
+  </th>
+  <th class="name">
+    <strong><%= t "courses.fields.name" %></strong>
+  </th>
+  <th class="description">
+    <strong><%= t "courses.fields.description" %></strong>
+  </th>
+  <th class="language">
+    <strong><%= t "courses.fields.language" %></strong>
+  </th>
+  <th class="evaluation">
+    <strong><%= t "courses.fields.evaluation" %></strong>
+  </th>
+  <th class="action">
+    <strong><%= t "courses.fields.action" %><strong>
+  </th>
+</tr>
