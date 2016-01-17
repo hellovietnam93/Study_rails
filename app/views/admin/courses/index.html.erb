@@ -1,0 +1,24 @@
+<div id="courses">
+  <div class="title-course">
+    <h3 class="title"><%= t "courses.all" %></h3>
+  </div>
+  <div class="list-all">
+    <div class="devide"></div>
+    <table class="courses">
+      <thead>
+        <%= render "header" %>
+      </thead>
+      <tbody class="tbody">
+        <%= render @courses %>
+      </tbody>
+    </table>
+
+    <div class="course-new">
+      <div id="new-course"><%= render "form" %></div>
+      <div class="btn-new-course btn btn-primary">
+        <%= t "form.buttons.add_more" %>
+      </div>
+    </div>
+  </div>
+</div>
+

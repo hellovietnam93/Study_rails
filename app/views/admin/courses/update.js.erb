@@ -1,0 +1,12 @@
+$("#error_explanation").remove()
+
+<% if @course.errors.any? %>
+  $(".edit_course #errors-create-course").
+    html("<%= j render 'shared/errors_messages', object: @course %>");
+<% else %>
+  $(".tbody").html("<%= j render @courses %>");
+  $("form.edit_course")[0].reset();
+  $("#new-course").hide();
+  $(".btn-new-course").show();
+<% end %>
+set_timetout()

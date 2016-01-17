@@ -7,6 +7,10 @@ class ClassRoom < ActiveRecord::Base
   belongs_to :course
   belongs_to :semester
 
-  extend FriendlyId
-  friendly_id :uid, use: [:slugged, :finders]
+  STATUSES = {open: :open, in_progress: :in_progress, pending: :pending, closed: :closed}
+  enum status: STATUSES.values
+  enum class_type: [:theory, :pratice, :experiment]
+
+  ATTRIBUTES_PARAMS = [:name, :uid, :description, :course_id, :semester_id, :enroll_key,
+    :class_type, :max_student, :registered_student, :status]
 end

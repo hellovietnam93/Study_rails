@@ -1,0 +1,15 @@
+<div id="class_rooms">
+  <h2><%= t "class_rooms.all" %></h2>
+  <table class="class_rooms">
+    <thead><%= render "header" %></thead>
+    <tbody class="tbody">
+      <%= render "class_room", class_rooms: @class_rooms %>
+    </tbody>
+  </table>
+  <div class="class_room-new">
+    <div id="new-class_room"><%= render "admin/class_rooms/form" %></div>
+    <div class="btn-new-class_room btn btn-primary">
+      <%= t "form.buttons.add_more" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<% class_rooms.each do |class_room| %>
+  <% if class_room.name.present? %>
+    <tr class="class_room-<%= class_room.id %> trow" >
+      <td class="uid">
+        <%= link_to class_room.uid, [:admin, class_room.course, class_room] %>
+      </td>
+      <td class="name"><%= class_room.name %></td>
+      <td class="description">
+        <%= class_room.description %>
+      </td>
+      <td class="status"><%= class_room.status %></td>
+      <td class="class_type"><%= class_room.class_type %></td>
+      <td class="semester"><%= class_room.semester.name %></td>
+      <td class="course"><%= class_room.course.uid %></td>
+      <td class="max_student"><%= class_room.max_student %></td>
+      <td class="registered_student"><%= class_room.registered_student %></td>
+      <td class="action">
+        <%= link_to t("form.buttons.edit"),
+          edit_admin_course_class_room_path(class_room.course, class_room),
+          class: "icon icon-edit button-edit",
+          id: "class_room_link_#{class_room.id}", remote: true %>
+        <%= link_to t("form.buttons.delete"),
+          admin_course_class_room_path(class_room.course, class_room), remote: true,
+          data: {confirm: t("form.confirmation")},
+          method: :delete, class: "icon icon-delete delete-class_room" %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>

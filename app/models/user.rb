@@ -8,7 +8,4 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
 
   enum role: [:admin, :lecturer, :student]
-
-  extend FriendlyId
-  friendly_id :email, use: [:slugged, :finders]
 end

@@ -1,0 +1,24 @@
+en:
+  class_rooms:
+    all: "All classes"
+    class_room: "Class"
+    fields:
+      uid: "Id"
+      name: "Name"
+      description: "Description"
+      course: "Course"
+      semester: "Semester"
+      type: "Type"
+      max_student: "Maximum students"
+      registered_student: "Registered student"
+      status: "Status"
+      action: "Actions"
+    statuses:
+      closed: "Closed"
+      in_progress: "In Progress"
+      pending: "Pending"
+      open: "Open"
+    class_types:
+      theory: "Theory"
+      pratice: "Pratice"
+      experiment: "Experiment"

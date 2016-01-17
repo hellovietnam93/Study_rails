@@ -1,0 +1,67 @@
+<div class="col-md-6">
+  <div class="row">
+    <%= form_for [:admin, @class_room], remote: true do |f| %>
+      <div id="errors-create-class_room"></div>
+
+      <div class="form-group">
+        <%= f.label :uid, t("class_rooms.fields.uid"), class: "control-label" %>
+        <%= f.text_field :uid, class: "form-control", id: "focus", required: true,
+          autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :name, t("class_rooms.fields.name"), class: "control-label" %>
+        <%= f.text_field :name, class: "form-control", id: "focus", required: true,
+          autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description, t("class_rooms.fields.description"), class: "control-label" %>
+        <%= f.text_field :description, class: "form-control", id: "focus", required: true,
+          autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :status, t("class_rooms.fields.status"), class: "control-label" %>
+        <%= f.select :status, options_from_collection_for_select(
+          i18n_enum(:class_room, :status), :key, :value, f.object.status), {},
+          class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :class_type, t("class_rooms.fields.type"), class: "control-label" %>
+        <%= f.select :class_type, options_from_collection_for_select(
+          i18n_enum(:class_room, :class_type), :key, :value, f.object.class_type), {},
+          class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :max_student, t("class_rooms.fields.max_student"), class: "control-label" %>
+        <%= f.number_field :max_student, class: "form-control", id: "focus", required: true,
+          autofocus: true %>
+      </div>
+
+      <% if params[:controller] == "admin/courses" || params[:course_id].present? %>
+        <%= f.hidden_field :course_id %>
+      <% else %>
+        <div class="form-group">
+          <%= f.label :course_id, t("class_rooms.fields.course"), class: "control-label" %>
+          <%= f.select :course_id, options_for_select(@courses.collect{|course|
+            [course.name, course.id]}), class: "form-control", id: "focus", required: true,
+            autofocus: true %>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :semester, t("class_rooms.fields.semester"), class: "control-label" %>
+        <%= f.select :semester_id, options_for_select(@semesters.collect{|semester|
+          [semester.name, semester.id]}), class: "form-control", id: "focus", required: true,
+          autofocus: true %>
+      </div>
+
+      <%= f.submit t("form.buttons.save"), data: {disable_with: t("form.buttons.saving")},
+        class: "btn btn-primary btn-sm" %>
+      <input type="button" class="btn btn-cancel" value="Cancel"/>
+    <% end %>
+  </div>
+</div>
