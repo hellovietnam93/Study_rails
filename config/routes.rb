@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     end
     resources :class_rooms
   end
+
+  resources :class_rooms, except: :destroy
+  resources :user_classes, only: [:create, :destroy]
 end

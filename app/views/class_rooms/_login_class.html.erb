@@ -1,0 +1,6 @@
+<% if show_login_class? current_user, @class_room %>
+  <%= render "user_classes/form" %>
+  <div class="btn-login-class btn btn-primary">
+    <%= t "form.buttons.add_more" %>
+  </div>
+<% end %>
