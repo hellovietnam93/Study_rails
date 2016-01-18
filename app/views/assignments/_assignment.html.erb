@@ -1,0 +1,25 @@
+<% if assignment.id.present? %>
+  <tr class="assignment-<%= assignment.id %> trow" >
+    <td class="name">
+      <%= link_to assignment.name, [assignment.class_room, assignment] %>
+    </td>
+    <td class="content"><%= assignment.content %></td>
+    <td class="assignment_type">
+      <%= assignment.assignment_type %>
+    </td>
+    <td class="start_date"><%= assignment.start_date %></td>
+    <td class="end_date"><%= assignment.end_date %></td>
+    <% if can? :update, @assignment %>
+      <td class="action">
+        <%= link_to t("form.buttons.edit"),
+          edit_class_room_assignment_path(assignment.class_room, assignment),
+          class: "icon icon-edit button-edit",
+          id: "assignment_link_#{assignment.id}", remote: true %>
+        <%= link_to t("form.buttons.delete"),
+          class_room_assignment_path(assignment.class_room, assignment),
+          remote: true, data: {confirm: t("form.confirmation")},
+          method: :delete, class: "icon icon-delete delete-assignment" %>
+      </td>
+    <% end %>
+  </tr>
+<% end %>
