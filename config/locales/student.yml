@@ -1,0 +1,6 @@
+en:
+  students:
+    fields:
+      email: "Email"
+      join_date: "Join date"
+      action: "Action"

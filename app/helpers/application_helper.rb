@@ -32,4 +32,9 @@ module ApplicationHelper
       OpenStruct.new key: key, value: I18n.t("#{model_name.pluralize}.#{enum}.#{key}")
     end.flatten
   end
+
+  def show_login_class? current_user, class_room
+    (current_user.lecturer? && class_room.lecturer.nil?) ||
+      (current_user.student? && current_user.user_classes.find_by(class_room_id: class_room.id).nil?)
+  end
 end

@@ -1,0 +1,10 @@
+<h2>
+  <b>
+    <% if @class_room.lecturer %>
+      <%= t "class_rooms.teacher", teacher:
+        @class_room.lecturer.user.email %>
+    <% else %>
+      <%= t "class_rooms.no_teacher" %>
+    <% end %>
+  </b>
+</h2>

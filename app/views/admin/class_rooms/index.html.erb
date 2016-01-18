@@ -1,9 +1,9 @@
 <div id="class_rooms">
   <h2><%= t "class_rooms.all" %></h2>
   <table class="class_rooms">
-    <thead><%= render "header" %></thead>
+    <thead><%= render "admin/class_rooms/header" %></thead>
     <tbody class="tbody">
-      <%= render "class_room", class_rooms: @class_rooms %>
+      <%= render "admin/class_rooms/class_room", class_rooms: @class_rooms %>
     </tbody>
   </table>
   <div class="class_room-new">

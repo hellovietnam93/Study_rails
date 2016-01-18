@@ -1,0 +1,13 @@
+<% if @user_class.errors.any? %>
+  $("#errors-enroll-class").
+    html("<%= j render 'shared/errors_messages', object: @user_class %>")
+<% else %>
+  $("form.new_user_class").remove();
+  $(".class_room-<%= @class_room.id %> .registered_student").html("<%= @class_room.registered_student %>")
+  <% if current_user.student? %>
+    $(".students .tbody").append("<%= j render 'class_rooms/student', student: @user_class %>")
+  <% else %>
+    $("#class_rooms .teacher").html("<%= j render 'class_rooms/teacher' %>")
+  <% end %>
+<% end %>
+set_timetout()

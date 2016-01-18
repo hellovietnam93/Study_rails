@@ -132,9 +132,9 @@ ActiveRecord::Schema.define(version: 20160117041744) do
     t.integer  "user_id",       limit: 4
     t.integer  "class_room_id", limit: 4
     t.integer  "status",        limit: 4
-    t.boolean  "owner"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.boolean  "owner",                   default: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   add_index "user_classes", ["class_room_id"], name: "index_user_classes_on_class_room_id", using: :btree
