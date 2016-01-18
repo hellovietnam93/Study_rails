@@ -10,3 +10,5 @@ en:
     assignment_types:
       single: "Single"
       multiple: "Multiple"
+    actions:
+      new: "Create assignments"

@@ -28,6 +28,9 @@ en:
     no_teacher: "This class has not had teacher"
     students:
       all: "All students in class %{class_room}"
+      login: "Participate class"
+    teachers:
+      login: "Enter class"
     assignments:
       all: "All assignments in class %{class_room}"
       actions:

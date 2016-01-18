@@ -1,5 +1,4 @@
 class Admin::ImportsController < ApplicationController
-  before_action :verify_admin
   before_action :init_message, only: :create
 
   def index
