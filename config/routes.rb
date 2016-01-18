@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root "static_pages#home"
   namespace :admin do
+    root "courses#index"
     resources :imports, only: [:index, :create]
     resources :semesters
     resources :courses do

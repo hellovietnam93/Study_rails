@@ -25,7 +25,7 @@ en:
       updated: "%{model_name} was updated successfully!"
       restored: "%{model_name} was restored successfully"
       not_restore: "%{model_name} couldn't be restored"
-      permission_denied: "You don't have permission."
+      permission_denied: "You are not authorized to access this page."
       import:
         success: "%{models_name} was imported successfully!"
         alert: "%{models_name} was imported fail!"
