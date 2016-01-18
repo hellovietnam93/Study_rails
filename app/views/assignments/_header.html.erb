@@ -1,0 +1,22 @@
+<tr class="theader">
+  <th class="name">
+    <strong><%= t "assignments.fields.name" %></strong>
+  </th>
+  <th class="content">
+    <strong><%= t "assignments.fields.content" %></strong>
+  </th>
+  <th class="assignment_type">
+    <strong><%= t "assignments.fields.assignment_type" %></strong>
+  </th>
+  <th class="start_date">
+    <strong><%= t "assignments.fields.start_date" %></strong>
+  </th>
+  <th class="end_date">
+    <strong><%= t "assignments.fields.end_date" %></strong>
+  </th>
+  <% if can? :update, @assignment %>
+    <th class="action">
+      <strong><%= t "assignments.fields.action" %><strong>
+    </th>
+  <% end %>
+</tr>

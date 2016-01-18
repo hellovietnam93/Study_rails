@@ -1,0 +1,12 @@
+en:
+  assignments:
+    fields:
+      name: "Name"
+      assignment_type: "Type"
+      start_date: "Start"
+      end_date: "Finish"
+      content: "Content"
+      class_room: "Class"
+    assignment_types:
+      single: "Single"
+      multiple: "Multiple"

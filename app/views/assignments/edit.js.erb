@@ -1,0 +1,5 @@
+$("#new-assignment").show();
+$(".new_assignment").hide();
+$(".edit_assignment").remove();
+$("#new-assignment").append("<%= j render 'assignments/form' %>");
+$(".btn-new-assignment").hide();

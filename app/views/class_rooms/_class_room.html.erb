@@ -12,10 +12,12 @@
   <td class="course"><%= class_room.course.uid %></td>
   <td class="max_student"><%= class_room.max_student %></td>
   <td class="registered_student"><%= class_room.registered_student %></td>
-  <td class="action">
-    <%= link_to t("form.buttons.edit"),
-      edit_admin_course_class_room_path(class_room.course, class_room),
-      class: "icon icon-edit button-edit",
-      id: "class_room_link_#{class_room.id}", remote: true %>
-  </td>
+  <% if can? :update, ClassRoom %>
+    <td class="action">
+      <%= link_to t("form.buttons.edit"),
+        edit_admin_course_class_room_path(class_room.course, class_room),
+        class: "icon icon-edit button-edit",
+        id: "class_room_link_#{class_room.id}", remote: true %>
+    </td>
+  <% end %>
 </tr>

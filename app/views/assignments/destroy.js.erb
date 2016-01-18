@@ -1,0 +1,6 @@
+<% if @assignment.destroyed? %>
+  $(".assignment-<%= @assignment.id %>").remove()
+  $(".new_assignment").hide();
+  $(".btn-new-assignment").show();
+  $(".edit_assignment").remove();
+<% end %>

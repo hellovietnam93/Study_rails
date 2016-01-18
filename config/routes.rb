@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :class_rooms
   end
 
-  resources :class_rooms, except: :destroy
+  resources :class_rooms, except: :destroy do
+    resources :assignments, except: [:index, :new]
+  end
   resources :user_classes, only: [:create, :destroy]
 end
