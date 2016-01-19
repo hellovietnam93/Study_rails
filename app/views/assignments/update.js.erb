@@ -4,8 +4,8 @@ $("iframe").contents().find("body").empty();
   $(".edit_assignment #errors-create-assignment").
     html("<%= j render "shared/errors_messages", object: @assignment %>");
 <% else %>
+  $("#edit-assignment-modal").closeModal();
   $("#assignments .tbody").html("<%= j render @class_room.assignments %>");
-  $(".edit_assignment").remove();
-  $(".btn-new-assignment").show();
+  $("#assignments .show-modal").html("<%= j render 'assignments/show_assignment_modal' %>");
 <% end %>
 set_timetout()

@@ -1,15 +1,21 @@
 <% if assignment.id.present? %>
-  <tr class="assignment-<%= assignment.id %> trow" >
+  <tr class="assignment-<%= assignment.id %> trow">
     <td class="name">
-      <%= link_to assignment.name, [assignment.class_room, assignment] %>
+      <a class="modal-trigger waves-effect waves-light assignment-show"
+        href="#show-assignment-modal"
+        data-assignment-id="<%= assignment.id %>"
+        data-assignment-name="<%= assignment.name.humanize.capitalize %>"
+        data-assignment-content="<%= assignment.content %>"
+        data-assignment-start-date="<%= assignment.start_date.strftime(t "date.formats.default") %>"
+        data-assignment-end-date="<%= assignment.end_date.strftime(t "date.formats.default") %>"
+        data-assignment-type="<%= t "assignments.assignment_types.#{assignment.assignment_type}" %>"
+        data-assignment-class="<%= assignment.class_room.id %>">
+        <%= assignment.name %>
+      </a>
     </td>
-    <td class="content"><%= assignment.content.to_s.html_safe %></td>
-    <td class="assignment_type">
-      <%= assignment.assignment_type %>
-    </td>
-    <td class="start_date"><%= assignment.start_date %></td>
-    <td class="end_date"><%= assignment.end_date %></td>
-    <% if can? :update, @assignment %>
+    <td class="start_date"><%= assignment.start_date.strftime(t "date.formats.default") %></td>
+    <td class="end_date"><%= assignment.end_date.strftime(t "date.formats.default") %></td>
+    <% if can? :update, assignment %>
       <td class="action">
         <%= link_to t("form.buttons.edit"),
           edit_class_room_assignment_path(assignment.class_room, assignment),

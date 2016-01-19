@@ -6,12 +6,12 @@
     <%= javascript_include_tag "application", "data-turbolinks-track": true %>
     <%= javascript_include_tag Ckeditor.cdn_url %>
     <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-    <div id="wrapper">
+    <div>
       <%= render "shared/top" %>
-      <div id="main" class="clearfix">
-        <div id="content">
+      <div class="row">
           <%= render "shared/flash" %>
           <%= yield %>
         </div>

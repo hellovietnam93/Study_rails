@@ -34,4 +34,5 @@ en:
     assignments:
       all: "All assignments in class %{class_room}"
       actions:
-        new: "Add assignments"
+        new: "New assignments"
+        edit: "Edit assignment"

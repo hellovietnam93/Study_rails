@@ -1,8 +1,7 @@
 <% if current_user.lecturer? && @class_room.lecturer && current_user ==
   @class_room.lecturer.user %>
-  <%= render "assignments/form" %>
-  <div class="btn-new-assignment btn btn-primary"
-    data-class-room="<%= @class_room.id %>">
-    <%= t "assignments.actions.new" %>
-  </div>
+  <a class="modal-trigger btn-floating waves-effect waves-light red" href="#new-assignment-modal">
+    <i class="material-icons">add</i>
+  </a>
+  <%= render "assignments/new_assignment_modal" %>
 <% end %>

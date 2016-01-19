@@ -33,6 +33,7 @@ gem "friendly_id", "~> 5.1.0"
 gem "figaro"
 gem "ckeditor"
 gem "paperclip"
+gem "materialize-sass"
 
 group :development, :test do
   gem "pry"

@@ -1,55 +1,72 @@
-<div id="class_rooms">
-  <div class="user-class col-md-6">
-    <%= render "login_class" %>
-  </div>
-  <div class="col-md-6 teacher">
-    <%= render "teacher" %>
-    </h2>
-  </div>
-  <table class="class_rooms">
-    <thead><%= render "header" %></thead>
-    <tbody class="tbody">
-      <%= render @class_room %>
-    </tbody>
-  </table>
-</div>
-
-<div id="assignments">
-  <h2><%= t "class_rooms.assignments.all", class_room: @class_room.uid %></h2>
-  <div id="new-assignment">
-    <%= render "assignments/new_assignment" %>
+<div class="col s9">
+  <div id="class_rooms">
+    <div class="user-class col-md-6">
+      <%= render "login_class" %>
+    </div>
+    <div class="col-md-6 teacher">
+      <%= render "teacher" %>
+      </h2>
+    </div>
+    <table class="class_rooms">
+      <thead><%= render "header" %></thead>
+      <tbody class="tbody">
+        <%= render @class_room %>
+      </tbody>
+    </table>
   </div>
 
-  <table class="assignments">
-    <thead><%= render "assignments/header" %></thead>
-    <tbody class="tbody">
-      <%= render @class_room.assignments %>
-    </tbody>
-  </table>
-</div>
-
-<div id="students">
-  <h2><%= t "class_rooms.students.all", class_room: @class_room.uid %></h2>
-  <table class="students">
-    <thead>
-      <tr>
-        <tr class="theader">
-          <th class="email">
-            <strong><%= t "students.fields.email" %></strong>
-          </th>
-          <th class="join_date">
-            <strong><%= t "students.fields.join_date" %></strong>
-          </th>
-          <th class="action">
-            <strong><%= t "students.fields.action" %><strong>
-          </th>
+  <div id="students">
+    <h2><%= t "class_rooms.students.all", class_room: @class_room.uid %></h2>
+    <table class="students">
+      <thead>
+        <tr>
+          <tr class="theader">
+            <th class="email">
+              <strong><%= t "students.fields.email" %></strong>
+            </th>
+            <th class="join_date">
+              <strong><%= t "students.fields.join_date" %></strong>
+            </th>
+            <th class="action">
+              <strong><%= t "students.fields.action" %><strong>
+            </th>
+          </tr>
         </tr>
-      </tr>
-    </thead>
-    <tbody class="tbody">
-      <% @students.each do |student| %>
-        <%= render "student", student: student %>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody class="tbody">
+        <% @students.each do |student| %>
+          <%= render "student", student: student %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="col s3">
+  <div id="assignments">
+    <div class="row">
+      <div class="col s10">
+        <span class="flow-text">
+          <%= t "assignments.assignment" %>
+        </span>
+      </div>
+      <div class="col s2">
+        <span id="new-assignment">
+          <%= render "assignments/new_assignment" %>
+        </span>
+      </div>
+    </div>
+
+    <table class="assignments highlight">
+      <thead>
+        <%= render "assignments/header" %>
+      </thead>
+      <tbody class="tbody">
+        <%= render @class_room.assignments %>
+      </tbody>
+    </table>
+    <div class="show-modal">
+      <%= render "assignments/show_assignment_modal" %>
+    </div>
+  </div>
 </div>

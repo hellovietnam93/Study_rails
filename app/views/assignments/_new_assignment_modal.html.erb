@@ -1,0 +1,56 @@
+ <div id="new-assignment-modal" class="modal modal-fixed-footer">
+
+  <%= form_for [@class_room, @assignment], remote: true, class: "col s12" do |f| %>
+    <div class="modal-content">
+      <h4>
+        <%= t "class_rooms.assignments.actions.new" %>
+      </h4>
+      <p>
+        <div id="errors-create-assignment"></div>
+        <%= f.hidden_field :class_room_id, value: @class_room.id %>
+        <div class="row">
+          <div class="input-field col s6">
+            <%= f.text_field :name, class: "validate" %>
+            <%= f.label :name, t("assignments.fields.name") %>
+          </div>
+
+          <div class="input-field col s6">
+            <%= f.select :assignment_type, options_from_collection_for_select(
+              i18n_enum(:assignments, :assignment_type), :key, :value, f.object.assignment_type),
+              {}, class: "browser-default" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <%= f.label :start_date, t("assignments.fields.start_date") %>
+            <%= f.date_field :start_date, class: "form-control", required: true,
+              class: "datepicker" %>
+          </div>
+
+          <div class="input-field col s6">
+            <%= f.label :end_date, t("assignments.fields.end_date") %>
+            <%= f.date_field :end_date, class: "form-control", required: true,
+              class: "datepicker" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.cktext_area :content, class: "ckeditor materialize-textarea", id: "textarea",
+              placeholder: t("assignments.fields.content") %>
+          </div>
+        </div>
+      </p>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit t("form.buttons.save"),
+        data: {disable_with: t("form.buttons.saving")},
+        class: "waves-effect waves-red btn-flat btn" %>
+      <a href="javascript:void(0)" class="modal-action modal-close
+        waves-effect waves-green btn-flat btn btn-cancel">
+        <%= t "form.buttons.cancel" %>
+      </a>
+    </div>
+  <% end %>
+</div>

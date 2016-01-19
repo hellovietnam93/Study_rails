@@ -1,0 +1,41 @@
+ <div id="show-assignment-modal" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <div class="row">
+      <div class="col s10">
+        <h4 class="modal-header"></h4>
+      </div>
+      <div class="col s2">
+        <a class="assignment-edit" href="#">
+          <i class="material-icons">system_update_alt</i>
+        </a>
+        <a class="assignment-delete" href="#">
+          <i class="material-icons">delete</i>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s4">
+        <label><h5><%= t "assignments.fields.type" %></h5></label>
+        <p class="assignment-type"></p>
+      </div>
+      <div class="col s4">
+        <label><h5><%= t "assignments.fields.start_date" %></h5></label>
+        <p class="assignment-start-date"></p>
+      </div>
+      <div class="col s4">
+        <label><h5><%= t "assignments.fields.end_date" %></h5></label>
+        <p class="assignment-end-date"></p>
+      </div>
+      <div class="col 12">
+        <label><h5><%= t "assignments.fields.content" %></h5></label>
+        <p class="assignment-content"></p>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="javascript:void(0)" class="modal-action modal-close
+      waves-effect waves-green btn-flat btn btn-cancel">
+      <%= t "form.buttons.cancel" %>
+    </a>
+  </div>
+</div>
