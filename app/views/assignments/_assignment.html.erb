@@ -3,7 +3,7 @@
     <td class="name">
       <%= link_to assignment.name, [assignment.class_room, assignment] %>
     </td>
-    <td class="content"><%= assignment.content %></td>
+    <td class="content"><%= assignment.content.to_s.html_safe %></td>
     <td class="assignment_type">
       <%= assignment.assignment_type %>
     </td>

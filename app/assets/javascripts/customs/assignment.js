@@ -25,5 +25,6 @@ $(document).ready(function() {
       $(".btn-new-assignment").show();
     }
     $(".edit_assignment").remove();
+    $("iframe").contents().find("body").empty();
   });
 });
