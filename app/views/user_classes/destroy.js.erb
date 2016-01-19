@@ -6,5 +6,7 @@
     $(".btn-login-class").show();
     $("form.new_user_class")[0].reset();
     $(".new_user_class").hide();
+  <% else %>
+    $("#new-assignment").remove();
   <% end %>
 <% end %>

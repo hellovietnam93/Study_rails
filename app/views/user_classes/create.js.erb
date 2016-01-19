@@ -8,6 +8,8 @@
     $(".students .tbody").append("<%= j render 'class_rooms/student', student: @user_class %>")
   <% else %>
     $("#class_rooms .teacher").html("<%= j render 'class_rooms/teacher' %>")
+    $("#new-assignment").html("<%= j render 'assignments/new_assignment' %>")
+    $("form.new_assignment").hide();
   <% end %>
 <% end %>
 set_timetout()

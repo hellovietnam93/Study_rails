@@ -13,8 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ckeditor/init
 //= require bootstrap
-//= require_tree .
+//= require_tree ./customs
 
 $(document).on("ready", function() {
   set_timetout();

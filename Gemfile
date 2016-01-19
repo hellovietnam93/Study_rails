@@ -31,6 +31,8 @@ gem "sidekiq"
 gem "activerecord-import"
 gem "friendly_id", "~> 5.1.0"
 gem "figaro"
+gem "ckeditor"
+gem "paperclip"
 
 group :development, :test do
   gem "pry"

@@ -32,8 +32,7 @@
 
       <div class="form-group">
         <%= f.label :content, t("assignments.fields.content"), class: "control-label" %>
-        <%= f.text_area :content, class: "form-control", id: "focus",
-          required: true, autofocus: true %>
+        <%= f.cktext_area :content, class: "ckeditor" %>
       </div>
 
       <%= f.submit t("form.buttons.save"), data: {disable_with: t("form.buttons.saving")},

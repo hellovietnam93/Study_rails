@@ -1,8 +1,8 @@
 $("#error_explanation").remove()
-
+$("iframe").contents().find("body").empty();
 <% if @assignment.errors.any? %>
   $(".edit_assignment #errors-create-assignment").
-    html("<%= j render 'shared/errors_messages', object: @assignment %>");
+    html("<%= j render "shared/errors_messages", object: @assignment %>");
 <% else %>
   $("#assignments .tbody").html("<%= j render @class_room.assignments %>");
   $(".edit_assignment").remove();

@@ -16,11 +16,10 @@
 
 <div id="assignments">
   <h2><%= t "class_rooms.assignments.all", class_room: @class_room.uid %></h2>
-  <% if current_user.lecturer? %>
-    <div id="new-assignment">
-      <%= render "assignments/new_assignment" %>
-    </div>
-  <% end %>
+  <div id="new-assignment">
+    <%= render "assignments/new_assignment" %>
+  </div>
+
   <table class="assignments">
     <thead><%= render "assignments/header" %></thead>
     <tbody class="tbody">
