@@ -1,43 +1,21 @@
-<div id="courses">
-  <table class="courses">
-    <thead>
-      <%= render "header" %>
-    </thead>
-    <tbody class="tbody">
-      <tr class="course-<%= @course.id %> trow" >
-        <td class="uid"><%= link_to @course.uid, admin_course_path(@course) %></td>
-        <td class="name"><%= @course.name %></td>
-        <td class="description">
-          <%= @course.description %>
-        </td>
-        <td class="language"><%= @course.language %></td>
-        <td class="evaluation"><%= @course.evaluation %></td>
-        <td class="action">
-          <%= link_to t("form.buttons.edit"), edit_admin_course_path(@course),
-            class: "icon icon-edit button-edit",
-            id: "course_link_#{@course.id}", remote: true %>
-          <%= link_to t("form.buttons.delete"),
-            admin_course_path(@course), remote: true,
-            data: {confirm: t("form.confirmation")},
-            method: :delete, class: "icon icon-delete delete-course" %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="course-config">
+  <%= render "nav_bar" %>
 </div>
-
 <div id="class_rooms">
-  <div class="class_room-new">
-    <div id="new-class_room"><%= render "admin/class_rooms/form" %></div>
-    <div class="btn-new-class_room btn btn-primary" data-course="<%= @course.id %>">
-      <%= t "form.buttons.add_more" %>
-    </div>
-  </div>
-  <h2><%= t "courses.class_rooms", course: @course.uid %></h2>
-  <table class="class_rooms">
+  <h2>
+    <b class="class-in-course"><%= t "courses.class_rooms", course: @course.uid %></b>
+    <%= link_to "#", data: {toggle: "modal", target: "#new-class-modal"} do %>
+      <i class="glyphicon glyphicon-plus"></i>
+    <% end %>
+  </h2>
+  <table class="class_rooms table table-hover">
     <thead><%= render "admin/class_rooms/header" %></thead>
     <tbody class="tbody">
       <%= render "admin/class_rooms/class_room", class_rooms: @course.class_rooms %>
     </tbody>
   </table>
 </div>
+
+<%= render "edit_course_modal" %>
+<%= render "show_course_modal" %>
+<%= render "admin/class_rooms/new_class_modal" %>

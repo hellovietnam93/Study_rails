@@ -8,4 +8,6 @@ class Course < ActiveRecord::Base
     :evaluation, class_room_attributes: [:name, :uid, :description, :course_id,
     :semester_id, :enroll_key, :class_type, :max_student, :registered_student, :status]
   ]
+
+  validates :uid, presence: true
 end

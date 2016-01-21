@@ -3,6 +3,9 @@ en:
     all: "All courses"
     course: "Course"
     class_rooms: "All class in course %{course}"
+    actions:
+      detail: "Detail about course"
+      edit: "Edit course information"
     fields:
       uid: "Id"
       name: "Name"

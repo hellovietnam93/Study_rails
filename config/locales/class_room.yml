@@ -13,6 +13,7 @@ en:
       registered_student: "Registered student"
       status: "Status"
       action: "Actions"
+      enroll_key: "Enroll key"
     statuses:
       closed: "Closed"
       in_progress: "In Progress"
@@ -23,15 +24,25 @@ en:
       pratice: "Pratice"
       experiment: "Experiment"
     user_classes:
+      sign_in: "Take part in class room"
       key_not_right: "The enroll key is wrong!"
     teacher: "Teacher: %{teacher}"
     no_teacher: "This class has not had teacher"
-    students:
-      all: "All students in class %{class_room}"
+    members:
+      all: "All members in class %{class_room}"
       login: "Participate class"
     teachers:
       login: "Enter class"
     assignments:
-      all: "All assignments in class %{class_room}"
       actions:
-        new: "Add assignments"
+        edit: "Edit assignment %{assignment}"
+    tabs:
+      test: "Tests"
+      other: "Other"
+      class_room: "Class room"
+      member: "Members"
+    actions:
+      detail: "Class detail"
+      edit: "Edit class information"
+      leave_class: "Leave out of class"
+      new: "Create new class room"

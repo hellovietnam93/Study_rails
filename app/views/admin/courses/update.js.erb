@@ -1,12 +1,15 @@
 $("#error_explanation").remove()
 
 <% if @course.errors.any? %>
-  $(".edit_course #errors-create-course").
+  $("#errors-edit-course").
     html("<%= j render 'shared/errors_messages', object: @course %>");
 <% else %>
-  $(".tbody").html("<%= j render @courses %>");
-  $("form.edit_course")[0].reset();
-  $("#new-course").hide();
-  $(".btn-new-course").show();
+  $("#edit-course-modal").modal("hide")
+  $("form.edit_course")[0].reset()
+  $(".course-config").html("<%= j render 'nav_bar' %>")
+  $("#class_rooms").append("<%= j render 'edit_course_modal' %>")
+  $("#class_rooms").append("<%= j render 'show_course_modal' %>")
+  $(".class-in-course").html("<%= @course.uid %>")
+  $("[class^='course_id']").html("<%= @course.uid %>")
 <% end %>
 set_timetout()

@@ -42,7 +42,7 @@
       </div>
 
       <% if params[:controller] == "admin/courses" || params[:course_id].present? %>
-        <%= f.hidden_field :course_id %>
+        <%= f.hidden_field :course_id, value: @course.id %>
       <% else %>
         <div class="form-group">
           <%= f.label :course_id, t("class_rooms.fields.course"), class: "control-label" %>

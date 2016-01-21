@@ -1,0 +1,73 @@
+<div id="show-course-modal" class="modal fade" role="dialog"
+  data-backdrop="static" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="modal-title"><%= @course.uid %></h4>
+          </div>
+          <div class="col-md-4">
+            <div class="pull-right">
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="col-md-4">
+          <b><label><h4><%= t "courses.fields.name" %></h4></label></b>
+          <p class="course-name"><%= @course.name %></p>
+        </div>
+        <div class="col-md-4">
+          <b><label><h4><%= t "courses.fields.credit" %></h4></label></b>
+          <p class="course-credit"><%= @course.credit %></p>
+        </div>
+        <div class="col-md-4">
+          <b><label><h4><%= t "courses.fields.credit_fee" %></h4></label></b>
+          <p class="course-credit-fee"><%= @course.credit_fee %></p>
+        </div>
+        <div class="col-md-4">
+          <b><label><h4><%= t "courses.fields.theory_duration" %></h4></label></b>
+          <p class="course-theory-duration"><%= @course.theory_duration %></p>
+        </div>
+        <div class="col-md-4">
+          <b><label><h4><%= t "courses.fields.exercise_duration" %></h4></label></b>
+          <p class="course-exercise-duration"><%= @course.exercise_duration %></p>
+        </div>
+        <div class="col-md-4">
+          <b><label><h4><%= t "courses.fields.practice_duration" %></h4></label></b>
+          <p class="course-practice_duration"><%= @course.practice_duration %></p>
+        </div>
+        <div class="col-md-4">
+          <b><label><h4><%= t "courses.fields.weight" %></h4></label></b>
+          <p class="course-weight"><%= @course.weight %></p>
+        </div>
+        <div class="col-md-4">
+          <b><label><h4><%= t "courses.fields.en_name" %></h4></label></b>
+          <p class="course-en-name"><%= @course.en_name %></p>
+        </div>
+        <div class="col-md-4">
+          <b><label><h4><%= t "courses.fields.language" %></h4></label></b>
+          <p class="course-language"><%= @course.language %></p>
+        </div>
+        <div class="col-md-6">
+          <b><label><h4><%= t "courses.fields.description" %></h4></label></b>
+          <p class="course-description"><%= @course.description %></p>
+        </div>
+        <div class="col-md-6">
+          <b><label><h4><%= t "courses.fields.evaluation" %></h4></label></b>
+          <p class="course-evaluation"><%= @course.evaluation %></p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <%= link_to t("form.buttons.cancel"), "javascript:void(0)",
+          data: {dismiss: "modal"} %>
+      </div>
+    </div>
+  </div>
+</div>

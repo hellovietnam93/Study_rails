@@ -42,3 +42,8 @@ data_types_import:
 collum_check_import:
   prime_user: "uid"
   prime_class: "semester"
+class_room:
+  tabs:
+    class_rooms: "Class room"
+    members: "Member"
+    tests: "Test"

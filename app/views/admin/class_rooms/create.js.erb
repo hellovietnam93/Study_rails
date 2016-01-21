@@ -1,12 +1,11 @@
-$("#class_rooms #error_explanation").remove()
+$("#error_explanation").remove()
 <% if @class_room.errors.any? %>
-  $("#class_rooms #errors-create-class_room").
+  $("#errors-edit-class_room").
     html("<%= j render 'shared/errors_messages', object: @class_room %>")
 <% else %>
-  $("#class_rooms form#new_class_room")[0].reset();
-  $("#class_rooms #new_class_room").hide();
-  $("#class_rooms .btn-new-class_room").show();
+  $("form#new_class_room")[0].reset()
+  $("#new-class-modal").modal("hide")
   $("#class_rooms .tbody").html("<%= j render 'admin/class_rooms/class_room',
-    class_rooms: @class_rooms %>");
+    class_rooms: @class_rooms %>")
 <% end %>
 set_timetout()

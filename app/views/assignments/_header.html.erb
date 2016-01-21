@@ -1,18 +1,13 @@
-<tr class="theader">
-  <th class="name">
+<tr>
+  <th data-field="name">
     <strong><%= t "assignments.fields.name" %></strong>
   </th>
-  <th class="content">
-    <strong><%= t "assignments.fields.content" %></strong>
-  </th>
-  <th class="assignment_type">
-    <strong><%= t "assignments.fields.assignment_type" %></strong>
-  </th>
-  <th class="start_date">
+  <th data-field="start_date">
     <strong><%= t "assignments.fields.start_date" %></strong>
   </th>
-  <th class="end_date">
+  <th data-field="end_date">
     <strong><%= t "assignments.fields.end_date" %></strong>
+  </th>
   </th>
   <% if can? :update, @assignment %>
     <th class="action">

@@ -15,6 +15,10 @@ class ClassRoom < ActiveRecord::Base
     :class_type, :max_student, :registered_student, :status]
 
   def lecturer
-    user_classes.find_by(owner: true)
+    user_classes.find_by owner: true
+  end
+
+  def students
+    user_classes.where owner: false
   end
 end

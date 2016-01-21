@@ -1,5 +1,2 @@
-$("#new-class_room").show();
-$(".new_class_room").hide();
-$(".edit_class_room").remove();
-$("#new-class_room").append("<%= j render 'admin/class_rooms/form' %>");
-$(".btn-new-class_room").hide();
+$(".class_room-<%= @class_room.id %>").append("<%= j render 'admin/class_rooms/edit_class_modal' %>");
+$("#edit-class-modal").modal("show");

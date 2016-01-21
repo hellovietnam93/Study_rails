@@ -1,0 +1,23 @@
+<% if user_in_class? current_user, @class_room %>
+  <div class="row">
+    <h4>
+      <div class="col-md-10">
+        <strong><%= t "assignments.assignment" %></strong>
+      </div>
+      <div class="col-md-2">
+        <div id="new-assignment">
+          <%= render "assignments/new_assignment" %>
+        </div>
+      </div>
+    </h4>
+  </div>
+  <table class="assignments table table-hover">
+    <thead><%= render "assignments/header" %></thead>
+    <tbody class="tbody">
+      <%= render @class_room.assignments %>
+    </tbody>
+  </table>
+  <div class="show-modal">
+    <%= render "assignments/show_assignment_modal" %>
+  </div>
+<% end %>

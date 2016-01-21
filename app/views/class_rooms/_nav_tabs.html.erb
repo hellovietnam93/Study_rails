@@ -1,0 +1,27 @@
+<div class="row tab-list">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs" role="tablist" id="tabs">
+      <% Settings.class_room.tabs.each do |key, value|  %>
+        <li role="presentation">
+          <a href="#<%= key %>" aria-controls="home" role="tab" data-toggle="tab">
+            <%= t "class_rooms.tabs.#{value.downcase}" %>
+          </a>
+        </li>
+      <% end %>
+      <li class="pull-right">
+        <%= render "class_actions" %>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="class_rooms">
+        <%= render "class_room_tab" %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="members">
+        <%= render "members_tab" %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="tests">
+        <%= render "tests_tab" %>
+      </div>
+    </div>
+  </div>
+</div>

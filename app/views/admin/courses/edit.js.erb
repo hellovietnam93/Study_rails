@@ -1,5 +1,2 @@
-$("#new-course").show();
-$(".new_course").hide();
-$(".edit_course").remove();
-$("#new-course").append("<%= j render 'form' %>");
-$(".btn-new-course").hide();
+$(".course-<%= @course.id %>").append("<%= j render 'admin/courses/edit_course_modal' %>");
+$("#edit-course-modal").modal("show");

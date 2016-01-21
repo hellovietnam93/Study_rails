@@ -1,5 +1,6 @@
 en:
   assignments:
+    assignment: Assignment
     fields:
       name: "Name"
       assignment_type: "Type"

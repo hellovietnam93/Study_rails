@@ -1,15 +1,16 @@
 <div id="class_rooms">
-  <h2><%= t "class_rooms.all" %></h2>
-  <table class="class_rooms">
+  <h2>
+    <%= t "class_rooms.all" %>
+    <%= link_to "#", data: {toggle: "modal", target: "#new-class-modal"} do %>
+      <i class="glyphicon glyphicon-plus"></i>
+    <% end %>
+  </h2>
+  <table class="class_rooms table table-header">
     <thead><%= render "admin/class_rooms/header" %></thead>
     <tbody class="tbody">
       <%= render "admin/class_rooms/class_room", class_rooms: @class_rooms %>
     </tbody>
   </table>
-  <div class="class_room-new">
-    <div id="new-class_room"><%= render "admin/class_rooms/form" %></div>
-    <div class="btn-new-class_room btn btn-primary">
-      <%= t "form.buttons.add_more" %>
-    </div>
-  </div>
 </div>
+
+<%= render "new_class_modal" %>

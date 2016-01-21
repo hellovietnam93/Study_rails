@@ -7,13 +7,4 @@
   </td>
   <td class="language"><%= course.language %></td>
   <td class="evaluation"><%= course.evaluation %></td>
-  <td class="action">
-    <%= link_to t("form.buttons.edit"), edit_admin_course_path(course),
-      class: "icon icon-edit button-edit",
-      id: "course_link_#{course.id}", remote: true %>
-    <%= link_to t("form.buttons.delete"),
-      admin_course_path(course), remote: true,
-      data: {confirm: t("form.confirmation")},
-      method: :delete, class: "icon icon-delete delete-course" %>
-  </td>
 </tr>

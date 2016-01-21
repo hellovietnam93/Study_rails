@@ -1,8 +1,7 @@
-<% if current_user.lecturer? && @class_room.lecturer && current_user ==
-  @class_room.lecturer.user %>
-  <%= render "assignments/form" %>
-  <div class="btn-new-assignment btn btn-primary"
-    data-class-room="<%= @class_room.id %>">
-    <%= t "assignments.actions.new" %>
-  </div>
+<% if can? :create, @assignment %>
+  <%= link_to "#", class: "glyphicon glyphicon-plus-sign pull-left",
+    data: {toggle: "modal", target: "#new-assignment-modal"} do %>
+    <%= "" %>
+  <% end %>
+  <%= render "assignments/new_assignment_modal" %>
 <% end %>

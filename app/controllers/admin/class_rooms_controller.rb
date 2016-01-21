@@ -28,6 +28,7 @@ class Admin::ClassRoomsController < ApplicationController
   def edit
     @semesters = Semester.all.order name: :asc
     @course = @class_room.course
+    @courses = Course.all.order uid: :asc
     respond_to do |format|
       format.js
     end

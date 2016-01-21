@@ -1,41 +1,8 @@
-#class_rooms {
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-
-  .list-all {
-    background-color: white;
+#show-class-modal, #edit-class-modal {
+  .modal-footer{
+    height: 65px;
   }
-
-  .title {
-    text-align: center;
-  }
-
-  .devide {
-    height: 10px;
-  }
-
-  .class_room-new, .class_rooms {
-    width: 90%;
-    margin-right: 5%;
-    margin-left: 5%;
-  }
-
-  .class_rooms {
-    text-align: center;
-    border: 1px #CCC solid;
-
-    .header {
-      font-weight: bold;
-      font-size: 15px;
-    }
-
-    .trow {
-      border: 1px #CCC solid;
-    }
-  }
-
-  .class_room-new {
-    margin-top: 20px;
+  .modal-body{
+    min-height: 300px;
   }
 }

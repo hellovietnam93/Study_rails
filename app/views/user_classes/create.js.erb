@@ -2,14 +2,13 @@
   $("#errors-enroll-class").
     html("<%= j render 'shared/errors_messages', object: @user_class %>")
 <% else %>
-  $("form.new_user_class").remove();
   $(".class_room-<%= @class_room.id %> .registered_student").html("<%= @class_room.registered_student %>")
   <% if current_user.student? %>
-    $(".students .tbody").append("<%= j render 'class_rooms/student', student: @user_class %>")
-  <% else %>
-    $("#class_rooms .teacher").html("<%= j render 'class_rooms/teacher' %>")
-    $("#new-assignment").html("<%= j render 'assignments/new_assignment' %>")
-    $("form.new_assignment").hide();
+    $(".members .tbody").append("<%= j render 'class_rooms/member', member: @user_class %>")
   <% end %>
+  $(".tab-list .pull-right").html("<%= j render 'class_rooms/class_actions' %>")
+  $("#sign-in-class-modal").modal("hide")
+  $(".modal-backdrop").remove()
+  $("#assignments").html("<%= j render 'class_rooms/assignment_tab' %>")
 <% end %>
 set_timetout()
