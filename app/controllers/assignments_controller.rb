@@ -14,13 +14,6 @@ class AssignmentsController < ApplicationController
 
   end
 
-  def edit
-    @class_room = @assignment.class_room
-    respond_to do |format|
-      format.js
-    end
-  end
-
   def update
     respond_to do |format|
       if @assignment.update_attributes assignment_params

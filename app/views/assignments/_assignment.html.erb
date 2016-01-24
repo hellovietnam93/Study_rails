@@ -4,11 +4,12 @@
       <a data-toggle="modal" data-target="#show-assignment-modal"
         href="#"
         data-assignment-id="<%= assignment.id %>"
-        data-assignment-name="<%= assignment.name.humanize.capitalize %>"
+        data-assignment-name="<%= assignment.name %>"
         data-assignment-content="<%= assignment.content %>"
         data-assignment-start-date="<%= assignment.start_date.strftime(t "date.formats.default") %>"
         data-assignment-end-date="<%= assignment.end_date.strftime(t "date.formats.default") %>"
         data-assignment-type="<%= t "assignments.assignment_types.#{assignment.assignment_type}" %>"
+        data-type="<%= assignment.assignment_type %>"
         data-assignment-class="<%= assignment.class_room.id %>">
         <%= assignment.name %>
       </a>
@@ -17,10 +18,17 @@
     <td class="end_date"><%= assignment.end_date.strftime(t "date.formats.default") %></td>
     <% if can? :update, assignment %>
       <td class="action">
-        <%= link_to t("form.buttons.edit"),
-          edit_class_room_assignment_path(assignment.class_room, assignment),
-          class: "icon icon-edit button-edit",
-          id: "assignment_link_#{assignment.id}", remote: true %>
+        <a data-toggle="modal" data-target="#new-assignment-modal"
+          href="#"
+          data-assignment-id="<%= assignment.id %>"
+          data-assignment-name="<%= assignment.name %>"
+          data-assignment-content="<%= assignment.content %>"
+          data-assignment-start-date="<%= assignment.start_date.strftime(t "date.formats.default") %>"
+          data-assignment-end-date="<%= assignment.end_date.strftime(t "date.formats.default") %>"
+          data-assignment-type="<%= assignment.assignment_type %>"
+          data-assignment-class="<%= assignment.class_room.id %>">
+          <%= t "form.buttons.edit" %>
+        </a>
         <%= link_to t("form.buttons.delete"),
           class_room_assignment_path(assignment.class_room, assignment),
           remote: true, data: {confirm: t("form.confirmation")},
