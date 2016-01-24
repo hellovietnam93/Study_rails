@@ -4,7 +4,7 @@ $("#error_explanation").remove()
     html("<%= j render "shared/errors_messages", object: @assignment %>");
 <% else %>
   $("#assignments .tbody").html("<%= j render @class_room.assignments %>");
-  $("#edit-assignment-modal").modal("hide");
-  $(".modal-backdrop").remove()
+
+  location.reload()
 <% end %>
 set_timetout()
