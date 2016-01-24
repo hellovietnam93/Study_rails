@@ -4,25 +4,27 @@
     <%= form_tag admin_imports_path, method: :post, multipart: true do %>
       <div class="control-group">
         <% Settings.imports.data_types.each do |data_type| %>
-          <div class="list-group-items select-file-buttons" data-id="<%= data_type.model %>">
-            <div class="checkbox">
-              <label class="control-label">
-                <%= check_box_tag "type[]", "#{data_type.model}", nil,
-                  class: "check-box-tag hidden",
-                  id: "check-box-tag-file-select-#{data_type.model}" %>
-                <%= t "imports.#{data_type.model.to_sym}" %>
-              </label>
+          <% unless data_type.model == "question" %>
+            <div class="list-group-items select-file-buttons" data-id="<%= data_type.model %>">
+              <div class="checkbox">
+                <label class="control-label">
+                  <%= check_box_tag "type[]", "#{data_type.model}", nil,
+                    class: "check-box-tag hidden",
+                    id: "check-box-tag-file-select-#{data_type.model}" %>
+                  <%= t "imports.#{data_type.model.to_sym}" %>
+                </label>
+              </div>
+              <div class="file-field-uploaded">
+                <%= file_field_tag "file[]", id: "file-select-#{data_type.model}",
+                  class: "file-select", data: {model: "#{data_type.model}"},
+                  accept: allowed_file(data_type.model) %>
+              </div>
+              <div id="loading-image-<%= data_type.model %>" class=" load-image hidden">
+                <%= image_tag "loading.gif", size: Settings.imports.image_loading_size %>
+              </div>
             </div>
-            <div class="file-field-uploaded">
-              <%= file_field_tag "file[]", id: "file-select-#{data_type.model}",
-                class: "file-select", data: {model: "#{data_type.model}"},
-                accept: allowed_file(data_type.model) %>
-            </div>
-            <div id="loading-image-<%= data_type.model %>" class=" load-image hidden">
-              <%= image_tag "loading.gif", size: Settings.imports.image_loading_size %>
-            </div>
-          </div>
-          <hr>
+            <hr>
+          <% end %>
         <% end %>
       </div>
       <div>

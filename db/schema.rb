@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118214440) do
+ActiveRecord::Schema.define(version: 20160124131059) do
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "content",     limit: 65535
+    t.integer  "question_id", limit: 4
+    t.boolean  "correct"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -109,6 +119,18 @@ ActiveRecord::Schema.define(version: 20160118214440) do
   add_index "group_classes", ["slug"], name: "index_group_classes_on_slug", unique: true, using: :btree
   add_index "group_classes", ["user_id"], name: "index_group_classes_on_user_id", using: :btree
 
+  create_table "online_tests", force: :cascade do |t|
+    t.integer  "user_id",       limit: 4
+    t.integer  "class_room_id", limit: 4
+    t.integer  "question_id",   limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "online_tests", ["class_room_id"], name: "index_online_tests_on_class_room_id", using: :btree
+  add_index "online_tests", ["question_id"], name: "index_online_tests_on_question_id", using: :btree
+  add_index "online_tests", ["user_id"], name: "index_online_tests_on_user_id", using: :btree
+
   create_table "prime_classes", force: :cascade do |t|
     t.string   "semester",     limit: 255
     t.string   "student_id",   limit: 255
@@ -134,6 +156,31 @@ ActiveRecord::Schema.define(version: 20160118214440) do
     t.string   "middle_name", limit: 255
     t.string   "last_name",   limit: 255
   end
+
+  create_table "questions", force: :cascade do |t|
+    t.text     "name",          limit: 65535
+    t.integer  "class_room_id", limit: 4
+    t.integer  "question_type", limit: 4
+    t.integer  "priority",      limit: 4
+    t.integer  "course_id",     limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "questions", ["class_room_id"], name: "index_questions_on_class_room_id", using: :btree
+  add_index "questions", ["course_id"], name: "index_questions_on_course_id", using: :btree
+
+  create_table "results", force: :cascade do |t|
+    t.integer  "question_id",    limit: 4
+    t.integer  "answer_id",      limit: 4
+    t.integer  "online_test_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "results", ["answer_id"], name: "index_results_on_answer_id", using: :btree
+  add_index "results", ["online_test_id"], name: "index_results_on_online_test_id", using: :btree
+  add_index "results", ["question_id"], name: "index_results_on_question_id", using: :btree
 
   create_table "semesters", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -186,11 +233,20 @@ ActiveRecord::Schema.define(version: 20160118214440) do
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "answers", "questions"
   add_foreign_key "assignments", "class_rooms"
   add_foreign_key "class_rooms", "courses"
   add_foreign_key "class_rooms", "semesters"
   add_foreign_key "group_classes", "class_rooms"
   add_foreign_key "group_classes", "users"
+  add_foreign_key "online_tests", "class_rooms"
+  add_foreign_key "online_tests", "questions"
+  add_foreign_key "online_tests", "users"
+  add_foreign_key "questions", "class_rooms"
+  add_foreign_key "questions", "courses"
+  add_foreign_key "results", "answers"
+  add_foreign_key "results", "online_tests"
+  add_foreign_key "results", "questions"
   add_foreign_key "user_classes", "class_rooms"
   add_foreign_key "user_classes", "users"
 end

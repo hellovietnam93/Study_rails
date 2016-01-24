@@ -25,6 +25,11 @@ imports:
     course_id: course_id
     course_title: course_title
     reg_status: reg_status
+  question:
+    id: id
+    name: name
+    question_type: question_type
+    priority: priority
   data_types:
     - model: prime_user
       verify_attributes:
@@ -35,15 +40,20 @@ imports:
         - student_id
         - class_id
         - course_id
+    - model: question
+      verify_attributes:
+        - question_type
   image_loading_size: "30x30"
 data_types_import:
   prime_user: "prime_user"
   prime_class: "prime_class"
+  question: "question"
 collum_check_import:
   prime_user: "uid"
   prime_class: "semester"
+  question: "question_type"
 class_room:
   tabs:
     class_rooms: "Class room"
     members: "Member"
-    tests: "Test"
+    questions: "Question"

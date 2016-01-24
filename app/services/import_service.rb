@@ -1,11 +1,13 @@
 class ImportService
   attr_accessor :file_path, :model, :attributes, :verify_attributes, :type
-  def initialize file_path, model, verify_attributes, data_type
+  def initialize file_path, model, verify_attributes, data_type, class_room = nil, course = nil
     @file_path = file_path
     @model = model
     @verify_attributes = verify_attributes
     @data_type = data_type
     @hash_verify_attributes = {}
+    @class_room = class_room
+    @course = course
   end
 
   def valid?
@@ -41,7 +43,11 @@ class ImportService
       model_attributes -= Set.new model::CSV_REJECT_ATTRIBUTES
     end
 
-    csv_headers.subset? model_attributes
+    if @model.name == "Question"
+      model_attributes.subset? csv_headers
+    else
+      csv_headers.subset? model_attributes
+    end
   end
 
   def save_from_csv
@@ -49,7 +55,11 @@ class ImportService
 
     if check_right_model header, @data_type
       CSV.foreach @file_path, {headers: :first_row} do |row|
-        save_object get_object_attributes(row)
+        if @model.name == "Question"
+          import_question row
+        else
+          save_object get_object_attributes(row)
+        end
       end
       return true
     end
@@ -95,6 +105,8 @@ class ImportService
       header.include? Settings.collum_check_import.prime_user
     when Settings.data_types_import.prime_class
       header.include? Settings.collum_check_import.prime_class
+    when Settings.data_types_import.question
+      header.include? Settings.collum_check_import.question
     end
   end
 
@@ -102,6 +114,28 @@ class ImportService
     @verify_attributes.each do |attribute|
       @hash_verify_attributes =  @hash_verify_attributes.merge Hash[*[attribute.to_sym,
         model_attributes[attribute.to_sym]]]
+    end
+  end
+
+  def import_question row
+    question_name = row["name"]
+    question_type = row["question_type"]
+    priority = row["priority"]
+    content = row["content"]
+    correct = row["correct"]
+
+    question = save_changes Question, {name: question_name},
+      {name: question_name, class_room: @class_room, course: @class_room.course,
+      priority: priority, question_type: question_type}
+    save_changes Answer, {content: content, question_id: question.id},
+      {question: question, content: content, correct: correct}
+  end
+
+  def save_changes model, fields_to_check, data
+    if existed_model = model.find_by(fields_to_check)
+      existed_model
+    else
+      model.create! data
     end
   end
 end
