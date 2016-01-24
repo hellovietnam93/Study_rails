@@ -1,4 +1,6 @@
-$(document).on("page:change page:partial-load", function() {
+$(document).on("page:update", function() {
+  $(".ckeditor").ckeditor();
+
   $(document).on("show.bs.modal", "#show-assignment-modal", function (event) {
     $("#error_explanation").remove();
     var $link = $(event.relatedTarget);
@@ -28,6 +30,12 @@ $(document).on("page:change page:partial-load", function() {
     $("form")[0].reset();
   });
 
+  $(document).on("hide.bs.modal", "#edit-assignment-modal", function (event) {
+    $("#edit-assignment-modal").remove();
+    $(".modal-backdrop").remove();
+
+  });
+
   $(document).on("click", ".assignment-edit", function (event) {
     var assignmentId = $(this).data("assignment-id");
     var classroomID = $(this).data("assignment-class");
@@ -51,9 +59,5 @@ $(document).on("page:change page:partial-load", function() {
     }
     else
       return false;
-  });
-
-  $(document).on("page:update", function(){
-    $(".ckeditor").ckeditor();
   });
 });
