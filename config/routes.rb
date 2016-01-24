@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   resources :class_rooms, only: [:index, :show] do
     resources :assignments, except: [:index, :new]
+    resources :questions, except: :index
+    resources :online_tests
   end
   resources :semesters, only: [:index, :show]
   resources :user_classes, only: [:create, :destroy]

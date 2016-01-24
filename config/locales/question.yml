@@ -1,0 +1,18 @@
+en:
+  questions:
+    fields:
+      name: "Question"
+      type: "Type"
+      answers: "Answer"
+      priority: "Priority"
+      correct: "Correct"
+      actions: "Actions"
+    priorities:
+      high: "High"
+      medium: "Medium"
+      low: "Low"
+      extra: "Extra"
+    types:
+      single: "Single"
+      multiple: "Multiple"
+      fill_in_blank: "Fill in blank"

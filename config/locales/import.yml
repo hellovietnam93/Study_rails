@@ -2,6 +2,7 @@ en:
   imports:
     course: "Courses"
     student: "Students"
+    question: "Question"
     import: "Import"
     import_data: "Import data"
     no_select_file: "Please, select some file!"

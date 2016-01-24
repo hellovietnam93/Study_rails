@@ -1,0 +1,12 @@
+<% question.answers.each do |answer| %>
+  <tr class="question-<%= question.id %> trow" >
+    <td class="name"><%= question.name %></td>
+    <td class="content">
+      <%= answer.content %>
+    </td>
+    <td class="question_type"><%= t "questions.types.#{question.question_type}" %></td>
+    <td class="priority"><%= t "questions.priorities.#{question.priority}" %></td>
+    <td class="correct <%= 'text text-danger' if answer.correct %>"><%= answer.correct %></td>
+    <td></td>
+  </tr>
+<% end %>
