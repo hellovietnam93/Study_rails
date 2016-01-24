@@ -5,25 +5,9 @@ class ClassRoomsController < ApplicationController
 
   end
 
-  def new
-
-  end
-
-  def create
-
-  end
-
   def show
-    @students = @class_room.user_classes.where owner: false
+    @members = @class_room.user_classes.where owner: false
     @user_class = @class_room.user_classes.new
     @assignment = @class_room.assignments.new
-  end
-
-  def edit
-
-  end
-
-  def update
-
   end
 end

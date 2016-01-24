@@ -35,6 +35,7 @@ class Admin::CoursesController < ApplicationController
     respond_to do |format|
       if @course.update_attributes course_params
         list_all_courses
+        @semesters = Semester.all.order name: :asc
       end
       format.js
     end
@@ -55,6 +56,6 @@ class Admin::CoursesController < ApplicationController
   end
 
   def list_all_courses
-    @courses = Course.all.order name: :asc
+    @courses = Course.all.order uid: :asc
   end
 end

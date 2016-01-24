@@ -1,0 +1,57 @@
+<div id="show-class-modal" class="modal fade" role="dialog"
+  data-backdrop="static" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="modal-title"><%= @class_room.uid %></h4>
+          </div>
+          <div class="col-md-4">
+            <div class="pull-right">
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="col-md-4">
+          <b><label><h4><%= t "class_rooms.fields.name" %></h4></label></b>
+          <p class="class_room-type"><%= @class_room.name %></p>
+        </div>
+        <div class="col-md-4">
+          <b><label><h4><%= t "class_rooms.fields.semester" %></h4></label></b>
+          <p class="class_room-start-date"><%= @class_room.semester.name %></p>
+        </div>
+        <div class="col-md-4">
+          <b><label><h4><%= t "class_rooms.fields.course" %></h4></label></b>
+          <p class="class_room-end-date"><%= @class_room.course.uid %></p>
+        </div>
+        <div class="col-md-4">
+          <b><label><h4><%= t "class_rooms.fields.type" %></h4></label></b>
+          <p class="class_room-type"><%= @class_room.class_type %></p>
+        </div>
+        <div class="col-md-4">
+          <b><label><h4><%= t "class_rooms.fields.registered_student" %></h4></label></b>
+          <p class="class_room-start-date"><%= @class_room.registered_student %></p>
+        </div>
+        <div class="col-md-4">
+          <b><label><h4><%= t "class_rooms.fields.max_student" %></h4></label></b>
+          <p class="class_room-end-date"><%= @class_room.max_student %></p>
+        </div>
+        <div class="col-md-12">
+          <b><label><h4><%= t "class_rooms.fields.description" %></h4></label></b>
+          <p class="class_room-content"><%= @class_room.description %></p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <%= link_to t("form.buttons.cancel"), "javascript:void(0)",
+          data: {dismiss: "modal"} %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,55 +1,9 @@
-<div id="class_rooms">
-  <div class="user-class col-md-6">
-    <%= render "login_class" %>
-  </div>
-  <div class="col-md-6 teacher">
-    <%= render "teacher" %>
-    </h2>
-  </div>
-  <table class="class_rooms">
-    <thead><%= render "header" %></thead>
-    <tbody class="tbody">
-      <%= render @class_room %>
-    </tbody>
-  </table>
+<div class="col-md-9">
+  <%= render "nav_tabs" %>
 </div>
 
-<div id="assignments">
-  <h2><%= t "class_rooms.assignments.all", class_room: @class_room.uid %></h2>
-  <div id="new-assignment">
-    <%= render "assignments/new_assignment" %>
+<div class="col-md-3">
+  <div id="assignments">
+    <%= render "assignment_tab" %>
   </div>
-
-  <table class="assignments">
-    <thead><%= render "assignments/header" %></thead>
-    <tbody class="tbody">
-      <%= render @class_room.assignments %>
-    </tbody>
-  </table>
-</div>
-
-<div id="students">
-  <h2><%= t "class_rooms.students.all", class_room: @class_room.uid %></h2>
-  <table class="students">
-    <thead>
-      <tr>
-        <tr class="theader">
-          <th class="email">
-            <strong><%= t "students.fields.email" %></strong>
-          </th>
-          <th class="join_date">
-            <strong><%= t "students.fields.join_date" %></strong>
-          </th>
-          <th class="action">
-            <strong><%= t "students.fields.action" %><strong>
-          </th>
-        </tr>
-      </tr>
-    </thead>
-    <tbody class="tbody">
-      <% @students.each do |student| %>
-        <%= render "student", student: student %>
-      <% end %>
-    </tbody>
-  </table>
 </div>

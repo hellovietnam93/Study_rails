@@ -14,7 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require ckeditor/init
-//= require bootstrap
+//= require ckeditor/adapters/jquery
+//= require bootstrap-sprockets
 //= require_tree ./customs
 
 $(document).on("ready", function() {

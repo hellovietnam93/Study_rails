@@ -7,8 +7,8 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.lecturer?
-      can :manage, ClassRoom
-      cannot :destroy, ClassRoom
+      can [:index, :show], Semester
+      can [:index, :show], ClassRoom
       can :manage, Assignment
       can [:create, :destroy], UserClass
     else

@@ -1,7 +1,5 @@
 <% if @assignment.destroyed? %>
   $(".assignment-<%= @assignment.id %>").remove()
-  $(".new_assignment").hide();
-  $(".btn-new-assignment").show();
-  $(".edit_assignment").remove();
+  $("#show-assignment-modal").modal("hide");
 <% end %>
 $("iframe").contents().find("body").empty();

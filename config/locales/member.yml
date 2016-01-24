@@ -1,5 +1,5 @@
 en:
-  students:
+  members:
     fields:
       email: "Email"
       join_date: "Join date"

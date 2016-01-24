@@ -1,0 +1,69 @@
+<div id="edit-assignment-modal" class="modal fade" role="dialog"
+  data-backdrop="static">
+  <div class="modal-dialog modal-lg">
+    <%= form_for [@class_room, @assignment], remote: true, class: "col-md-12" do |f| %>
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+          <h4 class="modal-title">
+            <%= t "class_rooms.assignments.actions.edit",
+              assignment: @assignment.name.humanize.capitalize %>
+          </h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <div id="errors-edit-assignment"></div>
+
+            <div class="form-group">
+              <div class="col-md-6">
+                <%= f.label :name, t("assignments.fields.name") %>
+                <%= f.text_field :name, class: "form-control" %>
+              </div>
+
+              <div class="col-md-6">
+                <%= f.label :name, t("assignments.fields.assignment_type") %>
+                <%= f.select :assignment_type,
+                  options_from_collection_for_select(
+                  i18n_enum(:assignments, :assignment_type), :key, :value,
+                  f.object.assignment_type), {}, class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-group col-md-6">
+                <%= f.label :start_date, t("assignments.fields.start_date") %>
+                <%= f.date_field :start_date, required: true,
+                  class: "datepicker form-control" %>
+              </div>
+
+              <div class="form-group col-md-6">
+                <%= f.label :end_date, t("assignments.fields.end_date") %>
+                <%= f.date_field :end_date, required: true,
+                  class: "datepicker form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-12">
+                <%= f.cktext_area :content, class: "ckeditor",
+                  placeholder: t("assignments.fields.content"), id: "textarea" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <%= f.submit t("form.buttons.save"),
+            data: {disable_with: t("form.buttons.saving")},
+            class: "btn btn-primary" %>
+          <%= link_to t("form.buttons.cancel"), "javascript:void(0)",
+            data: {dismiss: "modal"} %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

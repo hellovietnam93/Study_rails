@@ -1,5 +1,3 @@
-$("#new-assignment").show();
-$(".new_assignment").hide();
-$(".edit_assignment").remove();
-$("#new-assignment").append("<%= j render 'assignments/form' %>");
-$(".btn-new-assignment").hide();
+$(".assignment-<%= @assignment.id %>").append("<%= j render "edit_assignment_modal" %>");
+$("#show-assignment-modal").modal("hide");
+$("#edit-assignment-modal").modal("show");

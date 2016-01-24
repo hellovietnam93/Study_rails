@@ -16,12 +16,10 @@ class UserClassesController < ApplicationController
 
   def destroy
     @class_room = @user_class.class_room
-    respond_to do |format|
-      if @user_class.destroy
-        sub_registered_student
-      end
-      format.js
+    if @user_class.destroy
+      sub_registered_student unless @user_class.owner
     end
+    redirect_to @class_room
   end
 
   private

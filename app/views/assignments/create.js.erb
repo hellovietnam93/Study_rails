@@ -1,12 +1,11 @@
 $("#assignments #error_explanation").remove()
-$("iframe").contents().find("body").empty();
 <% if @assignment.errors.any? %>
   $("#assignments #errors-create-assignment").
     html("<%= j render "shared/errors_messages", object: @assignment %>")
 <% else %>
-  $("#assignments form#new_assignment")[0].reset();
-  $("#assignments #new_assignment").hide();
-  $("#assignments .btn-new-assignment").show();
+  $("iframe").contents().find("body").empty();
+  $("form#new_assignment")[0].reset();
+  $("#new-assignment-modal").modal("hide");
   $("#assignments .tbody").html("<%= j render @class_room.assignments %>");
 <% end %>
 set_timetout()

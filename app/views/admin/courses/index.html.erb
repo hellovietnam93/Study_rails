@@ -1,10 +1,15 @@
 <div id="courses">
   <div class="title-course">
-    <h3 class="title"><%= t "courses.all" %></h3>
+    <h3 class="title">
+      <%= t "courses.all" %>
+      <%= link_to "#", data: {toggle: "modal", target: "#new-course-modal"} do %>
+        <i class="glyphicon glyphicon-plus"></i>
+      <% end %>
+    </h3>
   </div>
   <div class="list-all">
     <div class="devide"></div>
-    <table class="courses">
+    <table class="courses table table-header">
       <thead>
         <%= render "header" %>
       </thead>
@@ -12,13 +17,7 @@
         <%= render @courses %>
       </tbody>
     </table>
-
-    <div class="course-new">
-      <div id="new-course"><%= render "form" %></div>
-      <div class="btn-new-course btn btn-primary">
-        <%= t "form.buttons.add_more" %>
-      </div>
-    </div>
   </div>
 </div>
 
+<%= render "new_course_modal" %>
