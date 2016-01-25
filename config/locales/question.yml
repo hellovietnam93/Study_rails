@@ -12,7 +12,7 @@ en:
       medium: "Medium"
       low: "Low"
       extra: "Extra"
-    types:
+    question_types:
       single: "Single"
       multiple: "Multiple"
       fill_in_blank: "Fill in blank"

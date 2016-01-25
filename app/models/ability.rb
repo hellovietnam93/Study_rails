@@ -9,7 +9,7 @@ class Ability
     elsif user.lecturer?
       can [:create, :update, :destroy], Question
       can [:index, :show], Semester
-      can [:index, :show], ClassRoom
+      can :manage, ClassRoom
       can :manage, Assignment
       can [:create, :destroy], UserClass
     else

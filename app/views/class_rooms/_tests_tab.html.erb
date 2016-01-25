@@ -51,5 +51,28 @@
 </div>
 
 <div class="col-md-4">
-  New
+  <%= nested_form_for @class_room do |f| %>
+    <%= f.fields_for :questions do |question_form| %>
+      <%= question_form.hidden_field :course_id, value: @class_room.course.id %>
+      <%= question_form.text_field :name, class: "form-control" %>
+      <%= question_form.select :question_type,
+        options_from_collection_for_select(
+        i18n_enum(:questions, :question_type), :key, :value,
+        question_form.object.question_type), {}, class: "form-control" %>
+      <%= question_form.select :priority,
+        options_from_collection_for_select(
+        i18n_enum(:questions, :priority), :key, :value,
+        question_form.object.priority), {}, class: "form-control" %>
+      <%= question_form.link_to_remove "Remove this question" %>
+
+      <%= question_form.fields_for :answers do |answer_form| %>
+        <%= answer_form.text_field :content, class: "form-control" %>
+        <%= answer_form.check_box :correct, class: "checkbox" %>
+        <%= answer_form.link_to_remove "Remove this answer" %>
+      <% end %>
+      <p><%= question_form.link_to_add "Add a answer", :answers %></p>
+    <% end %>
+    <p><%= f.link_to_add "Add a question", :questions %></p>
+    <%= f.submit "ok"%>
+  <% end%>
 </div>

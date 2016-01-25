@@ -21,14 +21,15 @@ class QuestionsController < ApplicationController
     else
       redirect_to @class_room, alert: flash_message("import.no_select_file")
     end
+    binding.pry
   end
 
   def update
-
+    binding.pry
   end
 
   def destroy
-
+    binding.pry
   end
 
   private

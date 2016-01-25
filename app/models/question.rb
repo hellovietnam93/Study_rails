@@ -6,6 +6,9 @@ class Question < ActiveRecord::Base
   has_many :online_tests, dependent: :destroy
   has_many :results, dependent: :destroy
 
+  accepts_nested_attributes_for :answers, reject_if: lambda {|a| a[:content].blank?},
+    allow_destroy: true
+
   enum question_type: [:single, :multiple, :fill_in_blank]
   enum priority: [:high, :medium, :low, :extra]
 
