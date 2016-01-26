@@ -9,6 +9,9 @@ class Question < ActiveRecord::Base
   accepts_nested_attributes_for :answers, reject_if: lambda {|a| a[:content].blank?},
     allow_destroy: true
 
+  ATTRIBUTES_PARAMS = [:name, :question_type, :priority, :course_id, :class_room_id,
+    answers_attributes: [:id, :content, :correct, :_destroy]]
+
   enum question_type: [:single, :multiple, :fill_in_blank]
   enum priority: [:high, :medium, :low, :extra]
 

@@ -33,7 +33,6 @@ gem "friendly_id", "~> 5.1.0"
 gem "figaro"
 gem "ckeditor"
 gem "paperclip"
-gem "nested_form"
 
 group :development, :test do
   gem "pry"

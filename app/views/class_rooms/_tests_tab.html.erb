@@ -51,28 +51,37 @@
 </div>
 
 <div class="col-md-4">
-  <%= nested_form_for @class_room do |f| %>
-    <%= f.fields_for :questions do |question_form| %>
-      <%= question_form.hidden_field :course_id, value: @class_room.course.id %>
-      <%= question_form.text_field :name, class: "form-control" %>
-      <%= question_form.select :question_type,
+  <%= form_for [@class_room, @question], class: "form" do |f| %>
+    <%= f.hidden_field :course_id, value: @class_room.course.id %>
+    <%= f.hidden_field :class_room_id, value: @class_room.id %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :question_type %>
+      <%= f.select :question_type,
         options_from_collection_for_select(
         i18n_enum(:questions, :question_type), :key, :value,
-        question_form.object.question_type), {}, class: "form-control" %>
-      <%= question_form.select :priority,
+        f.object.question_type), {}, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :priority %>
+      <%= f.select :priority,
         options_from_collection_for_select(
         i18n_enum(:questions, :priority), :key, :value,
-        question_form.object.priority), {}, class: "form-control" %>
-      <%= question_form.link_to_remove "Remove this question" %>
+        f.object.priority), {}, class: "form-control" %>
+    </div>
 
-      <%= question_form.fields_for :answers do |answer_form| %>
-        <%= answer_form.text_field :content, class: "form-control" %>
-        <%= answer_form.check_box :correct, class: "checkbox" %>
-        <%= answer_form.link_to_remove "Remove this answer" %>
-      <% end %>
-      <p><%= question_form.link_to_add "Add a answer", :answers %></p>
-    <% end %>
-    <p><%= f.link_to_add "Add a question", :questions %></p>
-    <%= f.submit "ok"%>
-  <% end%>
+    <div class="form-group">
+      <div id="answer_list">
+        <%= f.fields_for :answers, wrapper: true, class: "form" do |answer_form| %>
+          <%= render "answer_fields", f: answer_form %>
+        <% end %>
+      </div>
+      <%= link_to_add_fields "add", f, :answers %>
+    </div>
+    <br>
+    <%= f.submit "save", class: "btn btn-primary pull-right" %>
+  <% end %>
 </div>

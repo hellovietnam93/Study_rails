@@ -4,32 +4,32 @@ class QuestionsController < ApplicationController
   before_action :init_message, only: :create
 
   def create
-    if params[:type].present?
-      params[:type].each_with_index do |data_type, index|
-        import = ImportService.new "#{params[:file][index].tempfile.path.to_s}",
-          find_model(data_type).constantize, find_verify_attribute(data_type), data_type,
-          @class_room, @class_room.course
-        if import.valid?
-          import.save! ? @notice << data_type.gsub("_", " ").capitalize.pluralize :
+    if params[:commit] == "Import"
+      if params[:type].present?
+        params[:type].each_with_index do |data_type, index|
+          import = ImportService.new "#{params[:file][index].tempfile.path.to_s}",
+            find_model(data_type).constantize, find_verify_attribute(data_type), data_type,
+            @class_room, @class_room.course
+          if import.valid?
+            import.save! ? @notice << data_type.gsub("_", " ").capitalize.pluralize :
+              @alert << data_type.gsub("_", " ").capitalize.pluralize
+          else
             @alert << data_type.gsub("_", " ").capitalize.pluralize
-        else
-          @alert << data_type.gsub("_", " ").capitalize.pluralize
+          end
         end
+        redirect_to @class_room, notice: flash_message("import.success", @notice),
+          alert: flash_message("import.alert", @alert)
+      else
+        redirect_to @class_room, alert: flash_message("import.no_select_file")
       end
-      redirect_to @class_room, notice: flash_message("import.success", @notice),
-        alert: flash_message("import.alert", @alert)
     else
-      redirect_to @class_room, alert: flash_message("import.no_select_file")
+      if @question.save
+        flash[:success] = t "flash.word.created.success"
+      else
+        flash[:danger] = t "flash.word.created.fails"
+      end
+      redirect_to @class_room
     end
-    binding.pry
-  end
-
-  def update
-    binding.pry
-  end
-
-  def destroy
-    binding.pry
   end
 
   private
@@ -49,5 +49,9 @@ class QuestionsController < ApplicationController
   def find_verify_attribute model
     Settings.reload!
     Settings.imports.data_types.detect{|data_type| data_type.model == model}.verify_attributes
+  end
+
+  def question_params
+    params.require(:question).permit Question::ATTRIBUTES_PARAMS
   end
 end

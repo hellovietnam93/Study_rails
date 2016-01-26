@@ -10,8 +10,8 @@ class ClassRoomsController < ApplicationController
     @questions = @class_room.questions
     @user_class = @class_room.user_classes.new
     @assignment = @class_room.assignments.new
-      question = @class_room.questions.build
-      4.times { question.answers.build }
+    @question = @class_room.questions.new
+    4.times { @question.answers.build }
   end
 
   def update

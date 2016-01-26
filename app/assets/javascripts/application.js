@@ -16,7 +16,6 @@
 //= require ckeditor/init
 //= require ckeditor/adapters/jquery
 //= require bootstrap-sprockets
-//= require jquery_nested_form
 //= require_tree ./customs
 
 $(document).on("ready", function() {
