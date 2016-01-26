@@ -160,6 +160,7 @@ GEM
     minitest (5.8.3)
     multi_json (1.11.2)
     mysql2 (0.3.20)
+    nested_form (0.3.2)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     nprogress-rails (0.1.6.7)
@@ -341,6 +342,7 @@ DEPENDENCIES
   jquery-turbolinks
   kaminari
   mysql2 (~> 0.3.18)
+  nested_form
   nprogress-rails
   paperclip
   paranoia (~> 2.0)

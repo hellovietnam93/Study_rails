@@ -15,7 +15,7 @@ module ApplicationHelper
 
   def flash_message flash_type, *params
     if params.empty?
-      t "flashs.messages.#{flash_type}", model_name: controller_name.classify.normalize
+      t "flashs.messages.#{flash_type}", model_name: controller_name.classify
     else
       t "flashs.messages.#{flash_type}", models_name: params[0].join(", ") unless params[0].empty?
     end

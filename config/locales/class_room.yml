@@ -37,7 +37,7 @@ en:
       actions:
         edit: "Edit assignment %{assignment}"
     tabs:
-      test: "Tests"
+      question: "Question"
       other: "Other"
       class_room: "Class room"
       member: "Members"
