@@ -12,10 +12,13 @@ class Ability
       can [:index, :update, :show], ClassRoom
       can :manage, Assignment
       can [:create, :destroy], UserClass
+      can [:index, :show], AssignmentSubmit
+      can :manage, AssignmentHistory
     else
       can [:index, :show], ClassRoom
-      can [:create, :destroy], UserClass
+      can [:create, :destroy], UserClass, user_id: user.id
       can :show, Assignment
+      can :manage, AssignmentSubmit, user_id: user.id
     end
   end
 end

@@ -35,5 +35,41 @@
           method: :delete, class: "icon icon-delete delete-assignment" %>
       </td>
     <% end %>
+    <td>
+      <a class="btn btn-primary" role="button" data-toggle="collapse"
+        href="#all-submit-assignment-<%= assignment.id %>"
+        aria-expanded="false" aria-controls="collapseExample">
+        <%= t "assignments.actions.see_more" %>
+      </a>
+      <div class="collapse" id="all-submit-assignment-<%= assignment.id %>">
+        <div class="well">
+          <div id="assignment_submits">
+            <table class="assignment_submits table table-hover">
+              <thead>
+                <tr>
+                  <th data-field="user">
+                    <strong>
+                      <%= t "assignment_submits.fields.user" %>
+                    </strong>
+                  </th>
+                  <th data-field="updated_at">
+                    <strong>
+                      <%= t "assignment_submits.fields.updated_at" %>
+                    </strong>
+                  </th>
+                  </th>
+                  <th class="action">
+                    <strong><%= t "assignments.fields.action" %><strong>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="tbody">
+                <%= render assignment.assignment_submits %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </td>
   </tr>
 <% end %>

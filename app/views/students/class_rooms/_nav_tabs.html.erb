@@ -1,10 +1,10 @@
 <div class="row tab-list">
   <div class="col-md-12">
     <ul class="nav nav-tabs" role="tablist" id="tabs">
-      <% Settings.class_room.tabs.each do |key, value|  %>
+      <% Settings.class_room.students.tabs.each do |key, value|  %>
         <li role="presentation">
           <a href="#<%= key %>" aria-controls="home" role="tab" data-toggle="tab">
-            <%= t "class_rooms.tabs.#{key}" %>
+            <%= t "class_rooms.students.tabs.#{key}" %>
           </a>
         </li>
       <% end %>
@@ -14,16 +14,16 @@
     </ul>
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="class_rooms">
-        <%= render "class_room_tab" %>
+        <%= render "students/class_rooms/class_room_tab" %>
       </div>
       <div role="tabpanel" class="tab-pane" id="members">
-        <%= render "members_tab" %>
+        <%= render "students/class_rooms/members_tab" %>
       </div>
-      <div role="tabpanel" class="tab-pane" id="questions">
-        <%= render "questions_tab" %>
+      <div role="tabpanel" class="tab-pane" id="online_tests">
+        <%= render "students/class_rooms/online_test_tab" %>
       </div>
       <div role="tabpanel" class="tab-pane" id="assignments">
-        <%= render "assignment_tab" %>
+        <%= render "students/class_rooms/assignments_tab" %>
       </div>
     </div>
   </div>

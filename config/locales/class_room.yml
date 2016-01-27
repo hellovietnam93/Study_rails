@@ -36,11 +36,19 @@ en:
     assignments:
       actions:
         edit: "Edit assignment %{assignment}"
+        submit: "Submit assignment"
     tabs:
-      question: "Question"
+      questions: "Question"
       other: "Other"
-      class_room: "Class room"
-      member: "Members"
+      class_rooms: "Class room"
+      assignments: "Assignments"
+      members: "Members"
+    students:
+      tabs:
+        class_rooms: "Class room"
+        members: "Members"
+        assignments: "Assignments"
+        online_tests: "Online test"
     actions:
       detail: "Class detail"
       edit: "Edit class information"

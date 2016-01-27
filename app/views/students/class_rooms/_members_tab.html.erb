@@ -1,0 +1,27 @@
+<% if user_in_class? current_user, @class_room %>
+  <div id="members">
+    <h2><%= t "class_rooms.members.all", class_room: @class_room.uid %></h2>
+    <table class="members table table-hover">
+      <thead>
+        <tr>
+          <tr class="theader">
+            <th class="email">
+              <strong><%= t "members.fields.email" %></strong>
+            </th>
+            <th class="join_date">
+              <strong><%= t "members.fields.join_date" %></strong>
+            </th>
+            <th class="action">
+              <strong><%= t "members.fields.action" %><strong>
+            </th>
+          </tr>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <% @members.each do |member| %>
+          <%= render "students/class_rooms/member", member: member %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

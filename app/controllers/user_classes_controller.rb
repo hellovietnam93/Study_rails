@@ -7,6 +7,7 @@ class UserClassesController < ApplicationController
       if right_key? params[:user_class][:key]
         enroll_class current_user
         @assignment = @class_room.assignments.new
+        @members = @class_room.user_classes.where owner: false
       else
         @user_class.errors.add :base, I18n.t("class_rooms.user_classes.key_not_right")
       end

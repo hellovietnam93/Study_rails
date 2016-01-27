@@ -57,3 +57,11 @@ class_room:
     class_rooms: "Class room"
     members: "Member"
     questions: "Question"
+    assignments: "Assignment"
+  students:
+    tabs:
+      class_rooms: "Class room"
+      members: "Member"
+      assignments: "Assignment"
+      online_tests: "Online test"
+

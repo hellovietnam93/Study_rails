@@ -8,12 +8,14 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div id="wrapper">
-      <%= render "shared/top" %>
-      <div id="main" class="clearfix">
-        <div id="content">
-          <%= render "shared/flash" %>
-          <%= yield %>
+    <div class="container">
+      <div id="wrapper">
+        <%= render "shared/top" %>
+        <div id="main" class="clearfix">
+          <div id="content">
+            <%= render "shared/flash" %>
+            <%= yield %>
+          </div>
         </div>
       </div>
     </div>

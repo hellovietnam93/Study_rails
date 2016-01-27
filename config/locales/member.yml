@@ -4,3 +4,5 @@ en:
       email: "Email"
       join_date: "Join date"
       action: "Action"
+    actions:
+      leave: "Leave out"

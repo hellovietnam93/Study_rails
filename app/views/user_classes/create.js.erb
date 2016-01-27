@@ -9,6 +9,12 @@
   $(".tab-list .pull-right").html("<%= j render 'class_rooms/class_actions' %>")
   $("#sign-in-class-modal").modal("hide")
   $(".modal-backdrop").remove()
-  $("#assignments").html("<%= j render 'class_rooms/assignment_tab' %>")
+  <% if current_user.lecturer? %>
+    $("#assignments").html("<%= j render 'class_rooms/assignment_tab' %>")
+    $("#members").html("<%= j render 'class_rooms/members_tab' %>")
+  <% else %>
+    $("#assignments").html("<%= j render 'students/class_rooms/assignments_tab' %>")
+    $("#members").html("<%= j render 'students/class_rooms/members_tab' %>")
+  <% end %>
 <% end %>
 set_timetout()
