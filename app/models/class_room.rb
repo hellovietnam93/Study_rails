@@ -5,6 +5,8 @@ class ClassRoom < ActiveRecord::Base
   has_many :assignments, dependent: :destroy
   has_many :questions, dependent: :destroy
   has_many :online_tests, dependent: :destroy
+  has_many :assignment_submits, dependent: :destroy
+  has_many :assignment_histories, dependent: :destroy
 
   belongs_to :course
   belongs_to :semester

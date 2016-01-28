@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124131059) do
+ActiveRecord::Schema.define(version: 20160127141258) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -22,6 +22,34 @@ ActiveRecord::Schema.define(version: 20160124131059) do
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+
+  create_table "assignment_histories", force: :cascade do |t|
+    t.integer  "user_id",              limit: 4
+    t.integer  "class_room_id",        limit: 4
+    t.integer  "assignment_id",        limit: 4
+    t.text     "content",              limit: 65535
+    t.integer  "assignment_submit_id", limit: 4
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  add_index "assignment_histories", ["assignment_id"], name: "index_assignment_histories_on_assignment_id", using: :btree
+  add_index "assignment_histories", ["assignment_submit_id"], name: "index_assignment_histories_on_assignment_submit_id", using: :btree
+  add_index "assignment_histories", ["class_room_id"], name: "index_assignment_histories_on_class_room_id", using: :btree
+  add_index "assignment_histories", ["user_id"], name: "index_assignment_histories_on_user_id", using: :btree
+
+  create_table "assignment_submits", force: :cascade do |t|
+    t.integer  "user_id",       limit: 4
+    t.integer  "class_room_id", limit: 4
+    t.integer  "assignment_id", limit: 4
+    t.text     "content",       limit: 65535
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "assignment_submits", ["assignment_id"], name: "index_assignment_submits_on_assignment_id", using: :btree
+  add_index "assignment_submits", ["class_room_id"], name: "index_assignment_submits_on_class_room_id", using: :btree
+  add_index "assignment_submits", ["user_id"], name: "index_assignment_submits_on_user_id", using: :btree
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -234,6 +262,13 @@ ActiveRecord::Schema.define(version: 20160124131059) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "assignment_histories", "assignment_submits"
+  add_foreign_key "assignment_histories", "assignments"
+  add_foreign_key "assignment_histories", "class_rooms"
+  add_foreign_key "assignment_histories", "users"
+  add_foreign_key "assignment_submits", "assignments"
+  add_foreign_key "assignment_submits", "class_rooms"
+  add_foreign_key "assignment_submits", "users"
   add_foreign_key "assignments", "class_rooms"
   add_foreign_key "class_rooms", "courses"
   add_foreign_key "class_rooms", "semesters"

@@ -1,0 +1,14 @@
+<tr class="member-<%= member.id %> trow" >
+  <td class="uid">
+    <%= link_to member.user.email, "#" %>
+  </td>
+  <td class="name"><%= member.created_at %></td>
+  <td class="action">
+    <% if can? :destroy, member %>
+      <%= link_to t("members.actions.leave"),
+        user_class_path(member),
+        data: {confirm: t("form.confirmation")},
+        method: :delete, class: "icon icon-delete delete-member" %>
+    <% end %>
+  </td>
+</tr>

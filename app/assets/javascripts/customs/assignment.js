@@ -32,6 +32,11 @@ $(document).on("ready", function() {
       "data-assignment-id": assignmentId,
       "data-assignment-class": classroomID
     });
+
+    $(this).find(".assignment-submit").attr({
+      "data-assignment-id": assignmentId,
+      "data-assignment-class": classroomID
+    });
   });
 
   $(document).on("show.bs.modal", "#new-assignment-modal", function (event) {

@@ -1,0 +1,8 @@
+en:
+  assignment_submits:
+    fields:
+      content: "Content"
+      user: "User"
+      updated_at: "Date"
+    errors:
+      unknow_errors: "Transaction fails"

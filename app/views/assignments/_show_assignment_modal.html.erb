@@ -12,11 +12,17 @@
               <button type="button" class="close" data-dismiss="modal">
                 &times;
               </button>
-              <a data-toggle="modal" data-target="#new-assignment-modal"
-                href="#" class="assignment-edit glyphicon glyphicon-edit">
-              </a>
-              <a class="assignment-delete glyphicon glyphicon-trash" href="#">
-              </a>
+              <% if current_user.student? %>
+                <a data-toggle="modal" data-target="#submit-assignment-modal"
+                  href="#" class="assignment-submit glyphicon glyphicon-education">
+                </a>
+              <% else %>
+                <a data-toggle="modal" data-target="#new-assignment-modal"
+                  href="#" class="assignment-edit glyphicon glyphicon-edit">
+                </a>
+                <a class="assignment-delete glyphicon glyphicon-trash" href="#">
+                </a>
+              <% end %>
             </div>
           </div>
         </div>

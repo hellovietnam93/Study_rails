@@ -1,9 +1,7 @@
-<div class="col-md-9">
+<% if current_user.lecturer? %>
   <%= render "nav_tabs" %>
-</div>
+<% else %>
+  <%= render "students/class_rooms/nav_tabs" %>
+<% end %>
 
-<div class="col-md-3">
-  <div id="assignments">
-    <%= render "assignment_tab" %>
-  </div>
-</div>
+<%= render "assignment_submits/submit_assignment_modal" if current_user.student? %>
