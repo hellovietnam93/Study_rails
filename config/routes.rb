@@ -19,6 +19,15 @@ Rails.application.routes.draw do
     resources :online_tests
     resources :assignment_submits, except: [:index, :new, :edit]
     resources :assignment_histories
+    resources :forums
+  end
+
+  resources :forums, only: :show do
+    resources :posts
+  end
+
+  resources :post, only: :show do
+    resources :comments
   end
   resources :semesters, only: [:index, :show]
   resources :user_classes, only: [:create, :destroy]

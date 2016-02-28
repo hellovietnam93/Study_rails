@@ -11,6 +11,9 @@
       <li class="pull-right">
         <%= render "class_actions" %>
       </li>
+      <li class="pull-right">
+        <%= link_to t("forums.forum"), class_room_forum_path(@class_room, @class_room.forum) %>
+      </li>
     </ul>
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="class_rooms">
