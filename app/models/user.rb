@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :online_tests, dependent: :destroy
   has_many :assignment_submits, dependent: :destroy
   has_many :assignment_histories, dependent: :destroy
+  has_many :posts, dependent: :destroy
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

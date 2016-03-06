@@ -1,0 +1,15 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="micropost_form">
+      <%= render 'posts/form' %>
+    </section>
+  </aside>
+  <div id="posts" class="col-md-8">
+    <h3><%= t "posts.posts" %></h3>
+    <% if @posts.any? %>
+      <ol>
+        <%= render @posts %>
+      </ol>
+    <% end %>
+  </div>
+</div>
