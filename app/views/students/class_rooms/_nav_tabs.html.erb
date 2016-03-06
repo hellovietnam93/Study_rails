@@ -12,7 +12,7 @@
         <%= render "class_actions" %>
       </li>
       <li class="pull-right">
-        <%= link_to t("forums.forum"), class_room_forum_path(@class_room, @class_room.forum) %>
+        <%= link_to t("forums.forum"), @class_room.forum %>
       </li>
     </ul>
     <div class="tab-content">

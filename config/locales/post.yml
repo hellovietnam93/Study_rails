@@ -1,0 +1,7 @@
+en:
+  posts:
+    posts: "Posts"
+    posted_ago: "Posted %{time} ago"
+    header:
+      name: "Name"
+      content: "Content"

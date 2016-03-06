@@ -1,0 +1,23 @@
+<%= form_for [@forum, @post] do |f| %>
+  <%= render "shared/errors_messages", object: f.object %>
+  <% if f.object.new_record? %>
+    <%= f.hidden_field :forum_id, value: @forum.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :class_room_id, value: @class_room.id %>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_field :name, class: "form-control",
+      placeholder: t("posts.header.name"),
+      required: true, minlength: "6" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_area :content, placeholder: t("posts.header.content"),
+      class: "form-control", required: true, minlength: "6" %>
+  </div>
+
+  <%= f.submit t("form.buttons.post"),
+    data: {disable_with: t("form.buttons.posting")},
+    class: "btn btn-primary" %>
+<% end %>

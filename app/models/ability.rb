@@ -15,12 +15,14 @@ class Ability
       can [:index, :show], AssignmentSubmit
       can :manage, AssignmentHistory
       can :manage, Forum
+      can :manage, Post, user_id: user.id
     else
       can [:index, :show], ClassRoom
       can [:create, :destroy], UserClass, user_id: user.id
       can :show, Assignment
       can :manage, AssignmentSubmit, user_id: user.id
       can :read, Forum
+      can :manage, Post, user_id: user.id
     end
   end
 end

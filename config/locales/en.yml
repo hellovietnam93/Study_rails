@@ -17,6 +17,8 @@ en:
       saving: "Saving..."
       add_more: "Add more"
       cancel: "Cancel"
+      post: "Post"
+      posting: "Posting..."
   date:
     formats:
       default: "%Y/%m/%d"
@@ -28,6 +30,7 @@ en:
   flashs:
     messages:
       created: "%{model_name} was created successfully!"
+      not_created: "%{model_name} couldn't be created!"
       deleted: "%{model_name} was deleted successfully!"
       not_deleted: "%{model_name} couldn't be deleted!"
       not_updated: "%{model_name} couldn't be updated"
