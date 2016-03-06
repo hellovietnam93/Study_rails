@@ -15,6 +15,7 @@ class Admin::ClassRoomsController < ApplicationController
     @class_room_service = ClassRoomService.new @class_room
     respond_to do |format|
       if @class_room_service.save
+        @class_room.create_forum
         @class_rooms = @class_room.course.class_rooms
       end
       format.js

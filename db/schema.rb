@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127141258) do
+ActiveRecord::Schema.define(version: 20160228144939) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -100,6 +100,27 @@ ActiveRecord::Schema.define(version: 20160127141258) do
   add_index "class_rooms", ["semester_id"], name: "index_class_rooms_on_semester_id", using: :btree
   add_index "class_rooms", ["slug"], name: "index_class_rooms_on_slug", unique: true, using: :btree
 
+  create_table "comment_hierarchies", force: :cascade do |t|
+    t.integer "ancestor_id",   limit: 4, null: false
+    t.integer "descendant_id", limit: 4, null: false
+    t.integer "generations",   limit: 4, null: false
+  end
+
+  add_index "comment_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "comment_anc_desc_udx", unique: true, using: :btree
+  add_index "comment_hierarchies", ["descendant_id"], name: "comment_desc_idx", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content",    limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.integer  "post_id",    limit: 4
+    t.integer  "parent_id",  limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
   create_table "courses", force: :cascade do |t|
     t.string   "name",              limit: 255
     t.string   "uid",               limit: 255
@@ -121,6 +142,14 @@ ActiveRecord::Schema.define(version: 20160127141258) do
 
   add_index "courses", ["slug"], name: "index_courses_on_slug", unique: true, using: :btree
 
+  create_table "forums", force: :cascade do |t|
+    t.integer  "class_room_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "forums", ["class_room_id"], name: "index_forums_on_class_room_id", using: :btree
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
     t.integer  "sluggable_id",   limit: 4,   null: false
@@ -141,9 +170,11 @@ ActiveRecord::Schema.define(version: 20160127141258) do
     t.string   "slug",          limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "forum_id",      limit: 4
   end
 
   add_index "group_classes", ["class_room_id"], name: "index_group_classes_on_class_room_id", using: :btree
+  add_index "group_classes", ["forum_id"], name: "index_group_classes_on_forum_id", using: :btree
   add_index "group_classes", ["slug"], name: "index_group_classes_on_slug", unique: true, using: :btree
   add_index "group_classes", ["user_id"], name: "index_group_classes_on_user_id", using: :btree
 
@@ -158,6 +189,20 @@ ActiveRecord::Schema.define(version: 20160127141258) do
   add_index "online_tests", ["class_room_id"], name: "index_online_tests_on_class_room_id", using: :btree
   add_index "online_tests", ["question_id"], name: "index_online_tests_on_question_id", using: :btree
   add_index "online_tests", ["user_id"], name: "index_online_tests_on_user_id", using: :btree
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.text     "content",       limit: 65535
+    t.integer  "user_id",       limit: 4
+    t.integer  "forum_id",      limit: 4
+    t.integer  "class_room_id", limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "posts", ["class_room_id"], name: "index_posts_on_class_room_id", using: :btree
+  add_index "posts", ["forum_id"], name: "index_posts_on_forum_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "prime_classes", force: :cascade do |t|
     t.string   "semester",     limit: 255
@@ -272,11 +317,18 @@ ActiveRecord::Schema.define(version: 20160127141258) do
   add_foreign_key "assignments", "class_rooms"
   add_foreign_key "class_rooms", "courses"
   add_foreign_key "class_rooms", "semesters"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
+  add_foreign_key "forums", "class_rooms"
   add_foreign_key "group_classes", "class_rooms"
+  add_foreign_key "group_classes", "forums"
   add_foreign_key "group_classes", "users"
   add_foreign_key "online_tests", "class_rooms"
   add_foreign_key "online_tests", "questions"
   add_foreign_key "online_tests", "users"
+  add_foreign_key "posts", "class_rooms"
+  add_foreign_key "posts", "forums"
+  add_foreign_key "posts", "users"
   add_foreign_key "questions", "class_rooms"
   add_foreign_key "questions", "courses"
   add_foreign_key "results", "answers"
