@@ -16,6 +16,8 @@ class Ability
       can :manage, AssignmentHistory
       can :manage, Forum
       can :manage, Post, user_id: user.id
+      can :manage, Comment, user_id: user.id
+      can [:create, :destroy], Like, user_id: user.id
     else
       can [:index, :show], ClassRoom
       can [:create, :destroy], UserClass, user_id: user.id
@@ -23,6 +25,8 @@ class Ability
       can :manage, AssignmentSubmit, user_id: user.id
       can :read, Forum
       can :manage, Post, user_id: user.id
+      can :manage, Comment, user_id: user.id
+      can [:create, :destroy], Like, user_id: user.id
     end
   end
 end

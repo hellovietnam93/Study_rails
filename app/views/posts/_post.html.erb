@@ -4,6 +4,15 @@
     <span class="content"><%= post.content %></span>
     <span class="timestamp">
       <%= t "posts.posted_ago", time: time_ago_in_words(post.created_at) %>
+    </span>
+    <span class="post-like">
+      <% if current_user.like post %>
+        <%= render "likes/dislikes", like: current_user.like(post) %>
+      <% else %>
+        <%= render "likes/likes", target: post %>
+      <% end %>
+    </span>
+    <span class="pull-right">
       <% if can? :manage, post %>
         <%= link_to t("form.buttons.edit"), edit_forum_post_path(@forum, post),
           remote: true, data: {disable_with: t("form.buttons.editing")} %>
@@ -12,5 +21,10 @@
           confirm: t("form.confirmation")} %>
       <% end %>
     </span>
+
+    <div id="comment-new-<%= post.id %>"></div>
+    <%= render post.comments.order(updated_at: :desc) %>
+
+    <%= render "comments/form", post: post %>
   </li>
 <% end %>

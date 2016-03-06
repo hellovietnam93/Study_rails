@@ -76,6 +76,9 @@ GEM
       orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
+    closure_tree (6.0.0)
+      activerecord (>= 4.1.0)
+      with_advisory_lock (>= 3.0.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
@@ -317,6 +320,9 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    with_advisory_lock (3.0.0)
+      activerecord (>= 3.2)
+      thread_safe
 
 PLATFORMS
   ruby
@@ -328,6 +334,7 @@ DEPENDENCIES
   bootstrap-sass
   cancancan
   ckeditor
+  closure_tree
   coffee-rails (~> 4.1.0)
   config
   devise

@@ -34,6 +34,7 @@ gem "figaro"
 gem "ckeditor"
 gem "paperclip"
 gem "nested_form"
+gem "closure_tree"
 
 group :development, :test do
   gem "pry"

@@ -1,0 +1,9 @@
+<% if @comment.post.present? %>
+  $("#comment-new-<%= @post.id %>").
+    append("<%= j render @comment %>")
+  $("#post-<%= @post.id %>").find("form")[0].reset()
+<% else %>
+  $("#comment-children-<%= @parent.id %>").
+    append("<%= j render @comment %>")
+  $("#comment-<%= @parent.id %>").find("form")[0].reset()
+<% end %>

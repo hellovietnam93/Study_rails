@@ -29,6 +29,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :comments, only: [:index, :create]
+  get "/comments/new/(:parent_id)", to: "comments#new", as: :new_comment
+
   resources :semesters, only: [:index, :show]
   resources :user_classes, only: [:create, :destroy]
 
