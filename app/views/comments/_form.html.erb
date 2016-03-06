@@ -1,0 +1,16 @@
+<%= form_for [post, @comment], remote: true do |f| %>
+  <%= render "shared/errors_messages", object: f.object %>
+  <% if f.object.new_record? %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :post_id, value: post.id %>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_area :content, placeholder: t("posts.header.content"),
+      class: "form-control" %>
+  </div>
+
+  <%= f.submit t("form.buttons.comment"),
+    data: {disable_with: t("form.buttons.commenting")},
+    class: "btn btn-primary" %>
+<% end %>

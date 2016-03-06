@@ -5,5 +5,6 @@ class ForumsController < ApplicationController
     @class_room = @forum.class_room
     @posts = @forum.posts
     @post = @forum.posts.build
+    @comment = current_user.comments.build
   end
 end

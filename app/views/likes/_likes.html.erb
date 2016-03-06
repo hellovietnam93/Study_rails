@@ -1,0 +1,4 @@
+<%= link_to t("form.buttons.like"), user_likes_path(current_user,
+  type: target.class.table_name, target_id: target.id),
+  method: :post, remote: true %>
+<%= Like.find_by_target(target.class.table_name, target.id).count %>

@@ -19,6 +19,11 @@ en:
       cancel: "Cancel"
       post: "Post"
       posting: "Posting..."
+      comment: "Comment"
+      commenting: "Commenting..."
+      reply: "Reply"
+      like: "Like"
+      dislike: "Dislike"
   date:
     formats:
       default: "%Y/%m/%d"

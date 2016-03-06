@@ -179,15 +179,15 @@ ActiveRecord::Schema.define(version: 20160306045600) do
   add_index "group_classes", ["user_id"], name: "index_group_classes_on_user_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "target_id",  limit: 4
-    t.integer  "type",       limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "user_id",     limit: 4
+    t.integer  "target_id",   limit: 4
+    t.string   "target_type", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "likes", ["target_id"], name: "index_likes_on_target_id", using: :btree
-  add_index "likes", ["type"], name: "index_likes_on_type", using: :btree
+  add_index "likes", ["target_type"], name: "index_likes_on_target_type", using: :btree
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "online_tests", force: :cascade do |t|

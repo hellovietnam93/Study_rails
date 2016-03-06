@@ -1,0 +1,3 @@
+<%= link_to t("form.buttons.dislike"), user_like_path(current_user, like),
+  method: :delete, remote: true %>
+<%= Like.find_by_target(like.target_type, like.target_id).count %>
