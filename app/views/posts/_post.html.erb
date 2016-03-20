@@ -1,26 +1,44 @@
 <% if post.id.present? %>
   <li id="post-<%= post.id %>">
-    <span class="user"><%= post.user.email %></span>
-    <span class="content"><%= post.content %></span>
-    <span class="timestamp">
-      <%= t "posts.posted_ago", time: time_ago_in_words(post.created_at) %>
-    </span>
-    <span class="post-like">
-      <% if current_user.like post %>
-        <%= render "likes/dislikes", like: current_user.like(post) %>
-      <% else %>
-        <%= render "likes/likes", target: post %>
-      <% end %>
-    </span>
-    <span class="pull-right">
-      <% if can? :manage, post %>
-        <%= link_to t("form.buttons.edit"), edit_forum_post_path(@forum, post),
-          remote: true, data: {disable_with: t("form.buttons.editing")} %>
-        <%= link_to t("form.buttons.delete"), forum_post_path(@forum, post),
-          method: :delete, data: {disable_with: t("form.buttons.deleting"),
-          confirm: t("form.confirmation")} %>
-      <% end %>
-    </span>
+    <p>
+      <div>
+        <%= link_to post.user.email, post.user %>
+        <% if can? :manage, post %>
+          <span class="pull-right dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+              <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to edit_forum_post_path(@forum, post),
+                  remote: true do %>
+                  <i class="fa fa-pencil-square-o"></i>
+                  <%= t "form.buttons.edit" %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to forum_post_path(@forum, post),
+                  method: :delete, confirm: t("form.confirmation") do %>
+                  <i class="fa fa-times"></i>
+                  <%= t "form.buttons.delete" %>
+                <% end %>
+              </li>
+            </ul>
+          </span>
+        <% end %>
+      </div>
+      <div class="timestamp">
+        <%= t "posts.posted_ago", time: time_ago_in_words(post.created_at) %>
+      </div>
+      <span class="content"><%= post.content %></span>
+      <span class="post-like">
+        <% if current_user.like post %>
+          <%= render "likes/dislikes", like: current_user.like(post) %>
+        <% else %>
+          <%= render "likes/likes", target: post %>
+        <% end %>
+      </span>
+    </p>
 
     <div id="comment-new-<%= post.id %>"></div>
     <%= render post.comments.order(updated_at: :desc) %>
