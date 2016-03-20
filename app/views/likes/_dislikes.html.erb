@@ -1,3 +1,5 @@
-<%= link_to t("form.buttons.dislike"), user_like_path(current_user, like),
-  method: :delete, remote: true %>
+<%= link_to user_like_path(current_user, like),
+  method: :delete, remote: true do %>
+  <i class="fa fa-thumbs-o-up"></i>
+<% end %>
 <%= Like.find_by_target(like.target_type, like.target_id).count %>
