@@ -1,0 +1,19 @@
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to admin_root_path, class: "logo" do %>
+    <span class="logo-mini">
+      <b><%= t "static_page.mini_name" %></b>
+    </span>
+    <span class="logo-lg">
+      <b><%= t "static_page.app_name" %></b>
+    </span>
+  <% end %>
+<% else %>
+  <%= link_to root_path, class: "logo" do %>
+    <span class="logo-mini">
+      <b><%= t "static_page.mini_name" %></b>
+    </span>
+    <span class="logo-lg">
+      <b><%= t "static_page.app_name" %></b>
+    </span>
+  <% end %>
+<% end %>
