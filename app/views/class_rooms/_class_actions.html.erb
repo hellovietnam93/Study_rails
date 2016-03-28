@@ -26,16 +26,4 @@
   </div>
 <% end %>
 
-<% if show_login_class? current_user, @class_room %>
-  <%= link_to "#", class: "sign-in-class btn btn-danger",
-    data: {toggle: "modal", target: "#sign-in-class-modal"} do %>
-    <% if current_user.lecturer? %>
-      <%= t "class_rooms.teachers.login" %>
-    <% else %>
-      <%= t "class_rooms.members.login" %>
-    <% end %>
-  <% end %>
-<% end %>
-
-<%= render "class_rooms/sign_in_class_modal" %>
 <%= render "class_rooms/show_class_modal" %>

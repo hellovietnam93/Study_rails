@@ -1,35 +1,17 @@
-<div id="sign-in-class-modal" class="modal fade" role="dialog"
-  data-backdrop="static">
-  <div class="modal-dialog modal-sm">
-    <%= form_for @user_class, remote: true do |f| %>
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
-          <h4 class="modal-title">
-            <%= t "class_rooms.user_classes.sign_in" %>
-          </h4>
-        </div>
+<%= form_for @user_class do |f| %>
 
-        <div class="modal-body">
-          <div id="errors-enroll-class"></div>
-
-          <%= f.hidden_field :class_room_id, value: @class_room.id %>
-          <div class="form-group">
-            <%= f.label :key, t("class_rooms.fields.enroll_key"), class: "control-label" %>
-            <%= f.password_field :key, class: "form-control", id: "focus", required: true, autofocus: true %>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <%= f.submit t("form.buttons.save"),
-            data: {disable_with: t("form.buttons.saving")},
-            class: "btn btn-primary" %>
-          <%= link_to t("form.buttons.cancel"), "javascript:void(0)",
-            data: {dismiss: "modal"} %>
-        </div>
-      </div>
-    <% end %>
+  <h4>
+    <%= t "class_rooms.user_classes.sign_in" %>
+  </h4>
+  <%= render "shared/errors_messages", object: @user_class %>
+  <%= f.hidden_field :class_room_id, value: @class_room.id %>
+  <div class="form-group">
+    <%= f.label :key, t("class_rooms.fields.enroll_key"), class: "control-label" %>
+    <%= f.password_field :key, class: "form-control", id: "focus", required: true, autofocus: true %>
   </div>
-</div>
+
+  <%= f.submit t("form.buttons.save"),
+    data: {disable_with: t("form.buttons.saving")},
+    class: "btn btn-primary" %>
+  <%= link_to t("form.buttons.cancel"), :back %>
+<% end %>
