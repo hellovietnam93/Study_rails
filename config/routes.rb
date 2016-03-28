@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   resources :semesters, only: [:index, :show]
   resources :user_classes, only: [:create, :destroy]
+  resources :class_room_requests, only: [:create, :update, :destroy]
 
   resources :users, only: :show do
     resources :likes

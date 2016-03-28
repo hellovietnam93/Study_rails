@@ -2,6 +2,9 @@ en:
   class_rooms:
     all: "All classes"
     class_room: "Class"
+    request:
+      not_have_key: "If you don't have enroll key. You can send request to participate"
+      waiting_request: "You have sent request to participate. Please wait lecturer accept!"
     fields:
       uid: "Id"
       name: "Name"
@@ -54,3 +57,6 @@ en:
       edit: "Edit class information"
       leave_class: "Leave out of class"
       new: "Create new class room"
+      request: "Send request"
+      remove_request: "Remove request"
+      accept_request: "Accept request"

@@ -1,5 +1,4 @@
 <%= form_for @user_class do |f| %>
-
   <h4>
     <%= t "class_rooms.user_classes.sign_in" %>
   </h4>
@@ -10,8 +9,35 @@
     <%= f.password_field :key, class: "form-control", id: "focus", required: true, autofocus: true %>
   </div>
 
-  <%= f.submit t("form.buttons.save"),
-    data: {disable_with: t("form.buttons.saving")},
-    class: "btn btn-primary" %>
-  <%= link_to t("form.buttons.cancel"), :back %>
+  <% if current_user.student? %>
+    <div>
+      <% if request = current_user.user_classes.find_by(class_room_id: @class_room.id) %>
+        <i class="text text-warning">
+          <%= t "class_rooms.request.waiting_request" %>
+          <span>
+            <%= link_to t("class_rooms.actions.remove_request"),
+              class_room_request_path(request),
+              method: :delete %>
+          </span>
+        </i>
+      <% else %>
+        <i>
+          <%= t "class_rooms.request.not_have_key" %>
+          <span>
+            <%= link_to t("class_rooms.actions.request"),
+              class_room_requests_path(class_room_id: @class_room.id),
+              method: :post %>
+          </span>
+        </i>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.submit t("form.buttons.save"),
+      data: {disable_with: t("form.buttons.saving")},
+      class: "btn btn-primary" %>
+    <%= link_to t("form.buttons.cancel"), :back %>
+  </div>
 <% end %>
+
