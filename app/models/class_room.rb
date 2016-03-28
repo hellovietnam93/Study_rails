@@ -31,6 +31,6 @@ class ClassRoom < ActiveRecord::Base
   end
 
   def students
-    user_classes.where owner: false
+    user_classes.where owner: false, status: 1
   end
 end
