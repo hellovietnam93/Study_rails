@@ -3,15 +3,14 @@ class UserClassesController < ApplicationController
   before_action :load_class_room, only: :create
 
   def create
-    respond_to do |format|
-      if right_key? params[:user_class][:key]
-        enroll_class current_user
-        @assignment = @class_room.assignments.new
-        @members = @class_room.user_classes.where owner: false
-      else
-        @user_class.errors.add :base, I18n.t("class_rooms.user_classes.key_not_right")
-      end
-      format.js
+    if right_key? params[:user_class][:key]
+      enroll_class current_user
+      @assignment = @class_room.assignments.new
+      @members = @class_room.user_classes.where owner: false
+      redirect_to @class_room
+    else
+      @user_class.errors.add :base, I18n.t("class_rooms.user_classes.key_not_right")
+      render "class_rooms/_sign_in_class_modal"
     end
   end
 
@@ -38,9 +37,9 @@ class UserClassesController < ApplicationController
 
   def enroll_class current_user
     if current_user.lecturer?
-      @user_class.update_attributes user: current_user, owner: true
+      @user_class.update_attributes user: current_user, owner: true, status: 1
     elsif current_user.student?
-      @user_class.update_attributes user: current_user
+      @user_class.update_attributes user: current_user, status: 1
       add_registered_student
     end
   end
