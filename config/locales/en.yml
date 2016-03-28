@@ -1,6 +1,7 @@
 en:
   static_page:
     app_name: "Studyhub"
+    mini_name: "SH"
     home: "Studyhub"
     actions: "Actions"
   form:

@@ -9,6 +9,7 @@ en:
       reset_password: "Send me reset password instructions"
       change_password: "Change password"
       unlock: "Resend unlock instructions"
+      online: "Online"
     fields:
       email: "Email"
       password: "Password"
