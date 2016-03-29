@@ -56,11 +56,7 @@ class_room:
   tabs:
     class_rooms: "Class room"
     members: "Member"
-    questions: "Question"
   students:
     tabs:
       class_rooms: "Class room"
       members: "Member"
-      assignments: "Assignment"
-      online_tests: "Online test"
-

@@ -1,7 +1,17 @@
 class QuestionsController < ApplicationController
   load_and_authorize_resource
+  skip_load_resource only: :index
   before_action :load_class_room
   before_action :init_message, only: :create
+
+  def index
+    if @class_room
+      @questions = @class_room.questions
+    else
+      flash[:dander] = t "flashs.messages.model_not_found",
+        model: "ClassRoom", id: params[:class_room_id]
+    end
+  end
 
   def create
     if params[:type].present?
@@ -16,16 +26,16 @@ class QuestionsController < ApplicationController
           @alert << data_type.gsub("_", " ").capitalize.pluralize
         end
       end
-      redirect_to @class_room, notice: flash_message("import.success", @notice),
+      redirect_to class_room_questions_path(@class_room), notice: flash_message("import.success", @notice),
         alert: flash_message("import.alert", @alert)
     else
-      redirect_to @class_room, alert: flash_message("import.no_select_file")
+      redirect_to class_room_questions_path(@class_room), alert: flash_message("import.no_select_file")
     end
   end
 
   private
   def load_class_room
-    @class_room = ClassRoom.find params[:class_room_id]
+    @class_room = ClassRoom.includes(:course, :questions).find params[:class_room_id]
   end
 
   def init_message
