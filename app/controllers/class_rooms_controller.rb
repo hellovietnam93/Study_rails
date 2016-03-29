@@ -6,7 +6,8 @@ class ClassRoomsController < ApplicationController
   end
 
   def show
-    @members = @class_room.user_classes.where owner: false
+    @members = @class_room.user_classes.where owner: false, status: 1
+    @requests = @class_room.user_classes.waiting
     @user_class = @class_room.user_classes.new
   end
 

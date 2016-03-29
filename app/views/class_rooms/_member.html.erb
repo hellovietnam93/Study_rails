@@ -4,15 +4,9 @@
   </td>
   <td class="name"><%= member.created_at %></td>
   <td class="action">
-    <% if member.waiting? %>
-      <%= link_to t("class_rooms.actions.accept_request"),
-        class_room_request_path(member),
-        method: :put %>
-    <% else %>
-      <%= link_to t("form.buttons.delete"),
-        user_class_path(member),
-        data: {confirm: t("form.confirmation")},
-        method: :delete, class: "icon icon-delete delete-member" %>
-    <% end %>
+    <%= link_to t("form.buttons.delete"),
+      user_class_path(member),
+      data: {confirm: t("form.confirmation")},
+      method: :delete, class: "icon icon-delete delete-member" %>
   </td>
 </tr>
