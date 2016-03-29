@@ -1,29 +1,26 @@
-<% if @class_room.lecturer.present? && current_user == @class_room.lecturer.user &&
-  current_user.lecturer? %>
-  <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button"
-      id="class_settings" data-toggle="dropdown" aria-haspopup="true"
-      aria-expanded="true">
-      <i class="glyphicon glyphicon-cog"></i>
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="class_settings">
-      <li>
-        <%= link_to "#",
-          data: {toggle: "modal", target: "#show-class-modal"} do %>
-          <%= t "class_rooms.actions.detail" %>
-        <% end %>
-      </li>
-      <li><a href="#"><%= t "class_rooms.actions.edit" %></a></li>
-      <li role="separator" class="divider"></li>
-      <li>
-        <%= link_to t("class_rooms.actions.leave_class"),
-          user_class_path(@class_room.lecturer),
-          data: {confirm: t("form.confirmation")},
-          method: :delete %>
-      </li>
-    </ul>
-  </div>
-<% end %>
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button"
+    id="class_settings" data-toggle="dropdown" aria-haspopup="true"
+    aria-expanded="true">
+    <i class="glyphicon glyphicon-cog"></i>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="class_settings">
+    <li>
+      <%= link_to "#",
+        data: {toggle: "modal", target: "#show-class-modal"} do %>
+        <%= t "class_rooms.actions.detail" %>
+      <% end %>
+    </li>
+    <li><a href="#"><%= t "class_rooms.actions.edit" %></a></li>
+    <li role="separator" class="divider"></li>
+    <li>
+      <%= link_to t("class_rooms.actions.leave_class"),
+        user_class_path(@class_room.lecturer),
+        data: {confirm: t("form.confirmation")},
+        method: :delete %>
+    </li>
+  </ul>
+</div>
 
 <%= render "class_rooms/show_class_modal" %>

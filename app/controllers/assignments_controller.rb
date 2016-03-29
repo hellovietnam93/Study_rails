@@ -6,6 +6,7 @@ class AssignmentsController < ApplicationController
     @class_room = ClassRoom.includes(:assignments, :assignment_submits).
       find_by_id params[:class_room_id]
     if @class_room
+      redirect_to @class_room unless user_in_class? current_user, @class_room
       @assignment = @class_room.assignments.new if current_user.lecturer?
       @assignments = @class_room.assignments
       @assignment_submit = @class_room.assignment_submits.new if current_user.student?
