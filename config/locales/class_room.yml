@@ -3,8 +3,10 @@ en:
     all: "All classes"
     class_room: "Class"
     request:
+      request: "request"
       not_have_key: "If you don't have enroll key. You can send request to participate"
       waiting_request: "You have sent request to participate. Please wait lecturer accept!"
+      number: "%{number} to participate class"
     fields:
       uid: "Id"
       name: "Name"
