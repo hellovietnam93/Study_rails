@@ -48,6 +48,7 @@ en:
       restored: "%{model_name} was restored successfully"
       not_restore: "%{model_name} couldn't be restored"
       permission_denied: "You are not authorized to access this page."
+      model_not_found: "%{model} %{id} dosen't exist"
       import:
         success: "%{models_name} was imported successfully!"
         alert: "%{models_name} was imported fail!"

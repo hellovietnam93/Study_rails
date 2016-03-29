@@ -9,8 +9,6 @@ class ClassRoomsController < ApplicationController
     @members = @class_room.user_classes.where owner: false
     @questions = @class_room.questions
     @user_class = @class_room.user_classes.new
-    @assignment = @class_room.assignments.new
-    @assignment_submit = @class_room.assignment_submits.new if current_user.student?
   end
 
   def update

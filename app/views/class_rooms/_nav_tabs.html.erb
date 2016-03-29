@@ -1,3 +1,11 @@
+<%= link_to class_room_assignments_path(@class_room) do %>
+  <i class="fa fa-tasks"></i>
+  <%= t "assignments.assignment" %>
+<% end %> <br>
+<%= link_to t("classrooms.tabs.questions"), class_room_questions_path(@class_room) %> <br>
+<%= link_to t("forums.forum"), @class_room.forum %>
+
+
 <div class="row tab-list">
   <div class="col-md-12">
     <ul class="nav nav-tabs" role="tablist" id="tabs">
@@ -24,9 +32,6 @@
       </div>
       <div role="tabpanel" class="tab-pane" id="questions">
         <%= render "questions_tab" %>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="assignments">
-        <%= render "assignment_tab" %>
       </div>
     </div>
   </div>
