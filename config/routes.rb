@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   end
 
   resources :class_rooms, only: [:index, :show, :update] do
-    resources :assignments, except: [:index, :new]
-    resources :questions, except: :index
+    resources :assignments
+    resources :questions
     resources :online_tests
-    resources :assignment_submits, except: [:index, :new, :edit]
+    resources :assignment_submits
     resources :assignment_histories
   end
 

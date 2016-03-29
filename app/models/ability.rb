@@ -19,6 +19,7 @@ class Ability
       can :manage, Comment, user_id: user.id
       can [:create, :destroy], Like, user_id: user.id
     else
+      can :index, Assignment
       can [:index, :show], ClassRoom
       can [:create, :destroy], UserClass, user_id: user.id
       can :show, Assignment
