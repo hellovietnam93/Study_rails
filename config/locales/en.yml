@@ -4,6 +4,10 @@ en:
     mini_name: "SH"
     home: "Studyhub"
     actions: "Actions"
+    titles:
+      group: "Group"
+      documentation: "Documentation"
+      dashboard: "Dashboard"
   form:
     error: "error"
     inform_error: "The form contain %{error}"

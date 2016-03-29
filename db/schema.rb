@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160306045600) do
+ActiveRecord::Schema.define(version: 20160329010158) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -163,20 +163,24 @@ ActiveRecord::Schema.define(version: 20160306045600) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
-  create_table "group_classes", force: :cascade do |t|
-    t.string   "name",          limit: 255
-    t.integer  "class_room_id", limit: 4
-    t.integer  "user_id",       limit: 4
-    t.string   "slug",          limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "forum_id",      limit: 4
+  create_table "group_users", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "group_id",   limit: 4
+    t.integer  "status",     limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  add_index "group_classes", ["class_room_id"], name: "index_group_classes_on_class_room_id", using: :btree
-  add_index "group_classes", ["forum_id"], name: "index_group_classes_on_forum_id", using: :btree
-  add_index "group_classes", ["slug"], name: "index_group_classes_on_slug", unique: true, using: :btree
-  add_index "group_classes", ["user_id"], name: "index_group_classes_on_user_id", using: :btree
+  add_index "group_users", ["group_id", "user_id"], name: "index_group_users_on_group_id_and_user_id", unique: true, using: :btree
+  add_index "group_users", ["group_id"], name: "index_group_users_on_group_id", using: :btree
+  add_index "group_users", ["user_id"], name: "index_group_users_on_user_id", using: :btree
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "picture",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
@@ -333,9 +337,8 @@ ActiveRecord::Schema.define(version: 20160306045600) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "forums", "class_rooms"
-  add_foreign_key "group_classes", "class_rooms"
-  add_foreign_key "group_classes", "forums"
-  add_foreign_key "group_classes", "users"
+  add_foreign_key "group_users", "groups"
+  add_foreign_key "group_users", "users"
   add_foreign_key "likes", "users"
   add_foreign_key "online_tests", "class_rooms"
   add_foreign_key "online_tests", "questions"

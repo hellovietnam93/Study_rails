@@ -1,7 +1,6 @@
 class ClassRoom < ActiveRecord::Base
   has_many :user_classes
   has_many :users, through: :user_classes
-  has_many :group_classes, dependent: :destroy
   has_many :assignments, dependent: :destroy
   has_many :questions, dependent: :destroy
   has_many :online_tests, dependent: :destroy
