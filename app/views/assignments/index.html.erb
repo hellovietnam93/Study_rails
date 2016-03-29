@@ -21,6 +21,14 @@
     <div class="show-modal">
       <%= render "assignments/show_assignment_modal" %>
     </div>
+    <h2 id="month">
+      <%= link_to "<", date: @date.prev_month %>
+      <%= @date.strftime "%B %Y" %>
+      <%= link_to ">", date: @date.next_month %>
+    </h2>
+    <%= calendar @date do |date| %>
+      <%= date.day %>
+    <% end %>
     <%= render "assignment_submits/submit_assignment_modal" if current_user.student? %>
   <% end %>
 </div>

@@ -1,4 +1,8 @@
-$(document).on("ready", function() {
+$(document).on("page:change", function() {
+  $("#assignment_start_date, #assignment_end_date").datepicker({
+    dateFormat: "yy/mm/dd"
+  });
+
   $(document).on("show.bs.modal", "#show-assignment-modal", function (event) {
     $("#error_explanation").remove();
     var $link = $(event.relatedTarget);

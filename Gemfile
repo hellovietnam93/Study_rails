@@ -34,7 +34,7 @@ gem "ckeditor"
 gem "paperclip"
 gem "nested_form"
 gem "closure_tree"
-gem "font-awesome-rails"
+gem "jquery-ui-rails"
 
 group :development, :test do
   gem "pry"
