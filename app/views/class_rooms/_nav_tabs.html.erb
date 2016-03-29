@@ -2,9 +2,8 @@
   <i class="fa fa-tasks"></i>
   <%= t "assignments.assignment" %>
 <% end %> <br>
-<%= link_to t("classrooms.tabs.questions"), class_room_questions_path(@class_room) %> <br>
+<%= link_to t("class_rooms.tabs.questions"), class_room_questions_path(@class_room) %> <br>
 <%= link_to t("forums.forum"), @class_room.forum %>
-
 
 <div class="row tab-list">
   <div class="col-md-12">
@@ -18,9 +17,6 @@
       <% end %>
       <li class="pull-right">
         <%= render "class_actions" %>
-      </li>
-      <li class="pull-right">
-        <%= link_to t("forums.forum"), @class_room.forum %>
       </li>
     </ul>
     <div class="tab-content">

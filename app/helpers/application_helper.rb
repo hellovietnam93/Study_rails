@@ -33,11 +33,6 @@ module ApplicationHelper
     end.flatten
   end
 
-  def show_login_class? current_user, class_room
-    (current_user.lecturer? && class_room.lecturer.nil?) ||
-      (current_user.student? && !class_room.students.find_by(user_id: current_user.id))
-  end
-
   def user_in_class? current_user, class_room
     member_class?(current_user, class_room) || manage_class?(current_user, class_room)
   end

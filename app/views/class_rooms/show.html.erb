@@ -1,9 +1,9 @@
-<% if show_login_class? current_user, @class_room %>
-  <%= render "class_rooms/sign_in_class_modal" %>
-<% else %>
+<% if user_in_class? current_user, @class_room %>
   <% if current_user.lecturer? %>
     <%= render "nav_tabs" %>
   <% else %>
     <%= render "students/class_rooms/nav_tabs" %>
   <% end %>
+<% else %>
+  <%= render "class_rooms/sign_in_class_modal" %>
 <% end %>

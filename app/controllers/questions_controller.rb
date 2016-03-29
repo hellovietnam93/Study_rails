@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
 
   def index
     if @class_room
+      redirect_to @class_room unless user_in_class? current_user, @class_room
       @questions = @class_room.questions
     else
       flash[:dander] = t "flashs.messages.model_not_found",
