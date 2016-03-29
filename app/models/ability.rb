@@ -7,7 +7,7 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.lecturer?
-      can [:create, :update, :destroy], Question
+      can :manage, Question
       can [:index, :show], Semester
       can [:index, :update, :show], ClassRoom
       can :manage, Assignment

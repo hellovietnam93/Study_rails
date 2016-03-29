@@ -7,7 +7,6 @@ class ClassRoomsController < ApplicationController
 
   def show
     @members = @class_room.user_classes.where owner: false
-    @questions = @class_room.questions
     @user_class = @class_room.user_classes.new
   end
 
@@ -21,7 +20,11 @@ class ClassRoomsController < ApplicationController
     else
       flash[:alert] = flash_message "not_updated"
     end
-    redirect_to @class_room
+    if params[:class_room][:questions_attributes].blank?
+      redirect_to @class_room
+    else
+      redirect_to class_room_questions_path @class_room
+    end
   end
 
   private

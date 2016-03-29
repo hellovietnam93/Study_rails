@@ -2,7 +2,7 @@
   <i class="fa fa-tasks"></i>
   <%= t "assignments.assignment" %>
 <% end %> <br>
-<%= link_to t("classrooms.tabs.questions"), class_room_questions_path(@class_room) %> <br>
+<%= link_to t("classrooms.students.tabs.online_tests"), class_room_online_tests_path(@class_room) %> <br>
 <%= link_to t("forums.forum"), @class_room.forum %>
 
 
@@ -29,12 +29,6 @@
       </div>
       <div role="tabpanel" class="tab-pane" id="members">
         <%= render "students/class_rooms/members_tab" %>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="online_tests">
-        <%= render "students/class_rooms/online_test_tab" %>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="assignments">
-        <%= render "students/class_rooms/assignments_tab" %>
       </div>
     </div>
   </div>
