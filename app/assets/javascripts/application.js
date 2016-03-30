@@ -19,6 +19,7 @@
 //= require fullcalendar.min
 //= require turbolinks
 //= require ckeditor/init
+//= require ckeditor/reinit
 //= require ckeditor/adapters/jquery
 //= require bootstrap-sprockets
 //= require jquery_nested_form
