@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/datepicker
+//= require moment.min
+//= require jquery-ui.custom.min
+//= require fullcalendar.min
 //= require turbolinks
 //= require ckeditor/init
 //= require ckeditor/adapters/jquery
