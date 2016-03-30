@@ -1,6 +1,6 @@
-class CreateTimeTables < ActiveRecord::Migration
+class CreateTimetables < ActiveRecord::Migration
   def change
-    create_table :time_tables do |t|
+    create_table :timetables do |t|
       t.references :class_room, index: true, foreign_key: true
       t.datetime :start_time
       t.datetime :end_time

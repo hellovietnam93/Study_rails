@@ -35,6 +35,9 @@ gem "paperclip"
 gem "nested_form"
 gem "closure_tree"
 gem "jquery-ui-rails"
+source "https://rails-assets.org" do
+  gem "rails-assets-datetimepicker"
+end
 
 group :development, :test do
   gem "pry"
