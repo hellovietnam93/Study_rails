@@ -142,19 +142,6 @@ ActiveRecord::Schema.define(version: 20160330053521) do
 
   add_index "courses", ["slug"], name: "index_courses_on_slug", unique: true, using: :btree
 
-  create_table "documents", force: :cascade do |t|
-    t.integer  "user_id",       limit: 4
-    t.integer  "class_room_id", limit: 4
-    t.string   "filename",      limit: 255
-    t.string   "content_type",  limit: 255
-    t.binary   "file_contents", limit: 65535
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-  end
-
-  add_index "documents", ["class_room_id"], name: "index_documents_on_class_room_id", using: :btree
-  add_index "documents", ["user_id"], name: "index_documents_on_user_id", using: :btree
-
   create_table "forums", force: :cascade do |t|
     t.integer  "class_room_id", limit: 4
     t.datetime "created_at",              null: false
@@ -175,29 +162,6 @@ ActiveRecord::Schema.define(version: 20160330053521) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
-
-  create_table "fullcalendar_engine_event_series", force: :cascade do |t|
-    t.integer  "frequency",  limit: 4,   default: 1
-    t.string   "period",     limit: 255, default: "monthly"
-    t.datetime "starttime"
-    t.datetime "endtime"
-    t.boolean  "all_day",                default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "fullcalendar_engine_events", force: :cascade do |t|
-    t.string   "title",           limit: 255
-    t.datetime "starttime"
-    t.datetime "endtime"
-    t.boolean  "all_day",                       default: false
-    t.text     "description",     limit: 65535
-    t.integer  "event_series_id", limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "fullcalendar_engine_events", ["event_series_id"], name: "index_fullcalendar_engine_events_on_event_series_id", using: :btree
 
   create_table "group_users", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -316,7 +280,7 @@ ActiveRecord::Schema.define(version: 20160330053521) do
 
   add_index "semesters", ["slug"], name: "index_semesters_on_slug", unique: true, using: :btree
 
-  create_table "time_tables", force: :cascade do |t|
+  create_table "timetables", force: :cascade do |t|
     t.integer  "class_room_id", limit: 4
     t.datetime "start_time"
     t.datetime "end_time"
@@ -326,7 +290,7 @@ ActiveRecord::Schema.define(version: 20160330053521) do
     t.datetime "updated_at",                  null: false
   end
 
-  add_index "time_tables", ["class_room_id"], name: "index_time_tables_on_class_room_id", using: :btree
+  add_index "timetables", ["class_room_id"], name: "index_timetables_on_class_room_id", using: :btree
 
   create_table "user_classes", force: :cascade do |t|
     t.integer  "user_id",       limit: 4
@@ -384,8 +348,6 @@ ActiveRecord::Schema.define(version: 20160330053521) do
   add_foreign_key "class_rooms", "semesters"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "documents", "class_rooms"
-  add_foreign_key "documents", "users"
   add_foreign_key "forums", "class_rooms"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
@@ -401,7 +363,7 @@ ActiveRecord::Schema.define(version: 20160330053521) do
   add_foreign_key "results", "answers"
   add_foreign_key "results", "online_tests"
   add_foreign_key "results", "questions"
-  add_foreign_key "time_tables", "class_rooms"
+  add_foreign_key "timetables", "class_rooms"
   add_foreign_key "user_classes", "class_rooms"
   add_foreign_key "user_classes", "users"
 end

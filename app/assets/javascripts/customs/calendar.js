@@ -1,97 +1,65 @@
 $(document).on("page:change", function() {
+  $("#timetable_start_time, #timetable_end_time").datetimepicker();
+
   $('#calendar').fullCalendar({
+    contentHeight: 600,
     header: {
       left: 'prev,next today',
       center: 'title',
       right: 'month, agendaWeek, agendaDay'
     },
     dayClick: function(date, jsEvent, view) {
-      console.log('Clicked on: ' + date.format());
-      // console.log('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-
-      // console.log('Current view: ' + view.name);
-      // $(this).css('background-color', 'red');
+      $("#new-timetable-modal").modal("show");
+      date_click = date.format("YYYY/MM/DD HH:mm");
+      $("#timetable_start_time").val(date_click);
+      $("#timetable_end_time").val(date_click);
     },
     eventMouseover: function( event, jsEvent, view ) {
-      console.log(event.title);
+      console.log(event.content);
     },
     eventClick: function(calEvent, jsEvent, view) {
-
-        alert('Event: ' + calEvent.title);
-        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-        alert('View: ' + view.name);
-
-        // change the border color just for fun
-        $(this).css('border-color', 'red');
-
+      console.log(calEvent);
     },
+    eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc) {
+      return updateEvent(event);
+    },
+    eventRender: function(event, element) {
+      var content = element.find(".fc-content");
+      var time = $(content).find(".fc-time");
+      var title = $(content).find(".fc-title");
+      if (event.start._i < moment().format() && event.end && event.end._i > moment().format()) {
+        $(time).addClass("text text-success");
+      } else if (event.start._i < moment().format()) {
+        $(time).addClass("text text-info");
+        event.editable = false;
+      } else if (event.start._i > moment().format()) {
+        $(time).addClass("text text-danger");
+      }
+      $(time).append("<div class='divider'></div>");
+    },
+    displayEventEnd: true,
     selectable: true,
     editable: true,
-    eventLimit: true, // allow "more" link when too many events
-    events: [
-      {
-        title: 'All Day Event',
-        start: '2016-01-01'
-      },
-      {
-        title: 'Long Event',
-        start: '2016-01-07',
-        end: '2016-01-10'
-      },
-      {
-        id: 999,
-        title: 'Repeating Event',
-        start: '2016-01-09T16:00:00'
-      },
-      {
-        id: 999,
-        title: 'Repeating Event',
-        start: '2016-03-16T16:00:00'
-      },
-      {
-        title: 'Conference',
-        start: '2016-03-11',
-        end: '2016-03-13'
-      },
-      {
-        title: 'Meeting',
-        start: '2016-03-12T10:30:00',
-        end: '2016-03-12T12:30:00'
-      },
-      {
-        title: 'Lunch',
-        start: '2016-03-12T12:00:00'
-      },
-      {
-        title: 'Meeting',
-        start: '2016-03-12T14:30:00'
-      },
-      {
-        title: 'Happy Hour',
-        start: '2016-03-12T17:30:00'
-      },
-      {
-        title: 'Dinner',
-        start: '2016-03-12T20:00:00'
-      },
-      {
-        title: 'Birthday Party',
-        start: '2016-03-13T07:00:00'
-      },
-      {
-        title: 'Click for Google',
-        url: 'http://google.com/',
-        start: '2016-03-28'
-      }
-    ],
-    eventResize: function(event, delta, revertFunc) {
-
-        alert(event.title + " end is now " + event.end.format());
-
-        if (!confirm("is this okay?")) {
-            revertFunc();
-        }
-
+    eventLimit: true,
+    events: "http://localhost:3000/class_rooms/" + $("#calendar").attr("data-class-room-id") + "/timetables.json",
+    eventResize: function(event, dayDelta, minuteDelta, revertFunc) {
+      return updateEvent(event);
     }
   });
 });
+
+updateEvent = function(the_event) {
+  $.ajax({
+    type: "PUT",
+    url: "http://localhost:3000/class_rooms/" + $("#calendar").attr("data-class-room-id") + "/timetables/" + the_event.id,
+    data: { timetable: {
+      title: the_event.title,
+      start_time: "" + new Date(the_event.start).toUTCString(),
+      end_time: "" + new Date(the_event.end).toUTCString(),
+      content: the_event.content || "",
+      sender_id: the_event.senderId,
+      recipient_id: the_event.recipientId,
+      all_day: the_event.allDay }
+    }
+  });
+};

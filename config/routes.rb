@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :online_tests
     resources :assignment_submits
     resources :assignment_histories
+    resources :timetables
   end
 
   resources :forums, only: :show do

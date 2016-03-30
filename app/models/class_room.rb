@@ -7,7 +7,7 @@ class ClassRoom < ActiveRecord::Base
   has_many :assignment_submits, dependent: :destroy
   has_many :assignment_histories, dependent: :destroy
   has_many :posts, dependent: :destroy
-  has_many :time_tables, dependent: :destroy
+  has_many :timetables, dependent: :destroy
 
   has_one :forum, dependent: :destroy
 

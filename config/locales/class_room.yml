@@ -2,6 +2,7 @@ en:
   class_rooms:
     all: "All classes"
     class_room: "Class"
+    timetables: "Timetable"
     request:
       request: "request"
       not_have_key: "If you don't have enroll key. You can send request to participate"
