@@ -38,6 +38,7 @@ gem "jquery-ui-rails"
 source "https://rails-assets.org" do
   gem "rails-assets-datetimepicker"
 end
+gem "carrierwave"
 
 group :development, :test do
   gem "pry"

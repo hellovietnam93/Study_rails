@@ -8,6 +8,7 @@ class ClassRoom < ActiveRecord::Base
   has_many :assignment_histories, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :timetables, dependent: :destroy
+  has_many :documents, dependent: :destroy
 
   has_one :forum, dependent: :destroy
 

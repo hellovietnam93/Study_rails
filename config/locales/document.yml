@@ -1,0 +1,8 @@
+en:
+  documents:
+    document: "Document"
+    headers:
+      title: "Title"
+      download_link: "Download link"
+    placeholder:
+      enter_title: "Enter title ..."

@@ -1,0 +1,36 @@
+<div id="documents">
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th><%= t "documents.headers.title" %></th>
+            <th><%= t "documents.headers.download_link" %></th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @documents.each do |document| %>
+            <tr>
+              <td><%= document.title %></td>
+              <td>
+                <%= link_to document.attachment_url, document.attachment_url %>
+              </td>
+              <td>
+                <%= button_to t("form.buttons.delete"),
+                  class_room_document_path(@class_room, document),
+                  method: :delete, class: "btn btn-danger",
+                  data: {confirm: t("form.confirmation")} %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <%= render "documents/form" %>
+    </div>
+  </div>
+</div>
+

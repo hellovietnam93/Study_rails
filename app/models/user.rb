@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
+  has_many :documents, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
