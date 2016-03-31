@@ -19,6 +19,7 @@ class Ability
       can :manage, Comment, user_id: user.id
       can [:create, :destroy], Like, user_id: user.id
       can :manage, Document, user_id: user.id
+      can :manage, Timetable
     else
       can :index, Assignment
       can [:index, :show], ClassRoom
@@ -29,6 +30,8 @@ class Ability
       can :manage, Post, user_id: user.id
       can :manage, Comment, user_id: user.id
       can [:create, :destroy], Like, user_id: user.id
+      can :index, Document
+      can :index, Timetable
     end
   end
 end

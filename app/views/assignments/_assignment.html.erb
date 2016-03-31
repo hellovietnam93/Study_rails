@@ -19,7 +19,7 @@
     <% if can? :update, assignment %>
       <td class="action">
         <a data-toggle="modal" data-target="#new-assignment-modal"
-          href="#"
+          href="#" class="assignment-edit"
           data-assignment-id="<%= assignment.id %>"
           data-assignment-name="<%= assignment.name %>"
           data-assignment-content="<%= assignment.content %>"

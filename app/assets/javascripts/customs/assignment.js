@@ -53,7 +53,6 @@ $(document).on("page:change", function() {
       $("#show-assignment-modal").modal("hide");
       var assignmentId = $link.attr("data-assignment-id");
       var assignmentName = $link.attr("data-assignment-name");
-      var assignmentContent = $link.attr("data-assignment-content");
       var assignmentStartDate = $link.attr("data-assignment-start-date");
       var assignmentEndDate = $link.attr("data-assignment-end-date");
       var assignmentType = $link.attr("data-assignment-type");
@@ -68,12 +67,16 @@ $(document).on("page:change", function() {
         value: "patch",
         name: "_method"
       }).appendTo($form);
+      $(this).find(".modal-title").html("Edit " + assignmentName);
       $form.find("#assignment_name").val(assignmentName);
       $form.find("#assignment_assignment_type").val(assignmentType);
-      $form.find("#assignment_start_date").val(assignmentStartDate.replace(/\//g, "-"));
-      $form.find("#assignment_end_date").val(assignmentEndDate.replace(/\//g, "-"));
-      CKEDITOR.instances.assignment_content.setData(assignmentContent);
+      $form.find("#assignment_start_date").val(assignmentStartDate);
+      $form.find("#assignment_end_date").val(assignmentEndDate);
     }
+  });
+
+  $(document).on("shown.bs.modal", "#new-assignment-modal", function (event) {
+    CKEDITOR.instances.assignment_content.setData($(".assignment-edit").attr("data-assignment-content"));
   });
 
   $(document).on("click", ".assignment-delete", function (event) {

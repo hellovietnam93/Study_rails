@@ -6,7 +6,9 @@
           <tr>
             <th><%= t "documents.headers.title" %></th>
             <th><%= t "documents.headers.download_link" %></th>
-            <th>&nbsp;</th>
+            <% if can? :manage, Document %>
+              <th>&nbsp;</th>
+            <% end %>
           </tr>
         </thead>
         <tbody>
@@ -16,12 +18,14 @@
               <td>
                 <%= link_to document.attachment_url, document.attachment_url %>
               </td>
-              <td>
-                <%= button_to t("form.buttons.delete"),
-                  class_room_document_path(@class_room, document),
-                  method: :delete, class: "btn btn-danger",
-                  data: {confirm: t("form.confirmation")} %>
-              </td>
+              <% if can? :manage, Document %>
+                <td>
+                  <%= button_to t("form.buttons.delete"),
+                    class_room_document_path(@class_room, document),
+                    method: :delete, class: "btn btn-danger",
+                    data: {confirm: t("form.confirmation")} %>
+                </td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
@@ -29,7 +33,9 @@
     </div>
 
     <div class="col-md-4">
-      <%= render "documents/form" %>
+      <% if can? :manage, Document %>
+        <%= render "documents/form" %>
+      <% end %>
     </div>
   </div>
 </div>

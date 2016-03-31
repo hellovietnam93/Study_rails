@@ -1,4 +1,6 @@
 class TimetablesController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @class_room = ClassRoom.includes(:timetables).find params[:class_room_id]
     @timetable = Timetable.new
@@ -6,13 +8,11 @@ class TimetablesController < ApplicationController
   end
 
   def create
-    @timetable = Timetable.new timetable_params
     @timetable.save
     redirect_to class_room_timetables_path @timetable.class_room
   end
 
   def update
-    @timetable = Timetable.find params[:id]
     respond_to do |format|
       if @timetable.update timetable_params
         format.json {render :index, location: @timetable.class_room }
