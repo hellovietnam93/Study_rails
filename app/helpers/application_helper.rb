@@ -44,4 +44,11 @@ module ApplicationHelper
   def member_class? current_user, class_room
     class_room.students.pluck(:user_id).include?(current_user.id) && current_user.student?
   end
+
+  def present object, klass = nil
+    klass ||= "#{object.class}Presenter".constantize
+    presenter = klass.new object, self
+    yield presenter if block_given?
+    presenter
+  end
 end

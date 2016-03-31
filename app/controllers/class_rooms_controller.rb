@@ -1,13 +1,19 @@
 class ClassRoomsController < ApplicationController
   load_and_authorize_resource
+  skip_load_resource only: :show
 
   def index
 
   end
 
   def show
-    @members = @class_room.user_classes.where owner: false, status: 1
-    @requests = @class_room.user_classes.waiting
+    @class_room = ClassRoom.includes(user_classes: :user).find params[:id]
+    @members = @class_room.user_classes.select do |user_class|
+      !user_class.owner && user_class.status == "take_in"
+    end
+    @requests = @class_room.user_classes.select do |user_class|
+      user_class.status == "waiting"
+    end
     @user_class = @class_room.user_classes.new
   end
 
