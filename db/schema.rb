@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330053521) do
+ActiveRecord::Schema.define(version: 20160331022001) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -141,6 +141,18 @@ ActiveRecord::Schema.define(version: 20160330053521) do
   end
 
   add_index "courses", ["slug"], name: "index_courses_on_slug", unique: true, using: :btree
+
+  create_table "documents", force: :cascade do |t|
+    t.string   "title",         limit: 255
+    t.string   "attachment",    limit: 255
+    t.integer  "user_id",       limit: 4
+    t.integer  "class_room_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "documents", ["class_room_id"], name: "index_documents_on_class_room_id", using: :btree
+  add_index "documents", ["user_id"], name: "index_documents_on_user_id", using: :btree
 
   create_table "forums", force: :cascade do |t|
     t.integer  "class_room_id", limit: 4
@@ -348,6 +360,8 @@ ActiveRecord::Schema.define(version: 20160330053521) do
   add_foreign_key "class_rooms", "semesters"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "documents", "class_rooms"
+  add_foreign_key "documents", "users"
   add_foreign_key "forums", "class_rooms"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"

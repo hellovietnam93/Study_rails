@@ -5,7 +5,9 @@
 <%= link_to t("class_rooms.tabs.questions"), class_room_questions_path(@class_room) %> <br>
 <%= link_to t("forums.forum"), @class_room.forum %> <br>
 <%= link_to t("class_rooms.timetables"),
-  class_room_timetables_path(@class_room) %>
+  class_room_timetables_path(@class_room) %> <br>
+<%= link_to t("documents.document"),
+  class_room_documents_path(@class_room) %>
 
 <div class="dropdown requests-menu">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'documents/index'
+
+  get 'documents/new'
+
+  get 'documents/create'
+
+  get 'documents/destroy'
+
   mount Ckeditor::Engine => "/ckeditor"
   devise_for :users
 
@@ -20,6 +28,7 @@ Rails.application.routes.draw do
     resources :assignment_submits
     resources :assignment_histories
     resources :timetables
+    resources :documents, only: [:index, :create, :destroy]
   end
 
   resources :forums, only: :show do
