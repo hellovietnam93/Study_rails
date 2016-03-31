@@ -8,7 +8,7 @@ namespace :db do
       role: 0, username: "Admintrator"
     User.create email: "tungtung12543@gmail.com", password: "12345678", password_confirmation: "12345678",
       role: 1, username: "Nguyen Tien Trung"
-    User.create email: "gaint_panda93@yahoo.com.vn", password: "12345678", password_confirmation: "12345678",
+    User.create email: "giant_panda93@yahoo.com.vn", password: "12345678", password_confirmation: "12345678",
       role: 2, username: "Panda"
 
     Semester.create name: "20151A"

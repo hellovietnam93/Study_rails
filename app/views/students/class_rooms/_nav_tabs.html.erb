@@ -3,7 +3,11 @@
   <%= t "assignments.assignment" %>
 <% end %> <br>
 <%= link_to t("class_rooms.students.tabs.online_tests"), class_room_online_tests_path(@class_room) %> <br>
-<%= link_to t("forums.forum"), @class_room.forum %>
+<%= link_to t("forums.forum"), @class_room.forum %> <br>
+<%= link_to t("class_rooms.timetables"),
+  class_room_timetables_path(@class_room) %> <br>
+<%= link_to t("documents.document"),
+  class_room_documents_path(@class_room) %>
 
 <div class="row tab-list">
   <div class="col-md-12">

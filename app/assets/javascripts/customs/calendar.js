@@ -9,10 +9,12 @@ $(document).on("page:change", function() {
       right: 'month, agendaWeek, agendaDay'
     },
     dayClick: function(date, jsEvent, view) {
-      $("#new-timetable-modal").modal("show");
-      date_click = date.format("YYYY/MM/DD HH:mm");
-      $("#timetable_start_time").val(date_click);
-      $("#timetable_end_time").val(date_click);
+      if ($("#calendar").attr("data-editable") == "true") {
+        $("#new-timetable-modal").modal("show");
+        date_click = date.format("YYYY/MM/DD HH:mm");
+        $("#timetable_start_time").val(date_click);
+        $("#timetable_end_time").val(date_click);
+      }
     },
     eventMouseover: function( event, jsEvent, view ) {
       console.log(event.content);
@@ -39,7 +41,7 @@ $(document).on("page:change", function() {
     },
     displayEventEnd: true,
     selectable: true,
-    editable: true,
+    editable: $("#calendar").attr("data-editable") == "false" ? false : true,
     eventLimit: true,
     events: "http://localhost:3000/class_rooms/" + $("#calendar").attr("data-class-room-id") + "/timetables.json",
     eventResize: function(event, dayDelta, minuteDelta, revertFunc) {
