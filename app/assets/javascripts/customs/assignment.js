@@ -76,7 +76,11 @@ $(document).on("page:change", function() {
   });
 
   $(document).on("shown.bs.modal", "#new-assignment-modal", function (event) {
-    CKEDITOR.instances.assignment_content.setData($(".assignment-edit").attr("data-assignment-content"));
+    var $link = $(event.relatedTarget);
+
+    var assignmentId = $link.data("assignment-id");
+    console.log(assignmentId);
+    CKEDITOR.instances.assignment_content.setData($(".assignment-edit-" + assignmentId).attr("data-assignment-content"));
   });
 
   $(document).on("click", ".assignment-delete", function (event) {
