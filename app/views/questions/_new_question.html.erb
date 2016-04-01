@@ -1,6 +1,6 @@
 <%= nested_form_for @class_room do |f| %>
   <%= f.fields_for :questions, wrapper: true do |question| %>
-    <%= question.hidden_field :course_id, value: @class_room.course.id %>
+    <%= question.hidden_field :course_id, value: @class_room.course_id %>
     <%= render "shared/errors_messages", object: question.object %>
     <div class="form-group">
       <%= question.label :name %>

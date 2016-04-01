@@ -10,7 +10,7 @@
         data-assignment-end-date="<%= assignment.end_date.strftime(t "date.formats.default") %>"
         data-assignment-type="<%= t "assignments.assignment_types.#{assignment.assignment_type}" %>"
         data-type="<%= assignment.assignment_type %>"
-        data-assignment-class="<%= assignment.class_room.id %>">
+        data-assignment-class="<%= assignment.class_room_id %>">
         <%= assignment.name %>
       </a>
     </td>
@@ -26,11 +26,11 @@
           data-assignment-start-date="<%= assignment.start_date.strftime(t "date.formats.default") %>"
           data-assignment-end-date="<%= assignment.end_date.strftime(t "date.formats.default") %>"
           data-assignment-type="<%= assignment.assignment_type %>"
-          data-assignment-class="<%= assignment.class_room.id %>">
+          data-assignment-class="<%= assignment.class_room_id %>">
           <%= t "form.buttons.edit" %>
         </a>
         <%= link_to t("form.buttons.delete"),
-          class_room_assignment_path(assignment.class_room, assignment),
+          class_room_assignment_path(@class_room, assignment),
           remote: true, data: {confirm: t("form.confirmation")},
           method: :delete, class: "icon icon-delete delete-assignment" %>
       </td>

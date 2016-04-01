@@ -51,4 +51,24 @@ module ApplicationHelper
     yield presenter if block_given?
     presenter
   end
+
+  def check_lecturer_of_class? user, user_classes
+    user.lecturer? && has_lecturer?(user_classes) &&
+      is_lecturer_of_class?(user, user_classes)
+  end
+
+  def has_lecturer? user_classes
+    user_classes.map(&:owner).include? true
+  end
+
+  def is_lecturer_of_class? user, user_classes
+    user_classes.map(&:user_id).include? user.id
+  end
+
+  def is_member_of_class? user, user_classes
+    user_classes.find do |user_class|
+      user.student? && user_class.status == "take_in" &&
+        user_class.user_id == user.id
+    end
+  end
 end

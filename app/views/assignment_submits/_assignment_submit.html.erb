@@ -12,12 +12,12 @@
           href="#"
           data-assignment-submit-id="<%= assignment_submit.id %>"
           data-assignment-submit-content="<%= assignment_submit.content %>"
-          data-assignment-id="<%= assignment_submit.assignment.id %>"
-          data-assignment-class="<%= assignment_submit.class_room.id %>"
+          data-assignment-id="<%= assignment_submit.assignment_id %>"
+          data-assignment-class="<%= assignment_submit.class_room_id %>"
           class="edit-submit-assignment">
           <%= t "form.buttons.edit" %>
         <%= link_to t("form.buttons.delete"),
-          class_room_assignment_submit_path(assignment_submit.class_room,
+          class_room_assignment_submit_path(assignment_submit.class_room_id,
             assignment_submit),
           remote: true, data: {confirm: t("form.confirmation")},
           method: :delete, class: "icon icon-delete delete-assignment" %>
