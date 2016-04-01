@@ -1,4 +1,16 @@
 en:
   groups:
+    requests:
+      number: "%{number} requests to participate group"
     actions:
       create: "Create new group"
+      edit: "Edit group %{name}"
+    header:
+      name: "Group name"
+      privacy: "Privacy"
+    privacy:
+      public: "Public"
+      private: "Private"
+    description:
+      public: "Anyone can view the groups, group members and their posts"
+      private: "Anyone can find and view group members of the group. Only members can see posts"

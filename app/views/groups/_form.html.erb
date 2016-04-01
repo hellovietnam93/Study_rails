@@ -1,0 +1,40 @@
+<div class="form-group">
+  <div class="col-md-3">
+    <%= f.label :name, t("groups.header.name") %>
+  </div>
+
+  <div class="col-md-9">
+    <%= f.text_field :name, class: "form-control", required: true %>
+  </div>
+</div>
+<hr>
+<div class="form-group">
+  <div class="col-md-3">
+    <%= f.label :name, t("groups.header.privacy") %>
+  </div>
+
+  <div class="col-md-9">
+    <table class="table table-border">
+      <tr>
+        <td>
+          <%= f.radio_button :permisson, :open, checked: true %>
+        </td>
+        <td>
+          <i class="fa fa-globe"></i>
+          <%= t "groups.privacy.public" %>
+          <br>
+          <%= t "groups.description.public" %>
+        </td>
+      </tr>
+      <tr>
+        <td><%= f.radio_button :permisson, :close %></td>
+        <td>
+          <i class="fa fa-lock"></i>
+          <%= t "groups.privacy.private" %>
+          <br>
+          <%= t "groups.description.private" %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
