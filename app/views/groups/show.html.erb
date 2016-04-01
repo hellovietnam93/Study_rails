@@ -1,0 +1,62 @@
+<div id="groups">
+  <div class="row">
+    <% present @group do |group_presenter| %>
+      <div class="col-md-10">
+        <%= group_presenter.edit_group current_user %>
+      </div>
+
+      <div class="col-md-2">
+        <div class="dropdown requests-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-user-plus"></i>
+            <%= t "groups.requests.number",
+              number: pluralize(@requests.count,
+              t("class_rooms.request.request")) %>
+          </a>
+
+          <% if @requests.any? %>
+            <ul class="dropdown-menu">
+              <li>
+                <ul class="menu">
+                  <% @requests.each do |request| %>
+                    <li>
+                      <%= link_to request.user do %>
+                        <%= request.user.email %>
+                      <% end %>
+                      <%= link_to t("class_rooms.actions.accept_request"),
+                        class_room_request_path(request),
+                        method: :put %>
+                    </li>
+                  <% end %>
+                </ul>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+
+        <table class="table table-border">
+          <% @members.each do |member| %>
+            <tr>
+              <td><%= member.user.username %></td>
+            </tr>
+          <% end %>
+          <tr>
+            <td>
+              <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                  <input type="text" name="q" class="form-control" placeholder="Search...">
+                  <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                  </span>
+                </div>
+              </form>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+<%= render "edit_group_modal" %>

@@ -49,4 +49,6 @@ Rails.application.routes.draw do
   resources :users, only: :show do
     resources :likes
   end
+  resources :groups, except: [:index, :new]
+  resources :group_users
 end
