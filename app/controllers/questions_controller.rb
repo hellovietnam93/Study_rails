@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
 
   def index
     if @class_room
-      redirect_to @class_room unless user_in_class? current_user, @class_room
+      redirect_to @class_room unless check_lecturer_of_class? current_user, @class_room.user_classes
       @questions = @class_room.questions
     else
       flash[:dander] = t "flashs.messages.model_not_found",
@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
 
   private
   def load_class_room
-    @class_room = ClassRoom.includes(:course, :questions).find params[:class_room_id]
+    @class_room = ClassRoom.includes(:questions).find params[:class_room_id]
   end
 
   def init_message

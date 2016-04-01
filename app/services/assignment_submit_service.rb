@@ -7,8 +7,8 @@ class AssignmentSubmitService
   end
 
   def save
-    @assignment_existed = AssignmentSubmit.find_by class_room_id: @assignment.class_room.id,
-      assignment_id: @assignment.assignment.id, user_id: @assignment.user.id
+    @assignment_existed = AssignmentSubmit.find_by class_room_id: @assignment.class_room_id,
+      assignment_id: @assignment.assignment_id, user_id: @assignment.user_id
     if @assignment_existed
       @assignment_params = JSON.parse(@assignment.to_json).slice! "id", "created_at", "updated_at"
       @assignment = @assignment.assignment.assignment_submits.first
@@ -18,8 +18,8 @@ class AssignmentSubmitService
         begin
           @assignment.save
           AssignmentHistory.transaction(requires_new: true) do
-            @assignment.assignment_histories.create! user: @assignment.user,
-              assignment: @assignment.assignment, class_room: @assignment.class_room,
+            @assignment.assignment_histories.create! user_id: @assignment.user_id,
+              assignment_id: @assignment.assignment_id, class_room_id: @assignment.class_room_id,
               content: @assignment.content
           end
           true

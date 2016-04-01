@@ -3,13 +3,17 @@ class AssignmentsController < ApplicationController
   skip_load_resource only: :index
 
   def index
-    @class_room = ClassRoom.includes(:assignments, :assignment_submits).
+    @class_room = ClassRoom.includes(:user_classes, assignments: [assignment_submits: :user]).
       find_by_id params[:class_room_id]
     if @class_room
-      redirect_to @class_room unless user_in_class? current_user, @class_room
-      @assignment = @class_room.assignments.new if current_user.lecturer?
+      if check_lecturer_of_class? current_user, @class_room.user_classes
+        @assignment = @class_room.assignments.new if current_user.lecturer?
+      elsif is_member_of_class? current_user, @class_room.user_classes
+        @assignment_submit = @class_room.assignment_submits.new
+      else
+        redirect_to @class_room
+      end
       @assignments = @class_room.assignments
-      @assignment_submit = @class_room.assignment_submits.new if current_user.student?
     else
       flash[:dander] = t "flashs.messages.model_not_found",
         model: "ClassRoom", id: params[:class_room_id]
