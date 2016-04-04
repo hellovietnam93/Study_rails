@@ -23,6 +23,19 @@
         </b>
       </div>
     <% end %>
+
+    <div class="form-group">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-user"></i>
+          </span>
+          <%= f.text_field :username, autocomplete: "off", class: "form-control",
+            placeholder: t("users.fields.username") %>
+        </div>
+      </div>
+    </div>
+
     <div class="form-group">
       <div class="col-xs-12">
         <i><%= t "users.views.sign_in_form.password_none_require" %></i>
@@ -35,6 +48,7 @@
         </div>
       </div>
     </div>
+
     <div class="form-group">
       <div class="col-xs-12">
         <div class="input-group">
@@ -46,6 +60,7 @@
         </div>
       </div>
     </div>
+
     <div class="form-group">
       <div class="col-xs-12">
         <i>
@@ -60,6 +75,7 @@
         </div>
       </div>
     </div>
+
     <div class="form-group formSubmit">
       <div class="col-sm-7 submitWrap">
         <%= link_to t("users.views.sign_in_form.cancel_account"),

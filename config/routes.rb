@@ -51,4 +51,5 @@ Rails.application.routes.draw do
   end
   resources :groups, except: [:index, :new]
   resources :group_users
+  resources :users, only: :show
 end

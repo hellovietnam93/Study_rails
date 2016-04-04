@@ -22,7 +22,7 @@
   </li>
   <li class="user-footer">
     <div class="col-xs-4 text-center">
-      <%= link_to t("users.views.menu.profile"), "#", class: "btn btn-default btn-flat" %>
+      <%= link_to t("users.views.menu.profile"), current_user, class: "btn btn-default btn-flat" %>
     </div>
     <div class="col-xs-4 text-center">
       <%= link_to t("users.views.menu.setting"), edit_user_registration_path,

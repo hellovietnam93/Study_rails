@@ -1,0 +1,28 @@
+<section class="content">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "users/profile" %>
+      <%= render "users/about" %>
+    </div>
+
+    <div class="col-md-9">
+      <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+          <% Settings.users.tabs.each_with_index do |tab, index| %>
+            <li class="<%= 'active' if index == 0 %>">
+              <a href="#<%= tab %>" data-toggle="tab">
+                <%= t "users.views.tabs.#{tab}" %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+
+        <div class="tab-content">
+          <%= render "users/activities_tab" %>
+          <%= render "users/timeline_tab" %>
+          <%= render "users/settings_tab" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

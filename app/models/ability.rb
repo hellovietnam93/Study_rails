@@ -20,7 +20,7 @@ class Ability
       can [:create, :destroy], Like, user_id: user.id
       can :manage, Document, user_id: user.id
       can :manage, Timetable
-
+      can :manage, User, id: user.id
     else
       can :index, Assignment
       can [:index, :show], ClassRoom
@@ -33,6 +33,7 @@ class Ability
       can [:create, :destroy], Like, user_id: user.id
       can :index, Document
       can :index, Timetable
+      can :manage, User, id: user.id
     end
 
     can [:create, :update], Group, Group.includes(:group_users) do |group|

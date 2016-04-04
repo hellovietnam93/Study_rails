@@ -71,4 +71,12 @@ module ApplicationHelper
         user_class.user_id == user.id
     end
   end
+
+  def user_avatar user
+    if user.avatar.blank?
+      image_tag "fallback/default-user-img.png", class: "img-circle profile-user-img img-responsive img-circle"
+    else
+      image_tag user.avatar, class: "img-circle profile-user-img img-responsive img-circle"
+    end
+  end
 end
