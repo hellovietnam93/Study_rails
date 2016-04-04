@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
 
   enum role: [:admin, :lecturer, :student]
 
+  mount_uploader :avatar, PictureUploader
+
   def like target
     likes.find_by target_id: target, target_type: target.class.table_name
   end

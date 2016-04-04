@@ -39,6 +39,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-datetimepicker"
 end
 gem "carrierwave"
+gem "mini_magick"
 gem "carrierwave-dropbox"
 
 group :development, :test do

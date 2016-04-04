@@ -60,3 +60,8 @@ class_room:
     tabs:
       class_rooms: "Class room"
       members: "Member"
+users:
+  tabs:
+    - activities
+    - timeline
+    - settings

@@ -10,8 +10,14 @@ en:
       change_password: "Change password"
       unlock: "Resend unlock instructions"
       online: "Online"
+      about: "About me"
+      education: "Education"
+      location: "Location"
+      skills: "Skills"
+      notes: "Notes"
     fields:
       email: "Email"
+      username: "Username"
       password: "Password"
       password_confirmation: "Password confirmation"
       new_password: "New password"
@@ -29,6 +35,11 @@ en:
         password_none_require: "Leave blank if you don't want to change it"
         cancel_account: "Cancel my account"
         waiting_email: "Currently waiting confirmation for: %{email}"
+        avatar: "Avatar"
       menu:
         profile: "Profile"
         setting: "Setting"
+      tabs:
+        activities: "Activities"
+        timeline: "Timeline"
+        settings: "Settings"
