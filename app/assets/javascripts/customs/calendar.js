@@ -62,6 +62,9 @@ updateEvent = function(the_event) {
       sender_id: the_event.senderId,
       recipient_id: the_event.recipientId,
       all_day: the_event.allDay }
+    },
+    success: function() {
+      $("#calendar").fullCalendar("refetchEvents");
     }
   });
 };
