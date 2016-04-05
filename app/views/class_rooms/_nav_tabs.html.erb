@@ -1,65 +1,72 @@
-<%= link_to class_room_assignments_path(@class_room) do %>
-  <i class="fa fa-tasks"></i>
-  <%= t "assignments.assignment" %>
-<% end %> <br>
-<%= link_to t("class_rooms.tabs.questions"), class_room_questions_path(@class_room) %> <br>
-<%= link_to t("forums.forum"), @class_room.forum %> <br>
-<%= link_to t("class_rooms.timetables"),
-  class_room_timetables_path(@class_room) %> <br>
-<%= link_to t("documents.document"),
-  class_room_documents_path(@class_room) %>
+<div class="box box-solid">
+  <div class="box-header with-border">
 
-<div class="dropdown requests-menu">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    <i class="fa fa-user-plus"></i>
-    <% if @requests.count > 0 %>
-      <span class="label label-warning">
-      <%= @requests.count %></span>
-    <% end %>
-  </a>
+    <h3 class="box-title">
+      <%= @class_room.uid %>
+    </h3>
 
-  <ul class="dropdown-menu">
-    <li class="header">
-      <%= t "class_rooms.request.number",
-        number: pluralize(@requests.count, t("class_rooms.request.request")) %>
-    </li>
-    <li>
-      <ul class="menu">
-        <% @requests.each do |request| %>
-          <li>
-            <%= link_to request.user do %>
-              <%= request.user.email %>
-            <% end %>
-            <%= link_to t("class_rooms.actions.accept_request"),
-              class_room_request_path(request),
-              method: :put %>
-          </li>
-        <% end %>
-      </ul>
-    </li>
-  </ul>
-</div>
-
-<div class="row tab-list">
-  <div class="col-md-12">
-    <ul class="nav nav-tabs" role="tablist" id="tabs">
-      <% Settings.class_room.tabs.each do |key, value|  %>
-        <li role="presentation">
-          <a href="#<%= key %>" aria-controls="home" role="tab" data-toggle="tab">
-            <%= t "class_rooms.tabs.#{key}" %>
-          </a>
-        </li>
-      <% end %>
-      <li class="pull-right">
-        <%= render "class_actions" %>
-      </li>
-    </ul>
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="class_rooms">
-        <%= render "class_room_tab" %>
+    <div class="box-tools pull-right">
+      <div class="btn-group">
+        <%= render "class_rooms/member_buttons" %>
       </div>
-      <div role="tabpanel" class="tab-pane" id="members">
-        <%= render "members_tab" %>
+
+      <%= link_to class_room_assignments_path(@class_room),
+        class: "btn" do %>
+        <i class="fa fa-tasks"></i>
+        <%= t "assignments.assignment" %>
+      <% end %>
+
+      <%= link_to class_room_questions_path(@class_room),
+        class: "btn" do %>
+        <i class="fa fa-university"></i>
+        <%= t "class_rooms.tabs.questions" %>
+      <% end %>
+
+      <%= link_to @class_room.forum,
+        class: "btn" do %>
+        <i class="fa fa-users"></i>
+        <%= t "forums.forum" %>
+      <% end %>
+
+      <%= link_to class_room_timetables_path(@class_room),
+        class: "btn" do %>
+        <i class="fa fa-calendar"></i>
+        <%= t "class_rooms.timetables" %>
+      <% end %>
+
+      <%= link_to class_room_documents_path(@class_room),
+        class: "btn" do %>
+        <i class="fa fa-book"></i>
+        <%= t "documents.document" %>
+      <% end %>
+
+      <div class="btn-group">
+        <%= render "class_actions" %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="box-body">
+    <div class="row tab-list">
+      <div class="col-md-12">
+        <ul class="nav nav-tabs" role="tablist" id="tabs">
+          <% Settings.class_room.tabs.each do |key, value|  %>
+            <li role="presentation">
+              <a href="#<%= key %>" aria-controls="home" role="tab" data-toggle="tab">
+                <%= t "class_rooms.tabs.#{key}" %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="class_rooms">
+            <%= render "class_room_tab" %>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="members">
+            <%= render "members_tab" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
