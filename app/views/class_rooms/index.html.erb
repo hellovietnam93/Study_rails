@@ -6,19 +6,20 @@
 
       <div class="box-tools pull-right">
         <span class="label label-danger"><%= @class_rooms.count %></span>
-        <button class="btn btn-box-tool" data-widget="collapse">
-          <i class="fa fa-minus"></i>
-        </button>
-        <button class="btn btn-box-tool" data-widget="remove">
-          <i class="fa fa-times"></i>
-        </button>
+
+        <div id="sorts" class="btn-group button-group">
+          <button class="button is-checked" data-sort-by="name">name</button>
+          <button class="button" data-sort-by="uid">uid</button>
+          <button class="button" data-sort-by="status">status</button>
+          <button class="button" data-sort-by="type">type</button>
+        </div>
       </div>
     </div>
 
     <div class="box-body no-padding">
-      <ul class="users-list clearfix">
+      <div class="classes-list clearfix">
         <%= render @class_rooms %>
-      </ul>
+      </div>
     </div>
   </div>
 </div>

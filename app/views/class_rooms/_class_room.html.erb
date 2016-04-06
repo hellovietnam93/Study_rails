@@ -1,6 +1,24 @@
-<li class="class_room-<%= class_room.id %>">
-  <%= link_to image_tag("/assets/fallback/default-user-img.png"), class_room %>
-  <%= link_to class_room.uid, class_room, class: "users-list-name" %>
-  <div><%= class_room.name %></div>
-  <div><%= class_room.status %></div>
-</li>
+<div class="element-item class_room-<%= class_room.id %>">
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title uid">
+        <%= link_to class_room.uid, class_room %>
+      </h3>
+
+      <div class="box-tools pull-right type">
+        <%= class_room.class_type %>
+      </div>
+    </div>
+
+    <div class="box-body">
+      <%= link_to image_tag("/assets/fallback/default-user-img.png"),
+        class_room %>
+    </div>
+
+    <div class="box-footer">
+      <div class="status pull-right"><%= class_room.status %></div>
+      <div class="name"><%= class_room.name %></div>
+    </div>
+
+  </div>
+</div>

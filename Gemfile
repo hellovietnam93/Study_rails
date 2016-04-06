@@ -40,6 +40,7 @@ end
 gem "carrierwave"
 gem "mini_magick"
 gem "carrierwave-dropbox"
+gem "isotope-rails"
 
 group :development, :test do
   gem "pry"
