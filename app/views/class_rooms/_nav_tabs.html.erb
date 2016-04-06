@@ -11,33 +11,33 @@
       </div>
 
       <%= link_to class_room_assignments_path(@class_room),
-        class: "btn" do %>
+        class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+        title: t("assignments.assignment") do %>
         <i class="fa fa-tasks"></i>
-        <%= t "assignments.assignment" %>
       <% end %>
 
       <%= link_to class_room_questions_path(@class_room),
-        class: "btn" do %>
+        class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+        title: t("class_rooms.tabs.questions") do %>
         <i class="fa fa-university"></i>
-        <%= t "class_rooms.tabs.questions" %>
       <% end %>
 
       <%= link_to @class_room.forum,
-        class: "btn" do %>
+        class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+        title: t("forums.forum") do %>
         <i class="fa fa-users"></i>
-        <%= t "forums.forum" %>
       <% end %>
 
       <%= link_to class_room_timetables_path(@class_room),
-        class: "btn" do %>
+        class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+        title: t("class_rooms.timetables") do %>
         <i class="fa fa-calendar"></i>
-        <%= t "class_rooms.timetables" %>
       <% end %>
 
       <%= link_to class_room_documents_path(@class_room),
-        class: "btn" do %>
+        class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+        title: t("documents.document") do %>
         <i class="fa fa-book"></i>
-        <%= t "documents.document" %>
       <% end %>
 
       <div class="btn-group">
