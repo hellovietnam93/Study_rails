@@ -1,32 +1,67 @@
-<%= link_to class_room_assignments_path(@class_room) do %>
-  <i class="fa fa-tasks"></i>
-  <%= t "assignments.assignment" %>
-<% end %> <br>
-<%= link_to t("class_rooms.students.tabs.online_tests"), class_room_online_tests_path(@class_room) %> <br>
-<%= link_to t("forums.forum"), @class_room.forum %> <br>
-<%= link_to t("class_rooms.timetables"),
-  class_room_timetables_path(@class_room) %> <br>
-<%= link_to t("documents.document"),
-  class_room_documents_path(@class_room) %>
+<div class="box box-solid">
+  <div class="box-header with-border">
 
-<div class="row tab-list">
-  <div class="col-md-12">
-    <ul class="nav nav-tabs" role="tablist" id="tabs">
-      <% Settings.class_room.students.tabs.each do |key, value|  %>
-        <li role="presentation">
-          <a href="#<%= key %>" aria-controls="home" role="tab" data-toggle="tab">
-            <%= t "class_rooms.students.tabs.#{key}" %>
-          </a>
-        </li>
+    <h3 class="box-title">
+      <%= @class_room.uid %>
+    </h3>
+
+    <div class="box-tools pull-right">
+      <%= link_to class_room_assignments_path(@class_room),
+        class: "btn", "data-toggle": "tooltip", "data-placement": "top" do %>
+        <i class="fa fa-tasks"></i>
+        <%= t "assignments.assignment" %>
       <% end %>
-    </ul>
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="class_rooms">
-        <%= render "class_rooms/class_room_tab" %>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="members">
-        <%= render "class_rooms/members_tab" %>
+
+      <%= link_to class_room_online_tests_path(@class_room),
+        class: "btn" do %>
+        <i class="fa fa-university"></i>
+        <%= t "class_rooms.students.tabs.online_tests" %>
+      <% end %>
+
+      <%= link_to @class_room.forum,
+        class: "btn" do %>
+        <i class="fa fa-users"></i>
+        <%= t "forums.forum" %>
+      <% end %>
+
+      <%= link_to class_room_timetables_path(@class_room),
+        class: "btn" do %>
+        <i class="fa fa-calendar"></i>
+        <%= t "class_rooms.timetables" %>
+      <% end %>
+
+      <%= link_to class_room_documents_path(@class_room),
+        class: "btn" do %>
+        <i class="fa fa-book"></i>
+        <%= t "documents.document" %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="box-body">
+    <div class="row tab-list">
+      <div class="col-md-12">
+        <ul class="nav nav-tabs" role="tablist" id="tabs">
+          <% Settings.class_room.students.tabs.each do |key, value|  %>
+            <li role="presentation">
+              <a href="#<%= key %>" aria-controls="home"
+                role="tab" data-toggle="tab">
+                <%= t "class_rooms.students.tabs.#{key}" %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="class_rooms">
+            <%= render "class_rooms/class_room_tab" %>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="members">
+            <%= render "class_rooms/members_tab" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
 </div>

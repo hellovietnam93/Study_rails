@@ -1,0 +1,30 @@
+<a href="#" class="dropdown-toggle btn"
+  data-toggle="dropdown">
+  <% if @requests.count > 0 %>
+    <span class="badge bg-purple">
+      <%= @requests.count %>
+    </span>
+  <% end %>
+  <i class="fa fa-user-plus"></i>
+</a>
+
+<ul class="dropdown-menu">
+  <li class="header">
+    <%= t "class_rooms.request.number",
+      number: pluralize(@requests.count, t("class_rooms.request.request")) %>
+  </li>
+  <li>
+    <ul class="menu">
+      <% @requests.each do |request| %>
+        <li>
+          <%= link_to request.user do %>
+            <%= request.user.email %>
+          <% end %>
+          <%= link_to t("class_rooms.actions.accept_request"),
+            class_room_request_path(request),
+            method: :put %>
+        </li>
+      <% end %>
+    </ul>
+  </li>
+</ul>
