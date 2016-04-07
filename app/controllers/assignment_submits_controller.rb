@@ -15,8 +15,9 @@ class AssignmentSubmitsController < ApplicationController
 
   def update
     respond_to do |format|
+      params[:assignment_submit][:user_id] = @assignment_submit.user_id
       @assignment_service = AssignmentSubmitService.new @assignment_submit, assignment_submit_params
-      reload_assignment_submits if @assignment_service.update
+      reload_assignment_submits if @assignment_service.update current_user
       format.js
     end
   end

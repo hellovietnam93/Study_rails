@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407015845) do
+ActiveRecord::Schema.define(version: 20160407073553) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160407015845) do
     t.integer  "assignment_submit_id", limit: 4
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.integer  "editor",               limit: 4
   end
 
   add_index "assignment_histories", ["assignment_id"], name: "index_assignment_histories_on_assignment_id", using: :btree

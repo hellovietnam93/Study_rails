@@ -31,7 +31,30 @@ class Ability
       can [:index, :show], ClassRoom
       can [:create, :destroy], UserClass, user_id: user.id
       can :show, Assignment
-      can :manage, AssignmentSubmit, user_id: user.id
+      can [:index, :show], AssignmentSubmit, AssignmentSubmit do |assignment_submit|
+        case assignment_submit.policy
+        when "share_with_everyone"
+          assignment_submit.class_room.user_ids.include? user.id
+        when "share_with_team"
+          assignment_submit.user.teams.find_by(class_room_id: assignment_submit.class_room_id).
+            user_ids.include? user.id
+        when "share_with_lecturer"
+          (assignment_submit.user_id == user.id) ||
+            (assignment_submit.class_room.user_classes.find_by owner: true, user_id: user.id)
+        end
+      end
+      can [:create, :new, :update, :edit, :destroy], AssignmentSubmit, AssignmentSubmit do |assignment_submit|
+        case assignment_submit.policy
+        when "share_with_everyone"
+          assignment_submit.user_id == user.id
+        when "share_with_team"
+          assignment_submit.user.teams.find_by(class_room_id: assignment_submit.class_room_id).
+            user_ids.include? user.id
+        when "share_with_lecturer"
+          (assignment_submit.user_id == user.id) ||
+            (assignment_submit.class_room.user_classes.find_by owner: true, user_id: user.id)
+        end
+      end
       can :read, Forum
       can :manage, Post, user_id: user.id
       can :manage, Comment, user_id: user.id
