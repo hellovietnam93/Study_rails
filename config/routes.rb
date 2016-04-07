@@ -29,6 +29,9 @@ Rails.application.routes.draw do
     resources :assignment_histories
     resources :timetables
     resources :documents, only: [:index, :create, :destroy]
+    resources :teams do
+      resource :class_team
+    end
   end
 
   resources :forums, only: :show do

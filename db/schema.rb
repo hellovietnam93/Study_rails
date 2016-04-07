@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331022001) do
+ActiveRecord::Schema.define(version: 20160407015845) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20160331022001) do
     t.text     "content",       limit: 65535
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "policy",        limit: 4
   end
 
   add_index "assignment_submits", ["assignment_id"], name: "index_assignment_submits_on_assignment_id", using: :btree
@@ -99,6 +100,16 @@ ActiveRecord::Schema.define(version: 20160331022001) do
   add_index "class_rooms", ["course_id"], name: "index_class_rooms_on_course_id", using: :btree
   add_index "class_rooms", ["semester_id"], name: "index_class_rooms_on_semester_id", using: :btree
   add_index "class_rooms", ["slug"], name: "index_class_rooms_on_slug", unique: true, using: :btree
+
+  create_table "class_teams", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "team_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "class_teams", ["team_id"], name: "index_class_teams_on_team_id", using: :btree
+  add_index "class_teams", ["user_id"], name: "index_class_teams_on_user_id", using: :btree
 
   create_table "comment_hierarchies", force: :cascade do |t|
     t.integer "ancestor_id",   limit: 4, null: false
@@ -294,6 +305,15 @@ ActiveRecord::Schema.define(version: 20160331022001) do
 
   add_index "semesters", ["slug"], name: "index_semesters_on_slug", unique: true, using: :btree
 
+  create_table "teams", force: :cascade do |t|
+    t.integer  "class_room_id", limit: 4
+    t.string   "name",          limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "teams", ["class_room_id"], name: "index_teams_on_class_room_id", using: :btree
+
   create_table "timetables", force: :cascade do |t|
     t.integer  "class_room_id", limit: 4
     t.datetime "start_time"
@@ -361,6 +381,8 @@ ActiveRecord::Schema.define(version: 20160331022001) do
   add_foreign_key "assignments", "class_rooms"
   add_foreign_key "class_rooms", "courses"
   add_foreign_key "class_rooms", "semesters"
+  add_foreign_key "class_teams", "teams"
+  add_foreign_key "class_teams", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "documents", "class_rooms"
@@ -380,6 +402,7 @@ ActiveRecord::Schema.define(version: 20160331022001) do
   add_foreign_key "results", "answers"
   add_foreign_key "results", "online_tests"
   add_foreign_key "results", "questions"
+  add_foreign_key "teams", "class_rooms"
   add_foreign_key "timetables", "class_rooms"
   add_foreign_key "user_classes", "class_rooms"
   add_foreign_key "user_classes", "users"

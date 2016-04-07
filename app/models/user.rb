@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
   has_many :documents, dependent: :destroy
+  has_many :class_teams, dependent: :destroy
+  has_many :teams, through: :class_teams
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
