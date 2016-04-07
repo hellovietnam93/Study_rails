@@ -6,3 +6,8 @@ en:
       updated_at: "Date"
     errors:
       unknow_errors: "Transaction fails"
+    policy:
+      share_with_everyone: Share with people in your class
+      share_with_team: Share with your team in class
+      share_with_lecturer: Share with lecturer of class
+

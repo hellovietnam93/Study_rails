@@ -1,31 +1,29 @@
-<table class="table table-border">
-  <tr>
-    <td>
-      <%= f.radio_button :policy, :share_with_everyone, checked: true %>
-    </td>
-    <td>
-      <i class="fa fa-globe"></i>
-      <%= t "groups.privacy.public" %>
-      <br>
-      <%= t "groups.description.public" %>
-    </td>
-  </tr>
-  <tr>
-    <td><%= f.radio_button :policy, :share_with_team %></td>
-    <td>
-      <i class="fa fa-lock"></i>
-      <%= t "groups.privacy.private" %>
-      <br>
-      <%= t "groups.description.private" %>
-    </td>
-  </tr>
-  <tr>
-    <td><%= f.radio_button :policy, :share_with_lecturer %></td>
-    <td>
-      <i class="fa fa-lock"></i>
-      <%= t "groups.privacy.private" %>
-      <br>
-      <%= t "groups.description.private" %>
-    </td>
-  </tr>
-</table>
+<div class="row">
+  <div class="col-md-5">
+    <table class="table table-border">
+      <tr>
+        <td>
+          <%= f.radio_button :policy, :share_with_everyone, checked: true %>
+        </td>
+        <td>
+          <i class="fa fa-globe"></i>
+          <%= t "assignment_submits.policy.share_with_everyone" %>
+        </td>
+      </tr>
+      <tr>
+        <td><%= f.radio_button :policy, :share_with_team %></td>
+        <td>
+          <i class="fa fa-users"></i>
+          <%= t "assignment_submits.policy.share_with_team" %>
+        </td>
+      </tr>
+      <tr>
+        <td><%= f.radio_button :policy, :share_with_lecturer %></td>
+        <td>
+          <i class="fa fa-lock"></i>
+          <%= t "assignment_submits.policy.share_with_lecturer" %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
