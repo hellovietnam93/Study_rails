@@ -14,10 +14,12 @@ $(document).on("ready", function() {
       $("#show-assignment-modal").modal("hide");
     } else {
       var assignment_submitContent = $link.attr("data-assignment-submit-content");
+      var assignment_policy = $link.attr("data-assignment-policy");
       var url = "/class_rooms/" + classroomID + "/assignment_submits/" + assignment_submitId;
 
       $form = $(this).find("form");
       $form.attr("action", url);
+      $form.find("#assignment_submit_policy_" + assignment_policy).attr("checked", "checked");
 
       $("<input>").attr({
         type: "hidden",

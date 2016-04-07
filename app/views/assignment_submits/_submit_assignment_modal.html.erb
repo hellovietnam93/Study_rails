@@ -19,6 +19,16 @@
             <%= f.hidden_field :class_room_id, value: @class_room.id %>
             <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.hidden_field :assignment_id %>
+            <div class="form-group">
+              <div class="col-md-12">
+                <div class="col-md-1">
+                  <%= f.label t("groups.header.privacy") %>
+                </div>
+                <div class="col-md-11">
+                  <%= render "assignment_submits/policy_table", f: f %>
+                </div>
+              </div>
+            </div>
 
             <div class="form-group">
               <div class="col-md-12">

@@ -37,12 +37,12 @@ class AssignmentSubmitService
     end
   end
 
-  def update
+  def update current_user = nil
     @successed = AssignmentSubmit.transaction do
       begin
         @assignment.update_attributes @assignment_params
         AssignmentHistory.transaction(requires_new: true) do
-          create_assignment_history
+          create_assignment_history current_user
         end
         true
       rescue
@@ -68,7 +68,10 @@ class AssignmentSubmitService
   end
 
   private
-  def create_assignment_history
-    @assignment.assignment_histories.create! @assignment_params
+  def create_assignment_history current_user
+    assignment_history_params = @assignment_params
+    assignment_history_params.delete :policy
+    assignment_history_params[:editor] = current_user.id
+    @assignment.assignment_histories.create! assignment_history_params
   end
 end
