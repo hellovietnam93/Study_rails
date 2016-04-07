@@ -21,6 +21,12 @@
       <%= link_to @class_room.forum,
         class: "btn", "data-toggle": "tooltip", "data-placement": "top",
         title: t("forums.forum") do %>
+        <i class="fa fa-comments"></i>
+      <% end %>
+
+      <%= link_to class_room_teams_path(@class_room),
+        class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+        title: t("teams.team") do %>
         <i class="fa fa-users"></i>
       <% end %>
 
