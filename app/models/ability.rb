@@ -21,9 +21,10 @@ class Ability
       can :manage, Document, user_id: user.id
       can :manage, Timetable
       can :manage, User, id: user.id
-      can :manage, Team, Team do |team|
+      can [:index, :show, :edit, :update, :destroy], Team, Team do |team|
         user.class_room_ids.include? team.class_room_id
       end
+      can [:new, :create], Team
       can :manage, ClassTeam
     else
       can :index, Assignment
@@ -38,6 +39,9 @@ class Ability
       can :index, Document
       can :index, Timetable
       can :manage, User, id: user.id
+      can [:index, :show], Team, Team do |team|
+        user.class_room_ids.include? team.class_room_id
+      end
       can :destroy, ClassTeam, user_id: user.id
     end
 

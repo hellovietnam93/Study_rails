@@ -1,0 +1,9 @@
+en:
+  teams:
+    team: "Teams"
+    members: "Members"
+    headers:
+      name: "Name"
+      number_member: "Total member"
+    actions:
+      new: "Create new team"

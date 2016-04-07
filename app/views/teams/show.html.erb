@@ -1,0 +1,27 @@
+<div id="teams">
+  <table class="table table-border">
+    <thead>
+      <tr>
+        <th><%= t "teams.headers.name" %></th>
+        <th><%= t "teams.headers.number_member" %></th>
+        <% if can? :update, @team %>
+          <th></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th><%= @team.name %></th>
+        <th><%= @team.class_teams.count %></th>
+        <% if can? :update, @team %>
+          <th>
+            <%= link_to t("form.buttons.edit"),
+              edit_class_room_team_path(@class_room, @team) %>
+            <%= link_to t("form.buttons.delete"),
+              class_room_team_path(@class_room, @team), method: :delete %>
+          </th>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
