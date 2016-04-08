@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :documents, dependent: :destroy
   has_many :class_teams, dependent: :destroy
   has_many :teams, through: :class_teams
+  has_many :events, dependent: :destroy
+  has_many :event_users, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
