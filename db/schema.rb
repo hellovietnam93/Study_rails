@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407073553) do
+ActiveRecord::Schema.define(version: 20160408035234) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -165,6 +165,29 @@ ActiveRecord::Schema.define(version: 20160407073553) do
 
   add_index "documents", ["class_room_id"], name: "index_documents_on_class_room_id", using: :btree
   add_index "documents", ["user_id"], name: "index_documents_on_user_id", using: :btree
+
+  create_table "event_users", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "status",     limit: 4, default: 0
+    t.integer  "event_id",   limit: 4
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "event_users", ["event_id"], name: "index_event_users_on_event_id", using: :btree
+  add_index "event_users", ["user_id"], name: "index_event_users_on_user_id", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "user_id",       limit: 4
+    t.integer  "event_type",    limit: 4
+    t.integer  "class_room_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "events", ["class_room_id"], name: "index_events_on_class_room_id", using: :btree
+  add_index "events", ["event_type"], name: "index_events_on_event_type", using: :btree
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "forums", force: :cascade do |t|
     t.integer  "class_room_id", limit: 4
@@ -388,6 +411,10 @@ ActiveRecord::Schema.define(version: 20160407073553) do
   add_foreign_key "comments", "users"
   add_foreign_key "documents", "class_rooms"
   add_foreign_key "documents", "users"
+  add_foreign_key "event_users", "events"
+  add_foreign_key "event_users", "users"
+  add_foreign_key "events", "class_rooms"
+  add_foreign_key "events", "users"
   add_foreign_key "forums", "class_rooms"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"

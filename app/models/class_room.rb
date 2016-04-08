@@ -10,6 +10,7 @@ class ClassRoom < ActiveRecord::Base
   has_many :timetables, dependent: :destroy
   has_many :documents, dependent: :destroy
   has_many :teams, dependent: :destroy
+  has_many :events, dependent: :destroy
 
   has_one :forum, dependent: :destroy
 
