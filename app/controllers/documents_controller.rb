@@ -10,6 +10,7 @@ class DocumentsController < ApplicationController
 
   def create
     if @document.save
+      EventService.new(current_user.id, @document).save
       redirect_to class_room_documents_path(@class_room),
         notice: flash_message("created")
     else

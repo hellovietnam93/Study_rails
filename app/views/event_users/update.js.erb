@@ -1,0 +1,3 @@
+<% unless @event_user.errors.any? %>
+  $(".notification-<%= @event_user.id %>").remove()
+<% end %>

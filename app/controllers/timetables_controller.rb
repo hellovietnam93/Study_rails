@@ -9,12 +9,14 @@ class TimetablesController < ApplicationController
 
   def create
     @timetable.save
+    EventService.new(current_user.id, @timetable).save
     redirect_to class_room_timetables_path @timetable.class_room
   end
 
   def update
     respond_to do |format|
       if @timetable.update timetable_params
+        EventService.new(current_user.id, @timetable).save
         format.json {render :index, location: @timetable.class_room }
       else
         format.json {render json: @timetable.errors, status: :unprocessable_entity }

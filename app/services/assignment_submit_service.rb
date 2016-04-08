@@ -17,6 +17,7 @@ class AssignmentSubmitService
       @successed = AssignmentSubmit.transaction do
         begin
           @assignment.save
+          EventService.new(@assignment.user_id, @assignment, "create").save
           AssignmentHistory.transaction(requires_new: true) do
             @assignment.assignment_histories.create! user_id: @assignment.user_id,
               assignment_id: @assignment.assignment_id, class_room_id: @assignment.class_room_id,
@@ -41,6 +42,7 @@ class AssignmentSubmitService
     @successed = AssignmentSubmit.transaction do
       begin
         @assignment.update_attributes @assignment_params
+        EventService.new((current_user.nil? ? @assignment.user_id : current_user.id), @assignment, "update").save
         AssignmentHistory.transaction(requires_new: true) do
           create_assignment_history current_user
         end

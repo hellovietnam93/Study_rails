@@ -43,3 +43,4 @@ en:
         activities: "Activities"
         timeline: "Timeline"
         settings: "Settings"
+      number_notifications: "You have %{number} notifications"
