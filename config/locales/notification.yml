@@ -1,0 +1,9 @@
+en:
+  notifications:
+    views:
+      timetable: "Timetable in class %{class_room} has been updated"
+      new_assignment: "New assignment has been created in class %{class_room}"
+      edit_assignment: "Assignment has been updated in class %{class_room}"
+      document: "New document has been uploaded in class %{class_room}"
+      new_assignment_submit: "has submited assignment in class %{class_room}"
+      edit_assignment_submit: "has edited assignment in class %{class_room}"

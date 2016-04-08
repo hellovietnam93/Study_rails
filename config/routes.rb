@@ -55,4 +55,5 @@ Rails.application.routes.draw do
   resources :groups, except: [:index, :new]
   resources :group_users
   resources :users, only: :show
+  resources :event_users, only: :update
 end

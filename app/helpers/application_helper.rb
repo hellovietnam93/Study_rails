@@ -79,4 +79,33 @@ module ApplicationHelper
       image_tag user.avatar, class: "img-circle profile-user-img img-responsive img-circle"
     end
   end
+
+  def find_notifies user
+    EventUser.includes(event: :class_room).where user_id: user.id, status: "unseen"
+  end
+
+  def display_notification notification
+    result = case notification.event.event_type
+      when "timetable"
+        "<i class='fa fa-calendar'></i>".html_safe +
+          I18n.t("notifications.views.timetable", class_room: notification.event.class_room.name)
+      when "new_assignment"
+        "<i class='fa fa-tasks'></i>".html_safe +
+          I18n.t("notifications.views.new_assignment", class_room: notification.event.class_room.name)
+      when "edit_assignment"
+        "<i class='fa fa-tasks'></i>".html_safe +
+          I18n.t("notifications.views.edit_assignment", class_room: notification.event.class_room.name)
+      when "document"
+        "<i class='fa fa-book'></i>".html_safe +
+          I18n.t("notifications.views.document", class_room: notification.event.class_room.name)
+      when "new_assignment_submit"
+        "<i class='fa fa-tasks'></i>".html_safe +
+          I18n.t("notifications.views.new_assignment_submit", class_room: notification.event.class_room.name)
+      when "edit_assignment_submit"
+        "<i class='fa fa-tasks'></i>".html_safe +
+          I18n.t("notifications.views.edit_assignment_submit", class_room: notification.event.class_room.name)
+      end
+
+    link_to result, event_user_path(notification), method: :put, remote: true
+  end
 end

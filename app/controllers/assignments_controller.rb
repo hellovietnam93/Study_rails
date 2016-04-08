@@ -23,6 +23,7 @@ class AssignmentsController < ApplicationController
   def create
     respond_to do |format|
       if @assignment.save
+        EventService.new(current_user.id, @assignment, params[:action]).save
         @class_room = @assignment.class_room
       end
       format.js
@@ -36,6 +37,7 @@ class AssignmentsController < ApplicationController
   def update
     respond_to do |format|
       if @assignment.update_attributes assignment_params
+        EventService.new(current_user.id, @assignment, params[:action]).save
         @class_room = @assignment.class_room
         @assignments = @class_room.assignments
       end

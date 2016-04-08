@@ -26,6 +26,7 @@ class Ability
       end
       can [:new, :create], Team
       can :manage, ClassTeam
+      can :update, EventUser, user_id: user.id
     else
       can :index, Assignment
       can [:index, :show], ClassRoom
@@ -66,6 +67,7 @@ class Ability
         user.class_room_ids.include? team.class_room_id
       end
       can :destroy, ClassTeam, user_id: user.id
+      can :update, EventUser, user_id: user.id
     end
 
     can [:create, :update], Group, Group.includes(:group_users) do |group|
