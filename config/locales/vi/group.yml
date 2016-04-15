@@ -1,0 +1,16 @@
+vi:
+  groups:
+    requests:
+      number: "%{number} yêu cầu tham gia nhóm"
+    actions:
+      create: "Tạo nhóm mới"
+      edit: "Sửa nhóm %{name}"
+    header:
+      name: "Tên nhóm"
+      privacy: "Riêng tư"
+    privacy:
+      public: "Công khai"
+      private: "Bí mật"
+    description:
+      public: "Bất cứ ai cũng có thể xem các nhóm, các thành viên nhóm và bài viết của họ"
+      private: "Bất cứ ai cũng có thể tìm thấy và xem thành viên nhóm của nhóm. Chỉ có thành viên có thể xem các bài viết"

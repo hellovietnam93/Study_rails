@@ -1,0 +1,22 @@
+ja:
+  courses:
+    all: "すべての被験者"
+    course: "規律"
+    class_rooms: "コースのすべてのクラス %{course}"
+    actions:
+      detail: "コース詳細"
+      edit: "編集コース情報"
+    fields:
+      uid: "コースコード"
+      name: "名"
+      description: "説明"
+      credit: "Credit"
+      credit_fee: "Credit fee"
+      theory_duration: "時間論"
+      exercise_duration: "時間の練習"
+      practice_duration: "練習時間"
+      weight: "重量"
+      en_name: "英語名"
+      abbr_name: "略語"
+      language: "言語"
+      evaluation: "評価"

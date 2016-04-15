@@ -1,0 +1,52 @@
+vi:
+  static_page:
+    app_name: "Studyhub"
+    mini_name: "SH"
+    home: "Studyhub"
+    actions: "Actions"
+    titles:
+      group: "Nhóm"
+      documentation: "Tài liệu"
+      dashboard: "Trang chủ"
+  form:
+    error: "Lỗi"
+    inform_error: "Có %{error}"
+    confirmation: "Bạn chắc chắn muốn xóa?"
+    buttons:
+      update: "Cập nhật"
+      save: "Lưu"
+      edit: "Sửa"
+      editing: "Đang sửa..."
+      delete: "Xóa"
+      deleting: "Đang xóa..."
+      saving: "Đang lưu..."
+      add_more: "Add Thêm mới"
+      cancel: "Hủy bỏ"
+      post: "Đăng"
+      posting: "Đang đăng..."
+      comment: "Bình luận"
+      commenting: "Đang gửi bình luận..."
+      reply: "Trả lời"
+      like: "Like"
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%y/%m/%d"
+      year: "%d/%m/%Y"
+  datepicker:
+    time:
+      format: "yyyy/mm/dd"
+  flashs:
+    messages:
+      created: "%{model_name} dã được tạo thành công!"
+      not_created: "%{model_name} không thể tạo!"
+      deleted: "%{model_name} đã xóa thành công!"
+      not_deleted: "%{model_name} không thể xóa!"
+      not_updated: "%{model_name} Không thể cập nhật!"
+      updated: "%{model_name} đã cập nhật thành công!"
+      permission_denied: "Bạn không được phép truy cập trang này."
+      model_not_found: "%{model} %{id} không tồn tại"
+      import:
+        success: "%{models_name} đã được nhập thành công!"
+        alert: "%{models_name} không thể nhập!"
+        no_select_file: "Không có tập tin nào được chọn"

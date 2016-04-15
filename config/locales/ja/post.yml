@@ -1,0 +1,7 @@
+ja:
+  posts:
+    posts: "投稿"
+    posted_ago: "投稿 %{time} 前"
+    header:
+      name: "名"
+      content: "コンテンツ"

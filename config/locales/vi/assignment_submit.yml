@@ -1,0 +1,13 @@
+vi:
+  assignment_submits:
+    fields:
+      content: "Nội dung"
+      user: "Sinh viên"
+      updated_at: "Ngày nộp"
+    errors:
+      unknow_errors: "Transaction fails"
+    policy:
+      share_with_everyone: "Chia sẻ với mọi người trong lớp học của bạn"
+      share_with_team: "Chia sẻ với các thành viên trong nhóm"
+      share_with_lecturer: "Chỉ chia sẻ với giáo viên"
+

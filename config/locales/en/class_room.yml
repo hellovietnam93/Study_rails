@@ -30,10 +30,9 @@ en:
       pratice: "Pratice"
       experiment: "Experiment"
     user_classes:
-      sign_in: "Take part in class room"
+      sign_in: "Take part in classroom"
       key_not_right: "The enroll key is wrong!"
     teacher: "Teacher: %{teacher}"
-    no_teacher: "This class has not had teacher"
     members:
       all: "All members in class %{class_room}"
       login: "Participate class"
@@ -46,12 +45,12 @@ en:
     tabs:
       questions: "Question"
       other: "Other"
-      class_rooms: "Class room"
+      class_rooms: "Classroom"
       assignments: "Assignments"
       members: "Members"
     students:
       tabs:
-        class_rooms: "Class room"
+        class_rooms: "Classroom"
         members: "Members"
         assignments: "Assignments"
         online_tests: "Online test"
@@ -59,7 +58,7 @@ en:
       detail: "Class detail"
       edit: "Edit class information"
       leave_class: "Leave out of class"
-      new: "Create new class room"
+      new: "Create new classroom"
       request: "Send request"
       remove_request: "Remove request"
       accept_request: "Accept request"

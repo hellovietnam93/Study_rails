@@ -1,0 +1,9 @@
+ja:
+  notifications:
+    views:
+      timetable: "クラスの時間割 %{class_room} 更新されています"
+      new_assignment: "新しい割り当てはクラスで作成されました %{class_room}"
+      edit_assignment: "割り当ては、クラス内で更新されました %{class_room}"
+      document: "新しい文書は、クラスにアップロードされました %{class_room}"
+      new_assignment_submit: "クラスに割り当てを提出しました %{class_room}"
+      edit_assignment_submit: "クラスの割り当てを編集しました %{class_room}"

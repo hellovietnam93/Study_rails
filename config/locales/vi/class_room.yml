@@ -1,0 +1,64 @@
+vi:
+  class_rooms:
+    all: "Tất cả lớp học"
+    class_room: "Lớp học"
+    timetables: "Thời khóa biểu"
+    request:
+      request: "yêu cầu"
+      not_have_key: "Gửi yêu cầu tham gia lớp học nếu không có key"
+      waiting_request: "Bạn đã gửi yêu cầu tham gia. Xin vui lòng chờ giảng viên chấp nhận!"
+      number: "%{number} để tham gia lớp học"
+    fields:
+      uid: "Mã lớp"
+      name: "Tên"
+      description: "Mô tả"
+      course: "Môn học"
+      semester: "Học kỳ"
+      type: "Loại lớp"
+      max_student: "Số lượng sinh viên tối đa"
+      registered_student: "Số lượng sinh viên đã đăng kí"
+      status: "Trạng thái"
+      action: "Hoạt động"
+      enroll_key: "Enroll key"
+    statuses:
+      closed: "Đóng"
+      in_progress: "Trong tiến trình"
+      pending: "Chờ"
+      opvi: "Mở"
+    class_types:
+      theory: "Lý thuyết"
+      pratice: "Thực hành"
+      experiment: "Thí Nghiệm"
+    user_classes:
+      sign_in: "Đăng kí tham gia lớp học"
+      key_not_right: "Mật khẩu tham gia lớp học không đúng!"
+    teacher: "Giảng viên: %{teacher}"
+    members:
+      all: "Các thành viên trong lớp %{class_room}"
+      login: "Tham gia lớp học"
+    teachers:
+      login: "Tham gia lớp học"
+    assignments:
+      actions:
+        edit: "Thay đổi bài tập %{assignment}"
+        submit: "Nộp bài tập"
+    tabs:
+      questions: "Câu hỏi"
+      other: "Khác"
+      class_rooms: "Lớp học"
+      assignments: "Bài tập"
+      members: "Thành viên"
+    students:
+      tabs:
+        class_rooms: "Lớp học"
+        members: "Thành viên"
+        assignments: "Bài tập"
+        online_tests: "Test"
+    actions:
+      detail: "Chi tiết"
+      edit: "Sửa thông tin lớp học"
+      leave_class: "Rời lớp học"
+      new: "Tạo mới lớp học"
+      request: "Gửi yêu cầu"
+      remove_request: "Xóa yêu cầu"
+      accept_request: "Chấp nhận yêu cầu"

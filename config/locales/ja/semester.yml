@@ -1,0 +1,7 @@
+ja:
+  semesters:
+    semester: 学期
+    all: "すべての学期"
+    fields:
+      name: "名"
+      action: "アクション"

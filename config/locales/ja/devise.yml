@@ -1,0 +1,60 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  devise:
+    confirmations:
+      confirmed: "メールアドレスは確認されました！"
+      send_instructions: "メールアドレスの確認方のメールをあなたにすぐ送ります。"
+      send_paranoid_instructions: "データベースにメールアドレスが保存した場合は、メールアドレスの確認方のメールをあなたにすぐ送ります。"
+    failure:
+      already_authenticated: "ログインしました！"
+      inactive: "このアカウントはまだアクティブされません。"
+      invalid: "%{authentication_keys} と パスワードは間違います。"
+      locked: "このアカウントはロックされています。"
+      last_attempt: "アカウントがロックされる前に、間違いのアカウントとパスワードをたくさん記入しました。"
+      not_found_in_database: "%{authentication_keys} と パスワードは間違います。"
+      timeout: "セッションはエクスパイアしました。もう一度ログインしてください 。"
+      unauthenticated: "続けるため、ログインか、ログアップしてください。"
+      unconfirmed: "続けるため、メールアドレスを確認してください。"
+    mailer:
+      confirmation_instructions:
+        subject: "確認指図"
+      reset_password_instructions:
+        subject: "リセットパスワードの指図"
+      unlock_instructions:
+        subject: "アンロック指図"
+    omniauth_callbacks:
+      failure: "\"%{reason}\"　のせいで、%{kind}から、認証できません。"
+      success: "%{kind} アカウントは認証されました."
+    passwords:
+      no_token: "パスワードをリセットメールからアクセスせずに、このページにアクセスできません。"
+      send_instructions: "パスワードのリセット方のメールがすぐおくられます。"
+      send_paranoid_instructions: "データベースにメールアドレスが保存した場合はあなたのメールアドレスにパスワード回復リックを送ります。"
+      updated: "パスワードは更新されました。ログインしました。"
+      updated_not_active: "パスワードは更新しました。"
+    registrations:
+      destroyed: "Bye! 登録はキャンセルされました。"
+      signed_up: "こにちは! ログアップは完成しました!"
+      signed_up_but_inactive: "ログアップは完成しました. これから、メールをチェックして、アクティブなのは必要です。"
+      signed_up_but_locked: "ログアップは完成しました. でも、このアカウントがロックされていますから、ログインできません。"
+      signed_up_but_unconfirmed: "確認リンクがあるメールは送られました。そのリンクのとおりに、アカウントをアクティブにしてください。"
+      update_needs_confirmation: "アカウントは更新されましたが、確認のことが必要です。ガイドのメールのとおりに、再確認してください。"
+      updated: "アカウントは更新されました。"
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+      already_signed_out: "もうログアウトしました。"
+    unlocks:
+      send_instructions: "アンロック方法のメールはすぐ送られます。"
+      send_paranoid_instructions: "データベースに保存した場合はアンロック方法のメールはすぐ送られます。"
+      unlocked: "アカウントはアンロックされました。ログインしてください。"
+  errors:
+    messages:
+      already_confirmed: "はもう確認されました。もう一度ログインしてみてください。"
+      confirmation_period_expired: "は以内確認しなければなりません。新しいリクエストを作ってください。"
+      expired: "は切れました。新しいリクエストを作ってください。"
+      not_found: "見つけません。"
+      not_locked: "はロックしません"
+      not_saved:
+        one: "1エラーがありますから、この%{resource}は禁止されました。"
+        other: "%{count}エラーがありますから、この%{resource}は禁止されました。"

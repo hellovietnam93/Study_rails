@@ -1,0 +1,8 @@
+vi:
+  members:
+    fields:
+      email: "Email"
+      join_date: "Ngày tham gia"
+      action: "Hoạt động"
+    actions:
+      leave: "Rời khỏi nhóm"

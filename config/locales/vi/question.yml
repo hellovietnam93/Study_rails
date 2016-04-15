@@ -1,0 +1,24 @@
+vi:
+  questions:
+    fields:
+      name: "Câu hỏi"
+      type: "Loại"
+      answers: "Câu trả lời"
+      priority: "Độ khó"
+      correct: "Đúng"
+      actions: "Hành động"
+    priorities:
+      high: " Cao"
+      medium: "Trung Bình"
+      low: "Thấp"
+      extra: "Đặc biệt"
+    question_types:
+      single: "1 đáp án đúng"
+      multiple: "Nhiều đáp án đúng"
+      fill_in_blank: "Điền vào ô trống"
+    title:
+      new: "Thêm mới câu hỏi"
+    actions:
+      remove_question: "Xóa câu hỏi này"
+      add_answer: "Thêm một câu trả lời"
+      add_question: "Thêm một câu hỏi"

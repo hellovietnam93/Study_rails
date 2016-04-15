@@ -1,0 +1,7 @@
+vi:
+  semesters:
+    semester: Học kì
+    all: "Tất cả các học kì"
+    fields:
+      name: "Tên"
+      action: "Hành động"

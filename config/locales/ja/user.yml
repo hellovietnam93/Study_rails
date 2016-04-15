@@ -1,0 +1,46 @@
+ja:
+  users:
+    title:
+      sign_in: "サインイン"
+      sign_up: "サインアップ"
+      account: "アカウント"
+      sign_out: "サインアウト"
+      confirmation: "確認の指示を再送信"
+      reset_password: "パスワードのリセット手順を私に送ります"
+      change_password: "パスワードを変更する"
+      unlock: "命令のロックを解除し再送信"
+      online: "オンライン"
+      about: "私について"
+      education: "教育"
+      location: "ロケーション"
+      skills: "スキル"
+      notes: "ノート"
+    fields:
+      email: "Eメール"
+      username: "ユーザー名"
+      password: "パスワード"
+      password_confirmation: "パスワードの確認"
+      new_password: "新しいパスワード"
+      confirmation_new_password: "新しいパスワードを確認"
+      current_password: "現在のパスワード"
+    views:
+      sign_in_form:
+        none_account: "アカウントを持たないでください?"
+        forgot_password: "パスワードをお忘れですか?"
+        confirmation: "確認メールがまだ届きません?"
+        unlock: "ロック解除命令を受信しませんでした?"
+        omiauth: "アカウントでサインイン %{provider}"
+        edit: "編集 %{resource}"
+        password_require: "私たちはあなたの変更を確認するために現在のパスワードを必要とします"
+        password_none_require: "あなたはそれを変更したくない場合は空白のまま"
+        cancel_account: "アカウントをキャンセル"
+        waiting_email: "現在の確認を待っています: %{email}"
+        avatar: "アバター"
+      menu:
+        profile: "プロフィール"
+        setting: "設定"
+      tabs:
+        activities: "活動"
+        timeline: "タイムライン"
+        settings: "設定"
+      number_notifications: "あなたが持っている %{number} 通知"

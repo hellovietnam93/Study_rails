@@ -1,0 +1,8 @@
+ja:
+  members:
+    fields:
+      email: "Eメール"
+      join_date: "参加しました"
+      action: "アクション"
+    actions:
+      leave: "抜かします"

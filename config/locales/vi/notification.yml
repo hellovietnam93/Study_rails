@@ -1,0 +1,9 @@
+vi:
+  notifications:
+    views:
+      timetable: "Thời khóa biểu trong lớp %{class_room} đã được thay đổi"
+      new_assignment: "Bài tập mới được tạo trong lớp %{class_room}"
+      edit_assignment: "Bài tập mới được thay đổi trong lớp %{class_room}"
+      document: "Có tài liệu mới được đăng lên trong lớp %{class_room}"
+      new_assignment_submit: "Mới có bài tập được nộp trong lớp %{class_room}"
+      edit_assignment_submit: "Có bài nộp được cập nhật trong lớp %{class_room}"

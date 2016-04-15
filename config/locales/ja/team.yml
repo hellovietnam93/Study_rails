@@ -1,0 +1,9 @@
+ja:
+  teams:
+    team: "チーム"
+    members: "メンバー"
+    headers:
+      name: "名"
+      number_member: "総メンバー"
+    actions:
+      new: "新しいチームを作成します"

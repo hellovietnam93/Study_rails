@@ -1,0 +1,52 @@
+ja:
+  static_page:
+    app_name: "Studyhub"
+    mini_name: "SH"
+    home: "Studyhub"
+    actions: "行動"
+    titles:
+      group: "グループ"
+      documentation: "ドキュメンテーション"
+      dashboard: "ダッシュボード"
+  form:
+    error: "エラー"
+    inform_error: "フォームが含まれています %{error}"
+    confirmation: "本気ですか?"
+    buttons:
+      update: "更新"
+      save: "セーブ"
+      edit: "編集"
+      editing: "編集..."
+      delete: "削除"
+      deleting: "削除..."
+      saving: "節約..."
+      add_more: "さらに追加"
+      cancel: "キャンセル"
+      post: "役職"
+      posting: "投稿..."
+      comment: "コメント"
+      commenting: "コメント..."
+      reply: "応答"
+      like: "以下のような"
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%y/%m/%d"
+      year: "%d/%m/%Y"
+  datepicker:
+    time:
+      format: "yyyy/mm/dd"
+  flashs:
+    messages:
+      created: "%{model_name} 正常に作成されました!"
+      not_created: "%{model_name} 作成できませんでした!"
+      deleted: "%{model_name} 正常に削除されました!"
+      not_deleted: "%{model_name} 削除できませんでした!"
+      not_updated: "%{model_name} 更新できませんでした"
+      updated: "%{model_name} 正常に更新されました!"
+      permission_denied: "あなたはこのページにアクセスする権限がありません"
+      model_not_found: "%{model} %{id} 存在しない"
+      import:
+        success: "%{models_name} 正常にインポートされました!"
+        alert: "%{models_name} 失敗インポートされました!"
+        no_select_file: "どのファイルが選択されていません"

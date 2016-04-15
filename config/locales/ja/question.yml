@@ -1,0 +1,24 @@
+ja:
+  questions:
+    fields:
+      name: "質問"
+      type: "質問の種類"
+      answers: "回答"
+      priority: "難しさ"
+      correct: "正しい"
+      actions: "行動"
+    priorities:
+      high: "高い"
+      medium: "ミディアム"
+      low: "ロー"
+      extra: "余分な"
+    question_types:
+      single: "シングル"
+      multiple: "複数"
+      fill_in_blank: "空欄に書き込みます"
+    title:
+      new: "新しい質問を追加"
+    actions:
+      remove_question: "この質問を削除"
+      add_answer: "答えを追加"
+      add_question: "質問を追加"
