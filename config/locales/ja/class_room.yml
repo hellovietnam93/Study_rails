@@ -18,7 +18,6 @@ ja:
       max_student: "学生の最大数"
       registered_student: "登録学生数"
       status: "状態"
-      action: "アクション"
       enroll_key: "認証キー"
     statuses:
       closed: "閉まっている"
@@ -32,15 +31,10 @@ ja:
     user_classes:
       sign_in: "教室に参加します"
       key_not_right: "間違ったパスワード!"
-    teacher: "講師: %{teacher}"
     members:
       all: "クラスのすべてのメンバー %{class_room}"
-      login: "クラスに参加"
-    teachers:
-      login: "クラスに参加"
     assignments:
       actions:
-        edit: "編集の割り当て %{assignment}"
         submit: "割り当て"
     tabs:
       questions: "質問"

@@ -16,9 +16,7 @@ ja:
       update: "更新"
       save: "セーブ"
       edit: "編集"
-      editing: "編集..."
       delete: "削除"
-      deleting: "削除..."
       saving: "節約..."
       add_more: "さらに追加"
       cancel: "キャンセル"
@@ -27,7 +25,6 @@ ja:
       comment: "コメント"
       commenting: "コメント..."
       reply: "応答"
-      like: "以下のような"
   date:
     formats:
       default: "%Y/%m/%d"

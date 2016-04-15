@@ -16,9 +16,7 @@ en:
       update: "Update"
       save: "Save"
       edit: "Edit"
-      editing: "Editing..."
       delete: "Delete"
-      deleting: "Deleting..."
       saving: "Saving..."
       add_more: "Add more"
       cancel: "Cancel"
@@ -27,8 +25,6 @@ en:
       comment: "Comment"
       commenting: "Commenting..."
       reply: "Reply"
-      like: "Like"
-      dislike: "Dislike"
   date:
     formats:
       default: "%Y/%m/%d"

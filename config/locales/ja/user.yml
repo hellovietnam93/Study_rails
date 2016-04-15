@@ -3,7 +3,6 @@ ja:
     title:
       sign_in: "サインイン"
       sign_up: "サインアップ"
-      account: "アカウント"
       sign_out: "サインアウト"
       confirmation: "確認の指示を再送信"
       reset_password: "パスワードのリセット手順を私に送ります"
@@ -35,7 +34,6 @@ ja:
         password_none_require: "あなたはそれを変更したくない場合は空白のまま"
         cancel_account: "アカウントをキャンセル"
         waiting_email: "現在の確認を待っています: %{email}"
-        avatar: "アバター"
       menu:
         profile: "プロフィール"
         setting: "設定"
