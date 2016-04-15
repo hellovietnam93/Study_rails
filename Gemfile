@@ -41,6 +41,7 @@ gem "carrierwave"
 gem "mini_magick"
 gem "carrierwave-dropbox"
 gem "isotope-rails"
+gem "i18n-js", ">= 3.0.0.rc11"
 
 group :development, :test do
   gem "pry"

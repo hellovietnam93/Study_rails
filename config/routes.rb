@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root "static_pages#home"
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    root "static_pages#home"
     mount Ckeditor::Engine => "/ckeditor"
     devise_for :users
 
