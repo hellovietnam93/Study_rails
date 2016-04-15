@@ -30,3 +30,4 @@ config/environments/*.local.yml
 # Ignore application configuration
 /config/application.yml
 public/ckeditor_assets/*
+/app/assets/javascripts/i18n/*

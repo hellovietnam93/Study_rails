@@ -18,6 +18,8 @@
 //= require jquery-ui.custom.min
 //= require fullcalendar.min
 //= require turbolinks
+//= require i18n
+//= require i18n/translations
 //= require ckeditor/init
 //= require ckeditor/reinit
 //= require ckeditor/adapters/jquery

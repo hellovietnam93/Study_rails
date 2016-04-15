@@ -65,3 +65,8 @@ users:
     - activities
     - timeline
     - settings
+languages:
+  en: "en"
+  ja: "ja"
+  vi: "vi"
+flag_size: "20x15"
