@@ -1,0 +1,22 @@
+vi:
+  courses:
+    all: "Tất cả môn học"
+    course: "Môn học"
+    class_rooms: "Các lớp trong môn học %{course}"
+    actions:
+      detail: "Thông tin môn học"
+      edit: "Sửa Thông tin môn học"
+    fields:
+      uid: "Mã môn học"
+      name: "Tên"
+      description: "Mô tả"
+      credit: "Credit"
+      credit_fee: "Credit fee"
+      theory_duration: "Thời gian lý thuyết"
+      exercise_duration: "Thời gian bài tập"
+      practice_duration: "Thời gian thực hành"
+      weight: "Khối lượng"
+      en_name: "Tên tiếng anh"
+      abbr_name: "Tên viết tắt"
+      language: "Ngôn ngữ"
+      evaluation: "Đánh giá"

@@ -1,0 +1,13 @@
+ja:
+  assignment_submits:
+    fields:
+      content: "コンテンツ"
+      user: "学生"
+      updated_at: "出願日"
+    errors:
+      unknow_errors: "トランザクションが失敗しました"
+    policy:
+      share_with_everyone: "あなたのクラスのみんなと共有"
+      share_with_team: "グループメンバーと共有します"
+      share_with_lecturer: "先生とのみを共有します"
+

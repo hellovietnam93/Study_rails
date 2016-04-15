@@ -1,0 +1,46 @@
+vi:
+  users:
+    title:
+      sign_in: "Đăng nhập"
+      sign_up: "Đăng kí"
+      account: "Tài khoản"
+      sign_out: "Thoát"
+      confirmation: "Gửi lại email xác nhận"
+      reset_password: "Gửi mail thay đổi mật khẩu"
+      change_password: "Thay đổi mật khẩu"
+      unlock: "Gửi mail mở lại tài khoản"
+      online: "Online"
+      about: "Giởi thiệu bản thân"
+      education: "Giáo dục"
+      location: "Vị trí"
+      skills: "Kỹ năng"
+      notes: "Ghi chú"
+    fields:
+      email: "Email"
+      username: "Tên đăng nhập"
+      password: "Mật khẩu"
+      password_confirmation: "Xác nhận mật khẩu"
+      new_password: "Mật khẩu mới"
+      confirmation_new_password: "Xác nhận mật khẩu mới"
+      current_password: "Mật khẩu hiện tại"
+    views:
+      sign_in_form:
+        none_account: "Chưa có tài khoản?"
+        forgot_password: "Quên mật khẩu?"
+        confirmation: "Chưa nhận được thư xác nhận?"
+        unlock: "Chưa nhận được thư mở lại tài khoản?"
+        omiauth: "Đăng nhập với %{provider}"
+        edit: "Sửa %{resource}"
+        password_require: "Chúng tôi cần mật khẩu hiện tại của bạn để xác nhận thay đổi của bạn"
+        password_none_require: "Để trống nếu bạn không muốn thay đổi"
+        cancel_account: "Hủy bỏ tài khoản của tôi"
+        waiting_email: "Hiện nay đang chờ xác nhận cho: %{email}"
+        avatar: "Avatar"
+      menu:
+        profile: "Hồ sơ"
+        setting: "Cài đặt"
+      tabs:
+        activities: "Hoạt động"
+        timeline: "Mốc thời gian"
+        settings: "Cài đặt"
+      number_notifications: "Bạn có %{number} thông báo"

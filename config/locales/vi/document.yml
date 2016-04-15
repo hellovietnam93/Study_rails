@@ -1,0 +1,8 @@
+vi:
+  documents:
+    document: "Tài liệu"
+    headers:
+      title: "Tiêu đề"
+      download_link: "Tải về liên kết"
+    placeholder:
+      enter_title: "Nhập tiêu đề ..."

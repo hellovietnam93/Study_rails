@@ -1,0 +1,11 @@
+vi:
+  imports:
+    course: "Các khóa học"
+    student: "Sinh viên"
+    question: "Câu hỏi"
+    import: "Import"
+    import_data: "Import data"
+    no_select_file: "Xin vui lòng, lựa chọn một số tập tin!"
+    allowed_csv: "Chỉ cho phép tệp tin CSV"
+    allowed_csv_json: "Cho phép chỉ csv và JSON file"
+    importing: "Importing..."

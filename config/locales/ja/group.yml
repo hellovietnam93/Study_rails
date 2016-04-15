@@ -1,0 +1,16 @@
+ja:
+  groups:
+    requests:
+      number: "%{number} グループに参加する要求"
+    actions:
+      create: "新しいグループを作成します。"
+      edit: "グループの編集 %{name}"
+    header:
+      name: "グループ名"
+      privacy: "プライバシー"
+    privacy:
+      public: "パブリック"
+      private: "プライベート"
+    description:
+      public: "誰もがグループ、グループメンバーとその投稿を表示することができます"
+      private: "全員が検索、グループのビュー・グループのメンバーことができます。メンバーだけが投稿を見ることができます"

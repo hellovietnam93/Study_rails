@@ -1,13 +1,17 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :set_locale
   before_action :verify_namespace, if: :user_signed_in?
 
   protect_from_forgery with: :exception
   rescue_from CanCan::AccessDenied do |exception|
     flash[:alert] = exception.message
     redirect_to root_path
+  end
+
+  def default_url_options options = {}
+    {locale: I18n.locale}
   end
 
   protected
@@ -17,6 +21,10 @@ class ApplicationController < ActionController::Base
     else
       root_path
     end
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 
   def verify_namespace

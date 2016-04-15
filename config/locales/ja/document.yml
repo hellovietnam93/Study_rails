@@ -1,0 +1,8 @@
+ja:
+  documents:
+    document: "資料"
+    headers:
+      title: "タイトル"
+      download_link: "ダウンロードリンク"
+    placeholder:
+      enter_title: "タイトルを入力します ..."

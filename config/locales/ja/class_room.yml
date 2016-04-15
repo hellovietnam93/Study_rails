@@ -1,0 +1,64 @@
+ja:
+  class_rooms:
+    all: "すべてのクラス"
+    class_room: "教室"
+    timetables: "時刻表"
+    request:
+      request: "要求"
+      not_have_key: "ノーキー場合、クラスへの参加リクエストを送ります"
+      waiting_request: "あなたが参加するあなたの要求を提出しました。受け入れ教員お待ちください!"
+      number: "%{number} クラスを参加します"
+    fields:
+      uid: "クラスコード"
+      name: "名前"
+      description: "説明"
+      course: "テーマ"
+      semester: "学期"
+      type: "タイプ"
+      max_student: "学生の最大数"
+      registered_student: "登録学生数"
+      status: "状態"
+      action: "アクション"
+      enroll_key: "認証キー"
+    statuses:
+      closed: "閉まっている"
+      in_progress: "進行中"
+      pending: "保留中"
+      open: "オープン"
+    class_types:
+      theory: "理論"
+      pratice: "練習"
+      experiment: "実験"
+    user_classes:
+      sign_in: "教室に参加します"
+      key_not_right: "間違ったパスワード!"
+    teacher: "講師: %{teacher}"
+    members:
+      all: "クラスのすべてのメンバー %{class_room}"
+      login: "クラスに参加"
+    teachers:
+      login: "クラスに参加"
+    assignments:
+      actions:
+        edit: "編集の割り当て %{assignment}"
+        submit: "割り当て"
+    tabs:
+      questions: "質問"
+      other: "他の"
+      class_rooms: "教室"
+      assignments: "割り当て"
+      members: "メンバー"
+    students:
+      tabs:
+        class_rooms: "教室"
+        members: "メンバー"
+        assignments: "割り当て"
+        online_tests: "テスト"
+    actions:
+      detail: "詳細"
+      edit: "編集クラス情報"
+      leave_class: "教室を出ます"
+      new: "新しい教室を作成します。"
+      request: "リクエストを送ります"
+      remove_request: "要求を削除します"
+      accept_request: "要請を受け入れます"

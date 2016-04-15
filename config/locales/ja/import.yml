@@ -1,0 +1,11 @@
+ja:
+  imports:
+    course: "コース"
+    student: "学生の"
+    question: "質問"
+    import: "インポート"
+    import_data: "データのインポート"
+    no_select_file: "、いくつかのファイルを選択してください!"
+    allowed_csv: "許可されたファイルだけのcsv"
+    allowed_csv_json: "許可された唯一のファイルのcsvとJSON"
+    importing: "インポート..."

@@ -1,0 +1,7 @@
+vi:
+  posts:
+    posts: "Bài viết"
+    posted_ago: "Đăng %{time} trước"
+    header:
+      name: "Tên"
+      content: "Nội dung"

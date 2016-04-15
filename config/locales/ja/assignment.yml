@@ -1,0 +1,16 @@
+ja:
+  assignments:
+    assignment: 割り当て
+    fields:
+      name: "名"
+      assignment_type: "タイプ"
+      start_date: "時間の送信を開始します"
+      end_date: "締め切り"
+      content: "コンテンツ"
+      class_room: "教室"
+    assignment_types:
+      single: "Single"
+      multiple: "Multiple"
+    actions:
+      new: "演習を作成します"
+      see_more: "学生が支払います"

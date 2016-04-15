@@ -1,0 +1,9 @@
+vi:
+  teams:
+    team: "Nhóm"
+    members: "Thành viên"
+    headers:
+      name: "Tên"
+      number_member: "Số lượng thành viên"
+    actions:
+      new: "Thêm nhóm"
