@@ -3,7 +3,6 @@ en:
     title:
       sign_in: "Sign in"
       sign_up: "Sign up"
-      account: "Account"
       sign_out: "Sign out"
       confirmation: "Resend confirmation instructions"
       reset_password: "Send me reset password instructions"
@@ -35,7 +34,6 @@ en:
         password_none_require: "Leave blank if you don't want to change it"
         cancel_account: "Cancel my account"
         waiting_email: "Currently waiting confirmation for: %{email}"
-        avatar: "Avatar"
       menu:
         profile: "Profile"
         setting: "Setting"

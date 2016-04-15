@@ -3,10 +3,8 @@ ja:
     fields:
       name: "質問"
       type: "質問の種類"
-      answers: "回答"
       priority: "難しさ"
       correct: "正しい"
-      actions: "行動"
     priorities:
       high: "高い"
       medium: "ミディアム"

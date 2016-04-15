@@ -18,7 +18,6 @@ en:
       max_student: "Maximum students"
       registered_student: "Registered student"
       status: "Status"
-      action: "Actions"
       enroll_key: "Enroll key"
     statuses:
       closed: "Closed"
@@ -32,15 +31,10 @@ en:
     user_classes:
       sign_in: "Take part in classroom"
       key_not_right: "The enroll key is wrong!"
-    teacher: "Teacher: %{teacher}"
     members:
       all: "All members in class %{class_room}"
-      login: "Participate class"
-    teachers:
-      login: "Enter class"
     assignments:
       actions:
-        edit: "Edit assignment %{assignment}"
         submit: "Submit assignment"
     tabs:
       questions: "Question"

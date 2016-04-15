@@ -3,10 +3,8 @@ vi:
     fields:
       name: "Câu hỏi"
       type: "Loại"
-      answers: "Câu trả lời"
       priority: "Độ khó"
       correct: "Đúng"
-      actions: "Hành động"
     priorities:
       high: " Cao"
       medium: "Trung Bình"

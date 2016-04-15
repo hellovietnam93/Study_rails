@@ -3,7 +3,6 @@ vi:
     title:
       sign_in: "Đăng nhập"
       sign_up: "Đăng kí"
-      account: "Tài khoản"
       sign_out: "Thoát"
       confirmation: "Gửi lại email xác nhận"
       reset_password: "Gửi mail thay đổi mật khẩu"
@@ -35,7 +34,6 @@ vi:
         password_none_require: "Để trống nếu bạn không muốn thay đổi"
         cancel_account: "Hủy bỏ tài khoản của tôi"
         waiting_email: "Hiện nay đang chờ xác nhận cho: %{email}"
-        avatar: "Avatar"
       menu:
         profile: "Hồ sơ"
         setting: "Cài đặt"

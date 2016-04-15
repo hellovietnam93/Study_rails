@@ -7,7 +7,6 @@ ja:
       start_date: "時間の送信を開始します"
       end_date: "締め切り"
       content: "コンテンツ"
-      class_room: "教室"
     assignment_types:
       single: "Single"
       multiple: "Multiple"

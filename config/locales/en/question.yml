@@ -3,10 +3,8 @@ en:
     fields:
       name: "Question"
       type: "Type"
-      answers: "Answer"
       priority: "Priority"
       correct: "Correct"
-      actions: "Actions"
     priorities:
       high: "High"
       medium: "Medium"

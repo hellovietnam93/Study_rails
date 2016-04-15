@@ -16,9 +16,7 @@ vi:
       update: "Cập nhật"
       save: "Lưu"
       edit: "Sửa"
-      editing: "Đang sửa..."
       delete: "Xóa"
-      deleting: "Đang xóa..."
       saving: "Đang lưu..."
       add_more: "Add Thêm mới"
       cancel: "Hủy bỏ"
@@ -27,7 +25,6 @@ vi:
       comment: "Bình luận"
       commenting: "Đang gửi bình luận..."
       reply: "Trả lời"
-      like: "Like"
   date:
     formats:
       default: "%Y/%m/%d"

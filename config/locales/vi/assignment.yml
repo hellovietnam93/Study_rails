@@ -7,7 +7,6 @@ vi:
       start_date: "Thời gian bắt đầu nộp bài"
       end_date: "Hạn chót"
       content: "Nội dung"
-      class_room: "Lớp học"
     assignment_types:
       single: "Single"
       multiple: "Multiple"

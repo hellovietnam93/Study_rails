@@ -18,7 +18,6 @@ vi:
       max_student: "Số lượng sinh viên tối đa"
       registered_student: "Số lượng sinh viên đã đăng kí"
       status: "Trạng thái"
-      action: "Hoạt động"
       enroll_key: "Enroll key"
     statuses:
       closed: "Đóng"
@@ -32,15 +31,10 @@ vi:
     user_classes:
       sign_in: "Đăng kí tham gia lớp học"
       key_not_right: "Mật khẩu tham gia lớp học không đúng!"
-    teacher: "Giảng viên: %{teacher}"
     members:
       all: "Các thành viên trong lớp %{class_room}"
-      login: "Tham gia lớp học"
-    teachers:
-      login: "Tham gia lớp học"
     assignments:
       actions:
-        edit: "Thay đổi bài tập %{assignment}"
         submit: "Nộp bài tập"
     tabs:
       questions: "Câu hỏi"
