@@ -1,6 +1,10 @@
 $(document).ready(function() {
   $(document).on("page:change", function () {
     $("#semesters #new-semester").hide();
+
+    $("#semester_start_date, #semester_end_date").datepicker({
+      dateFormat: I18n.t("datepicker.time.format")
+    });
   });
 
   $(document).on("click", "#semesters .btn-new-semester", function (event) {

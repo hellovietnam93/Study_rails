@@ -49,7 +49,7 @@ class Admin::SemestersController < ApplicationController
 
   private
   def semester_params
-    params.require(:semester).permit :name
+    params.require(:semester).permit Semester::ATTRIBUTES_PARAMS
   end
 
   def list_all_semesters

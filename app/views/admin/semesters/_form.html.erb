@@ -9,6 +9,18 @@
           required: true, autofocus: true %>
       </div>
 
+      <div class="form-group">
+        <%= f.label :start_date, class: "control-label" %>
+        <%= f.text_field :start_date, class: "form-control",
+          required: true, autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :end_date, class: "control-label" %>
+        <%= f.text_field :end_date, class: "form-control",
+          required: true, autofocus: true %>
+      </div>
+
       <%= f.submit t("form.buttons.save"), data: {disable_with: t("form.buttons.saving")},
         class: "btn btn-primary btn-sm" %>
       <input type="button" class="btn btn-cancel" value="Cancel"/>
