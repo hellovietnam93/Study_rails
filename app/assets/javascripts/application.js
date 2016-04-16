@@ -20,6 +20,7 @@
 //= require turbolinks
 //= require i18n
 //= require i18n/translations
+//= require constant
 //= require ckeditor/init
 //= require ckeditor/reinit
 //= require ckeditor/adapters/jquery

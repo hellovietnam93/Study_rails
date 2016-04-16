@@ -8,6 +8,12 @@ $(document).on("page:change", function() {
       center: 'title',
       right: 'month, agendaWeek, agendaDay'
     },
+    buttonText: {
+      today: I18n.t("timetables.title.today"),
+      month: I18n.t("timetables.title.month"),
+      week: I18n.t("timetables.title.week"),
+      day: I18n.t("timetables.title.day")
+    },
     dayClick: function(date, jsEvent, view) {
       if ($("#calendar").attr("data-editable") == "true") {
         $("#new-timetable-modal").modal("show");
@@ -43,7 +49,7 @@ $(document).on("page:change", function() {
     selectable: true,
     editable: $("#calendar").attr("data-editable") == "false" ? false : true,
     eventLimit: true,
-    events: "http://localhost:3000/class_rooms/" + $("#calendar").attr("data-class-room-id") + "/timetables.json",
+    events: BASE_URL + "class_rooms/" + $("#calendar").attr("data-class-room-id") + "/timetables.json",
     eventResize: function(event, dayDelta, minuteDelta, revertFunc) {
       return updateEvent(event);
     }
@@ -53,7 +59,7 @@ $(document).on("page:change", function() {
 updateEvent = function(the_event) {
   $.ajax({
     type: "PUT",
-    url: "http://localhost:3000/class_rooms/" + $("#calendar").attr("data-class-room-id") + "/timetables/" + the_event.id,
+    url: BASE_URL + "class_rooms/" + $("#calendar").attr("data-class-room-id") + "/timetables/" + the_event.id,
     data: { timetable: {
       title: the_event.title,
       start_time: "" + new Date(the_event.start).toUTCString(),
