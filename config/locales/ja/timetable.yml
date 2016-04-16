@@ -2,3 +2,8 @@ ja:
   timetables:
     actions:
       new: "時刻表を作成します"
+    title:
+      today: "今日"
+      month: "月"
+      week: "週"
+      day: "日"

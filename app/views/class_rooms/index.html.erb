@@ -8,10 +8,18 @@
         <span class="label label-danger"><%= @class_rooms.count %></span>
 
         <div id="sorts" class="btn-group button-group">
-          <button class="button is-checked" data-sort-by="name">name</button>
-          <button class="button" data-sort-by="uid">uid</button>
-          <button class="button" data-sort-by="status">status</button>
-          <button class="button" data-sort-by="type">type</button>
+          <button class="button is-checked" data-sort-by="name">
+            <%= t "class_rooms.fields.name" %>
+          </button>
+          <button class="button" data-sort-by="uid">
+            <%= t "class_rooms.fields.uid" %>
+          </button>
+          <button class="button" data-sort-by="status">
+            <%= t "class_rooms.fields.status" %>
+          </button>
+          <button class="button" data-sort-by="type">
+            <%= t "class_rooms.fields.type" %>
+          </button>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 $(document).on("page:change", function() {
   $("#assignment_start_date, #assignment_end_date").datepicker({
-    dateFormat: "yy/mm/dd"
+    dateFormat: I18n.t("datepicker.time.format")
   });
 
   $(document).on("show.bs.modal", "#show-assignment-modal", function (event) {
@@ -67,7 +67,7 @@ $(document).on("page:change", function() {
         value: "patch",
         name: "_method"
       }).appendTo($form);
-      $(this).find(".modal-title").html("Edit " + assignmentName);
+      $(this).find(".modal-title").html(I18n.t("form.buttons.edit") + assignmentName);
       $form.find("#assignment_name").val(assignmentName);
       $form.find("#assignment_assignment_type").val(assignmentType);
       $form.find("#assignment_start_date").val(assignmentStartDate);
@@ -79,12 +79,11 @@ $(document).on("page:change", function() {
     var $link = $(event.relatedTarget);
 
     var assignmentId = $link.data("assignment-id");
-    console.log(assignmentId);
     CKEDITOR.instances.assignment_content.setData($(".assignment-edit-" + assignmentId).attr("data-assignment-content"));
   });
 
   $(document).on("click", ".assignment-delete", function (event) {
-    var check = confirm("Are you sure?");
+    var check = confirm(I18n.t("form.confirmation"));
     if (check == true) {
       var assignmentId = $(this).data("assignment-id");
       var classroomID = $(this).data("assignment-class");

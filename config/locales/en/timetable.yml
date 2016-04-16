@@ -2,3 +2,8 @@ en:
   timetables:
     actions:
       new: "Create timetables"
+    title:
+      today: "Today"
+      month: "Month"
+      week: "Week"
+      day: "Day"
