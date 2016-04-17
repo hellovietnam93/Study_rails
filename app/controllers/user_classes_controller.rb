@@ -5,8 +5,6 @@ class UserClassesController < ApplicationController
   def create
     if right_key? params[:user_class][:key]
       enroll_class current_user
-      @assignment = @class_room.assignments.new
-      @members = @class_room.user_classes.where owner: false
       redirect_to @class_room
     else
       @user_class.errors.add :base, I18n.t("class_rooms.user_classes.key_not_right")
@@ -28,11 +26,12 @@ class UserClassesController < ApplicationController
   end
 
   def load_class_room
-    @class_room = ClassRoom.find_by id: params[:user_class][:class_room_id]
+    @class_room = ClassRoom.includes(:user_classes).find_by id:
+      params[:user_class][:class_room_id]
   end
 
   def right_key? enroll_key
-    enroll_key == @class_room.enroll_key
+    enroll_key == (current_user.lecturer? ? @class_room.enroll_key : @class_room.student_key)
   end
 
   def enroll_class current_user
