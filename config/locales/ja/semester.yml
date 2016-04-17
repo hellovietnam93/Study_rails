@@ -5,3 +5,5 @@ ja:
     fields:
       name: "名"
       action: "アクション"
+    validate:
+      date: "開始日より終了日は「大きくなければなりません"

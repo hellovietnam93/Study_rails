@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408035234) do
+ActiveRecord::Schema.define(version: 20160416041138) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -325,6 +325,8 @@ ActiveRecord::Schema.define(version: 20160408035234) do
     t.string   "slug",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
   add_index "semesters", ["slug"], name: "index_semesters_on_slug", unique: true, using: :btree

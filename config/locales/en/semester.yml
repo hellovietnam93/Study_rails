@@ -5,3 +5,5 @@ en:
     fields:
       name: "Name"
       action: "Action"
+    validate:
+      date: "End date must be greater than start date"
