@@ -25,7 +25,7 @@ class ClassRoom < ActiveRecord::Base
     allow_destroy: true
 
   ATTRIBUTES_PARAMS = [:name, :uid, :description, :course_id, :semester_id, :enroll_key,
-    :class_type, :max_student, :registered_student, :status,
+    :class_type, :max_student, :registered_student, :status, :student_key,
     questions_attributes: [:id, :name, :question_type, :priority, :course_id, :_destroy,
     answers_attributes: [:id, :content, :correct, :_destroy]]]
 

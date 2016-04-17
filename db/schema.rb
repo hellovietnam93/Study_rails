@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416041138) do
+ActiveRecord::Schema.define(version: 20160417014434) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160416041138) do
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "status",             limit: 4
+    t.string   "student_key",        limit: 255
   end
 
   add_index "class_rooms", ["course_id"], name: "index_class_rooms_on_course_id", using: :btree
