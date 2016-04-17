@@ -1,0 +1,38 @@
+<li>
+  <%= link_to root_path do %>
+    <i class="fa fa-tachometer"></i>
+    <span><%= t "static_page.titles.dashboard" %></span>
+  <% end %>
+</li>
+
+<li>
+  <%= link_to courses_path do %>
+    <i class="fa fa-home" aria-hidden="true"></i>
+    <span><%= t "static_page.titles.my_school" %></span>
+  <% end %>
+</li>
+
+<li class="active treeview">
+  <%= link_to class_rooms_path do %>
+    <i class="fa fa-graduation-cap"></i>
+    <span><%= t "static_page.titles.my_classes" %></span>
+    <i class="fa fa-angle-left pull-right"></i>
+  <% end %>
+  <ul class="treeview-menu">
+    <% current_user.user_classes.take_in.each do |user_class| %>
+      <li>
+        <%= link_to user_class.class_room do %>
+          <i class="fa fa-gamepad"></i>
+          <span><%= user_class.class_room.uid %></span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</li>
+
+<li>
+  <%= link_to "#" do %>
+    <i class="fa fa-book"></i>
+    <span><%= t "static_page.titles.documentation" %></span>
+  <% end %>
+</li>

@@ -94,7 +94,6 @@ ActiveRecord::Schema.define(version: 20160423160419) do
     t.integer  "class_type",         limit: 4
     t.integer  "registered_student", limit: 4
     t.integer  "max_student",        limit: 4
-    t.string   "slug",               limit: 255
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "status",             limit: 4
@@ -103,7 +102,6 @@ ActiveRecord::Schema.define(version: 20160423160419) do
 
   add_index "class_rooms", ["course_id"], name: "index_class_rooms_on_course_id", using: :btree
   add_index "class_rooms", ["semester_id"], name: "index_class_rooms_on_semester_id", using: :btree
-  add_index "class_rooms", ["slug"], name: "index_class_rooms_on_slug", unique: true, using: :btree
 
   create_table "class_teams", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -149,22 +147,14 @@ ActiveRecord::Schema.define(version: 20160423160419) do
     t.string   "name",              limit: 255
     t.string   "uid",               limit: 255
     t.text     "description",       limit: 65535
-    t.decimal  "credit",                          precision: 10
-    t.decimal  "credit_fee",                      precision: 10
     t.decimal  "theory_duration",                 precision: 10
     t.decimal  "exercise_duration",               precision: 10
     t.decimal  "practice_duration",               precision: 10
     t.decimal  "weight",                          precision: 10
-    t.string   "en_name",           limit: 255
-    t.string   "abbr_name",         limit: 255
-    t.string   "language",          limit: 255
     t.text     "evaluation",        limit: 65535
-    t.string   "slug",              limit: 255
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
   end
-
-  add_index "courses", ["slug"], name: "index_courses_on_slug", unique: true, using: :btree
 
   create_table "documents", force: :cascade do |t|
     t.string   "title",         limit: 255
@@ -208,19 +198,6 @@ ActiveRecord::Schema.define(version: 20160423160419) do
   end
 
   add_index "forums", ["class_room_id"], name: "index_forums_on_class_room_id", using: :btree
-
-  create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",           limit: 255, null: false
-    t.integer  "sluggable_id",   limit: 4,   null: false
-    t.string   "sluggable_type", limit: 50
-    t.string   "scope",          limit: 255
-    t.datetime "created_at"
-  end
-
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "group_users", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -351,14 +328,11 @@ ActiveRecord::Schema.define(version: 20160423160419) do
 
   create_table "semesters", force: :cascade do |t|
     t.string   "name",       limit: 255
-    t.string   "slug",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.date     "start_date"
     t.date     "end_date"
   end
-
-  add_index "semesters", ["slug"], name: "index_semesters_on_slug", unique: true, using: :btree
 
   create_table "syllabus_details", force: :cascade do |t|
     t.integer  "syllabus_id", limit: 4
@@ -467,14 +441,12 @@ ActiveRecord::Schema.define(version: 20160423160419) do
     t.datetime "locked_at"
     t.datetime "created_at",                                         null: false
     t.datetime "updated_at",                                         null: false
-    t.string   "slug",                   limit: 255
     t.integer  "role",                   limit: 4
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "answers", "questions"

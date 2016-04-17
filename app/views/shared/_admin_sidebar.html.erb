@@ -1,0 +1,27 @@
+<li>
+  <%= link_to admin_root_path do %>
+    <i class="fa fa-tachometer"></i>
+    <span><%= t "static_page.titles.dashboard" %></span>
+  <% end %>
+</li>
+
+<li>
+  <%= link_to admin_courses_path do %>
+    <i class="fa fa-home" aria-hidden="true"></i>
+    <span><%= t "courses.course" %></span>
+  <% end %>
+</li>
+
+<li>
+  <%= link_to admin_semesters_path do %>
+    <i class="fa fa-graduation-cap"></i>
+    <span><%= t "semesters.semester" %></span>
+  <% end %>
+</li>
+
+<li>
+  <%= link_to admin_imports_path do %>
+    <i class="fa fa-book"></i>
+    <span><%= t "imports.import" %></span>
+  <% end %>
+</li>
