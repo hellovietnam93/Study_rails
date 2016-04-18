@@ -38,10 +38,9 @@ source "https://rails-assets.org" do
   gem "rails-assets-datetimepicker"
 end
 gem "carrierwave"
-gem "mini_magick"
-gem "carrierwave-dropbox"
 gem "isotope-rails"
 gem "i18n-js", ">= 3.0.0.rc11"
+gem "cloudinary"
 
 group :development, :test do
   gem "pry"
