@@ -36,7 +36,13 @@ class UserClassesController < ApplicationController
 
   def enroll_class current_user
     if current_user.lecturer?
-      @user_class.update_attributes user: current_user, owner: true, status: 1
+      user_class = UserClass.find_by user_id: current_user.id, class_room_id: @class_room_id,
+        owner: true
+      if user_class
+        user_class.update_attributes status: 1
+      else
+        flash[:alert] = t "flashs.messages.not_right_teacher"
+      end
     elsif current_user.student?
       @user_class.update_attributes user: current_user, status: 1
       add_registered_student
