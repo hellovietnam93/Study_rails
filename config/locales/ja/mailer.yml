@@ -1,0 +1,13 @@
+ja:
+  mailers:
+    subjects:
+      assign_class: "新しいクラスがあなたに割り当てられています"
+    content:
+      greeting: "こんにちは %{email},"
+      assign_class:
+        intro: "学期中の %{semester}, あなたは意志教師のクラス %{class} もちろん %{course}."
+        content_details:
+          first_line: "私たちはあなたにこのクラスのいくつかの情報をお送りします:"
+          enroll_key: "あなたがクラスを入力するためのキーを登録"
+          student_key: "あなたが学生に送信する学生のキー誰学校であなたの先生"
+          link: "あなたは、以下のリンクでクラスに行くことができます"

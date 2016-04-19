@@ -22,6 +22,10 @@ vi:
       new_password: "Mật khẩu mới"
       confirmation_new_password: "Xác nhận mật khẩu mới"
       current_password: "Mật khẩu hiện tại"
+    roles:
+      admin: "Quản trị viên"
+      lecturer: "Giảng viên"
+      student: "Sinh viên"
     views:
       sign_in_form:
         none_account: "Chưa có tài khoản?"

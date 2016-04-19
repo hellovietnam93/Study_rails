@@ -8,6 +8,9 @@
     <p>
       <%= current_user.username %>
     </p>
+    <p>
+      <%= t "users.roles.#{current_user.role}" %>
+    </p>
   </li>
   <li class="user-body">
     <div class="col-xs-4 text-center">

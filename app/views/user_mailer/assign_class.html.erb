@@ -1,0 +1,25 @@
+<h1><%= t "mailers.subjects.greeting", email: @user.email %></h1>
+
+<p>
+  <%= t "mailers.content.assign_class.intro", semester: @class_room.semester.name,
+    class: @class_room.uid, course: @class_room.course.uid %>
+</p>
+
+<p>
+  <%= t "mailers.content.assign_class.content_details.first_line" %>
+</p>
+
+<p>
+  <%= t "mailers.content.assign_class.content_details.enroll_key" %>
+  <span><b><%= @class_room.enroll_key %></b></span>
+</p>
+
+<p>
+  <%= t "mailers.content.assign_class.content_details.student_key" %>
+  <span><b><%= @class_room.student_key %></b></span>
+</p>
+
+<p>
+  <%= t "mailers.content.assign_class.content_details.link" %>
+</p>
+<%= class_room_url I18n.locale, @class_room %>

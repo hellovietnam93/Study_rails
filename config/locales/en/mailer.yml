@@ -1,0 +1,14 @@
+en:
+  mailers:
+    subjects:
+      assign_class: "New class has been assigned to you"
+    content:
+      greeting: "Hello %{email},"
+      assign_class:
+        intro: "In semester %{semester}, you will teacher class %{class} of course %{course}."
+        content_details:
+          first_line: "We will send you some information of this class:"
+          enroll_key: "Enroll key for you to enter class"
+          student_key: "Student key you will send to student who you teacher at school"
+          link: "You can go to the class by link below"
+
