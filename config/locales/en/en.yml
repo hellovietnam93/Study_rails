@@ -43,6 +43,7 @@ en:
       updated: "%{model_name} was updated successfully!"
       permission_denied: "You are not authorized to access this page."
       model_not_found: "%{model} %{id} dosen't exist"
+      not_right_teacher: "You are not lecturer of this class"
       import:
         success: "%{models_name} was imported successfully!"
         alert: "%{models_name} was imported fail!"

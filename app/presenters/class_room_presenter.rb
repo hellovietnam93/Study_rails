@@ -22,7 +22,10 @@ class ClassRoomPresenter < BasePresenter
   end
 
   def is_lecturer_of_class?
-    user_classes.map(&:user_id).include? @user.id
+    user_classes.find do |user_class|
+      user_class.status == "take_in" && user_class.user_id == @user.id &&
+        user_class.owner
+    end
   end
 
   def is_member_of_class?

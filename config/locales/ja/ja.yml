@@ -43,6 +43,7 @@ ja:
       updated: "%{model_name} 正常に更新されました!"
       permission_denied: "あなたはこのページにアクセスする権限がありません"
       model_not_found: "%{model} %{id} 存在しない"
+      not_right_teacher: "あなたはこのクラスの講師ではありません"
       import:
         success: "%{models_name} 正常にインポートされました!"
         alert: "%{models_name} 失敗インポートされました!"
