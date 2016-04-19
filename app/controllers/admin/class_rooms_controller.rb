@@ -12,7 +12,7 @@ class Admin::ClassRoomsController < ApplicationController
   end
 
   def create
-    @class_room_service = ClassRoomService.new @class_room
+    @class_room_service = ClassRoomService.new @class_room, class_room_params[:teacher]
     respond_to do |format|
       if @class_room_service.save
         @class_room.create_forum

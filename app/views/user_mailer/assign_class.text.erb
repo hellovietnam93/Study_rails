@@ -1,0 +1,12 @@
+<%= t "mailers.subjects.greeting", email: @user.email %>
+
+<%= t "mailers.content.assign_class.intro", semester: @class_room.semester.name,
+  class: @class_room.uid, course: @class_room.course.uid %>
+
+<%= t "mailers.content.assign_class.content_details.first_line" %>
+
+<%= t "mailers.content.assign_class.content_details.enroll_key" %>: <%= @class_room.enroll_key %>
+<%= t "mailers.content.assign_class.content_details.student_key" %>: <%= @class_room.student_key %>
+
+<%= t "mailers.content.assign_class.content_details.link" %>
+<%= class_room_url I18n.locale, @class_room %>

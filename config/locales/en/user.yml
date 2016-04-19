@@ -22,6 +22,10 @@ en:
       new_password: "New password"
       confirmation_new_password: "Confirm new password"
       current_password: "Current password"
+    roles:
+      admin: "Admin"
+      lecturer: "Lecturer"
+      student: "Student"
     views:
       sign_in_form:
         none_account: "Don't have account?"

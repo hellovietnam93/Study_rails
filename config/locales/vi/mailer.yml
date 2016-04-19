@@ -1,0 +1,13 @@
+vi:
+  mailers:
+    subjects:
+      assign_class: "Có 1 lớp học mới đã được tạo cho bạn"
+    content:
+      greeting: "Xin chào %{email},"
+      assign_class:
+        intro: "Trong học kỳ %{semester}, bạn sẽ dạy lớp %{class} của môn học %{course}."
+        content_details:
+          first_line: "Dưới đây là một vài thông tin cơ bản về lớp học:"
+          enroll_key: "Mật khẩu để bạn có thể đăng nhập vào lớp: "
+          student_key: "Mật khẩu dành cho sinh viên đăng nhập vào lớp: "
+          link: "Bạn có thể tham gia lớp học bằng cách click vào đường dẫn dưới đây"

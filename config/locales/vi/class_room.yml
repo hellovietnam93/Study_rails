@@ -23,7 +23,7 @@ vi:
       closed: "Đóng"
       in_progress: "Trong tiến trình"
       pending: "Chờ"
-      opvi: "Mở"
+      open: "Mở"
     class_types:
       theory: "Lý thuyết"
       pratice: "Thực hành"
