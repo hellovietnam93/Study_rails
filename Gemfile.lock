@@ -161,6 +161,8 @@ GEM
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    momentjs-rails (2.11.1)
+      railties (>= 3.1)
     multi_json (1.11.2)
     mysql2 (0.3.20)
     nested_form (0.3.2)
@@ -359,6 +361,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   kaminari
+  momentjs-rails
   mysql2 (~> 0.3.18)
   nested_form
   nprogress-rails

@@ -1,6 +1,6 @@
 $("#error_explanation").remove()
 <% if @assignment.errors.any? %>
-  $("#errors-edit-assignment").
+  $("#assignments #errors-create-assignment").
     html("<%= j render "shared/errors_messages", object: @assignment %>");
 <% else %>
   $("#assignments .tbody").html("<%= j render @class_room.assignments %>");

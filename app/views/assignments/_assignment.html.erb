@@ -2,20 +2,20 @@
   <tr class="assignment-<%= assignment.id %> trow">
     <td class="name">
       <a data-toggle="modal" data-target="#show-assignment-modal"
-        href="#"
+        href="#" class="assignment"
         data-assignment-id="<%= assignment.id %>"
         data-assignment-name="<%= assignment.name %>"
         data-assignment-content="<%= assignment.content %>"
-        data-assignment-start-date="<%= assignment.start_date.strftime(t "date.formats.default") %>"
-        data-assignment-end-date="<%= assignment.end_date.strftime(t "date.formats.default") %>"
+        data-assignment-start-time="<%= assignment.start_time.strftime(t "datepicker.time.default") %>"
+        data-assignment-end-time="<%= assignment.end_time.strftime(t "datepicker.time.default") %>"
         data-assignment-type="<%= t "assignments.assignment_types.#{assignment.assignment_type}" %>"
         data-type="<%= assignment.assignment_type %>"
         data-assignment-class="<%= assignment.class_room_id %>">
         <%= assignment.name %>
       </a>
     </td>
-    <td class="start_date"><%= assignment.start_date.strftime(t "date.formats.default") %></td>
-    <td class="end_date"><%= assignment.end_date.strftime(t "date.formats.default") %></td>
+    <td class="start_time"><%= assignment.start_time.strftime(t "datepicker.time.default") %></td>
+    <td class="end_time"><%= assignment.end_time.strftime(t "datepicker.time.default") %></td>
     <% if can? :update, assignment %>
       <td class="action">
         <a data-toggle="modal" data-target="#new-assignment-modal"
@@ -23,8 +23,8 @@
           data-assignment-id="<%= assignment.id %>"
           data-assignment-name="<%= assignment.name %>"
           data-assignment-content="<%= assignment.content %>"
-          data-assignment-start-date="<%= assignment.start_date.strftime(t "date.formats.default") %>"
-          data-assignment-end-date="<%= assignment.end_date.strftime(t "date.formats.default") %>"
+          data-assignment-start-time="<%= assignment.start_time.strftime(t "datepicker.time.default") %>"
+          data-assignment-end-time="<%= assignment.end_time.strftime(t "datepicker.time.default") %>"
           data-assignment-type="<%= assignment.assignment_type %>"
           data-assignment-class="<%= assignment.class_room_id %>">
           <%= t "form.buttons.edit" %>

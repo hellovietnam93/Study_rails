@@ -27,6 +27,7 @@
 //= require bootstrap-sprockets
 //= require jquery_nested_form
 //= require isotope
+//= require moment
 //= require_tree ./customs
 
 $(document).on("ready", function() {

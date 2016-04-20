@@ -41,6 +41,7 @@ gem "carrierwave"
 gem "isotope-rails"
 gem "i18n-js", ">= 3.0.0.rc11"
 gem "cloudinary"
+gem "momentjs-rails"
 
 group :development, :test do
   gem "pry"

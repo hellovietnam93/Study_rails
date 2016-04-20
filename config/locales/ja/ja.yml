@@ -33,6 +33,8 @@ ja:
   datepicker:
     time:
       format: "yy-mm-dd"
+      default: "%Y/%m/%d %H:%M"
+      js: "YYYY/MM/DD HH:mm"
   flashs:
     messages:
       created: "%{model_name} 正常に作成されました!"

@@ -3,8 +3,8 @@ class CreateAssignments < ActiveRecord::Migration
     create_table :assignments do |t|
       t.string :name
       t.integer :type
-      t.datetime :start_date
-      t.datetime :end_date
+      t.datetime :start_time
+      t.datetime :end_time
       t.string :content
 
       t.timestamps null: false

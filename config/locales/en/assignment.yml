@@ -13,3 +13,6 @@ en:
     actions:
       new: "Create assignments"
       see_more: "Student submit"
+    validates:
+      error_date: "End date must be greater than start date"
+      error_date_semester: "Time must be between start date and end date of this semester"
