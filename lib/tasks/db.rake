@@ -23,6 +23,12 @@ namespace :db do
     Course.create name: "Database", uid: "IT3344", description: "2", credit: 2, credit_fee: 2,
       theory_duration: 2, exercise_duration: 2, practice_duration: 2, weight: 2,
       en_name: "DB", abbr_name: "2", language: "English", evaluation: "2"
+    9.times do |n|
+      syllabus = Syllabus.create course_id: 1, title: "Syllabus #{n}", week: n
+      3.times do |m|
+        syllabus.syllabus_details.create course_id: 1, content: "SyllabusDetail #{m} of Syllabus #{n}"
+      end
+    end
 
     10.times do |n|
       Course.create name: "Subject_#{n}", uid: "IT334#{4 + n}", description: "2", credit: 2, credit_fee: 2,

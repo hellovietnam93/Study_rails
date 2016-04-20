@@ -2,6 +2,7 @@ vi:
   timetables:
     actions:
       new: "Tạo thời khóa biểu"
+      add_syllabus: "Thêm giáo trình"
     title:
       today: "Hôm nay"
       month: "Tháng"

@@ -2,6 +2,7 @@ ja:
   timetables:
     actions:
       new: "時刻表を作成します"
+      add_syllabus: "シラバスを追加"
     title:
       today: "今日"
       month: "月"
