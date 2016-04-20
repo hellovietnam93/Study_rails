@@ -1,17 +1,18 @@
 <div id="forums">
   <div class="row">
-    <aside class="col-md-4">
-      <section class="micropost_form">
-        <%= render 'posts/form' %>
-      </section>
-    </aside>
-    <div id="posts" class="col-md-7">
-      <h3><%= t "posts.posts" %></h3>
-      <% if @posts.any? %>
-        <ul>
+
+    <div class="col-md-10 col-md-offset-1">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <%= render 'posts/form' %>
+        </div>
+      </div>
+
+      <div>
+        <% if @posts.any? %>
           <%= render @posts %>
-        </ul>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418111132) do
+ActiveRecord::Schema.define(version: 20160420145916) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -360,6 +360,16 @@ ActiveRecord::Schema.define(version: 20160418111132) do
 
   add_index "teams", ["class_room_id"], name: "index_teams_on_class_room_id", using: :btree
 
+  create_table "timetable_details", force: :cascade do |t|
+    t.integer  "timetable_id",       limit: 4
+    t.integer  "syllabus_detail_id", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "timetable_details", ["syllabus_detail_id"], name: "index_timetable_details_on_syllabus_detail_id", using: :btree
+  add_index "timetable_details", ["timetable_id"], name: "index_timetable_details_on_timetable_id", using: :btree
+
   create_table "timetables", force: :cascade do |t|
     t.integer  "class_room_id", limit: 4
     t.datetime "start_time"
@@ -455,6 +465,8 @@ ActiveRecord::Schema.define(version: 20160418111132) do
   add_foreign_key "syllabus_details", "syllabuses"
   add_foreign_key "syllabuses", "courses"
   add_foreign_key "teams", "class_rooms"
+  add_foreign_key "timetable_details", "syllabus_details"
+  add_foreign_key "timetable_details", "timetables"
   add_foreign_key "timetables", "class_rooms"
   add_foreign_key "user_classes", "class_rooms"
   add_foreign_key "user_classes", "users"
