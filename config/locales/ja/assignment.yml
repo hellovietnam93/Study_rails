@@ -13,3 +13,6 @@ ja:
     actions:
       new: "演習を作成します"
       see_more: "学生が支払います"
+    validates:
+      error_date: "開始日より終了日は「大きくなければなりません"
+      error_date_semester: "時間は、この学期の開始日と終了日の間でなければなりません"

@@ -1,7 +1,5 @@
 $(document).on("page:change", function() {
-  $("#assignment_start_date, #assignment_end_date").datepicker({
-    dateFormat: I18n.t("datepicker.time.format")
-  });
+  $("#assignment_start_time, #assignment_end_time").datetimepicker();
 
   $(document).on("show.bs.modal", "#show-assignment-modal", function (event) {
     $("#error_explanation").remove();
@@ -10,23 +8,23 @@ $(document).on("page:change", function() {
     var assignmentId = $link.data("assignment-id");
     var assignmentName = $link.data("assignment-name");
     var assignmentContent = $link.data("assignment-content");
-    var assignmentStartDate = $link.data("assignment-start-date");
-    var assignmentEndDate = $link.data("assignment-end-date");
+    var assignmentStartDate = $link.data("assignment-start-time");
+    var assignmentEndDate = $link.data("assignment-end-time");
     var assignmentType = $link.data("assignment-type");
     var classroomID = $link.data("assignment-class");
 
     $(this).find(".modal-title").html(assignmentName);
     $(this).find(".assignment-type").html(assignmentType);
-    $(this).find(".assignment-start-date").html(assignmentStartDate);
-    $(this).find(".assignment-end-date").html(assignmentEndDate);
+    $(this).find(".assignment-start-time").html(assignmentStartDate);
+    $(this).find(".assignment-end-time").html(assignmentEndDate);
     $(this).find(".assignment-content").html(assignmentContent);
 
     $(this).find(".assignment-edit").attr({
       "data-assignment-id": assignmentId,
       "data-assignment-class": classroomID,
       "data-assignment-name": assignmentName,
-      "data-assignment-start-date": assignmentStartDate,
-      "data-assignment-end-date": assignmentEndDate,
+      "data-assignment-start-time": assignmentStartDate,
+      "data-assignment-end-time": assignmentEndDate,
       "data-assignment-type": $link.data("type"),
       "data-assignment-content": assignmentContent
     });
@@ -37,10 +35,14 @@ $(document).on("page:change", function() {
       "data-assignment-class": classroomID
     });
 
-    $(this).find(".assignment-submit").attr({
-      "data-assignment-id": assignmentId,
-      "data-assignment-class": classroomID
-    });
+    if (moment().format(I18n.t("datepicker.time.js")) >= assignmentStartDate) {
+      $(this).find(".assignment-submit").attr({
+        "data-assignment-id": assignmentId,
+        "data-assignment-class": classroomID
+      });
+    } else {
+      $(this).find(".assignment-submit").hide();
+    }
   });
 
   $(document).on("show.bs.modal", "#new-assignment-modal", function (event) {
@@ -53,8 +55,8 @@ $(document).on("page:change", function() {
       $("#show-assignment-modal").modal("hide");
       var assignmentId = $link.attr("data-assignment-id");
       var assignmentName = $link.attr("data-assignment-name");
-      var assignmentStartDate = $link.attr("data-assignment-start-date");
-      var assignmentEndDate = $link.attr("data-assignment-end-date");
+      var assignmentStartDate = $link.attr("data-assignment-start-time");
+      var assignmentEndDate = $link.attr("data-assignment-end-time");
       var assignmentType = $link.attr("data-assignment-type");
       var classroomID = $link.attr("data-assignment-class");
       var url = "/class_rooms/" + classroomID + "/assignments/" + assignmentId;
@@ -70,8 +72,8 @@ $(document).on("page:change", function() {
       $(this).find(".modal-title").html(I18n.t("form.buttons.edit") + assignmentName);
       $form.find("#assignment_name").val(assignmentName);
       $form.find("#assignment_assignment_type").val(assignmentType);
-      $form.find("#assignment_start_date").val(assignmentStartDate);
-      $form.find("#assignment_end_date").val(assignmentEndDate);
+      $form.find("#assignment_start_time").val(assignmentStartDate);
+      $form.find("#assignment_end_time").val(assignmentEndDate);
     }
   });
 
