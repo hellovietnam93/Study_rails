@@ -1,9 +1,10 @@
 en:
   assignment_submits:
     fields:
+      title: "Title"
       content: "Content"
-      user: "User"
-      updated_at: "Date"
+      user: "Student submit"
+      updated_at: "Submit date"
     errors:
       unknow_errors: "Transaction fails"
     policy:

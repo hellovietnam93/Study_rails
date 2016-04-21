@@ -16,3 +16,7 @@ ja:
     validates:
       error_date: "開始日より終了日は「大きくなければなりません"
       error_date_semester: "時間は、この学期の開始日と終了日の間でなければなりません"
+    titles:
+      number_assignment_submits: "割り当て数"
+      number_submitted_students: "学生の数は時間で提出します"
+      percent: "%{percent} % 提出されました"

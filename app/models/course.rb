@@ -3,6 +3,7 @@ class Course < ActiveRecord::Base
   has_many :questions, dependent: :destroy
   has_many :syllabuses, dependent: :destroy
   has_many :syllabus_details, dependent: :destroy
+  has_many :course_references, dependent: :destroy
 
   accepts_nested_attributes_for :class_rooms
 

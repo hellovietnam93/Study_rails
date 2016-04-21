@@ -1,8 +1,9 @@
 ja:
   assignment_submits:
     fields:
+      title: "タイトル"
       content: "コンテンツ"
-      user: "学生"
+      user: "学生が支払います"
       updated_at: "出願日"
     errors:
       unknow_errors: "トランザクションが失敗しました"

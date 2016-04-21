@@ -16,3 +16,7 @@ en:
     validates:
       error_date: "End date must be greater than start date"
       error_date_semester: "Time must be between start date and end date of this semester"
+    titles:
+      number_assignment_submits: "Number of assignments"
+      number_submitted_students: "Number of student submitted in time"
+      percent: "%{percent} % has been submitted"
