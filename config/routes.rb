@@ -30,6 +30,10 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :assignments do
+      resources :assignment_submits
+    end
+
     resources :forums, only: :show do
       resources :posts
     end

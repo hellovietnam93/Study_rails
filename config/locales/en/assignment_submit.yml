@@ -7,6 +7,10 @@ en:
       updated_at: "Submit date"
     errors:
       unknow_errors: "Transaction fails"
+      not_time_to_submit_assignment: "Not time to submit assignment %{title}"
+      late_to_submit: "You are late to submit assignment"
+    actions:
+      new: "Submit assignment"
     policy:
       share_with_everyone: Share with people in your class
       share_with_team: Share with your team in class

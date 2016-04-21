@@ -7,6 +7,10 @@ ja:
       updated_at: "出願日"
     errors:
       unknow_errors: "トランザクションが失敗しました"
+      not_time_to_submit_assignment: "記事を提出しない時間 %{title}"
+      late_to_submit: "あなたはすべての時間の遅れを提出する必要があります"
+    actions:
+      new: "提出"
     policy:
       share_with_everyone: "あなたのクラスのみんなと共有"
       share_with_team: "グループメンバーと共有します"

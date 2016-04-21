@@ -1,4 +1,4 @@
-<%= form_for [@class_room, @assignment], remote: true do |f| %>
+<%= form_for [@class_room, @assignment] do |f| %>
   <%= render "shared/errors_messages", object: @assignment %>
 
   <%= f.hidden_field :class_room_id, value: @class_room.id %>

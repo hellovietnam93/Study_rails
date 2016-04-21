@@ -7,6 +7,10 @@ vi:
       updated_at: "Ngày nộp"
     errors:
       unknow_errors: "Transaction fails"
+      not_time_to_submit_assignment: "Chưa phải thời điểm để nộp bài %{title}"
+      late_to_submit: "Bạn đã trễ thời gian nộp bài"
+    actions:
+      new: "Nộp bài"
     policy:
       share_with_everyone: "Chia sẻ với mọi người trong lớp học của bạn"
       share_with_team: "Chia sẻ với các thành viên trong nhóm"
