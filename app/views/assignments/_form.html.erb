@@ -1,0 +1,55 @@
+<%= form_for [@class_room, @assignment], remote: true do |f| %>
+  <h4 class="modal-title">
+    <%= t "assignments.actions.new" %>
+  </h4>
+
+  <%= render "shared/errors_messages", object: @assignment %>
+
+  <%= f.hidden_field :class_room_id, value: @class_room.id %>
+
+  <div class="form-group">
+    <div class="col-md-6">
+      <%= f.label :name, t("assignments.fields.name") %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="col-md-6">
+      <%= f.label :name, t("assignments.fields.assignment_type") %>
+      <%= f.select :assignment_type,
+        options_from_collection_for_select(
+        i18n_enum(:assignments, :assignment_type), :key, :value,
+        f.object.assignment_type), {}, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-group col-md-6">
+      <%= f.label :start_time, t("assignments.fields.start_date") %>
+      <%= f.text_field :start_time, required: true,
+        class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= f.label :end_time, t("assignments.fields.end_date") %>
+      <%= f.text_field :end_time, required: true,
+        class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-12">
+      <%= f.text_area :content, class: "ckeditor",
+        placeholder: t("assignments.fields.content") %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <br>
+    <br>
+    <div class="col-md-12">
+      <%= f.submit t("form.buttons.save"),
+        data: {disable_with: t("form.buttons.saving")},
+        class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
