@@ -1,7 +1,0 @@
-<% if can? :create, @assignment %>
-  <%= link_to "#", class: "glyphicon glyphicon-plus-sign pull-left",
-    data: {toggle: "modal", target: "#new-assignment-modal"} do %>
-    <%= "" %>
-  <% end %>
-  <%= render "assignments/new_assignment_modal" %>
-<% end %>

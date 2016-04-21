@@ -1,9 +1,0 @@
-$("#error_explanation").remove()
-<% if @assignment.errors.any? %>
-  $("#assignments #errors-create-assignment").
-    html("<%= j render "shared/errors_messages", object: @assignment %>");
-<% else %>
-  $("#assignments .tbody").html("<%= j render @class_room.assignments %>");
-  $("#new-assignment-modal").modal("hide")
-<% end %>
-set_timetout()

@@ -118,14 +118,6 @@
           <li class="dropdown user user-menu">
             <%= render "shared/user_menu" %>
           </li>
-          <div id="flag-language">
-            <% Settings.languages.each do |_, val| %>
-              <%= link_to params.except!(*["q", "month"]).merge(locale: val),
-                data: {no_turbolink: true} do %>
-                <%= image_tag val, size: Settings.flag_size %>
-              <% end %>
-            <% end %>
-          </div>
         <% else %>
           <li>
             <%= link_to new_user_session_path do %>

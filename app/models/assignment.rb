@@ -10,6 +10,7 @@ class Assignment < ActiveRecord::Base
 
   validate :end_time_must_be_greater_than_start_time
   validate :time_must_be_in_time_of_semester
+  validates :name, presence: true
 
   private
   def end_time_must_be_greater_than_start_time
