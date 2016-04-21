@@ -1,8 +1,9 @@
 vi:
   assignment_submits:
     fields:
+      title: "Tiêu đề"
       content: "Nội dung"
-      user: "Sinh viên"
+      user: "Sinh viên nộp"
       updated_at: "Ngày nộp"
     errors:
       unknow_errors: "Transaction fails"

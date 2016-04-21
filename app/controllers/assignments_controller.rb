@@ -28,6 +28,9 @@ class AssignmentsController < ApplicationController
 
   def show
     @assignment = Assignment.includes(assignment_submits: :user).find params[:id]
+    @number_submited_students = AssignmentSubmit.find_submitted_students(@assignment.start_time,
+      @assignment.end_time).size
+    @percent_submited_student = eval "@number_submited_students / @class_room.user_classes.size * 100"
   end
 
   def new

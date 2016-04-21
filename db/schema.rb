@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420145916) do
+ActiveRecord::Schema.define(version: 20160421135229) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160420145916) do
     t.integer  "user_id",       limit: 4
     t.integer  "class_room_id", limit: 4
     t.integer  "assignment_id", limit: 4
+    t.string   "title",         limit: 255
     t.text     "content",       limit: 65535
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -133,6 +134,15 @@ ActiveRecord::Schema.define(version: 20160420145916) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "course_references", force: :cascade do |t|
+    t.integer  "course_id",  limit: 4
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "course_references", ["course_id"], name: "index_course_references_on_course_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "name",              limit: 255
@@ -443,6 +453,7 @@ ActiveRecord::Schema.define(version: 20160420145916) do
   add_foreign_key "class_teams", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "course_references", "courses"
   add_foreign_key "documents", "class_rooms"
   add_foreign_key "documents", "users"
   add_foreign_key "event_users", "events"
