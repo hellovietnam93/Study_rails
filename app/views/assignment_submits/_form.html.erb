@@ -1,0 +1,34 @@
+<%= form_for [@assignment, @assignment_submit] do |f| %>
+  <div class="row">
+    <%= render "shared/errors_messages", object: @assignment_submit %>
+
+    <div class="form-group">
+      <div class="col-md-12">
+        <div class="col-md-1">
+          <%= f.label t("groups.header.privacy") %>
+        </div>
+        <div class="col-md-11">
+          <%= render "assignment_submits/policy_table", f: f %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-12">
+        <%= f.label t("assignment_submits.fields.title") %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-12">
+        <%= f.label t("assignment_submits.fields.content") %>
+        <%= f.text_area :content, class: "ckeditor" %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.submit t("form.buttons.save"),
+    data: {disable_with: t("form.buttons.saving")},
+    class: "btn btn-primary" %>
+<% end %>

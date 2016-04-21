@@ -44,7 +44,7 @@ class Ability
             (assignment_submit.class_room.user_classes.find_by owner: true, user_id: user.id)
         end
       end
-      can [:create, :new, :update, :edit, :destroy], AssignmentSubmit, AssignmentSubmit do |assignment_submit|
+      can [:update, :edit, :destroy], AssignmentSubmit, AssignmentSubmit do |assignment_submit|
         case assignment_submit.policy
         when "share_with_everyone"
           assignment_submit.user_id == user.id
@@ -56,6 +56,7 @@ class Ability
             (assignment_submit.class_room.user_classes.find_by owner: true, user_id: user.id)
         end
       end
+      can [:create, :new], AssignmentSubmit
       can :read, Forum
       can :manage, Post, user_id: user.id
       can :manage, Comment, user_id: user.id
