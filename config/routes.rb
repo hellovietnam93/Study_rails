@@ -21,7 +21,9 @@ Rails.application.routes.draw do
       resources :online_tests
       resources :assignment_submits
       resources :assignment_histories
-      resources :timetables
+      resources :timetables do
+        resource :timetable_detail
+      end
       resources :documents, only: [:index, :create, :destroy]
       resources :teams do
         resource :class_team

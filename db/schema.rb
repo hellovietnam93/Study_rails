@@ -334,11 +334,13 @@ ActiveRecord::Schema.define(version: 20160420145916) do
 
   create_table "syllabus_details", force: :cascade do |t|
     t.integer  "syllabus_id", limit: 4
+    t.integer  "course_id",   limit: 4
     t.string   "content",     limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
 
+  add_index "syllabus_details", ["course_id"], name: "index_syllabus_details_on_course_id", using: :btree
   add_index "syllabus_details", ["syllabus_id"], name: "index_syllabus_details_on_syllabus_id", using: :btree
 
   create_table "syllabuses", force: :cascade do |t|
@@ -462,6 +464,7 @@ ActiveRecord::Schema.define(version: 20160420145916) do
   add_foreign_key "results", "answers"
   add_foreign_key "results", "online_tests"
   add_foreign_key "results", "questions"
+  add_foreign_key "syllabus_details", "courses"
   add_foreign_key "syllabus_details", "syllabuses"
   add_foreign_key "syllabuses", "courses"
   add_foreign_key "teams", "class_rooms"

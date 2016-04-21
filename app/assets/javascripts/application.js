@@ -20,6 +20,7 @@
 //= require turbolinks
 //= require i18n
 //= require i18n/translations
+//= require select2
 //= require constant
 //= require ckeditor/init
 //= require ckeditor/reinit

@@ -2,6 +2,7 @@ en:
   timetables:
     actions:
       new: "Create timetables"
+      add_syllabus: "Add syllabus"
     title:
       today: "Today"
       month: "Month"

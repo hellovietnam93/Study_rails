@@ -2,9 +2,10 @@ class TimetablesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @class_room = ClassRoom.includes(:timetables).find params[:class_room_id]
+    @class_room = ClassRoom.includes(:timetables, course: :syllabus_details).find params[:class_room_id]
     @timetable = Timetable.new
     @timetables = @class_room.timetables
+    @syllabus_details = @class_room.course.syllabus_details
   end
 
   def create
@@ -27,6 +28,6 @@ class TimetablesController < ApplicationController
   private
   def timetable_params
     params.require(:timetable).permit :class_room_id, :title,
-      :start_time, :end_time, :content
+      :start_time, :end_time, :content, syllabus_detail_ids: []
   end
 end

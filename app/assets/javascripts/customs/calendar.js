@@ -1,6 +1,13 @@
 $(document).on("page:change", function() {
   $("#timetable_start_time, #timetable_end_time").datetimepicker();
 
+  $(".select-timetable-details").select2({
+    theme: "bootstrap",
+    width: "100%",
+    dropdownAutoWidth : true,
+    placeholder: I18n.t("timetables.actions.add_syllabus")
+  });
+
   $('#calendar').fullCalendar({
     contentHeight: 600,
     header: {
@@ -17,9 +24,11 @@ $(document).on("page:change", function() {
     dayClick: function(date, jsEvent, view) {
       if ($("#calendar").attr("data-editable") == "true") {
         $("#new-timetable-modal").modal("show");
+        $(".select-timetable-details").select2("val", "");
         date_click = date.format("YYYY/MM/DD HH:mm");
         $("#timetable_start_time").val(date_click);
         $("#timetable_end_time").val(date_click);
+        $(".select2-search__field").css("width", "100%");
       }
     },
     eventMouseover: function( event, jsEvent, view ) {
