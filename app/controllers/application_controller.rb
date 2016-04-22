@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!, :set_locale
   before_action :verify_namespace, if: :user_signed_in?
+  before_action :verify_user, if: :user_signed_in?
 
   protect_from_forgery with: :exception
   rescue_from CanCan::AccessDenied do |exception|
@@ -19,7 +20,7 @@ class ApplicationController < ActionController::Base
     if user.admin?
       admin_root_path
     else
-      root_path
+      user.verified? ? root_path : new_verification_path
     end
   end
 
@@ -28,16 +29,22 @@ class ApplicationController < ActionController::Base
   end
 
   def verify_namespace
-    namespace = controller_path.split("/").first
+    @namespace = controller_path.split("/").first
 
-    if namespace != "devise"
-      if namespace == "admin" && !current_user.admin?
+    if @namespace != "devise"
+      if @namespace == "admin" && !current_user.admin?
         redirect_to root_path
         flash[:alert] = t "flashs.messages.permission_denied"
-      elsif namespace != "admin" && current_user.admin?
+      elsif @namespace != "admin" && current_user.admin?
         redirect_to admin_root_path
         flash[:alert] = t "flashs.messages.permission_denied"
       end
+    end
+  end
+
+  def verify_user
+    if !current_user.verified? && @namespace != "devise" && params[:controller] != "verifications"
+      redirect_to new_verification_path
     end
   end
 end

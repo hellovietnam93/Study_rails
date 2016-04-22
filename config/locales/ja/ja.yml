@@ -27,6 +27,7 @@ ja:
       reply: "応答"
       approve: "承認"
       approved: "既に承認"
+      submit: "提出します"
   date:
     formats:
       default: "%Y/%m/%d"
@@ -48,6 +49,7 @@ ja:
       permission_denied: "あなたはこのページにアクセスする権限がありません"
       model_not_found: "%{model} %{id} 存在しない"
       not_right_teacher: "あなたはこのクラスの講師ではありません"
+      verified: "あなたは既に検証されています"
       import:
         success: "%{models_name} 正常にインポートされました!"
         alert: "%{models_name} 失敗インポートされました!"
