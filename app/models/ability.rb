@@ -15,7 +15,9 @@ class Ability
       can [:index, :show], AssignmentSubmit
       can :manage, AssignmentHistory
       can :manage, Forum
-      can :manage, Post, user_id: user.id
+      can :manage, Post, Post do |post|
+        (post.user_id == user.id) || (post.class_room.user_classes.find_by user_id: user.id, owner: true)
+      end
       can :manage, Comment, user_id: user.id
       can [:create, :destroy], Like, user_id: user.id
       can :manage, Document, user_id: user.id

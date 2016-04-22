@@ -1,0 +1,13 @@
+<% if post.approved? %>
+  <%= link_to forum_post_path(@forum,
+    post, approved: false), method: :put, remote: true do %>
+    <i class="fa fa-tag" aria-hidden="true"></i>
+    <%= t "forum.buttons.approved" %>
+  <% end %>
+<% else %>
+  <%= link_to forum_post_path(@forum,
+    post, approved: true), method: :put, remote: true do %>
+    <i class="fa fa-tags" aria-hidden="true"></i>
+    <%= t "forum.buttons.approve" %>
+  <% end %>
+<% end %>
