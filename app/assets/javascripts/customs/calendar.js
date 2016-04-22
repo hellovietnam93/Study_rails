@@ -11,9 +11,9 @@ $(document).on("page:change", function() {
   $('#calendar').fullCalendar({
     contentHeight: 600,
     header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month, agendaWeek, agendaDay'
+      left: "prev,next today",
+      center: "title",
+      right: "month, agendaWeek, agendaDay"
     },
     buttonText: {
       today: I18n.t("timetables.title.today"),

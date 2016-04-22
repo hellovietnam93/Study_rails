@@ -3,22 +3,24 @@
 
     <%= user_avatar current_user %>
 
-    <h3 class="profile-username text-center"><%= current_user.username %></h3>
+    <h3 class="profile-username text-center">
+      <%= current_user.username %>
+    </h3>
 
-    <p class="text-muted text-center"><%= current_user.role %></p>
+    <p class="text-muted text-center">
+      <%= t "users.roles.#{current_user.role}" %>
+    </p>
 
     <ul class="list-group list-group-unbordered">
       <li class="list-group-item">
-        <b>Followers</b> <a class="pull-right">1,322</a>
+        <b><%= t "users.title.number_course" %></b>
+        <a class="pull-right"><%= @total_courses %></a>
       </li>
       <li class="list-group-item">
-        <b>Following</b> <a class="pull-right">543</a>
-      </li>
-      <li class="list-group-item">
-        <b>Friends</b> <a class="pull-right">13,287</a>
+        <b><%= t "users.title.number_current_classes" %></b>
+        <a class="pull-right"><%= @total_current_classes %></a>
       </li>
     </ul>
 
-    <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
   </div>
 </div>

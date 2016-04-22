@@ -62,7 +62,7 @@ class_room:
       members: "Member"
 users:
   tabs:
-    - activities
+    - timetables
     - timeline
     - settings
 languages:

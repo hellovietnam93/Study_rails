@@ -4,6 +4,7 @@ en:
       new: "Create timetables"
       add_syllabus: "Add syllabus"
     title:
+      calendar: "Calendar"
       today: "Today"
       month: "Month"
       week: "Week"

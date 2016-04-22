@@ -4,6 +4,7 @@ vi:
       new: "Tạo thời khóa biểu"
       add_syllabus: "Thêm giáo trình"
     title:
+      calendar: "Lịch làm việc"
       today: "Hôm nay"
       month: "Tháng"
       week: "Tuần"

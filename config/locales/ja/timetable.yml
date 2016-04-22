@@ -4,6 +4,7 @@ ja:
       new: "時刻表を作成します"
       add_syllabus: "シラバスを追加"
     title:
+      calendar: "カレンダー"
       today: "今日"
       month: "月"
       week: "週"

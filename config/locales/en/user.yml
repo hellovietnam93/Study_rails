@@ -12,8 +12,10 @@ en:
       about: "About me"
       education: "Education"
       location: "Location"
-      skills: "Skills"
+      birthday: "Birthday"
       notes: "Notes"
+      number_course: "Number of courses participated"
+      number_current_classes: "Number of participating classes"
     fields:
       email: "Email"
       username: "Username"
@@ -42,7 +44,7 @@ en:
         profile: "Profile"
         setting: "Setting"
       tabs:
-        activities: "Activities"
+        activities: "Timetables"
         timeline: "Timeline"
         settings: "Settings"
       number_notifications: "You have %{number} notifications"
