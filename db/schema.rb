@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421135229) do
+ActiveRecord::Schema.define(version: 20160422090144) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -307,6 +307,23 @@ ActiveRecord::Schema.define(version: 20160421135229) do
     t.string   "last_name",   limit: 255
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.string   "school",     limit: 255
+    t.string   "address",    limit: 255
+    t.string   "phone",      limit: 255
+    t.string   "uid",        limit: 255
+    t.datetime "birthday"
+    t.string   "program",    limit: 255
+    t.string   "class_name", limit: 255
+    t.string   "cohort",     limit: 255
+    t.string   "status",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
   create_table "questions", force: :cascade do |t|
     t.text     "name",          limit: 65535
     t.integer  "class_room_id", limit: 4
@@ -471,6 +488,7 @@ ActiveRecord::Schema.define(version: 20160421135229) do
   add_foreign_key "posts", "class_rooms"
   add_foreign_key "posts", "forums"
   add_foreign_key "posts", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "questions", "class_rooms"
   add_foreign_key "questions", "courses"
   add_foreign_key "results", "answers"

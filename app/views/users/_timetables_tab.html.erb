@@ -1,0 +1,16 @@
+<div class="active tab-pane" id="timetables">
+  <div class="box box-solid bg-red-gradient">
+    <div class="box-header ui-sortable-handle">
+      <i class="fa fa-calendar"></i>
+
+      <h3 class="box-title">
+        <%= t "timetables.title.calendar" %>
+      </h3>
+    </div>
+
+    <div class="box-body no-padding">
+      <div id="user-calendar" data-user-id=<%= @user.id %>>
+      </div>
+    </div>
+  </div>
+</div>

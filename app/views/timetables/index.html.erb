@@ -2,28 +2,30 @@
   <div class="box-header ui-sortable-handle">
     <i class="fa fa-calendar"></i>
 
-    <h3 class="box-title">Calendar</h3>
+    <h3 class="box-title"><%= t "timetables.title.calendar" %></h3>
     <div class="pull-right box-tools">
       <div class="btn-group">
-        <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
+        <button type="button" class="btn btn-success btn-sm dropdown-toggle"
+          data-toggle="dropdown">
           <i class="fa fa-bars"></i></button>
         <ul class="dropdown-menu pull-right" role="menu">
-          <li><a href="#">Add new event</a></li>
-          <li><a href="#">Clear events</a></li>
-          <li class="divider"></li>
-          <li><a href="#">View calendar</a></li>
+          <li><%= link_to t("timetables.actions.new"), "#" %></li>
         </ul>
       </div>
-      <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+      <button type="button" class="btn btn-success btn-sm"
+        data-widget="collapse">
+        <i class="fa fa-minus"></i>
       </button>
-      <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
+      <button type="button" class="btn btn-success btn-sm"
+        data-widget="remove">
+        <i class="fa fa-times"></i>
       </button>
     </div>
   </div>
 
   <div class="box-body no-padding">
-    <div id="calendar" data-class-room-id="<%= params[:class_room_id] %>"
-      data-editable="<%= current_user.lecturer? %>">
+    <div id="calendar" data-class-room-id=<%= params[:class_room_id] %>
+      data-editable=<%= current_user.lecturer? %>>
     </div>
   </div>
 </div>
