@@ -41,7 +41,7 @@
               <div class="col-md-12">
                 <%= f.select :syllabus_detail_ids,
                   options_for_select(@syllabus_details.collect{|m|
-                  [m.content, m.id]}),
+                  [m.title, m.id]}),
                   {include_blank: true},
                   {class: "form-control select-timetable-details",
                     multiple: "multiple"} %>

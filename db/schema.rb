@@ -272,8 +272,9 @@ ActiveRecord::Schema.define(version: 20160421135229) do
     t.integer  "user_id",       limit: 4
     t.integer  "forum_id",      limit: 4
     t.integer  "class_room_id", limit: 4
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "approved",                    default: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   add_index "posts", ["class_room_id"], name: "index_posts_on_class_room_id", using: :btree
@@ -345,7 +346,7 @@ ActiveRecord::Schema.define(version: 20160421135229) do
   create_table "syllabus_details", force: :cascade do |t|
     t.integer  "syllabus_id", limit: 4
     t.integer  "course_id",   limit: 4
-    t.string   "content",     limit: 255
+    t.string   "title",       limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

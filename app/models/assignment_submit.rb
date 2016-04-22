@@ -11,4 +11,6 @@ class AssignmentSubmit < ActiveRecord::Base
 
   scope :find_submitted_students, ->start_time, end_time{where "updated_at BETWEEN
     ? AND ?", start_time, end_time}
+
+  validates :title, presence: true
 end

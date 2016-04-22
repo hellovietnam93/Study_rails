@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.references :forum, index: true, foreign_key: true
       t.references :class_room, index: true, foreign_key: true
+      t.boolean :approved, default: false
 
       t.timestamps null: false
     end
