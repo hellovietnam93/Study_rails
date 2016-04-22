@@ -11,5 +11,5 @@ class Post < ActiveRecord::Base
   validates :name, presence: true, length: {minimum: 6}
   validates :content, presence: true, length: {minimum: 6}
 
-  ATTRIBUTES_PARAMS = [:user_id, :forum_id, :class_room_id, :name, :content]
+  ATTRIBUTES_PARAMS = [:user_id, :forum_id, :class_room_id, :name, :content, :approved]
 end

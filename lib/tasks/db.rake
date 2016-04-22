@@ -26,7 +26,7 @@ namespace :db do
     9.times do |n|
       syllabus = Syllabus.create course_id: 1, title: "Syllabus #{n}", week: n
       3.times do |m|
-        syllabus.syllabus_details.create course_id: 1, content: "SyllabusDetail #{m} of Syllabus #{n}"
+        syllabus.syllabus_details.create course_id: 1, title: "SyllabusDetail #{m} of Syllabus #{n}"
       end
     end
 
