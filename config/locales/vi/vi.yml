@@ -25,6 +25,8 @@ vi:
       comment: "Bình luận"
       commenting: "Đang gửi bình luận..."
       reply: "Trả lời"
+      approve: "Duyệt"
+      approved: "Đã duyệt"
   date:
     formats:
       default: "%Y/%m/%d"

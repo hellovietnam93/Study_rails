@@ -25,6 +25,8 @@ en:
       comment: "Comment"
       commenting: "Commenting..."
       reply: "Reply"
+      approve: "Approve"
+      approved: "Approved"
   date:
     formats:
       default: "%Y/%m/%d"

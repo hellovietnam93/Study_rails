@@ -15,12 +15,19 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update_attributes post_params
-      redirect_to @forum, notice: flash_message("updated")
+    if params.has_key? "approved"
+      @post.update_attributes approved: params[:approved]
+      respond_to do |format|
+        format.js
+      end
     else
-      flash[:alert] = flash_message "not_updated"
-      @posts = @forum.posts
-      render "forums/show"
+      if @post.update_attributes post_params
+        redirect_to @forum, notice: flash_message("updated")
+      else
+        flash[:alert] = flash_message "not_updated"
+        @posts = @forum.posts
+        render "forums/show"
+      end
     end
   end
 

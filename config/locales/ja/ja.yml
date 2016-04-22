@@ -25,6 +25,8 @@ ja:
       comment: "コメント"
       commenting: "コメント..."
       reply: "応答"
+      approve: "承認"
+      approved: "既に承認"
   date:
     formats:
       default: "%Y/%m/%d"
