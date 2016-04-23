@@ -17,7 +17,7 @@ class AssignmentSubmit < ActiveRecord::Base
 
   private
   def has_team?
-    unless user.has_team_in_class? class_room
+    if share_with_team? && !user.has_team_in_class?(class_room)
       errors.add :base, I18n.t("flashs.messages.do_not_have_team", class_room: class_room.uid)
     end
   end

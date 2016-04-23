@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       resources :teams do
         resource :class_team
       end
+      resources :statistics
     end
 
     resources :assignments do

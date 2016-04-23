@@ -1,0 +1,29 @@
+<div class="box box-primary">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <strong><%= t "statistic.title.post_replied" %></strong>
+    </h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-box-tool" data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="box-body">
+    <% if @lecturer_answers.any? %>
+      <strong class="text text-danger"><%= t "statistic.title.average_time" %></strong>:
+      <%= @average_time %>
+    <% end %>
+    <div id="donut-chart" data-donut-chart-name="<%= @donut_chart_data.keys %>"
+      data-donut-chart-values="<%= @donut_chart_data.values %>">
+
+    </div>
+  </div>
+</div>
+
+

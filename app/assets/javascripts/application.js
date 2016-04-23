@@ -29,6 +29,7 @@
 //= require jquery_nested_form
 //= require isotope
 //= require moment
+//= require highcharts
 //= require_tree ./customs
 
 $(document).on("page:change", function() {

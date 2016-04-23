@@ -43,6 +43,7 @@ gem "i18n-js", ">= 3.0.0.rc11"
 gem "cloudinary"
 gem "momentjs-rails"
 gem "acts-as-taggable-on"
+gem "highcharts-rails"
 
 group :development, :test do
   gem "pry"

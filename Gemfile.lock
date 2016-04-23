@@ -119,6 +119,8 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    highcharts-rails (4.2.3)
+      railties (>= 3.1)
     highline (1.7.8)
     i18n (0.7.0)
     i18n-js (3.0.0.rc12)
@@ -356,6 +358,7 @@ DEPENDENCIES
   figaro
   font-awesome-rails
   friendly_id (~> 5.1.0)
+  highcharts-rails
   i18n-js (>= 3.0.0.rc11)
   i18n-tasks
   isotope-rails
