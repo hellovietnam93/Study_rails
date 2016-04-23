@@ -4,7 +4,8 @@ class CreatePosts < ActiveRecord::Migration
       t.string :name
       t.text :content
       t.references :user, index: true, foreign_key: true
-      t.references :forum, index: true, foreign_key: true
+      t.integer :postable_id
+      t.string :postable_type
       t.references :class_room, index: true, foreign_key: true
       t.boolean :approved, default: false
 

@@ -270,7 +270,8 @@ ActiveRecord::Schema.define(version: 20160422090144) do
     t.string   "name",          limit: 255
     t.text     "content",       limit: 65535
     t.integer  "user_id",       limit: 4
-    t.integer  "forum_id",      limit: 4
+    t.integer  "postable_id",   limit: 4
+    t.string   "postable_type", limit: 255
     t.integer  "class_room_id", limit: 4
     t.boolean  "approved",                    default: false
     t.datetime "created_at",                                  null: false
@@ -278,7 +279,6 @@ ActiveRecord::Schema.define(version: 20160422090144) do
   end
 
   add_index "posts", ["class_room_id"], name: "index_posts_on_class_room_id", using: :btree
-  add_index "posts", ["forum_id"], name: "index_posts_on_forum_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "prime_classes", force: :cascade do |t|
@@ -487,7 +487,6 @@ ActiveRecord::Schema.define(version: 20160422090144) do
   add_foreign_key "online_tests", "questions"
   add_foreign_key "online_tests", "users"
   add_foreign_key "posts", "class_rooms"
-  add_foreign_key "posts", "forums"
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "questions", "class_rooms"
