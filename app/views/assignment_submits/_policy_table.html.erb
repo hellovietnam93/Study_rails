@@ -11,7 +11,8 @@
         </td>
       </tr>
       <tr>
-        <td><%= f.radio_button :policy, :share_with_team %></td>
+        <td><%= f.radio_button :policy, :share_with_team, disabled:
+          !current_user.has_team_in_class?(@assignment.class_room) %></td>
         <td>
           <i class="fa fa-users"></i>
           <%= t "assignment_submits.policy.share_with_team" %>

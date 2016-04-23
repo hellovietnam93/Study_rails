@@ -13,4 +13,12 @@ class AssignmentSubmit < ActiveRecord::Base
     ? AND ?", start_time, end_time}
 
   validates :title, presence: true
+  validate :has_team?
+
+  private
+  def has_team?
+    unless user.has_team_in_class? class_room
+      errors.add :base, I18n.t("flashs.messages.do_not_have_team", class_room: class_room.uid)
+    end
+  end
 end

@@ -53,6 +53,7 @@ ja:
       not_right_teacher: "あなたはこのクラスの講師ではありません"
       verified: "あなたは既に検証されています"
       not_found: "データコードで見つかりません %{uid}"
+      do_not_have_team: "あなたは、教室内のグループに関与していません %{class_room}"
       import:
         success: "%{models_name} 正常にインポートされました!"
         alert: "%{models_name} 失敗インポートされました!"
