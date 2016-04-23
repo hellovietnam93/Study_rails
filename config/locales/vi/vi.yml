@@ -4,6 +4,9 @@ vi:
     mini_name: "SH"
     home: "Studyhub"
     actions: "Actions"
+    welcome: "Chào mừng bạn đến"
+    instruction: "Đăng nhập để bắt đầu phiên của bạn"
+    registrations: "Đăng ký một thành viên mới"
     titles:
       my_school: "Trường của tôi"
       documentation: "Tài liệu"
@@ -30,6 +33,7 @@ vi:
       approved: "Đã duyệt"
       submit: "Xác nhận"
       skip: "Bỏ qua"
+      remember_me: "Ghi nhớ đăng nhập"
   datetime:
     distance_in_words:
       about_x_hours:
