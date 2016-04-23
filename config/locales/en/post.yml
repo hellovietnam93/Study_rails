@@ -1,7 +1,9 @@
 en:
   posts:
     posts: "Posts"
+    tags: "Tags"
     posted_ago: "Posted %{time} ago"
     header:
       name: "Name"
       content: "Content"
+      tags: "Tags separated by commas"

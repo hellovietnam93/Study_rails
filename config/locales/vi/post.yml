@@ -1,7 +1,9 @@
 vi:
   posts:
     posts: "Bài viết"
+    tags: "Thẻ"
     posted_ago: "Đăng %{time} trước"
     header:
       name: "Tên"
       content: "Nội dung"
+      tags: "Thẻ phân cách bằng dấu phẩy"
