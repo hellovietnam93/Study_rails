@@ -28,6 +28,7 @@ ja:
       approve: "承認"
       approved: "既に承認"
       submit: "提出します"
+      skip: "スキップ"
   date:
     formats:
       default: "%Y/%m/%d"
@@ -50,6 +51,7 @@ ja:
       model_not_found: "%{model} %{id} 存在しない"
       not_right_teacher: "あなたはこのクラスの講師ではありません"
       verified: "あなたは既に検証されています"
+      not_found: "データコードで見つかりません %{uid}"
       import:
         success: "%{models_name} 正常にインポートされました!"
         alert: "%{models_name} 失敗インポートされました!"

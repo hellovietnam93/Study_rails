@@ -33,6 +33,7 @@
 
     <div class="form-group">
       <%= submit_tag t("form.buttons.submit"), class: "btn btn-info" %>
+      <%= link_to t("form.buttons.skip"), verifications_path(skip: true), method: :post %>
     </div>
   <% end %>
 </div>
