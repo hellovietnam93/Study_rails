@@ -30,35 +30,17 @@
         <% end %>
       </li>
 
-      <li class="active treeview">
-        <%= link_to "#" do %>
-          <i class="fa fa-users"></i>
-          <span><%= t "static_page.titles.group" %></span>
-          <i class="fa fa-angle-left pull-right"></i>
+      <li>
+        <%= link_to courses_path do %>
+          <i class="fa fa-home" aria-hidden="true"></i>
+          <span><%= t "static_page.titles.my_school" %></span>
         <% end %>
-        <ul class="treeview-menu">
-          <% current_user.group_users.take_in.each do |group_user| %>
-            <li>
-              <%= link_to group_user.group do %>
-                <i class="fa fa-gamepad"></i>
-                <span><%= group_user.group.name %></span>
-              <% end %>
-            </li>
-          <% end %>
-          <li>
-            <a data-toggle="modal" data-target="#new-group-modal"
-              href="#">
-              <i class="fa fa-plus-square"></i>
-              <%= t "groups.actions.create" %>
-            </a>
-          </li>
-        </ul>
       </li>
 
       <li class="active treeview">
         <%= link_to class_rooms_path do %>
           <i class="fa fa-graduation-cap"></i>
-          <span><%= t "class_rooms.class_room" %></span>
+          <span><%= t "static_page.titles.my_classes" %></span>
           <i class="fa fa-angle-left pull-right"></i>
         <% end %>
         <ul class="treeview-menu">
@@ -83,5 +65,3 @@
     </ul>
   </section>
 </aside>
-
-<%= render "groups/new_group_modal" %>

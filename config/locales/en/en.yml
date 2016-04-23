@@ -5,9 +5,10 @@ en:
     home: "Studyhub"
     actions: "Actions"
     titles:
-      group: "Group"
+      my_school: "My school"
       documentation: "Documentation"
       dashboard: "Dashboard"
+      my_classes: "My classes"
   form:
     error: "error"
     inform_error: "The form contain %{error}"

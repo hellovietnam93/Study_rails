@@ -7,6 +7,7 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.lecturer?
+      can [:index, :show], Course
       can :manage, Question
       can [:index, :show], Semester
       can [:index, :update, :show], ClassRoom
@@ -71,6 +72,7 @@ class Ability
       end
       can :destroy, ClassTeam, user_id: user.id
       can :update, EventUser, user_id: user.id
+      can [:index, :show], Course
     end
 
     can [:create, :update], Group, Group.includes(:group_users) do |group|

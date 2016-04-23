@@ -9,11 +9,11 @@ namespace :db do
     user.create_profile
 
     user = User.create email: "tungtung12543@gmail.com", password: "12345678", password_confirmation: "12345678",
-      role: 1, username: "Nguyen Tien Trung"
+      role: 1, username: "Nguyen Tien Trung", verified: true
     user.create_profile
 
     user = User.create email: "giant_panda93@yahoo.com.vn", password: "12345678", password_confirmation: "12345678",
-      role: 2, username: "Panda"
+      role: 2, username: "Panda", verified: true
     user.create_profile
 
     99.times do |n|
