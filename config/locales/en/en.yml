@@ -28,6 +28,7 @@ en:
       approve: "Approve"
       approved: "Approved"
       submit: "Submit"
+      skip: "Skip"
   date:
     formats:
       default: "%Y/%m/%d"
@@ -50,6 +51,7 @@ en:
       model_not_found: "%{model} %{id} dosen't exist"
       not_right_teacher: "You are not lecturer of this class"
       verified: "You are already verification"
+      not_found: "No data found with code %{uid}"
       import:
         success: "%{models_name} was imported successfully!"
         alert: "%{models_name} was imported fail!"
