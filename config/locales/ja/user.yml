@@ -24,6 +24,10 @@ ja:
       new_password: "新しいパスワード"
       confirmation_new_password: "新しいパスワードを確認"
       current_password: "現在のパスワード"
+      uid: "番号を確認し"
+      school: "学校"
+      cohort: "コホート"
+      roles: "あなたがあります"
     roles:
       admin: "管理者"
       lecturer: "講師"

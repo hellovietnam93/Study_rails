@@ -24,6 +24,10 @@ vi:
       new_password: "Mật khẩu mới"
       confirmation_new_password: "Xác nhận mật khẩu mới"
       current_password: "Mật khẩu hiện tại"
+      uid: "Mã số"
+      school: "Trường"
+      cohort: "Khóa"
+      roles: "Bạn là"
     roles:
       admin: "Quản trị viên"
       lecturer: "Giảng viên"

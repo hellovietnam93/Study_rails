@@ -4,15 +4,22 @@ namespace :db do
     Rake::Task["db:migrate:reset"].invoke
 
     puts "Creating User"
-    User.create email: "hellovietnam93@gmail.com", password: "12345678", password_confirmation: "12345678",
+    user = User.create email: "hellovietnam93@gmail.com", password: "12345678", password_confirmation: "12345678",
       role: 0, username: "Admintrator"
-    User.create email: "tungtung12543@gmail.com", password: "12345678", password_confirmation: "12345678",
+    user.create_profile
+
+    user = User.create email: "tungtung12543@gmail.com", password: "12345678", password_confirmation: "12345678",
       role: 1, username: "Nguyen Tien Trung"
-    User.create email: "giant_panda93@yahoo.com.vn", password: "12345678", password_confirmation: "12345678",
+    user.create_profile
+
+    user = User.create email: "giant_panda93@yahoo.com.vn", password: "12345678", password_confirmation: "12345678",
       role: 2, username: "Panda"
+    user.create_profile
+
     99.times do |n|
-      User.create email: "email_#{n}@gmail.com", username: "User_#{n}", password: "12345678",
+      user = User.create email: "email_#{n}@gmail.com", username: "User_#{n}", password: "12345678",
         password_confirmation: "12345678", role: 2
+      user.create_profile
     end
 
     puts "Create Semester"

@@ -6,7 +6,7 @@
   <li class="user-header">
   <%= image_tag "fallback/default-user-img.png", class: "img-circle" %>
     <p>
-      <%= current_user.username %>
+      <%= current_user.username.nil? ? current_user.email : current_user.username %>
     </p>
     <p>
       <%= t "users.roles.#{current_user.role}" %>

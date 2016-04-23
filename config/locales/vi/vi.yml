@@ -27,6 +27,7 @@ vi:
       reply: "Trả lời"
       approve: "Duyệt"
       approved: "Đã duyệt"
+      submit: "Xác nhận"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -98,6 +99,7 @@ vi:
       permission_denied: "Bạn không được phép truy cập trang này."
       model_not_found: "%{model} %{id} không tồn tại"
       not_right_teacher: "Bạn không phải là giảng viên của lớp học này"
+      verified: "Bạn đã xác thực trước đó rồi"
       import:
         success: "%{models_name} đã được nhập thành công!"
         alert: "%{models_name} không thể nhập!"

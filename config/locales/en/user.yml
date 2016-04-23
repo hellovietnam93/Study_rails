@@ -24,6 +24,10 @@ en:
       new_password: "New password"
       confirmation_new_password: "Confirm new password"
       current_password: "Current password"
+      uid: "Identify number"
+      school: "School"
+      cohort: "Cohort"
+      roles: "You are"
     roles:
       admin: "Admin"
       lecturer: "Lecturer"
