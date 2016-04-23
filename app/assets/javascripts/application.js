@@ -31,7 +31,7 @@
 //= require moment
 //= require_tree ./customs
 
-$(document).on("ready", function() {
+$(document).on("page:change", function() {
   set_timetout();
 });
 

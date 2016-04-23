@@ -53,6 +53,7 @@ en:
       not_right_teacher: "You are not lecturer of this class"
       verified: "You are already verification"
       not_found: "No data found with code %{uid}"
+      do_not_have_team: "You have not been involved in any team in the classroom %{class_room}"
       import:
         success: "%{models_name} was imported successfully!"
         alert: "%{models_name} was imported fail!"

@@ -29,4 +29,8 @@ class User < ActiveRecord::Base
   def like target
     likes.find_by target_id: target, target_type: target.class.table_name
   end
+
+  def has_team_in_class? class_room
+    (team_ids & class_room.team_ids).size == 1
+  end
 end
