@@ -1,0 +1,48 @@
+<div id="forums">
+  <div class="row">
+
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <%= render "posts/form", object: forum %>
+        </div>
+      </div>
+
+      <div>
+        <% if @posts.any? %>
+          <% @posts.each do |post| %>
+            <%= render @posts, post: post, forum: forum %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-4"%>
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">
+            <strong><%= t "posts.tags" %></strong>
+          </h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="box-body">
+          <div id="tag_clound">
+            <% tag_cloud @posts.tag_counts, %w[s m l] do |tag, css_class| %>
+              <%= link_to tag.name, forum_tags_path(forum, tag: tag.name), class: css_class %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+   </div>
+  </div>
+</div>

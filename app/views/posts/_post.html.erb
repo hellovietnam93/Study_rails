@@ -39,6 +39,12 @@
       <p class="content">
         <%= post.content %>
       </p>
+      <% if forum.present? %>
+        <p>
+          <%= t "posts.tags" %>:
+          <%= raw post.tag_list.map {|t| link_to t, forum_tags_path(@forum, t)}.join(", ") %>
+        </p>
+      <% end %>
       <span class="post-like">
         <% if current_user.like post %>
           <%= render "likes/dislikes", like: current_user.like(post) %>

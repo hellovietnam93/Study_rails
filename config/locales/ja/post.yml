@@ -1,7 +1,9 @@
 ja:
   posts:
     posts: "投稿"
+    tags: "タグ"
     posted_ago: "投稿 %{time} 前"
     header:
       name: "名"
       content: "コンテンツ"
+      tags: "タグは、カンマで区切られました"

@@ -13,6 +13,13 @@
       required: true, minlength: "6" %>
   </div>
 
+  <% if object.class == Forum %>
+    <div class="form-group">
+      <%= f.text_field :tag_list, class: "form-control",
+        placeholder: t("posts.header.tags") %>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <%= f.text_area :content, placeholder: t("posts.header.content"),
       class: "form-control", required: true, minlength: "6" %>

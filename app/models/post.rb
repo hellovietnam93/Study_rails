@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  acts_as_taggable
+
   has_many :comments, dependent: :destroy
 
   belongs_to :user
@@ -10,5 +12,6 @@ class Post < ActiveRecord::Base
   validates :name, presence: true, length: {minimum: 6}
   validates :content, presence: true, length: {minimum: 6}
 
-  ATTRIBUTES_PARAMS = [:user_id, :postable_id, :postable_type, :class_room_id, :name, :content, :approved]
+  ATTRIBUTES_PARAMS = [:user_id, :postable_id, :postable_type, :class_room_id,
+    :name, :content, :approved, :tag_list]
 end
