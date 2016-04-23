@@ -114,40 +114,37 @@
 
       <div class="box-body">
         <div id="assignment_submits_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-          <div class="row">
-            <div class="col-sm-12">
-              <table id="assignment_submits"
-                class="table table-bordered table-striped dataTable"
-                role="grid" aria-describedby="assignment_submits_info">
-                <thead>
-                  <tr role="row">
-                    <th>
-                      <%= t "assignment_submits.fields.title" %>
-                    </th>
-                    <th>
-                      <%= t "assignment_submits.fields.user" %>
-                    </th>
-                    <th>
-                      <%= t "assignment_submits.fields.updated_at" %>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <% assignment.assignment_submits.each_with_index do |assignment_submit, index| %>
-                    <tr role="row" class=<%= index.odd? ? "odd" : "even" %>>
-                      <td><%= link_to assignment_submit.title, [assignment, assignment_submit] %></td>
-                      <td><%= link_to assignment_submit.user.username, assignment_submit.user %></td>
-                      <td>
-                        <%= assignment_submit.updated_at.strftime(t "datepicker.time.default") %>
-                      </td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <table id="assignment_submits"
+            class="table table-bordered table-striped dataTable"
+            role="grid" aria-describedby="assignment_submits_info">
+            <thead>
+              <tr role="row">
+                <th>
+                  <%= t "assignment_submits.fields.title" %>
+                </th>
+                <th>
+                  <%= t "assignment_submits.fields.user" %>
+                </th>
+                <th>
+                  <%= t "assignment_submits.fields.updated_at" %>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% assignment.assignment_submits.each_with_index do |assignment_submit, index| %>
+                <tr role="row" class=<%= index.odd? ? "odd" : "even" %>>
+                  <td><%= link_to assignment_submit.title, [assignment, assignment_submit] %></td>
+                  <td><%= link_to assignment_submit.user.username, assignment_submit.user %></td>
+                  <td>
+                    <%= assignment_submit.updated_at.strftime(t "datepicker.time.default") %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
+
     </div>
   </section>
 </div>

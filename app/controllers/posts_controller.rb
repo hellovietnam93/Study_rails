@@ -1,13 +1,12 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource :forum
   load_and_authorize_resource
 
   def create
     if @post.save
-      redirect_to @forum, notice: flash_message("created")
+      redirect_to :back, notice: flash_message("created")
     else
       flash[:alert] = flash_message "not_created"
-      render "forums/show"
+      render "#{post_params[:postable_type].downcase.pluralize}/show"
     end
   end
 
@@ -22,11 +21,11 @@ class PostsController < ApplicationController
       end
     else
       if @post.update_attributes post_params
-        redirect_to @forum, notice: flash_message("updated")
+        redirect_to :back, notice: flash_message("updated")
       else
         flash[:alert] = flash_message "not_updated"
-        @posts = @forum.posts
-        render "forums/show"
+        @posts = @post.postable.posts
+        render "#{@post.postable.class.table_name}/show"
       end
     end
   end
@@ -38,7 +37,7 @@ class PostsController < ApplicationController
       flash[:alert] = flash_message "not_deleted"
     end
 
-    redirect_to @forum
+    redirect_to :back
   end
 
   private

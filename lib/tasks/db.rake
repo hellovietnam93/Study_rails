@@ -67,7 +67,8 @@ namespace :db do
 
     5.times do |n|
       post = Post.create name: "Post number #{n}", content: "Content of post #{n}",
-        user_id: ClassRoom.first.user_ids.sample, forum_id: 1, class_room_id: 1
+        user_id: ClassRoom.first.user_ids.sample, class_room_id: 1
+      post.update_attributes postable: ClassRoom.first.forum
       5.times do |m|
         post.comments.create content: "New comment #{m}", user_id: ClassRoom.first.user_ids.sample
       end

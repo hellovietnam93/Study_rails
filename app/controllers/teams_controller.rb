@@ -33,7 +33,10 @@ class TeamsController < ApplicationController
   end
 
   def show
-
+    @posts = @team.posts
+    @post = @team.posts.build
+    @comment = current_user.comments.build
+    @assignment_submits = AssignmentSubmit.share_with_team.where user_id: @team.user_ids
   end
 
   def edit

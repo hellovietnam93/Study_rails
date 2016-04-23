@@ -14,14 +14,14 @@
           <% end %>
           <% if can? :manage, post %>
             <li>
-              <%= link_to edit_forum_post_path(@forum, post),
+              <%= link_to edit_post_path(post),
                 remote: true do %>
                 <i class="fa fa-pencil-square-o"></i>
                 <%= t "form.buttons.edit" %>
               <% end %>
             </li>
             <li>
-              <%= link_to forum_post_path(@forum, post),
+              <%= link_to post_path(post),
                 method: :delete, confirm: t("form.confirmation") do %>
                 <i class="fa fa-times"></i>
                 <%= t "form.buttons.delete" %>
