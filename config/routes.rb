@@ -57,5 +57,6 @@ Rails.application.routes.draw do
     resources :users, only: :show
     resources :event_users, only: :update
     resources :verifications, only: [:create, :new]
+    resources :courses, only: [:index, :show]
   end
 end

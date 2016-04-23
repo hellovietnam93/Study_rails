@@ -5,9 +5,10 @@ ja:
     home: "Studyhub"
     actions: "行動"
     titles:
-      group: "グループ"
+      my_school: "私の学校"
       documentation: "ドキュメンテーション"
       dashboard: "ダッシュボード"
+      my_classes: "私のクラス"
   form:
     error: "エラー"
     inform_error: "フォームが含まれています %{error}"

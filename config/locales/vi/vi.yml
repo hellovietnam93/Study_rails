@@ -5,9 +5,10 @@ vi:
     home: "Studyhub"
     actions: "Actions"
     titles:
-      group: "Nhóm"
+      my_school: "Trường của tôi"
       documentation: "Tài liệu"
       dashboard: "Trang chủ"
+      my_classes: "Lớp học của tôi"
   form:
     error: "Lỗi"
     inform_error: "Có %{error}"
