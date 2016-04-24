@@ -10,6 +10,12 @@
         <%= render "class_rooms/member_buttons" %>
       </div>
 
+      <%= link_to class_room_statistics_path(@class_room),
+        class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+        title: t("class_rooms.statistics") do %>
+        <i class="fa fa-bar-chart"></i>
+      <% end %>
+
       <%= link_to class_room_assignments_path(@class_room),
         class: "btn", "data-toggle": "tooltip", "data-placement": "top",
         title: t("assignments.assignment") do %>

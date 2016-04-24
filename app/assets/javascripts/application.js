@@ -30,6 +30,7 @@
 //= require isotope
 //= require moment
 //= require highcharts
+//= require highcharts-more
 //= require_tree ./customs
 
 $(document).on("page:change", function() {

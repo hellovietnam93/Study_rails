@@ -10,6 +10,9 @@ vi:
       most_comments: "Thành viên trả lời nhiều nhất"
       member: "Thành viên"
       high_vote: "Bài viết được đánh giá cao nhất"
+      average_score: "Điểm trung bình"
+      student_info: "Thông tin sinh viên"
+      student_chart: "Biểu đồ thông tin học sinh"
     post:
       replied: "Đã trả lời"
       non_replied: "Chưa trả lời"

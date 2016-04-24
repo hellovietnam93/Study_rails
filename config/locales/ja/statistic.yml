@@ -10,6 +10,9 @@ ja:
       most_comments: "メンバーは、ほとんどのコメント"
       member: "メンバー"
       high_vote: "投稿最高の評価"
+      average_score: "平均スコア"
+      student_info: "学生情報"
+      student_chart: "学生情報チャート"
     post:
       replied: "回答"
       non_replied: "未回答"
