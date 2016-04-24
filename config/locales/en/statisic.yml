@@ -10,6 +10,9 @@ en:
       most_comments: "Members comment most"
       member: "Member"
       high_vote: "Posts highest rating"
+      average_score: "Average score"
+      student_info: "Student information"
+      student_chart: "Student information chart"
     post:
       replied: "Replied"
       non_replied: "Non replied"
