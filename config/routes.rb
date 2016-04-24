@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root "static_pages#home"
     mount Ckeditor::Engine => "/ckeditor"
-    devise_for :users
+    devise_for :users, controllers: {sessions: "sessions", registrations: "registrations"}
 
     namespace :admin do
       root "courses#index"

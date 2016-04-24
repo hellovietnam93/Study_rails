@@ -4,6 +4,9 @@ en:
     mini_name: "SH"
     home: "Studyhub"
     actions: "Actions"
+    welcome: "Welcome to"
+    instruction: "Sign in to start your session"
+    registrations: "Register a new membership"
     titles:
       my_school: "My school"
       documentation: "Documentation"
@@ -30,6 +33,7 @@ en:
       approved: "Approved"
       submit: "Submit"
       skip: "Skip"
+      remember_me: "Remember me"
   date:
     formats:
       default: "%Y/%m/%d"

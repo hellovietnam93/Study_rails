@@ -4,6 +4,9 @@ ja:
     mini_name: "SH"
     home: "Studyhub"
     actions: "行動"
+    welcome: "ようこそ"
+    instruction: "あなたのセッションを開始するには、ログインしてください"
+    registrations: "新しいメンバーシップを登録します"
     titles:
       my_school: "私の学校"
       documentation: "ドキュメンテーション"
@@ -30,6 +33,7 @@ ja:
       approved: "既に承認"
       submit: "提出します"
       skip: "スキップ"
+      remember_me: "私を覚えてますか"
   date:
     formats:
       default: "%Y/%m/%d"
