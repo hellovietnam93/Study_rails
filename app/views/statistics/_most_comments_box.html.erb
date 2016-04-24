@@ -1,0 +1,35 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <%= t "statistic.title.most_comments" %>
+    </h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-box-tool" data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="box-body">
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th><%= t "statistic.title.member" %></th>
+          <th><%= t "statistic.title.number_comment" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_comments.sort_by{|_key, value| value}.first(5).each do |key, value| %>
+          <tr>
+            <td><%= @members.find{|member| member.id == key}.email %></td>
+            <td><%= value %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

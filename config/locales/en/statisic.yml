@@ -1,0 +1,23 @@
+en:
+  statistic:
+    title:
+      number_post: "Number post"
+      number_comment: "Number comment"
+      post_replied: "Total number posts lecturer replied"
+      average_time: "Average reply time"
+      tags: "The most used tags"
+      most_posts: "Members posted most"
+      most_comments: "Members comment most"
+      member: "Member"
+      high_vote: "Posts highest rating"
+    post:
+      replied: "Replied"
+      non_replied: "Non replied"
+      title: "Title"
+      number_vote: "Number vote"
+    tags:
+      name: "Name"
+      tag_count: "Tags count"
+    charts:
+      question_number:
+        title: "Question number by day"

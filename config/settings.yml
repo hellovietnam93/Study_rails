@@ -70,3 +70,5 @@ languages:
   ja: "ja"
   vi: "vi"
 flag_size: "40x30"
+tags:
+  most_used: 5

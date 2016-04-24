@@ -1,0 +1,23 @@
+ja:
+  statistic:
+    title:
+      number_post: "投稿数"
+      number_comment: "回答数"
+      post_replied: "総数ポスト講師は答えました"
+      average_time: "平均応答時間"
+      tags: "最も使用されているタグ"
+      most_posts: "公開された多くの記事ほとんどのメンバー"
+      most_comments: "メンバーは、ほとんどのコメント"
+      member: "メンバー"
+      high_vote: "投稿最高の評価"
+    post:
+      replied: "回答"
+      non_replied: "未回答"
+      title: "タイトル"
+      number_vote: "番号票"
+    tags:
+      name: "名"
+      tag_count: "タグ付け安打"
+    charts:
+      question_number:
+        title: "日によって質問番号"

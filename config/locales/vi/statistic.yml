@@ -1,0 +1,23 @@
+vi:
+  statistic:
+    title:
+      number_post: "Số lượng bài viết"
+      number_comment: "Số lượng câu trả lời"
+      post_replied: "Số lượng bài viết giảng viên trả lời"
+      average_time: "Thời gian trả lời trung bình"
+      tags: "Các thẻ được sử dụng nhiều nhất"
+      most_posts: "Thành viên đăng nhiều bài nhất"
+      most_comments: "Thành viên trả lời nhiều nhất"
+      member: "Thành viên"
+      high_vote: "Bài viết được đánh giá cao nhất"
+    post:
+      replied: "Đã trả lời"
+      non_replied: "Chưa trả lời"
+      title: "Tiêu đề"
+      number_vote: "Số lượng vote"
+    tags:
+      name: "Tên"
+      tag_count: "Số lần gắn thẻ"
+    charts:
+      question_number:
+        title: "Số câu hỏi theo ngày"

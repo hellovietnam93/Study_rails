@@ -1,0 +1,35 @@
+<div class="box box-warning">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <%= t "statistic.title.high_vote" %>
+    </h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-box-tool" data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="box-body">
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th><%= t "statistic.post.title" %></th>
+          <th><%= t "statistic.post.number_vote" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @high_vote_question.sort_by{|_key, value| value}.first(5).each do |key, value| %>
+          <tr>
+            <td><%= @posts.find{|post| post.id == key}.name %></td>
+            <td><%= value %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
