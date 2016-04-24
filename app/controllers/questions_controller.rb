@@ -8,6 +8,9 @@ class QuestionsController < ApplicationController
     if @class_room
       redirect_to @class_room unless check_lecturer_of_class? current_user, @class_room.user_classes
       @questions = @class_room.questions
+      @requests = @class_room.user_classes.select do |user_class|
+        user_class.status == "waiting"
+      end
     else
       flash[:dander] = t "flashs.messages.model_not_found",
         model: "ClassRoom", id: params[:class_room_id]

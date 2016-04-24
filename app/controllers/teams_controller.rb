@@ -7,6 +7,7 @@ class TeamsController < ApplicationController
     if check_lecturer_of_class?(current_user, @class_room.user_classes) ||
       is_member_of_class?(current_user, @class_room.user_classes)
       @teams = @class_room.teams
+      find_request
     else
       redirect_to @class_room
     end
@@ -15,6 +16,7 @@ class TeamsController < ApplicationController
   def new
     if check_lecturer_of_class? current_user, @class_room.user_classes
       find_members
+      find_request
       @team = @class_room.teams.new
     else
       redirect_to @class_room
@@ -37,6 +39,7 @@ class TeamsController < ApplicationController
     @post = @team.posts.build
     @comment = current_user.comments.build
     @assignment_submits = AssignmentSubmit.share_with_team.where user_id: @team.user_ids
+    find_request
   end
 
   def edit
@@ -97,6 +100,12 @@ class TeamsController < ApplicationController
           @members << user
         end
       end
+    end
+  end
+
+  def find_request
+    @requests = @class_room.user_classes.select do |user_class|
+      user_class.status == "waiting"
     end
   end
 end

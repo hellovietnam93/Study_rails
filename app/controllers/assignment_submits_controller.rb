@@ -4,7 +4,7 @@ class AssignmentSubmitsController < ApplicationController
   load_and_authorize_resource :assignment
 
   def show
-
+    find_requests
   end
 
   def new
@@ -13,12 +13,13 @@ class AssignmentSubmitsController < ApplicationController
         title: @assignment.name
       redirect_to class_room_assignments_path @assignment.class_room
     elsif @assignment.end_time > Time.now
+      @class_room = @assignment.class_room
       flash[:alert] = t "assignment_submits.errors.late_to_submit"
     end
   end
 
   def edit
-
+    @class_room = @assignment.class_room
   end
 
   def create
@@ -58,5 +59,12 @@ class AssignmentSubmitsController < ApplicationController
   private
   def assignment_submit_params
     params.require(:assignment_submit).permit AssignmentSubmit::ATTRIBUTES_PARAMS
+  end
+
+  def find_requests
+    @class_room = @assignment.class_room
+    @requests = @class_room.user_classes.select do |user_class|
+      user_class.status == "waiting"
+    end
   end
 end

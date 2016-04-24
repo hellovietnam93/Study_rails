@@ -1,3 +1,15 @@
 <div id="assignments">
-  <%= render @assignment %>
+  <div class="box">
+    <div class="box-header with-border">
+      <% if current_user.lecturer? %>
+        <%= render "class_rooms/class_header" %>
+      <% else %>
+        <%= render "students/class_rooms/class_header" %>
+      <% end %>
+    </div>
+
+    <div class="box-body">
+      <%= render @assignment %>
+    </div>
+  </div>
 </div>

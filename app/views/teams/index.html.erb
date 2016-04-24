@@ -1,33 +1,45 @@
 <div id="teams">
-  <% if can? :create, Team %>
-    <%= link_to t("teams.actions.new"), new_class_room_team_path(@class_room),
-      class: "btn btn-success" %>
-  <% end %>
+  <div class="box">
+    <div class="box-header with-border">
+      <% if current_user.lecturer? %>
+        <%= render "class_rooms/class_header" %>
+      <% else %>
+        <%= render "students/class_rooms/class_header" %>
+      <% end %>
+    </div>
 
-  <div class="teams-list">
-    <table class="table table-border">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th><%= t "teams.headers.name" %></th>
-          <th><%= t "teams.headers.number_member" %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @teams.each_with_index do |team, index| %>
-          <tr>
-            <td>
-              <%= index + 1 %>
-            </td>
-            <td>
-              <%= link_to team.name, [@class_room, team] %>
-            </td>
-            <td>
-              <%= team.class_teams.count %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="box-body">
+      <% if can? :create, Team %>
+        <%= link_to t("teams.actions.new"), new_class_room_team_path(@class_room),
+          class: "btn btn-success" %>
+      <% end %>
+
+      <div class="teams-list">
+        <table class="table table-border">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th><%= t "teams.headers.name" %></th>
+              <th><%= t "teams.headers.number_member" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @teams.each_with_index do |team, index| %>
+              <tr>
+                <td>
+                  <%= index + 1 %>
+                </td>
+                <td>
+                  <%= link_to team.name, [@class_room, team] %>
+                </td>
+                <td>
+                  <%= team.class_teams.count %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

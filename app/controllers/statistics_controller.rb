@@ -4,7 +4,12 @@ class StatisticsController < ApplicationController
   def index
     @class_room = ClassRoom.includes(:users, :assignment_submits,
       forum: [posts: [comments: :children]]).find_by_id params[:class_room_id]
-    @members = @class_room.users.student
+    @members = @class_room.user_classes.select do |user_class|
+      !user_class.owner && user_class.status == "take_in"
+    end
+    @requests = @class_room.user_classes.select do |user_class|
+      user_class.status == "waiting"
+    end
 
     @posts = @class_room.forum.posts
 
@@ -98,10 +103,10 @@ class StatisticsController < ApplicationController
     @statistic_of_member = {}
 
     @members.each do |member|
-      @statistic_of_member[member] = {}
-      @statistic_of_member[member][t("statistic.title.number_post")] = @user_posts[member.id].nil? ? 0 : @user_posts[member.id]
-      @statistic_of_member[member][t("statistic.title.number_comment")] = @user_comments[member.id].nil? ? 0 : @user_comments[member.id]
-      @statistic_of_member[member][t("statistic.title.average_score")] = calculate_average_score_of_assignment member, @class_room
+      @statistic_of_member[member.user] = {}
+      @statistic_of_member[member.user][t("statistic.title.number_post")] = @user_posts[member.id].nil? ? 0 : @user_posts[member.id]
+      @statistic_of_member[member.user][t("statistic.title.number_comment")] = @user_comments[member.id].nil? ? 0 : @user_comments[member.id]
+      @statistic_of_member[member.user][t("statistic.title.average_score")] = calculate_average_score_of_assignment member, @class_room
     end
   end
 

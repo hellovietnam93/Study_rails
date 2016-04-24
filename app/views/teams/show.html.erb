@@ -1,128 +1,140 @@
 <div id="teams">
-  <% if @team.user_ids.include? current_user.id %>
-    <div class="col-md-8">
-      <div class="row">
+  <div class="box">
+    <div class="box-header with-border">
+      <% if current_user.lecturer? %>
+        <%= render "class_rooms/class_header" %>
+      <% else %>
+        <%= render "students/class_rooms/class_header" %>
+      <% end %>
+    </div>
 
-        <div class="col-md-10 col-md-offset-1">
+    <div class="box-body">
+      <% if @team.user_ids.include? current_user.id %>
+        <div class="col-md-8">
           <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-              <%= render "posts/form", object: @team %>
+
+            <div class="col-md-10 col-md-offset-1">
+              <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                  <%= render "posts/form", object: @team %>
+                </div>
+              </div>
+
+              <div>
+                <% if @posts.any? %>
+                  <%= render @posts %>
+                <% end %>
+              </div>
             </div>
           </div>
-
-          <div>
-            <% if @posts.any? %>
-              <%= render @posts %>
-            <% end %>
-          </div>
         </div>
-      </div>
-    </div>
-  <% end %>
+      <% end %>
 
-  <div class="col-md-4">
-    <div class="box box-info">
-      <div class="box-header with-border">
-        <h3 class="box-title">
-          <strong><%= @team.name %></strong>
-        </h3>
+      <div class="col-md-4">
+        <div class="box box-info">
+          <div class="box-header with-border">
+            <h3 class="box-title">
+              <strong><%= @team.name %></strong>
+            </h3>
 
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse">
-            <i class="fa fa-minus"></i>
-          </button>
-          <% if can? :update, @team %>
-            <div class="btn-group">
-              <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-wrench"></i>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
               </button>
-              <ul class="dropdown-menu" role="menu">
-                <li>
-                  <%= link_to t("form.buttons.edit"),
-                    edit_class_room_team_path(@class_room, @team) %>
-                </li>
-                <li>
-                  <%= link_to t("form.buttons.delete"),
-                    class_room_team_path(@class_room, @team), method: :delete %>
-                </li>
-              </ul>
-            </div>
-          <% end %>
-          <button type="button" class="btn btn-box-tool" data-widget="remove">
-            <i class="fa fa-times"></i>
-          </button>
-        </div>
-      </div>
-
-      <div class="box-body">
-        <table class="table table-border">
-          <thead>
-            <tr>
-              <th><%= t "members.fields.email" %></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @team.users.each do |user| %>
-              <tr>
-                <th><%= user.email %></th>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="box box-danger">
-      <div class="box-header with-border">
-        <h3 class="box-title">
-          <strong><%= t "assignments.actions.see_more" %></strong>
-        </h3>
-
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse">
-            <i class="fa fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-box-tool" data-widget="remove">
-            <i class="fa fa-times"></i>
-          </button>
-        </div>
-      </div>
-
-      <div class="box-body">
-        <div id="assignment_submits_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-          <table id="assignment_submits"
-            class="table table-bordered table-striped dataTable"
-            role="grid" aria-describedby="assignment_submits_info">
-            <thead>
-              <tr role="row">
-                <th>
-                  <%= t "assignment_submits.fields.title" %>
-                </th>
-                <th>
-                  <%= t "assignment_submits.fields.user" %>
-                </th>
-                <th>
-                  <%= t "assignment_submits.fields.updated_at" %>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @assignment_submits.each_with_index do |assignment_submit, index| %>
-                <tr role="row" class=<%= index.odd? ? "odd" : "even" %>>
-                  <td><%= link_to assignment_submit.title,
-                    [assignment_submit.assignment, assignment_submit] %></td>
-                  <td><%= link_to assignment_submit.user.username, assignment_submit.user %></td>
-                  <td>
-                    <%= assignment_submit.updated_at.strftime(t "datepicker.time.default") %>
-                  </td>
-                </tr>
+              <% if can? :update, @team %>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-wrench"></i>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li>
+                      <%= link_to t("form.buttons.edit"),
+                        edit_class_room_team_path(@class_room, @team) %>
+                    </li>
+                    <li>
+                      <%= link_to t("form.buttons.delete"),
+                        class_room_team_path(@class_room, @team), method: :delete %>
+                    </li>
+                  </ul>
+                </div>
               <% end %>
-            </tbody>
-          </table>
+              <button type="button" class="btn btn-box-tool" data-widget="remove">
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="box-body">
+            <table class="table table-border">
+              <thead>
+                <tr>
+                  <th><%= t "members.fields.email" %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @team.users.each do |user| %>
+                  <tr>
+                    <th><%= user.email %></th>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
         </div>
+
+        <div class="box box-danger">
+          <div class="box-header with-border">
+            <h3 class="box-title">
+              <strong><%= t "assignments.actions.see_more" %></strong>
+            </h3>
+
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove">
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="box-body">
+            <div id="assignment_submits_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+              <table id="assignment_submits"
+                class="table table-bordered table-striped dataTable"
+                role="grid" aria-describedby="assignment_submits_info">
+                <thead>
+                  <tr role="row">
+                    <th>
+                      <%= t "assignment_submits.fields.title" %>
+                    </th>
+                    <th>
+                      <%= t "assignment_submits.fields.user" %>
+                    </th>
+                    <th>
+                      <%= t "assignment_submits.fields.updated_at" %>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @assignment_submits.each_with_index do |assignment_submit, index| %>
+                    <tr role="row" class=<%= index.odd? ? "odd" : "even" %>>
+                      <td><%= link_to assignment_submit.title,
+                        [assignment_submit.assignment, assignment_submit] %></td>
+                      <td><%= link_to assignment_submit.user.username, assignment_submit.user %></td>
+                      <td>
+                        <%= assignment_submit.updated_at.strftime(t "datepicker.time.default") %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-
     </div>
-
   </div>
 </div>

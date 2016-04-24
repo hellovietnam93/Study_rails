@@ -23,9 +23,9 @@
         </tr>
       </thead>
       <tbody>
-        <% @user_comments.sort_by{|_key, value| value}.first(5).each do |key, value| %>
+        <% @user_comments.sort_by{|_key, value| value}.reverse.first(5).each do |key, value| %>
           <tr>
-            <td><%= @members.find{|member| member.id == key}.email %></td>
+            <td><%= @members.find{|member| member.user_id == key}.user.email %></td>
             <td><%= value %></td>
           </tr>
         <% end %>
