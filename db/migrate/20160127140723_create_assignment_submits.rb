@@ -6,6 +6,7 @@ class CreateAssignmentSubmits < ActiveRecord::Migration
       t.references :assignment, index: true, foreign_key: true
       t.string :title
       t.text :content
+      t.decimal :score
 
       t.timestamps null: false
     end

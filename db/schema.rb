@@ -45,8 +45,9 @@ ActiveRecord::Schema.define(version: 20160423160419) do
     t.integer  "assignment_id", limit: 4
     t.string   "title",         limit: 255
     t.text     "content",       limit: 65535
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.decimal  "score",                       precision: 10
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.integer  "policy",        limit: 4
   end
 
