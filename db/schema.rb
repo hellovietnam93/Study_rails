@@ -244,15 +244,14 @@ ActiveRecord::Schema.define(version: 20160423160419) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
-    t.integer  "target_id",   limit: 4
-    t.string   "target_type", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "user_id",       limit: 4
+    t.integer  "likeable_id",   limit: 4
+    t.string   "likeable_type", limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  add_index "likes", ["target_id"], name: "index_likes_on_target_id", using: :btree
-  add_index "likes", ["target_type"], name: "index_likes_on_target_type", using: :btree
+  add_index "likes", ["likeable_id"], name: "index_likes_on_likeable_id", using: :btree
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "online_tests", force: :cascade do |t|

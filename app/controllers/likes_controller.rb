@@ -6,8 +6,7 @@ class LikesController < ApplicationController
     find_target params[:type], params[:target_id]
 
     respond_to do |format|
-      @like = user.likes.create target_type: @target.class.table_name,
-        target_id: @target.id
+      @like = user.likes.create likeable_type: @target.class, likeable_id: @target.id
       get_total
       format.js
     end
@@ -15,7 +14,7 @@ class LikesController < ApplicationController
 
   def destroy
     @like = Like.find params[:id]
-    find_target @like.target_type, @like.target_id
+    find_target @like.likeable_type, @like.likeable_id
 
     respond_to do |format|
       @like.destroy
@@ -26,10 +25,10 @@ class LikesController < ApplicationController
 
   private
   def find_target table_name, id
-    @target = table_name.classify.constantize.find_by_id id
+    @target = table_name.constantize.find_by_id id
   end
 
   def get_total
-    @count = Like.find_by_target(@target.class.table_name, @target.id).count
+    @count = @target.likes.count
   end
 end

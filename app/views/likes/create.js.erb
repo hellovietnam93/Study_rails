@@ -1,7 +1,7 @@
 <% if @target.class.table_name == "comments" %>
   $("#comment-<%= @target.id %>").find(".comment-like").
-    html("<%= j render 'likes/dislikes', like: @like %>")
+    html("<%= j render 'likes/dislikes', like: @like, target: @target %>")
 <% elsif @target.class.table_name == "posts" %>
   $("#post-<%= @target.id %>").find(".post-like").
-    html("<%= j render 'likes/dislikes', like: @like %>")
+    html("<%= j render 'likes/dislikes', like: @like, target: @target %>")
 <% end %>
