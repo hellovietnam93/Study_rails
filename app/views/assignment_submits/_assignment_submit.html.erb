@@ -1,14 +1,102 @@
-<%= assignment_submit.user.email %>
+<div id="assignment_submits">
+  <div class="col-md-9">
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title">
+          <strong><%= assignment_submit.title %></strong>
+        </h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <% if can? :update, assignment_submit %>
+            <div class="btn-group">
+              <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-wrench"></i>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <%= link_to t("form.buttons.edit"),
+                    edit_assignment_assignment_submit_path(assignment_submit.assignment,
+                      assignment_submit) %>
+                </li>
+                <li>
+                  <%= link_to t("form.buttons.delete"),
+                    assignment_assignment_submit_path(assignment_submit.assignment,
+                    assignment_submit), data: {confirm: t("form.confirmation")},
+                    method: :delete, class: "icon icon-delete delete-assignment" %>
+                </li>
+              </ul>
+            </div>
+          <% end %>
+          <button type="button" class="btn btn-box-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
 
-<%= assignment_submit.updated_at.strftime t("date.formats.default") %>
+      <div class="box-body">
+        <p>
+          <%= assignment_submit.content.html_safe %>
+        </p>
+        <p>
+          <%= t "assignment_submits.submit_by" %>:
+          <strong>
+            <%= assignment_submit.user.email %>
+          </strong>
+          <div>
+            <%= time_ago_in_words assignment_submit.updated_at %>
+          </div>
+        </p>
+      </div>
+    </div>
 
-<% if can? :update, assignment_submit %>
-  <%= link_to t("form.buttons.edit"),
-    edit_assignment_assignment_submit_path(assignment_submit.assignment,
-      assignment_submit) %>
-  <%= link_to t("form.buttons.delete"),
-    assignment_assignment_submit_path(assignment_submit.assignment,
-      assignment_submit),
-    data: {confirm: t("form.confirmation")},
-    method: :delete, class: "icon icon-delete delete-assignment" %>
-<% end %>
+
+  </div>
+
+  <div class="col-md-3">
+    <div class="box box-danger">
+      <div class="box-header with-border">
+        <h3 class="box-title">
+          <strong><%= t "assignment_submits.score" %></strong>
+        </h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="box-body">
+        <% if current_user.lecturer? && assignment_submit.score.nil? %>
+          <%= form_for assignment_submit, url: mark_path, method: :put do |f| %>
+            <%= render "shared/errors_messages", object: assignment_submit %>
+
+            <div class="form-group">
+              <%= f.number_field :score, class: "form-control",
+                placeholder: t("assignment_submits.fields.score"), step: 0.5,
+                min: 0, max: 10 %>
+            </div>
+
+            <div class="form-group">
+              <%= f.submit t("form.buttons.submit"), class: "btn btn-success" %>
+            </div>
+          <% end %>
+        <% else %>
+          <h2>
+            <% if assignment_submit.score.nil? %>
+              <%= t "assignment_submits.fields.not_score" %>
+            <% else %>
+              <strong><%= t "assignment_submits.fields.score" %>:</strong>
+              <span class="text text-danger"><%= assignment_submit.score %></span>
+            <% end %>
+          </h2>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

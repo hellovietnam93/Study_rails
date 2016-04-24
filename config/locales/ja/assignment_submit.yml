@@ -1,10 +1,14 @@
 ja:
   assignment_submits:
+    score: "ポイントの割り当て"
+    submit_by: "から提出されました"
     fields:
       title: "タイトル"
       content: "コンテンツ"
       user: "学生が支払います"
       updated_at: "出願日"
+      score: "スコア"
+      not_score: "講師は得点されていません"
     errors:
       unknow_errors: "トランザクションが失敗しました"
       not_time_to_submit_assignment: "記事を提出しない時間 %{title}"

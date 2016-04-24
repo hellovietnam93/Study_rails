@@ -1,10 +1,14 @@
 vi:
   assignment_submits:
+    score: "Điểm bài tập"
+    submit_by: "Nộp bởi"
     fields:
       title: "Tiêu đề"
       content: "Nội dung"
       user: "Sinh viên nộp"
       updated_at: "Ngày nộp"
+      score: "Điểm"
+      not_score: "Giảng viên chưa chấm điểm"
     errors:
       unknow_errors: "Transaction fails"
       not_time_to_submit_assignment: "Chưa phải thời điểm để nộp bài %{title}"

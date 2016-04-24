@@ -1,10 +1,14 @@
 en:
   assignment_submits:
+    score: "Assignment score"
+    submit_by: "Submitted by"
     fields:
       title: "Title"
       content: "Content"
       user: "Student submit"
       updated_at: "Submit date"
+      score: "Score"
+      not_score: "Lecturer are not scoring"
     errors:
       unknow_errors: "Transaction fails"
       not_time_to_submit_assignment: "Not time to submit assignment %{title}"
