@@ -6,6 +6,9 @@ class DocumentsController < ApplicationController
   def index
     load_documents
     @document = Document.new
+    @requests = @class_room.user_classes.select do |user_class|
+      user_class.status == "waiting"
+    end
   end
 
   def create
@@ -31,7 +34,7 @@ class DocumentsController < ApplicationController
   end
 
   def find_class_room
-    @class_room = ClassRoom.includes(:documents).find params[:class_room_id]
+    @class_room = ClassRoom.includes(:documents, user_classes: :user).find params[:class_room_id]
   end
 
   def load_documents

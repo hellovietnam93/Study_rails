@@ -4,8 +4,6 @@ class AssignmentsController < ApplicationController
   before_action :find_classroom
 
   def index
-    @class_room = ClassRoom.includes(:user_classes, assignments: [assignment_submits: :user]).
-      find_by_id params[:class_room_id]
     if check_lecturer_of_class? current_user, @class_room.user_classes
       @assignment = @class_room.assignments.new if current_user.lecturer?
     elsif is_member_of_class? current_user, @class_room.user_classes
@@ -13,6 +11,10 @@ class AssignmentsController < ApplicationController
     else
       redirect_to @class_room
     end
+    @requests = @class_room.user_classes.select do |user_class|
+      user_class.status == "waiting"
+    end
+
     @assignments = @class_room.assignments
   end
 
@@ -27,6 +29,9 @@ class AssignmentsController < ApplicationController
   end
 
   def show
+    @requests = @class_room.user_classes.select do |user_class|
+      user_class.status == "waiting"
+    end
     @assignment = Assignment.includes(assignment_submits: :user).find params[:id]
     @number_submited_students = AssignmentSubmit.find_submitted_students(@assignment.start_time,
       @assignment.end_time).size
@@ -34,11 +39,15 @@ class AssignmentsController < ApplicationController
   end
 
   def new
-
+    @requests = @class_room.user_classes.select do |user_class|
+      user_class.status == "waiting"
+    end
   end
 
   def edit
-
+    @requests = @class_room.user_classes.select do |user_class|
+      user_class.status == "waiting"
+    end
   end
 
   def update
@@ -62,7 +71,7 @@ class AssignmentsController < ApplicationController
   end
 
   def find_classroom
-    @class_room = ClassRoom.includes(:user_classes, assignments: [assignment_submits: :user]).
+    @class_room = ClassRoom.includes(user_classes: [:user], assignments: [assignment_submits: :user]).
       find_by_id params[:class_room_id]
 
     unless @class_room

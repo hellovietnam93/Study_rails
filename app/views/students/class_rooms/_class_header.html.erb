@@ -1,0 +1,47 @@
+<h3 class="box-title">
+  <%= @class_room.uid %>
+</h3>
+
+<div class="box-tools pull-right">
+  <%= link_to class_room_statistics_path(@class_room),
+    class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+    title: t("class_rooms.statistics") do %>
+    <i class="fa fa-bar-chart"></i>
+  <% end %>
+
+  <%= link_to class_room_assignments_path(@class_room),
+    class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+    title: t("assignments.assignment") do %>
+    <i class="fa fa-tasks"></i>
+  <% end %>
+
+  <%= link_to class_room_online_tests_path(@class_room),
+    class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+    title: t("class_rooms.students.tabs.online_tests") do %>
+    <i class="fa fa-university"></i>
+  <% end %>
+
+  <%= link_to @class_room.forum,
+    class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+    title: t("forums.forum") do %>
+    <i class="fa fa-comments"></i>
+  <% end %>
+
+  <%= link_to class_room_teams_path(@class_room),
+    class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+    title: t("teams.team") do %>
+    <i class="fa fa-users"></i>
+  <% end %>
+
+  <%= link_to class_room_timetables_path(@class_room),
+    class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+    title: t("class_rooms.timetables") do %>
+    <i class="fa fa-calendar"></i>
+  <% end %>
+
+  <%= link_to class_room_documents_path(@class_room),
+    class: "btn", "data-toggle": "tooltip", "data-placement": "top",
+    title: t("documents.document") do %>
+    <i class="fa fa-book"></i>
+  <% end %>
+</div>

@@ -2,10 +2,14 @@ class TimetablesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @class_room = ClassRoom.includes(:timetables, course: :syllabus_details).find params[:class_room_id]
+    @class_room = ClassRoom.includes(:timetables, course: [:syllabus_details],
+      user_classes: :user).find params[:class_room_id]
     @timetable = Timetable.new
     @timetables = @class_room.timetables
     @syllabus_details = @class_room.course.syllabus_details
+    @requests = @class_room.user_classes.select do |user_class|
+      user_class.status == "waiting"
+    end
   end
 
   def create
