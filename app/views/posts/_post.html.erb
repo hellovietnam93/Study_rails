@@ -47,7 +47,7 @@
       <% end %>
       <span class="post-like">
         <% if current_user.like post %>
-          <%= render "likes/dislikes", like: current_user.like(post) %>
+          <%= render "likes/dislikes", like: current_user.like(post), target: post %>
         <% else %>
           <%= render "likes/likes", target: post %>
         <% end %>

@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, PictureUploader
 
   def like target
-    likes.find_by target_id: target, target_type: target.class.table_name
+    likes.find_by likeable_id: target, likeable_type: target.class
   end
 
   def has_team_in_class? class_room
