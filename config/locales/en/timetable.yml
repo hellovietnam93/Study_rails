@@ -1,5 +1,13 @@
 en:
   timetables:
+    fields:
+      title: "Title"
+      date_start: "Start date"
+      date_end: "End date"
+      time_start: "Start time"
+      time_end: "End time"
+      repeat: "Repeat"
+      full_day: "Full day"
     actions:
       new: "Create timetables"
       add_syllabus: "Add syllabus"
@@ -9,3 +17,4 @@ en:
       month: "Month"
       week: "Week"
       day: "Day"
+      timetable_info: "Create timetable"

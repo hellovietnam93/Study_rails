@@ -19,6 +19,9 @@ vi:
       registered_student: "Số lượng sinh viên đã đăng kí"
       status: "Trạng thái"
       enroll_key: "Enroll key"
+      teacher: "Email giáo viên"
+      start_date: "Ngày bắt đầu"
+      end_date: "Ngày kết thúc"
     statuses:
       closed: "Đóng"
       in_progress: "Trong tiến trình"
@@ -57,3 +60,5 @@ vi:
       remove_request: "Xóa yêu cầu"
       accept_request: "Chấp nhận yêu cầu"
     statistics: "Thống kê"
+    titles:
+      class_info: "Tạo thông tin lớp học"

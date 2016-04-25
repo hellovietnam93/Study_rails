@@ -1,5 +1,13 @@
 ja:
   timetables:
+    fields:
+      title: "タイトル"
+      date_start: "開始日"
+      date_end: "終了日"
+      time_start: "始まる時間"
+      time_end: "終了時間"
+      repeat: "繰り返す"
+      full_day: "丸1日"
     actions:
       new: "時刻表を作成します"
       add_syllabus: "シラバスを追加"
@@ -9,3 +17,4 @@ ja:
       month: "月"
       week: "週"
       day: "日"
+      timetable_info: "タイムテーブルを作成します。"

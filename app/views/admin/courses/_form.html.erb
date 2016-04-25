@@ -1,64 +1,74 @@
 <%= form_for [:admin, @course] do |f| %>
   <%= render "shared/errors_messages", object: @course %>
 
-  <div class="form-group">
-    <div class="col-xs-4">
+  <div class="col-xs-4">
+    <div class="form-group">
       <%= f.label t("courses.fields.uid"), class: "control-label" %>
       <%= f.text_field :uid, class: "form-control",
         required: true, autofocus: true %>
     </div>
+  </div>
 
-    <div class="col-xs-4">
+  <div class="col-xs-4">
+    <div class="form-group">
       <%= f.label t("courses.fields.name"), class: "control-label" %>
       <%= f.text_field :name, class: "form-control", required: true,
         autofocus: true %>
     </div>
+  </div>
 
-    <div class="col-xs-4">
+  <div class="col-xs-4">
+    <div class="form-group">
       <%= f.label t("courses.fields.weight"), class: "control-label" %>
       <%= f.number_field :weight, class: "form-control", required: true,
         autofocus: true, step: 0.5 %>
     </div>
   </div>
 
-  <div class="form-group">
-    <div class="col-xs-4">
+  <div class="col-xs-4">
+    <div class="form-group">
       <%= f.label t("courses.fields.exercise_duration"),
         class: "control-label" %>
       <%= f.number_field :exercise_duration, class: "form-control",
         required: true, autofocus: true, step: 0.5 %>
     </div>
+  </div>
 
-    <div class="col-xs-4">
+  <div class="col-xs-4">
+    <div class="form-group">
       <%= f.label t("courses.fields.practice_duration"),
         class: "control-label" %>
       <%= f.number_field :practice_duration, class: "form-control",
         required: true, autofocus: true, step: 0.5 %>
     </div>
+  </div>
 
-    <div class="col-xs-4">
+  <div class="col-xs-4">
+    <div class="form-group">
       <%= f.label t("courses.fields.theory_duration"), class: "control-label" %>
       <%= f.number_field :theory_duration, class: "form-control", required: true,
         autofocus: true, step: 0.5 %>
     </div>
   </div>
 
-  <div class="form-group">
-    <div class="col-xs-6">
+  <div class="col-xs-6">
+    <div class="form-group">
       <%= f.label t("courses.fields.evaluation"), class: "control-label" %>
       <%= f.text_area :evaluation, class: "form-control", required: true,
         autofocus: true %>
     </div>
+  </div>
 
-    <div class="col-xs-6">
+  <div class="col-xs-6">
+    <div class="form-group">
       <%= f.label t("courses.fields.description"), class: "control-label" %>
       <%= f.text_area :description, class: "form-control", required: true,
         autofocus: true %>
     </div>
   </div>
 
-  <div class="form-group">
-    <div class="col-xs-12">
+  <div class="col-xs-12">
+    <div class="form-group">
       <div class="pull-right">
         <%= f.submit t("form.buttons.save"),
           data: {disable_with: t("form.buttons.saving")},

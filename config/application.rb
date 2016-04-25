@@ -31,5 +31,7 @@ module Studyhub
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**",
       "*.{rb,yml}")]
     config.middleware.use I18n::JS::Middleware
+    config.time_zone = "Hanoi"
+    config.active_record.default_timezone = :local
   end
 end

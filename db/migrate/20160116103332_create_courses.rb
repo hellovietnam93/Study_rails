@@ -4,10 +4,11 @@ class CreateCourses < ActiveRecord::Migration
       t.string :name
       t.string :uid
       t.text :description
-      t.decimal :theory_duration
-      t.decimal :exercise_duration
-      t.decimal :practice_duration
-      t.decimal :weight
+      t.float :theory_duration
+      t.float :exercise_duration
+      t.float :practice_duration
+      t.float :weight
+      t.float :base_hours
       t.text :evaluation
 
       t.timestamps null: false

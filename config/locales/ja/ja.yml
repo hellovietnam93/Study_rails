@@ -12,6 +12,7 @@ ja:
       documentation: "ドキュメンテーション"
       dashboard: "ダッシュボード"
       my_classes: "私のクラス"
+      to: "に"
   form:
     error: "エラー"
     inform_error: "フォームが含まれています %{error}"
@@ -39,6 +40,7 @@ ja:
       default: "%Y/%m/%d"
       short: "%y/%m/%d"
       year: "%d/%m/%Y"
+      js: "yy/mm/dd"
   datepicker:
     time:
       format: "yy-mm-dd"

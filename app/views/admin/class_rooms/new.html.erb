@@ -1,3 +1,19 @@
 <div id="class_rooms">
-  <%= render "form" %>
+  <%= form_for [:admin, @course, @new_class_form] do |f| %>
+    <%= render "shared/errors_messages", object: @new_class_form %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <%= render "new_class_box", f: f %>
+      </div>
+
+      <div class="col-md-6">
+        <%= render "new_timetable_box", f: f %>
+      </div>
+    </div>
+
+    <%= f.submit t("form.buttons.save"), data: {disable_with: t("form.buttons.saving")},
+      class: "btn btn-primary btn-sm" %>
+    <%= link_to t("form.buttons.cancel"), :back %>
+  <% end %>
 </div>
