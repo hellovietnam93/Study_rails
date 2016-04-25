@@ -1,5 +1,8 @@
 <h3 class="box-title">
-  <%= @class_room.uid %>
+  <%= t "class_rooms.class_room" %>
+  <span>
+    <strong><%= link_to @class_room.uid, @class_room %></strong>
+  </span>
 </h3>
 
 <div class="box-tools pull-right">

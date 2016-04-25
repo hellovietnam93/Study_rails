@@ -31,8 +31,8 @@ class StatisticsController < ApplicationController
   end
 
   def get_high_vote_post
-    @high_vote_question = Like.where(target_type: "posts",
-      target_id: @class_room.forum.post_ids).group(:target_id).count
+    @high_vote_question = Like.where(likeable_type: "Post",
+      likeable_id: @class_room.forum.post_ids).group(:likeable_id).count
   end
 
   def active_member
