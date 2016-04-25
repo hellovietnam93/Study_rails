@@ -5,10 +5,21 @@ $(document).on("page:change", function() {
     itemSelector: ".element-item",
     layoutMode: "fitRows",
     getSortData: {
-      start_time: ".start_time",
-      type: ".type",
-      end_time: ".end_time",
+      start_date: function (elem) {
+        return Date.parse($(elem).attr("data-start"));
+      },
+      type: "[data-type]",
+      end_date: function (elem) {
+        return Date.parse($(elem).attr("data-end"));
+      },
       name: ".name"
     }
+  });
+
+  $("#sorts").on("click", "button", function() {
+    var sortByValue = $(this).attr("data-sort-by");
+    $container.isotope({
+      sortBy: sortByValue
+    });
   });
 });
