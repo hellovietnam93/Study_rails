@@ -29,8 +29,7 @@
       <%= link_to t("users.views.menu.profile"), current_user, class: "btn btn-default btn-flat" unless current_user.admin? %>
     </div>
     <div class="col-xs-4 text-center">
-      <%= link_to t("users.views.menu.setting"), edit_user_registration_path,
-        class: "btn btn-default btn-flat" unless current_user.admin? %>
+
     </div>
     <div class="col-xs-4 text-center">
       <%= link_to t("users.title.sign_out"), destroy_user_session_path, method: :delete,

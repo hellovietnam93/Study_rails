@@ -33,7 +33,7 @@ $(document).on("page:change", function (){
     });
   });
 
-  $("#class_room_start_date, #class_room_end_date, #class_room_date_start, #class_room_date_end, #class_room_day_start").datepicker({
+  $("#class_room_start_date, #class_room_end_date, #class_room_date_start, #class_room_date_end, #class_room_day_start, #user_birthday").datepicker({
     dateFormat: I18n.t("date.formats.js")
   });
 
