@@ -3,6 +3,9 @@ vi:
     all: "Tất cả môn học"
     course: "Môn học"
     class_rooms: "Các lớp trong môn học %{course}"
+    title:
+      create_by_info: "Tạo môn học không có giáo trình"
+      create_by_import: "Nhập giáo trình để tạo môn học"
     actions:
       detail: "Thông tin môn học"
       edit: "Sửa Thông tin môn học"

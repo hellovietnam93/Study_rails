@@ -8,7 +8,7 @@ class VerificationsController < ApplicationController
 
   def create
     if params.has_key? "skip"
-      current_user.update_attributes verified: true
+      current_user.update_attributes verified: true, role: 2
       redirect_to current_user
     else
       temp_user = PrimeUser.find_by_uid params[:uid]

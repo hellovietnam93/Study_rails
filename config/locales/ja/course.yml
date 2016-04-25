@@ -3,6 +3,9 @@ ja:
     all: "すべての被験者"
     course: "規律"
     class_rooms: "コースのすべてのクラス %{course}"
+    title:
+      create_by_info: "シラバスせずにコースを作成します。"
+      create_by_import: "インポートシラバスは、コースを作成します"
     actions:
       detail: "コース詳細"
       edit: "編集コース情報"

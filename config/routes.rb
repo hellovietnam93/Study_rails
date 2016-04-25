@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :courses do
         resources :class_rooms
       end
-      # resources :class_rooms
+      resources :import_syllabuses, only: :create
     end
 
     resources :class_rooms, only: [:index, :show, :update] do

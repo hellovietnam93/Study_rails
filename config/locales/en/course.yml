@@ -3,6 +3,9 @@ en:
     all: "All courses"
     course: "Course"
     class_rooms: "All class in course %{course}"
+    title:
+      create_by_info: "Create course without syllabus"
+      create_by_import: "Import syllabus to create course"
     actions:
       detail: "Detail about course"
       edit: "Edit course information"

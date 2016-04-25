@@ -26,11 +26,18 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, PictureUploader
 
+  after_create :create_profile_user
+
   def like target
     likes.find_by likeable_id: target, likeable_type: target.class
   end
 
   def has_team_in_class? class_room
     (team_ids & class_room.team_ids).size == 1
+  end
+
+  private
+  def create_profile_user
+    self.create_profile
   end
 end

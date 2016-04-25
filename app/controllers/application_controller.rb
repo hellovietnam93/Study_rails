@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   def verify_namespace
     @namespace = controller_path.split("/").first
 
-    if @namespace != "devise"
+    if @namespace != "sessions"
       if @namespace == "admin" && !current_user.admin?
         redirect_to root_path
         flash[:alert] = t "flashs.messages.permission_denied"
@@ -43,7 +43,8 @@ class ApplicationController < ActionController::Base
   end
 
   def verify_user
-    if !current_user.admin? && !current_user.verified? && @namespace != "devise" && params[:controller] != "verifications"
+    if !current_user.admin? && !current_user.verified? &&
+      @namespace != "sessions" && params[:controller] != "verifications"
       redirect_to new_verification_path
     end
   end

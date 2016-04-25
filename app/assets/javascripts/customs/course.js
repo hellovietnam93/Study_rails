@@ -1,8 +1,4 @@
-$(document).ready(function() {
-  $(document).on("hide.bs.modal", "#edit-course-modal", function (event) {
-    $("#error_explanation").remove()
-  });
-
+$(document).on("page:change", function() {
   var $container = $("#courses .courses-list").isotope({
     itemSelector: ".element-item",
     layoutMode: "fitRows",

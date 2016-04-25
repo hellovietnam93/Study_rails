@@ -4,7 +4,7 @@
 </a>
 <ul class="dropdown-menu">
   <li class="user-header">
-  <%= image_tag "fallback/default-user-img.png", class: "img-circle" %>
+    <%= image_tag "fallback/default-user-img.png", class: "img-circle" %>
     <p>
       <%= current_user.username.nil? ? current_user.email : current_user.username %>
     </p>
@@ -12,6 +12,7 @@
       <%= t "users.roles.#{current_user.role}" %>
     </p>
   </li>
+
   <li class="user-body">
     <% Settings.languages.each do |_, val| %>
       <div class="col-xs-4 text-center">
@@ -22,13 +23,14 @@
       </div>
     <% end %>
   </li>
+
   <li class="user-footer">
     <div class="col-xs-4 text-center">
-      <%= link_to t("users.views.menu.profile"), current_user, class: "btn btn-default btn-flat" %>
+      <%= link_to t("users.views.menu.profile"), current_user, class: "btn btn-default btn-flat" unless current_user.admin? %>
     </div>
     <div class="col-xs-4 text-center">
       <%= link_to t("users.views.menu.setting"), edit_user_registration_path,
-        class: "btn btn-default btn-flat" %>
+        class: "btn btn-default btn-flat" unless current_user.admin? %>
     </div>
     <div class="col-xs-4 text-center">
       <%= link_to t("users.title.sign_out"), destroy_user_session_path, method: :delete,

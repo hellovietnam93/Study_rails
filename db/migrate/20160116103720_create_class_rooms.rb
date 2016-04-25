@@ -10,10 +10,8 @@ class CreateClassRooms < ActiveRecord::Migration
       t.integer :class_type
       t.integer :registered_student
       t.integer :max_student
-      t.string :slug
 
       t.timestamps null: false
     end
-    add_index :class_rooms, :slug, unique: true
   end
 end
