@@ -12,8 +12,8 @@ $(document).on("page:change", function (){
     layoutMode: "fitRows",
     getSortData: {
       uid: ".uid",
-      type: ".type",
-      status: ".status",
+      type: "[data-type]",
+      status: "[data-status]",
       name: ".name"
     }
   });

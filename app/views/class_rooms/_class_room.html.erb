@@ -1,12 +1,19 @@
-<div class="element-item class_room-<%= class_room.id %>">
-  <div class="box">
+<div class="element-item class_room-<%= class_room.id %>"
+  data-status="<%= class_room.status %>" data-type="<%= class_room.class_type %>">
+  <% if class_room.theory? %>
+    <div class="box box-info">
+  <% elsif class_room.pratice? %>
+    <div class="box box-success">
+  <% else %>
+    <div class="box box-warning">
+  <% end %>
     <div class="box-header">
       <h3 class="box-title uid">
         <%= link_to class_room.uid, class_room %>
       </h3>
 
       <div class="box-tools pull-right type">
-        <%= class_room.class_type %>
+        <%= t "class_rooms.class_types.#{class_room.class_type}" %>
       </div>
     </div>
 
@@ -15,8 +22,15 @@
         class_room %>
     </div>
 
-    <div class="box-footer">
-      <div class="status pull-right"><%= class_room.status %></div>
+    <% if class_room.theory? %>
+      <div class="box-footer bg-aqua-active color-palette">
+    <% elsif class_room.pratice? %>
+      <div class="box-footer bg-green-active color-palette">
+    <% else %>
+      <div class="box-footer bg-yellow-active color-palette">
+    <% end %>
+      <div class="status pull-right">
+        <%= t "class_rooms.statuses.#{class_room.status}" %></div>
       <div class="name"><%= class_room.name %></div>
     </div>
 

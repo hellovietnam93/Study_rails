@@ -7,4 +7,11 @@ $(document).on("page:change", function() {
       name: ".name"
     }
   });
+
+  $("#sorts").on("click", "button", function() {
+    var sortByValue = $(this).attr("data-sort-by");
+    $container.isotope({
+      sortBy: sortByValue
+    });
+  });
 });

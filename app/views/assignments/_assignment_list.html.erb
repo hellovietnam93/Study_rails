@@ -1,5 +1,8 @@
 <% if assignment.id.present? %>
-  <div class="element-item assignment-<%= assignment.id %>">
+  <div class="element-item assignment-<%= assignment.id %>"
+    data-type="<%= assignment.assignment_type %>"
+    data-start="<%= assignment.start_time %>"
+    data-end="<%= assignment.end_time %>">
     <div class="box">
       <div class="box-header">
         <h3 class="box-title name">
@@ -7,7 +10,7 @@
         </h3>
 
         <div class="box-tools pull-right type">
-          <%= assignment.assignment_type %>
+          <%= t "assignments.assignment_types.#{assignment.assignment_type}" %>
         </div>
       </div>
 
