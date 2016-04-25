@@ -1,8 +1,0 @@
-<% if @class_room.destroyed? %>
-  $(".class_room-<%= @class_room.id %>").remove();
-  $("#class_rooms #new-class_room").hide();
-  $("#class_rooms .btn-new-class_room").show();
-  if($("#class_rooms .class_room-new").hasClass("edit_class_room")){
-    $("#class_rooms .edit_class_room").hide();
-  }
-<% end %>

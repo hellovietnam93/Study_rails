@@ -10,9 +10,9 @@ Rails.application.routes.draw do
       resources :imports, only: [:index, :create]
       resources :semesters
       resources :courses do
-        resources :class_rooms, except: [:index, :new]
+        resources :class_rooms
       end
-      resources :class_rooms
+      # resources :class_rooms
     end
 
     resources :class_rooms, only: [:index, :show, :update] do

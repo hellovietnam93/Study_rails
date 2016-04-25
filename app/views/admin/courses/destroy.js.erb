@@ -1,8 +1,0 @@
-<% if @course.destroyed? %>
-  $(".tbody").html("<%= j render @courses %>");
-  $("#new-course").hide();
-  $(".btn-new-course").show();
-  if($(".course-new").hasClass("edit_course")){
-    $(".edit_course").hide();
-  }
-<% end %>

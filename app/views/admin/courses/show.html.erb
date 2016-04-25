@@ -4,7 +4,7 @@
 <div id="class_rooms">
   <h2>
     <b class="class-in-course"><%= t "courses.class_rooms", course: @course.uid %></b>
-    <%= link_to "#", data: {toggle: "modal", target: "#new-class-modal"} do %>
+    <%= link_to new_admin_course_class_room_path(@course) do %>
       <i class="glyphicon glyphicon-plus"></i>
     <% end %>
   </h2>
@@ -16,6 +16,4 @@
   </table>
 </div>
 
-<%= render "edit_course_modal" %>
 <%= render "show_course_modal" %>
-<%= render "admin/class_rooms/new_class_modal" %>

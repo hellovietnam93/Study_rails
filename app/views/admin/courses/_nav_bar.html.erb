@@ -43,15 +43,14 @@
             <% end %>
           </li>
           <li>
-            <%= link_to "#",
-              data: {toggle: "modal", target: "#edit-course-modal"} do %>
+            <%= link_to edit_admin_course_path(@course) do %>
               <%= t "courses.actions.edit" %>
             <% end %>
           </li>
           <li role="separator" class="divider"></li>
           <li>
             <%= link_to t("form.buttons.delete"),
-              admin_course_path(@course), remote: true,
+              admin_course_path(@course),
               data: {confirm: t("form.confirmation")},
               method: :delete, class: "delete-course" %>
           </li>

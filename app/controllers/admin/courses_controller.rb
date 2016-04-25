@@ -3,7 +3,6 @@ class Admin::CoursesController < ApplicationController
 
   def index
     @courses = @courses.order uid: :asc
-    @course = Course.new
   end
 
   def new
@@ -11,11 +10,12 @@ class Admin::CoursesController < ApplicationController
   end
 
   def create
-    respond_to do |format|
-      if @course.save
-        list_all_courses
-      end
-      format.js
+    if @course.save
+      flash[:notice] = flash_message "created"
+      redirect_to [:admin, @course]
+    else
+      flash[:alert] = flash_message "not_created"
+      render :new
     end
   end
 
@@ -26,36 +26,28 @@ class Admin::CoursesController < ApplicationController
   end
 
   def edit
-    respond_to do |format|
-      format.js
-    end
+
   end
 
   def update
-    respond_to do |format|
-      if @course.update_attributes course_params
-        list_all_courses
-        @semesters = Semester.all.order name: :asc
-      end
-      format.js
+    if @course.update_attributes course_params
+      flash[:notice] = flash_message "updated"
+      redirect_to [:admin, @course]
+    else
+      flash[:alert] = flash_message "not_updated"
+      render :edit
     end
+
   end
 
   def destroy
-    respond_to do |format|
-      if @course.destroy
-        list_all_courses
-      end
-      format.js
-    end
+    @course.destroy
+    flash[:notice] = flash_message "deleted"
+    redirect_to admin_coures_path
   end
 
   private
   def course_params
     params.require(:course).permit Course::ATTRIBUTES_PARAMS
-  end
-
-  def list_all_courses
-    @courses = Course.all.order uid: :asc
   end
 end

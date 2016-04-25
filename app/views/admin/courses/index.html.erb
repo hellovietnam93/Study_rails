@@ -2,7 +2,7 @@
   <div class="title-course">
     <h3 class="title">
       <%= t "courses.all" %>
-      <%= link_to "#", data: {toggle: "modal", target: "#new-course-modal"} do %>
+      <%= link_to new_admin_course_path do %>
         <i class="glyphicon glyphicon-plus"></i>
       <% end %>
     </h3>
@@ -19,5 +19,3 @@
     </table>
   </div>
 </div>
-
-<%= render "new_course_modal" %>
