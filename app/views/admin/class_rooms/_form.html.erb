@@ -1,6 +1,6 @@
 <div class="col-md-6">
   <div class="row">
-    <%= form_for [:admin, @class_room], remote: true do |f| %>
+    <%= form_for [:admin, @course, @class_room] do |f| %>
       <div id="errors-create-class_room"></div>
 
       <div class="form-group">
@@ -41,16 +41,7 @@
           autofocus: true %>
       </div>
 
-      <% if params[:controller] == "admin/courses" || params[:course_id].present? %>
-        <%= f.hidden_field :course_id, value: @course.id %>
-      <% else %>
-        <div class="form-group">
-          <%= f.label :course_id, t("class_rooms.fields.course"), class: "control-label" %>
-          <%= f.select :course_id, options_for_select(@courses.collect{|course|
-            [course.name, course.id]}), class: "form-control", id: "focus", required: true,
-            autofocus: true %>
-        </div>
-      <% end %>
+      <%= f.hidden_field :course_id, value: @course.id %>
 
       <div class="form-group">
         <%= f.label :semester, t("class_rooms.fields.semester"), class: "control-label" %>
@@ -61,7 +52,7 @@
 
       <%= f.submit t("form.buttons.save"), data: {disable_with: t("form.buttons.saving")},
         class: "btn btn-primary btn-sm" %>
-      <input type="button" class="btn btn-cancel" value="Cancel"/>
+      <%= link_to t("form.buttons.cancel"), :back %>
     <% end %>
   </div>
 </div>

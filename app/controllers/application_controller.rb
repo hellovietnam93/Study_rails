@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
   end
 
   def verify_user
-    if !current_user.verified? && @namespace != "devise" && params[:controller] != "verifications"
+    if !current_user.admin? && !current_user.verified? && @namespace != "devise" && params[:controller] != "verifications"
       redirect_to new_verification_path
     end
   end

@@ -1,7 +1,7 @@
 <div id="class_rooms">
   <h2>
     <%= t "class_rooms.all" %>
-    <%= link_to "#", data: {toggle: "modal", target: "#new-class-modal"} do %>
+    <%= link_to new_admin_class_room_path do %>
       <i class="glyphicon glyphicon-plus"></i>
     <% end %>
   </h2>
@@ -12,5 +12,3 @@
     </tbody>
   </table>
 </div>
-
-<%= render "new_class_modal" %>

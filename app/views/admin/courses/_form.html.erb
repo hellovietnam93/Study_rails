@@ -1,7 +1,7 @@
 <div class="col-md-6">
   <div class="row">
-    <%= form_for [:admin, @course], remote: true do |f| %>
-      <div id="errors-create-course"></div>
+    <%= form_for [:admin, @course] do |f| %>
+      <%= render "shared/errors_messages", object: @course %>
 
       <div class="form-group">
         <%= f.label :uid, t("courses.fields.uid"), class: "control-label" %>
@@ -83,7 +83,7 @@
 
       <%= f.submit t("form.buttons.save"), data: {disable_with: t("form.buttons.saving")},
         class: "btn btn-primary btn-sm" %>
-      <input type="button" class="btn btn-cancel" value="Cancel"/>
+      <%= link_to t("form.buttons.cancel"), :back %>
     <% end %>
   </div>
 </div>

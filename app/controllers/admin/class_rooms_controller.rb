@@ -1,10 +1,10 @@
 class Admin::ClassRoomsController < ApplicationController
   load_and_authorize_resource
+  load_and_authorize_resource :course
+  before_action :load_data, only: [:new, :edit]
 
   def index
-    @courses = Course.all.order name: :asc
-    @semesters = Semester.all.order name: :asc
-    @class_room = ClassRoom.new
+
   end
 
   def new
@@ -13,12 +13,13 @@ class Admin::ClassRoomsController < ApplicationController
 
   def create
     @class_room_service = ClassRoomService.new @class_room, class_room_params[:teacher]
-    respond_to do |format|
-      if @class_room_service.save
-        @class_room.create_forum
-        @class_rooms = @class_room.course.class_rooms
-      end
-      format.js
+    if @class_room_service.save
+      @class_room.create_forum
+      redirect_to admin_course_path @course
+    else
+      flash[:alert] = flash_message ["not_created"]
+      load_data
+      render :new
     end
   end
 
@@ -27,36 +28,35 @@ class Admin::ClassRoomsController < ApplicationController
   end
 
   def edit
-    @semesters = Semester.all.order name: :asc
-    @course = @class_room.course
-    @courses = Course.all.order uid: :asc
-    respond_to do |format|
-      format.js
-    end
+    # @semesters = Semester.all.order name: :asc
+    # @course = @class_room.course
+    # @courses = Course.all.order uid: :asc
   end
 
   def update
-    respond_to do |format|
-      if @class_room.update_attributes class_room_params
-        @course = @class_room.course
-        @class_rooms = @course.class_rooms
-      end
-      format.js
+    if @class_room.update_attributes class_room_params
+      flash[:notice] = flash_message [:updated]
+      redirect_to admin_course_path course
+    else
+      flash[:alert] = flash_message "not_updated"
+      load_data
+      render :edit
     end
   end
 
   def destroy
-    @course = @class_room.course
-    respond_to do |format|
-      if @class_room.destroy
-        @class_rooms = @course.class_rooms
-      end
-      format.js
-    end
+    @class_room.destroy
+    flash[:notice] = flash_message "deleted"
+    redirect_to admin_course_path @course
   end
 
   private
   def class_room_params
     params.require(:class_room).permit ClassRoom::ATTRIBUTES_PARAMS
+  end
+
+  def load_data
+    @courses = Course.all.order name: :asc
+    @semesters = Semester.all.order name: :asc
   end
 end
