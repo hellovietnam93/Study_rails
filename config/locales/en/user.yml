@@ -27,6 +27,11 @@ en:
       uid: "Identify number"
       school: "School"
       cohort: "Cohort"
+      program: "Program"
+      class_name: "Class"
+      phone: "Phone number"
+      birthday: "Birthday"
+      address: "Address"
       roles: "You are"
     roles:
       admin: "Admin"
@@ -48,7 +53,7 @@ en:
         profile: "Profile"
         setting: "Setting"
       tabs:
-        activities: "Timetables"
+        timetables: "Timetables"
         timeline: "Timeline"
         settings: "Settings"
       number_notifications: "You have %{number} notifications"

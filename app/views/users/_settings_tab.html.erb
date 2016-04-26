@@ -1,53 +1,156 @@
 <div class="tab-pane" id="settings">
-  <form class="form-horizontal">
-    <div class="form-group">
-      <label for="inputName" class="col-sm-2 control-label">Name</label>
+  <%= form_for @edit_user_form, url: @user, method: :patch, html: {class: "form-horizontal"} do |f| %>
+    <%= render "shared/errors_messages", object: @edit_user_form %>
 
-      <div class="col-sm-10">
-        <input type="email" class="form-control" id="inputName" placeholder="Name">
-      </div>
-    </div>
     <div class="form-group">
-      <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
+      <%= f.label t("users.fields.username"), class: "col-sm-2 control-label" %>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputName" placeholder="Name">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-
-      <div class="col-sm-10">
-        <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-          </label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-user"></i>
+          </div>
+          <%= f.text_field :username, class: "form-control" %>
         </div>
       </div>
     </div>
+
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-danger">Submit</button>
+      <%= f.label t("users.fields.email"), class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-envelope"></i>
+          </div>
+          <%= f.email_field :email, class: "col-sm-10 form-control" %>
+        </div>
       </div>
     </div>
-  </form>
+
+    <div class="form-group">
+      <%= f.label t("users.fields.password"), class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-lock"></i>
+          </div>
+          <%= f.password_field :password, class: "col-sm-10 form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t("users.fields.password_confirmation"), class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-lock"></i>
+          </div>
+          <%= f.password_field :passowrd_confirmation, class: "col-sm-10 form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t("users.fields.uid"), class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-diamond"></i>
+          </div>
+          <%= f.text_field :uid, class: "col-sm-10 form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t("users.fields.program"), class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-graduation-cap"></i>
+          </div>
+          <%= f.text_field :program, class: "col-sm-10 form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t("users.fields.cohort"), class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-calculator"></i>
+          </div>
+          <%= f.text_field :cohort, class: "col-sm-10 form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t("users.fields.class_name"), class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-certificate"></i>
+          </div>
+          <%= f.text_field :class_name, class: "col-sm-10 form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t("users.fields.school"), class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-book"></i>
+          </div>
+          <%= f.text_field :school, class: "col-sm-10 form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t("users.fields.phone"), class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-phone"></i>
+          </div>
+          <%= f.phone_field :phone, class: "col-sm-10 form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t("users.fields.address"), class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-map-marker"></i>
+          </div>
+          <%= f.text_field :address, class: "col-sm-10 form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t("users.fields.birthday"), class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-birthday-cake"></i>
+          </div>
+          <%= f.text_field :birthday, class: "col-sm-10 form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit t("form.buttons.submit"), class: "btn btn-danger" %>
+      </div>
+    </div>
+
+  <% end %>
 </div>

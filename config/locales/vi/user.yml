@@ -27,6 +27,11 @@ vi:
       uid: "Mã số"
       school: "Trường"
       cohort: "Khóa"
+      program: "Chương trình đào tạo"
+      class_name: "Lớp"
+      phone: "Số điện thoại"
+      birthday: "Ngày sinh"
+      address: "Địa chỉ"
       roles: "Bạn là"
     roles:
       admin: "Quản trị viên"
@@ -48,7 +53,7 @@ vi:
         profile: "Hồ sơ"
         setting: "Cài đặt"
       tabs:
-        activities: "Thời khóa biểu"
+        timetables: "Thời khóa biểu"
         timeline: "Mốc thời gian"
         settings: "Cài đặt"
       number_notifications: "Bạn có %{number} thông báo"

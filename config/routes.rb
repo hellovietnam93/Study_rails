@@ -51,12 +51,12 @@ Rails.application.routes.draw do
     resources :user_classes, only: [:create, :destroy]
     resources :class_room_requests, only: [:create, :update, :destroy]
 
-    resources :users, only: :show do
+    resources :users, only: [:show, :update] do
       resources :likes
     end
     resources :groups, except: [:index, :new]
     resources :group_users
-    resources :users, only: :show
+    resources :users, only: [:show, :update]
     resources :event_users, only: :update
     resources :verifications, only: [:create, :new]
     resources :courses, only: [:index, :show]

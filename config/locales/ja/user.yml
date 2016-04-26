@@ -27,6 +27,11 @@ ja:
       uid: "番号を確認し"
       school: "学校"
       cohort: "コホート"
+      program: "プログラム"
+      class_name: "クラス"
+      phone: "電話"
+      birthday: "お誕生日"
+      address: "住所"
       roles: "あなたがあります"
     roles:
       admin: "管理者"
@@ -48,7 +53,7 @@ ja:
         profile: "プロフィール"
         setting: "設定"
       tabs:
-        activities: "時刻表"
+        timetables: "時刻表"
         timeline: "タイムライン"
         settings: "設定"
       number_notifications: "あなたが持っている %{number} 通知"

@@ -40,4 +40,8 @@ class User < ActiveRecord::Base
   def create_profile_user
     self.create_profile
   end
+
+  def password_required?
+    new_record? ? super : false
+  end
 end

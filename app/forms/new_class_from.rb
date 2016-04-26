@@ -54,7 +54,6 @@ class NewClassFrom
       :time_end, :full_day
     timetable_repeat.attributes = params.slice :repeat_on, :repeat_type, :range, :day_start
     @semester = class_room.semester
-    binding.pry
 
     if valid?
       class_room_service = ClassRoomService.new class_room, params[:teacher]
