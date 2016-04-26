@@ -1,0 +1,103 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <strong><%= t "class_rooms.titles.class_info" %></strong>
+    </h3>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool"
+        data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-box-tool"
+        data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="box-body">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label t("class_rooms.fields.uid"), class: "control-label" %>
+        <%= f.text_field :uid, class: "form-control", required: true,
+          autofocus: true %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label t("class_rooms.fields.name"), class: "control-label" %>
+        <%= f.text_field :name, class: "form-control", required: true,
+          autofocus: true %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label t("class_rooms.fields.max_student"), class: "control-label" %>
+        <%= f.number_field :max_student, class: "form-control", required: true,
+          autofocus: true %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label t("class_rooms.fields.status"), class: "control-label" %>
+        <%= f.select :status, options_from_collection_for_select(
+          i18n_enum(:class_room, :status), :key, :value, f.object.status), {},
+          class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label t("class_rooms.fields.type"), class: "control-label" %>
+        <%= f.select :class_type, options_from_collection_for_select(
+          i18n_enum(:class_room, :class_type), :key, :value, f.object.class_type), {},
+          class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label t("class_rooms.fields.semester"), class: "control-label" %>
+        <%= f.select :semester_id, options_for_select(@semesters.collect{|semester|
+          [semester.name, semester.id]}), {}, {class: "form-control"} %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label t("class_rooms.fields.start_date"), class: "control-label" %>
+        <%= f.text_field :start_date, class: "form-control",
+          value: Date.today.strftime(t "date.formats.default") %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label t("class_rooms.fields.end_date"), class: "control-label" %>
+        <%= f.text_field :end_date, class: "form-control",
+          value: Date.today.strftime(t "date.formats.default") %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label t("class_rooms.fields.description"), class: "control-label" %>
+        <%= f.text_area :description, class: "form-control", required: true,
+          autofocus: true %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label t("class_rooms.fields.teacher"), class: "control-label" %>
+        <%= f.text_field :teacher, class: "form-control", required: true,
+          autofocus: true %>
+      </div>
+    </div>
+
+    <%= f.hidden_field :course_id, value: @course.id %>
+  </div>
+</div>

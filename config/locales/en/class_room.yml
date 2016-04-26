@@ -19,6 +19,9 @@ en:
       registered_student: "Registered student"
       status: "Status"
       enroll_key: "Enroll key"
+      teacher: "Teacher email"
+      start_date: "Start date"
+      end_date: "End date"
     statuses:
       closed: "Closed"
       in_progress: "In Progress"
@@ -57,3 +60,5 @@ en:
       remove_request: "Remove request"
       accept_request: "Accept request"
     statistics: "Statistics"
+    titles:
+      class_info: "Create classroom informations"

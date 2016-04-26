@@ -19,6 +19,9 @@ ja:
       registered_student: "登録学生数"
       status: "状態"
       enroll_key: "認証キー"
+      teacher: "教師のメール"
+      start_date: "開始日"
+      end_date: "終了日"
     statuses:
       closed: "閉まっている"
       in_progress: "進行中"
@@ -57,3 +60,5 @@ ja:
       remove_request: "要求を削除します"
       accept_request: "要請を受け入れます"
     statistics: "統計"
+    titles:
+      class_info: "教室の情報を作成します。"

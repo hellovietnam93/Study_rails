@@ -3,4 +3,5 @@ class Timetable < ActiveRecord::Base
 
   has_many :timetable_details, dependent: :destroy
   has_many :syllabus_details, through: :timetable_details
+  has_many :timetable_repeats, dependent: :destroy
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423160419) do
+ActiveRecord::Schema.define(version: 20160425173511) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 20160423160419) do
     t.integer  "class_type",         limit: 4
     t.integer  "registered_student", limit: 4
     t.integer  "max_student",        limit: 4
+    t.date     "start_date"
+    t.date     "end_date"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "status",             limit: 4
@@ -147,13 +149,14 @@ ActiveRecord::Schema.define(version: 20160423160419) do
     t.string   "name",              limit: 255
     t.string   "uid",               limit: 255
     t.text     "description",       limit: 65535
-    t.decimal  "theory_duration",                 precision: 10
-    t.decimal  "exercise_duration",               precision: 10
-    t.decimal  "practice_duration",               precision: 10
-    t.decimal  "weight",                          precision: 10
+    t.float    "theory_duration",   limit: 24
+    t.float    "exercise_duration", limit: 24
+    t.float    "practice_duration", limit: 24
+    t.float    "weight",            limit: 24
+    t.float    "base_hours",        limit: 24
     t.text     "evaluation",        limit: 65535
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "documents", force: :cascade do |t|
@@ -394,14 +397,30 @@ ActiveRecord::Schema.define(version: 20160423160419) do
   add_index "timetable_details", ["syllabus_detail_id"], name: "index_timetable_details_on_syllabus_detail_id", using: :btree
   add_index "timetable_details", ["timetable_id"], name: "index_timetable_details_on_timetable_id", using: :btree
 
+  create_table "timetable_repeats", force: :cascade do |t|
+    t.integer  "timetable_id", limit: 4
+    t.integer  "repeat_type",  limit: 4
+    t.integer  "repeat_on",    limit: 4
+    t.integer  "range",        limit: 4
+    t.date     "day_start"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "timetable_repeats", ["timetable_id"], name: "index_timetable_repeats_on_timetable_id", using: :btree
+
   create_table "timetables", force: :cascade do |t|
     t.integer  "class_room_id", limit: 4
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.time     "time_start"
+    t.time     "time_end"
     t.string   "title",         limit: 255
+    t.boolean  "repeat",                      default: false
     t.text     "content",       limit: 65535
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "full_day",                    default: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   add_index "timetables", ["class_room_id"], name: "index_timetables_on_class_room_id", using: :btree
@@ -492,6 +511,7 @@ ActiveRecord::Schema.define(version: 20160423160419) do
   add_foreign_key "teams", "class_rooms"
   add_foreign_key "timetable_details", "syllabus_details"
   add_foreign_key "timetable_details", "timetables"
+  add_foreign_key "timetable_repeats", "timetables"
   add_foreign_key "timetables", "class_rooms"
   add_foreign_key "user_classes", "class_rooms"
   add_foreign_key "user_classes", "users"

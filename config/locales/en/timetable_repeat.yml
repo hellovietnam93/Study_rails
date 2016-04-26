@@ -1,0 +1,20 @@
+en:
+  timetable_repeats:
+    repeat_types:
+      every_day: "Every day"
+      every_week: "Every week"
+      every_month: "Every month"
+      all_day_in_week: "All day in week"
+    repeat_ons:
+      monday: "Monday"
+      tuesday: "Tuesday"
+      wednesday: "Wednesday"
+      thursday: "Thursday"
+      friday: "Friday"
+      saturday: "Saturday"
+      sunday: "Sunday"
+    fields:
+      type: "Repeat type"
+      repeat_on: "Repeat on"
+      range: "Repeat time"
+      day_start: "Day start repeat"

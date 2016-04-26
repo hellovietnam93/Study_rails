@@ -1,0 +1,80 @@
+<div class="box box-success">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <strong><%= t "timetables.title.timetable_info" %></strong>
+    </h3>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool"
+        data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-box-tool"
+        data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= f.label t("timetables.fields.title"), class: "control-label" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label t("timetables.fields.date_start"), class: "control-label" %>
+          <%= f.text_field :date_start, class: "form-control",
+            value: Date.today.strftime(t "date.formats.default") %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label t("timetables.fields.time_start"), class: "control-label" %>
+          <%= f.text_field :time_start, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <strong><%= t "static_page.titles.to" %></strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label t("timetables.fields.date_end"), class: "control-label" %>
+          <%= f.text_field :date_end, class: "form-control",
+            value: Date.today.strftime(t "date.formats.default") %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="fomr-group">
+          <%= f.label t("timetables.fields.time_end"), class: "control-label" %>
+          <%= f.text_field :time_end, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.check_box :full_day %>
+      <%= f.label t("timetables.fields.full_day"), class: "control-label" %>
+
+      <%= f.check_box :repeat %>
+      <%= f.label t("timetables.fields.repeat"), class: "control-label" %>
+    </div>
+
+    <%= render "repeat_box", f: f %>
+  </div>
+</div>

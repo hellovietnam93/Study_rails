@@ -8,16 +8,18 @@ class Admin::ClassRoomsController < ApplicationController
   end
 
   def new
-
+    @new_class_form = NewClassFrom.new
   end
 
   def create
-    @class_room_service = ClassRoomService.new @class_room, class_room_params[:teacher]
-    if @class_room_service.save
-      @class_room.create_forum
+    @new_class_form = NewClassFrom.new
+    if @new_class_form.submit params[:class_room]
+    #   @class_room_service = ClassRoomService.new @class_room, class_room_params[:teacher]
+    # if @class_room_service.save
+    #   @class_room.create_forum
       redirect_to admin_course_path @course
     else
-      flash[:alert] = flash_message ["not_created"]
+      flash[:alert] = flash_message "not_created"
       load_data
       render :new
     end
@@ -56,7 +58,7 @@ class Admin::ClassRoomsController < ApplicationController
   end
 
   def load_data
-    @courses = Course.all.order name: :asc
+    # @courses = Course.all.order name: :asc
     @semesters = Semester.all.order name: :asc
   end
 end

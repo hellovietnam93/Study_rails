@@ -1,0 +1,20 @@
+vi:
+  timetable_repeats:
+    repeat_types:
+      every_day: "Hàng ngày"
+      every_week: "Hàng tuần"
+      every_month: "Hàng tháng"
+      all_day_in_week: "Tất cả các ngày trong tuần"
+    repeat_ons:
+      monday: "Thứ hai"
+      tuesday: "Thứ ba"
+      wednesday: "Thứ tư"
+      thursday: "Thứ năm"
+      friday: "Thứ sáu"
+      saturday: "Thứ bảy"
+      sunday: "Chủ nhật"
+    fields:
+      type: "Lần lặp lại"
+      repeat_on: "Lặp lại vào"
+      range: "Số lần lặp"
+      day_start: "Ngày bắt đầu lặp"

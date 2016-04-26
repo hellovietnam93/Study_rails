@@ -72,3 +72,10 @@ languages:
 flag_size: "40x30"
 tags:
   most_used: 5
+import_syllabus:
+  name: "Tên học phần:"
+  id: "Mã số:"
+  duration: "Khối lượng:"
+  base_hours: "Bài tập/BTL:"
+  description: "Nội dung vắn tắt học phần:"
+  weight: "Đánh giá kết quả:"

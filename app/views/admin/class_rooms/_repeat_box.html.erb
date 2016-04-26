@@ -1,0 +1,42 @@
+<div class="timetable-repeats" hidden>
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= f.label t("timetable_repeats.fields.type"), class: "control-label" %>
+          <%= f.select :repeat_type, options_from_collection_for_select(
+            i18n_enum(:timetable_repeat, :repeat_type), :key, :value,
+            f.object.repeat_type), {},
+            class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group repeat-on" hidden>
+          <%= f.label t("timetable_repeats.fields.repeat_on"), class: "control-label" %>
+          <%= f.select :repeat_on, options_from_collection_for_select(
+            i18n_enum(:timetable_repeat, :repeat_on), :key, :value,
+            f.object.repeat_on), {},
+            class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= f.label t("timetable_repeats.fields.range"), class: "control-label" %>
+          <%= f.number_field :range, class: "form-control", min: 0 %>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= f.label t("timetable_repeats.fields.day_start"), class: "control-label" %>
+          <%= f.text_field :day_start, class: "form-control",
+            placeholder: Date.today.strftime(t "date.formats.default") %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

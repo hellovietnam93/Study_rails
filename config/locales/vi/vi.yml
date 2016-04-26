@@ -12,6 +12,7 @@ vi:
       documentation: "Tài liệu"
       dashboard: "Trang chủ"
       my_classes: "Lớp học của tôi"
+      to: "đến"
   form:
     error: "Lỗi"
     inform_error: "Có %{error}"
@@ -89,6 +90,7 @@ vi:
       default: "%Y/%m/%d"
       short: "%y/%m/%d"
       year: "%d/%m/%Y"
+      js: "yy/mm/dd"
   datepicker:
     time:
       format: "yy-mm-dd"

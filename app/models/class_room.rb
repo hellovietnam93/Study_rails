@@ -26,8 +26,8 @@ class ClassRoom < ActiveRecord::Base
   accepts_nested_attributes_for :questions, reject_if: lambda {|a| a[:name].blank?},
     allow_destroy: true
 
-  ATTRIBUTES_PARAMS = [:name, :uid, :description, :course_id, :semester_id, :enroll_key,
-    :class_type, :max_student, :registered_student, :status, :student_key, :teacher,
+  ATTRIBUTES_PARAMS = [:name, :uid, :description, :course_id, :semester_id, :enroll_key, :end_date,
+    :class_type, :max_student, :registered_student, :status, :student_key, :teacher, :start_date,
     questions_attributes: [:id, :name, :question_type, :priority, :course_id, :_destroy,
     answers_attributes: [:id, :content, :correct, :_destroy]]]
 

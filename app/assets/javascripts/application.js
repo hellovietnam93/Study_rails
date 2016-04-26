@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui/datepicker
 //= require datetimepicker
+//= require bootstrap-timepicker.min
 //= require moment.min
 //= require jquery-ui.custom.min
 //= require fullcalendar.min

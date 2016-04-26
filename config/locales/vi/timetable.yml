@@ -1,5 +1,13 @@
 vi:
   timetables:
+    fields:
+      title: "Tiêu đề"
+      date_start: "Ngày bắt đầu"
+      date_end: "Ngày kết thúc"
+      time_start: "Thời gian bắt đầu"
+      time_end: "Thời gian kết thú"
+      repeat: "Lặp lại"
+      full_day: "Cả ngày"
     actions:
       new: "Tạo thời khóa biểu"
       add_syllabus: "Thêm giáo trình"
@@ -9,3 +17,4 @@ vi:
       month: "Tháng"
       week: "Tuần"
       day: "Ngày"
+      timetable_info: "Tạo thời khóa biểu"
