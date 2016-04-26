@@ -42,6 +42,7 @@ gem "isotope-rails"
 gem "i18n-js", ">= 3.0.0.rc11"
 gem "cloudinary"
 gem "momentjs-rails"
+gem "yomu"
 
 group :development, :test do
   gem "pry"
@@ -57,6 +58,6 @@ end
 
 group :production do
   gem "rails_12factor"
-  gem "pg"
+  # gem "pg"
 end
 
