@@ -33,12 +33,21 @@ class ReadDocService
       end
     elsif index_home_work = line.index(Settings.import_syllabus.base_hours)
       @course.base_hours = line.scan(/\d+/).first
-    elsif indxe_description = line.index(Settings.import_syllabus.description)
+    elsif index_description = line.index(Settings.import_syllabus.description)
       while true
         index += 1
         if(!array[index].empty?)
           @course.description = array[index]
           break
+        end
+      end
+    elsif index_reference = line.index(Settings.import_syllabus.references)
+      while true
+        index += 1
+        break if array[index + 1].index(Settings.import_syllabus.learning_method)
+        if array[index].index(/[A-Za-z0-9_ÂĂÊƯÔƠĐâăêưôơ]/)
+          @course_reference = @course.course_references.build
+          @course_reference.name = array[index]
         end
       end
     elsif (index_weigh_point = line.index(Settings.import_syllabus.weight))

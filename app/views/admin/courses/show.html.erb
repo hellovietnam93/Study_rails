@@ -1,19 +1,24 @@
-<div class="course-config">
-  <%= render "nav_bar" %>
-</div>
-<div id="class_rooms">
-  <h2>
-    <b class="class-in-course"><%= t "courses.class_rooms", course: @course.uid %></b>
-    <%= link_to new_admin_course_class_room_path(@course) do %>
-      <i class="glyphicon glyphicon-plus"></i>
-    <% end %>
-  </h2>
-  <table class="class_rooms table table-hover">
-    <thead><%= render "admin/class_rooms/header" %></thead>
-    <tbody class="tbody">
-      <%= render "admin/class_rooms/class_room", class_rooms: @course.class_rooms %>
-    </tbody>
-  </table>
-</div>
+<div id="courses">
+  <div class="course-config">
+    <%= render "nav_bar" %>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="box box-success">
+        <%= render "header" %>
+        <%= render "course_box" %>
+      </div>
 
-<%= render "show_course_modal" %>
+      <% if @course.course_references.any? %>
+        <div class="box box-warning">
+          <%= render "references_box" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+      <%= render "syllabus_box" %>
+    </div>
+  </div>
+
+</div>

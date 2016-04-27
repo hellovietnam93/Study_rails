@@ -37,11 +37,11 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="class_settings">
           <li>
-            <%= link_to "#",
-              data: {toggle: "modal", target: "#show-course-modal"} do %>
-              <%= t "courses.actions.detail" %>
+            <%= link_to admin_course_class_rooms_path(@course) do %>
+              <%= t "courses.actions.all_classes" %>
             <% end %>
           </li>
+          <li role="separator" class="divider"></li>
           <li>
             <%= link_to edit_admin_course_path(@course) do %>
               <%= t "courses.actions.edit" %>

@@ -1,5 +1,6 @@
 class Admin::CoursesController < ApplicationController
   load_and_authorize_resource
+  skip_load_resource only: :show
 
   def index
     @courses = @courses.order uid: :asc
@@ -20,9 +21,10 @@ class Admin::CoursesController < ApplicationController
   end
 
   def show
+    @course = Course.includes(:class_rooms, syllabuses: :syllabus_details).find params[:id]
+    @syllabuses = @course.syllabuses
     @semesters = Semester.all.order name: :asc
     @class_rooms = @course.class_rooms
-    @class_room = @class_rooms.build
   end
 
   def edit

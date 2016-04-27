@@ -1,0 +1,26 @@
+<div class="box-body">
+  <table class="table table-border">
+    <tbody>
+      <% @course.attributes.each do |attribute, value| %>
+        <% unless attribute == "id" or attribute == "created_at" or
+          attribute == "updated_at" %>
+          <tr>
+            <td>
+              <strong>
+                <%= t "courses.fields.#{attribute}" %>
+              </strong>
+            </td>
+            <td>
+              <% if attribute == "weight" %>
+                <%= value %> -
+                <%= eval "1 - #{value}" %>
+              <% else %>
+                <%= value %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

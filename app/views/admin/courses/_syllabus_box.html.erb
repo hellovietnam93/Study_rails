@@ -1,0 +1,50 @@
+<div class="box box-danger">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <strong><%= t "courses.title.course_syllabus" %></strong>
+    </h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-box-tool" data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="box-body">
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th><%= t "courses.title.syllabus_week" %></th>
+          <th><%= t "courses.title.syllabus_content" %></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @syllabuses.each do |syllabus| %>
+          <tr>
+            <td>
+              <strong>
+                <%= syllabus.week %>
+              </strong>
+            </td>
+            <td>
+              <strong>
+                <%= syllabus.title %>
+              </strong>
+              <% syllabus.syllabus_details.each do |syllabus_detail| %>
+                <div>
+                  <%= syllabus_detail.title %>
+                </div>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>

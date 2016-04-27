@@ -4,7 +4,7 @@ class Admin::ClassRoomsController < ApplicationController
   before_action :load_data, only: [:new, :edit]
 
   def index
-
+    @class_rooms = @course.class_rooms
   end
 
   def new
