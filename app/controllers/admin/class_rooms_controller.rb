@@ -17,7 +17,7 @@ class Admin::ClassRoomsController < ApplicationController
     #   @class_room_service = ClassRoomService.new @class_room, class_room_params[:teacher]
     # if @class_room_service.save
     #   @class_room.create_forum
-      redirect_to admin_course_path @course
+      redirect_to admin_course_class_rooms_path @course
     else
       flash[:alert] = flash_message "not_created"
       load_data

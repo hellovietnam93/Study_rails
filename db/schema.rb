@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 20160425173511) do
     t.integer  "class_type",         limit: 4
     t.integer  "registered_student", limit: 4
     t.integer  "max_student",        limit: 4
-    t.date     "start_date"
-    t.date     "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "status",             limit: 4
@@ -331,10 +331,10 @@ ActiveRecord::Schema.define(version: 20160425173511) do
 
   create_table "semesters", force: :cascade do |t|
     t.string   "name",       limit: 255
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.date     "start_date"
-    t.date     "end_date"
   end
 
   create_table "syllabus_details", force: :cascade do |t|
@@ -402,7 +402,10 @@ ActiveRecord::Schema.define(version: 20160425173511) do
     t.integer  "repeat_type",  limit: 4
     t.integer  "repeat_on",    limit: 4
     t.integer  "range",        limit: 4
-    t.date     "day_start"
+    t.datetime "day_start"
+    t.datetime "day_end"
+    t.integer  "number_occur", limit: 4
+    t.integer  "end_type",     limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -411,10 +414,10 @@ ActiveRecord::Schema.define(version: 20160425173511) do
 
   create_table "timetables", force: :cascade do |t|
     t.integer  "class_room_id", limit: 4
-    t.date     "date_start"
-    t.date     "date_end"
-    t.time     "time_start"
-    t.time     "time_end"
+    t.datetime "date_start"
+    t.datetime "date_end"
+    t.datetime "time_start"
+    t.datetime "time_end"
     t.string   "title",         limit: 255
     t.boolean  "repeat",                      default: false
     t.text     "content",       limit: 65535

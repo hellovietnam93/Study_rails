@@ -62,7 +62,9 @@
       <div class="form-group">
         <%= f.label t("class_rooms.fields.semester"), class: "control-label" %>
         <%= f.select :semester_id, options_for_select(@semesters.collect{|semester|
-          [semester.name, semester.id]}), {}, {class: "form-control"} %>
+          [semester.name, semester.id]},
+          [(f.object.class_room.semester.name rescue ""),
+          (f.object.class_room.semester.id rescue "")]), {}, {class: "form-control"} %>
       </div>
     </div>
 
@@ -70,7 +72,7 @@
       <div class="form-group">
         <%= f.label t("class_rooms.fields.start_date"), class: "control-label" %>
         <%= f.text_field :start_date, class: "form-control",
-          value: Date.today.strftime(t "date.formats.default") %>
+          placeholder: Date.today.strftime(t "date.formats.default") %>
       </div>
     </div>
 
@@ -78,7 +80,7 @@
       <div class="form-group">
         <%= f.label t("class_rooms.fields.end_date"), class: "control-label" %>
         <%= f.text_field :end_date, class: "form-control",
-          value: Date.today.strftime(t "date.formats.default") %>
+          placeholder: Date.today.strftime(t "date.formats.default") %>
       </div>
     </div>
 
@@ -93,7 +95,7 @@
     <div class="col-md-12">
       <div class="form-group">
         <%= f.label t("class_rooms.fields.teacher"), class: "control-label" %>
-        <%= f.text_field :teacher, class: "form-control", required: true,
+        <%= f.text_field :teacher, class: "form-control",
           autofocus: true %>
       </div>
     </div>

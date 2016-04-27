@@ -33,24 +33,21 @@ $(document).on("page:change", function (){
     });
   });
 
-  $("#class_room_start_date, #class_room_end_date, #class_room_date_start, #class_room_date_end, #class_room_day_start, #user_birthday").datepicker({
+  $("#class_room_start_date, #class_room_end_date, #class_room_date_start, #class_room_date_end, #class_room_day_start, #user_birthday, #class_room_day_end").datepicker({
     dateFormat: I18n.t("date.formats.js")
   });
 
   $("#class_room_time_start, #class_room_time_end").timepicker();
 
-  // if ($("#class_room_repeat").is(":checked")) {
-  //   $(".timetable-repeats").show();
-  // } else {
-  //   $(".timetable-repeats").hide();
-  // }
-
   $("#class_room_repeat").change(function() {
     if(this.checked) {
       $("#class_room_full_day").prop("checked", false);
       $(".timetable-repeats").show();
+      $("#class_room_time_start, #class_room_time_end").show();
+      $(".class_room_date_start, .class_room_date_end").hide();
     } else {
       $(".timetable-repeats").hide();
+      $(".class_room_date_start, .class_room_date_end").show();
     }
   });
 
@@ -58,17 +55,31 @@ $(document).on("page:change", function (){
     if(this.checked) {
       $("#class_room_repeat").prop("checked", false);
       $(".timetable-repeats").hide();
+      $("#class_room_time_start, #class_room_time_end").hide();
+      $(".class_room_date_start, .class_room_date_end").show();
     } else {
-      // $(".timetable-repeats").hide();
-      // todo
+      $("#class_room_time_start, #class_room_time_end").show();
     }
   });
 
   $(document).on("change", "#class_room_repeat_type", function() {
-    if($(this).val() == "every_week") {
+    if ($(this).val() == "every_week") {
       $(".repeat-on").show();
     } else {
       $(".repeat-on").hide();
+    }
+  });
+
+  $(document).on("change", "input:radio", function() {
+    if ($(this).val() == "after_times") {
+      $("#class_room_number_occur").prop("disabled", false);
+      $("#class_room_day_end").prop("disabled", true);
+    } else if ($(this).val() == "end_in_day") {
+      $("#class_room_number_occur").prop("disabled", true);
+      $("#class_room_day_end").prop("disabled", false);
+    } else if ($(this).val() == "none_end") {
+      $("#class_room_number_occur").prop("disabled", true);
+      $("#class_room_day_end").prop("disabled", true);
     }
   });
 });
