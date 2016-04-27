@@ -1,7 +1,7 @@
 <div id="class_rooms">
   <h2>
-    <%= t "class_rooms.all" %>
-    <%= link_to new_admin_class_room_path do %>
+    <b class="class-in-course"><%= t "courses.class_rooms", course: @course.uid %></b>
+    <%= link_to new_admin_course_class_room_path(@course) do %>
       <i class="glyphicon glyphicon-plus"></i>
     <% end %>
   </h2>

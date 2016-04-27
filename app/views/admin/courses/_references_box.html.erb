@@ -1,0 +1,37 @@
+<div class="box-header with-border">
+  <h3>
+    <%= t "courses.references" %>
+  </h3>
+
+  <div class="box-tools pull-right">
+    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+      <i class="fa fa-minus"></i>
+    </button>
+    <button type="button" class="btn btn-box-tool" data-widget="remove">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+</div>
+
+<div class="box-body">
+  <table class="table table-border">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t "courses.fields.name" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @course.course_references.each_with_index do |reference, index| %>
+        <tr>
+          <td>
+            <%= index + 1 %>
+          </td>
+          <td>
+            <%= reference.name %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
