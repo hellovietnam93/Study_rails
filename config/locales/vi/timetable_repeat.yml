@@ -18,3 +18,8 @@ vi:
       repeat_on: "Lặp lại vào"
       range: "Số lần lặp"
       day_start: "Ngày bắt đầu lặp"
+      repeat_end: "Kết thúc"
+      none_end: "Chưa bao giờ"
+      after: "Sau"
+      repeat_times: "Lần"
+      in_day: "Vào"

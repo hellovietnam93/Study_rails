@@ -1,12 +1,23 @@
 <div id="class_rooms">
-  <h2>
-    <b class="class-in-course"><%= t "courses.class_rooms", course: @course.uid %></b>
-    <%= link_to new_admin_course_class_room_path(@course) do %>
-      <i class="glyphicon glyphicon-plus"></i>
-    <% end %>
-  </h2>
+  <div class="box box-success">
+    <%= render "admin/class_rooms/header" %>
+  </div>
+
   <table class="class_rooms table table-header">
-    <thead><%= render "admin/class_rooms/header" %></thead>
+    <thead>
+      <tr>
+        <th><%= t "class_rooms.fields.uid" %></th>
+        <th><%= t "class_rooms.fields.name" %></th>
+        <th><%= t "class_rooms.fields.description" %></th>
+        <th><%= t "class_rooms.fields.status" %></th>
+        <th><%= t "class_rooms.fields.type" %></th>
+        <th><%= t "class_rooms.fields.semester" %></th>
+        <th><%= t "class_rooms.fields.course" %></th>
+        <th><%= t "class_rooms.fields.max_student" %></th>
+        <th><%= t "class_rooms.fields.registered_student" %></th>
+        <th><%= t "class_rooms.fields.enroll_key" %></th>
+      </tr>
+    </thead>
     <tbody class="tbody">
       <%= render "admin/class_rooms/class_room", class_rooms: @class_rooms %>
     </tbody>

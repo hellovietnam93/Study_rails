@@ -1,5 +1,5 @@
 <% class_rooms.each do |class_room| %>
-  <% if class_room.name.present? %>
+  <% if class_room.id.present? %>
     <tr class="class_room-<%= class_room.id %> trow" >
       <td class="uid">
         <%= link_to class_room.uid, [:admin, class_room.course, class_room] %>
@@ -8,8 +8,8 @@
       <td class="description">
         <%= class_room.description %>
       </td>
-      <td class="status"><%= class_room.status %></td>
-      <td class="class_type"><%= class_room.class_type %></td>
+      <td class="status"><%= t "class_rooms.statuses.#{class_room.status}" %></td>
+      <td class="class_type"><%= t "class_rooms.class_types.#{class_room.class_type}" %></td>
       <td class="semester"><%= class_room.semester.name %></td>
       <td class="course_id"><%= class_room.course.uid %></td>
       <td class="max_student"><%= class_room.max_student %></td>

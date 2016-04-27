@@ -36,7 +36,7 @@ class UserClassesController < ApplicationController
 
   def enroll_class current_user
     if current_user.lecturer?
-      user_class = UserClass.find_by user_id: current_user.id, class_room_id: @class_room_id,
+      user_class = UserClass.find_by user_id: current_user.id, class_room_id: @class_room.id,
         owner: true
       if user_class
         user_class.update_attributes status: 1

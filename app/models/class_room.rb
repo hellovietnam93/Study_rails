@@ -31,6 +31,13 @@ class ClassRoom < ActiveRecord::Base
     questions_attributes: [:id, :name, :question_type, :priority, :course_id, :_destroy,
     answers_attributes: [:id, :content, :correct, :_destroy]]]
 
+  validates :uid, presence: true, length: {maximum: 10, minimum: 4}
+  validates :name, presence: true, length: {maximum: 255, minimum: 10}
+  validates :description, presence: true, length: {minimum: 4}
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validates :max_student, presence: true
+
   def lecturer
     user_classes.find_by owner: true
   end

@@ -26,17 +26,15 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 class_room_date_start">
         <div class="form-group">
-          <%= f.label t("timetables.fields.date_start"), class: "control-label" %>
           <%= f.text_field :date_start, class: "form-control",
-            value: Date.today.strftime(t "date.formats.default") %>
+            placeholder: Date.today.strftime(t "date.formats.default") %>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-group">
-          <%= f.label t("timetables.fields.time_start"), class: "control-label" %>
           <%= f.text_field :time_start, class: "form-control" %>
         </div>
       </div>
@@ -51,28 +49,30 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 class_room_date_end">
         <div class="form-group">
-          <%= f.label t("timetables.fields.date_end"), class: "control-label" %>
           <%= f.text_field :date_end, class: "form-control",
-            value: Date.today.strftime(t "date.formats.default") %>
+            placeholder: Date.today.strftime(t "date.formats.default") %>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="fomr-group">
-          <%= f.label t("timetables.fields.time_end"), class: "control-label" %>
           <%= f.text_field :time_end, class: "form-control" %>
         </div>
       </div>
     </div>
 
-    <div class="form-group">
-      <%= f.check_box :full_day %>
-      <%= f.label t("timetables.fields.full_day"), class: "control-label" %>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= f.check_box :full_day %>
+          <%= f.label t("timetables.fields.full_day"), class: "control-label" %>
 
-      <%= f.check_box :repeat %>
-      <%= f.label t("timetables.fields.repeat"), class: "control-label" %>
+          <%= f.check_box :repeat %>
+          <%= f.label t("timetables.fields.repeat"), class: "control-label" %>
+        </div>
+      </div>
     </div>
 
     <%= render "repeat_box", f: f %>

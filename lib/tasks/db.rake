@@ -42,16 +42,16 @@ namespace :db do
     end
 
     puts "Create ClassRoom"
-    classroom = ClassRoom.create name: "Database", uid: "444444", description: "1111111111",
+    classroom = ClassRoom.create name: "Database11111111111111", uid: "444444", description: "1111111111",
       course_id: 1, semester_id: 2, enroll_key: SecureRandom.base64, student_key: SecureRandom.base64,
-      class_type: 0, max_student: 22, status: 0
+      class_type: 0, max_student: 22, status: 0, start_date: "20160201".to_date, end_date: "20160501".to_date
     classroom.create_forum
 
 
     10.times do |n|
-      a = ClassRoom.create name: "Database_#{n}", uid: "44444#{4 + n}", description: "1111111111",
+      a = ClassRoom.create name: "Database_#{n}111111111111", uid: "44444#{5 + n}", description: "1111111111",
         course_id: 1, semester_id: 2, enroll_key: SecureRandom.base64, student_key: SecureRandom.base64,
-        class_type: 0, max_student: 22, status: 0
+        class_type: 0, max_student: 22, status: 0, start_date: "20160201".to_date, end_date: "20160501".to_date
       a.create_forum
     end
 

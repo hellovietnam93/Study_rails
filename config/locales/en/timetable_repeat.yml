@@ -18,3 +18,8 @@ en:
       repeat_on: "Repeat on"
       range: "Repeat time"
       day_start: "Day start repeat"
+      repeat_end: "Finish"
+      none_end: "Never"
+      after: "After"
+      repeat_times: "Times"
+      in_day: "In"

@@ -5,7 +5,10 @@ class CreateTimetableRepeats < ActiveRecord::Migration
       t.integer :repeat_type
       t.integer :repeat_on
       t.integer :range
-      t.date :day_start
+      t.datetime :day_start
+      t.datetime :day_end
+      t.integer :number_occur
+      t.integer :end_type
 
       t.timestamps null: false
     end

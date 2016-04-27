@@ -18,3 +18,8 @@ ja:
       repeat_on: "上の繰り返し"
       range: "繰り返し時間"
       day_start: "日スタートリピート"
+      repeat_end: "結論を下します"
+      none_end: "決して"
+      after: "後の"
+      repeat_times: "ヒット"
+      in_day: "で"

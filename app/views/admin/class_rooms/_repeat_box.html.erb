@@ -1,10 +1,10 @@
 <div class="timetable-repeats" hidden>
   <div class="panel panel-default">
-    <div class="panel-body">
+    <div class="panel-body form-horizontal">
 
-      <div class="col-md-3">
-        <div class="form-group">
-          <%= f.label t("timetable_repeats.fields.type"), class: "control-label" %>
+      <div class="form-group">
+        <%= f.label t("timetable_repeats.fields.type"), class: "col-sm-2 control-label" %>
+        <div class="col-sm-8">
           <%= f.select :repeat_type, options_from_collection_for_select(
             i18n_enum(:timetable_repeat, :repeat_type), :key, :value,
             f.object.repeat_type), {},
@@ -12,9 +12,9 @@
         </div>
       </div>
 
-      <div class="col-md-3">
-        <div class="form-group repeat-on" hidden>
-          <%= f.label t("timetable_repeats.fields.repeat_on"), class: "control-label" %>
+      <div class="form-group repeat-on" hidden>
+        <%= f.label t("timetable_repeats.fields.repeat_on"), class: "col-sm-2 control-label" %>
+        <div class="col-sm-8">
           <%= f.select :repeat_on, options_from_collection_for_select(
             i18n_enum(:timetable_repeat, :repeat_on), :key, :value,
             f.object.repeat_on), {},
@@ -22,18 +22,60 @@
         </div>
       </div>
 
-      <div class="col-md-3">
-        <div class="form-group">
-          <%= f.label t("timetable_repeats.fields.range"), class: "control-label" %>
+      <div class="form-group">
+        <%= f.label t("timetable_repeats.fields.range"), class: "col-sm-2 control-label" %>
+        <div class="col-sm-8">
           <%= f.number_field :range, class: "form-control", min: 0 %>
         </div>
       </div>
 
-      <div class="col-md-3">
-        <div class="form-group">
-          <%= f.label t("timetable_repeats.fields.day_start"), class: "control-label" %>
+      <div class="form-group">
+        <%= f.label t("timetable_repeats.fields.day_start"), class: "col-sm-2 control-label" %>
+        <div class="col-sm-8">
           <%= f.text_field :day_start, class: "form-control",
             placeholder: Date.today.strftime(t "date.formats.default") %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label t("timetable_repeats.fields.repeat_end"), class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <div class="form-group">
+            <div class="col-sm-1">
+              <%= f.radio_button :end_type, :none_end, checked: true %>
+            </div>
+            <div class="col-sm-4">
+              <%= t "timetable_repeats.fields.none_end" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-1">
+              <%= f.radio_button :end_type, :after_times %>
+            </div>
+            <div class="col-sm-2">
+              <%= t "timetable_repeats.fields.after" %>
+            </div>
+            <div class="col-sm-5">
+              <%= f.number_field :number_occur, class: "form-control", disabled: true %>
+            </div>
+            <div class="col-sm-3">
+              <%= t "timetable_repeats.fields.repeat_times" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-1">
+              <%= f.radio_button :end_type, :end_in_day %>
+            </div>
+            <div class="col-sm-2">
+              <%= t "timetable_repeats.fields.in_day" %>
+            </div>
+            <div class="col-sm-5">
+              <%= f.text_field :day_end, class: "form-control", disabled: true %>
+            </div>
+          </div>
+
         </div>
       </div>
 

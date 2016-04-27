@@ -62,3 +62,14 @@ en:
     statistics: "Statistics"
     titles:
       class_info: "Create classroom informations"
+    errors:
+      overtime_semester: "Class learning time is not in the time of the semester"
+      overtime_class: "Timetable is not in the time of the classroom"
+      course_not_found: "Could not find Course"
+      not_valid_time_classroom: "The start time of the class must be less than the end time"
+      not_valid_date_timetable: "The start date of the timetable must be less than the end date"
+      not_valid_time_timetable: "The start time of the timetable must be less than the end time"
+      not_enough_time_class: "Time of class is not enough to follow syllabus"
+      day_start_out_of_class_time: "Start date of timetable must be belongs to time of class"
+      day_start_greater_than_day_end: "Day end of timetable must be greater than day start"
+      existed_in_semester: "%{id} has been taken in semester %{semester}"
