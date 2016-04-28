@@ -18,7 +18,7 @@
       <div class="col-xs-4 text-center">
         <%= link_to params.except!(*["q", "month"]).merge(locale: val),
           data: {no_turbolink: true} do %>
-          <%= image_tag val, size: Settings.flag_size %>
+          <%= image_tag "#{val}.png", size: Settings.flag_size %>
         <% end %>
       </div>
     <% end %>

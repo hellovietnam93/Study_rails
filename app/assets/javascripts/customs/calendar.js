@@ -1,5 +1,5 @@
 $(document).on("page:change", function() {
-  $("#timetable_start_time, #timetable_end_time").datetimepicker();
+  $("#timetable_time_start, #timetable_time_end").datetimepicker();
 
   $(".select-timetable-details").select2({
     theme: "bootstrap",
@@ -26,8 +26,8 @@ $(document).on("page:change", function() {
         $("#new-timetable-modal").modal("show");
         $(".select-timetable-details").select2("val", "");
         date_click = date.format("YYYY/MM/DD HH:mm");
-        $("#timetable_start_time").val(date_click);
-        $("#timetable_end_time").val(date_click);
+        $("#timetable_time_start").val(date_click);
+        $("#timetable_time_end").val(date_click);
         $(".select2-search__field").css("width", "100%");
       }
     },
