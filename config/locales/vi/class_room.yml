@@ -62,3 +62,25 @@ vi:
     statistics: "Thống kê"
     titles:
       class_info: "Tạo thông tin lớp học"
+    errors:
+      course_not_found: "Không tìm thấy khóa học"
+      existed_in_semester: "%{id} đã tồn tại trong học kỳ %{semester}"
+      class_time_overtime_semester: "Thời gian học của lớp học không nằm trong thời gian học của học kỳ %{semester}"
+      not_valid_class_time: "Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc"
+      learning_time_class_not_enough: "Thời gian học của lớp không đủ theo giáo trình của môn %{course}"
+      overtime: "Thời gian học của lớp lớn hơn so với giáo trình"
+      timetables:
+        date_start: "Không được bỏ trống"
+        date_end: "Không được bỏ trống"
+        time_timetable_overtime_class: "Thời gian của thời khóa biểu không thuộc thời gian học của lớp %{class_name}"
+        not_valid_date_timetable: "Ngày bắt đầu của thời gian biểu phải nhỏ hơn ngày kết thúc"
+        not_valid_time_timetable: "Thời gian bắt đầu của thời gian biểu phải nhỏ hơn thời gian kết thúce"
+      timetable_repeats:
+        day_start:
+          cannot_blank: "Không được bỏ trống"
+          out_of_class: "Ngày bắt đầu lặp không thuộc thời gian học của lớp"
+        day_end:
+          cannot_blank: "Không được bỏ trống"
+          out_of_class: "Ngày kết thúc lặp không thuộc thời gian học của lớp"
+          invalid: "Ngày kết thúc phải lớn hơn bắt đầu ngày"
+

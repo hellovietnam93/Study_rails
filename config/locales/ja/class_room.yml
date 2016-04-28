@@ -62,3 +62,25 @@ ja:
     statistics: "統計"
     titles:
       class_info: "教室の情報を作成します。"
+    errors:
+      course_not_found: "コースを見つけることができませんでした"
+      existed_in_semester: "%{id} 学期中に撮影されています %{semester}"
+      overtime_semester: "クラスの学習時間は学期の時間ではありません"
+      class_time_overtime_semester: "クラスの学習時間は学期の時間に属していません %{semester}"
+      not_valid_class_time: "開始時間よりも、クラスの終了時間は大きくなければなりません。"
+      learning_time_class_not_enough: "クラスの学習時間はコースを学習するのに十分ではありません %{course}"
+      overtime: "クラスの時間は、シラバスの残業あり"
+      timetables:
+        date_start: "空にすることはできませ"
+        date_end: "空にすることはできませ"
+        time_timetable_overtime_class: "時刻表の時間は、クラスの時間に属していません %{class_name}"
+        not_valid_date_timetable: "タイムテーブルの開始日は終了日よりも小さくなければなりません"
+        not_valid_time_timetable: "タイムテーブルの開始時間、終了時間よりも小さくなければなりません"
+      timetable_repeats:
+        day_start:
+          cannot_blank: "空にすることはできませ"
+          out_of_class: "デイ開始は、クラスの期限が切れています"
+        day_end:
+          cannot_blank: "空にすることはできませ"
+          out_of_class: "デイ仕上げはクラスの期限が切れています"
+          invalid: "デイ仕上げは、一日のスタートよりも大きくなければなりません"

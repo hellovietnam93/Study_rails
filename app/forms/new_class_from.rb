@@ -57,6 +57,7 @@ class NewClassFrom
       class_room_service = ClassRoomService.new class_room, params[:teacher]
       class_room_service.save
       class_room.create_forum
+
       if !timetable.full_day? && !timetable.repeat?
         timetable.time_start = new_timer timetable.date_start, timetable.time_start
         timetable.time_end = new_timer timetable.date_end, timetable.time_end
@@ -226,38 +227,30 @@ class NewClassFrom
     if @semester.start_date <= class_room.start_date && @semester.end_date >= class_room.end_date
       valid_date_of_class
     else
-      errors.add :overtime_semester, I18n.t("class_rooms.errors.overtime_semester")
+      errors.add :class_time_overtime_semester,
+        I18n.t("class_rooms.errors.class_time_overtime_semester", semester: @semester.name)
     end
   end
 
   def valid_date_of_class
     if class_room.start_date > class_room.end_date
-      errors.add :not_valid_time_classroom, I18n.t("class_rooms.errors.not_valid_time_classroom")
+      errors.add :not_valid_class_time, I18n.t("class_rooms.errors.not_valid_class_time")
     else
-      not_enough_time_to_learn_course class_room.start_date, class_room.end_date
+      check_class_learning_time
     end
   end
 
-  def not_enough_time_to_learn_course start_date, end_date
+  def check_class_learning_time
     @total_hours = eval "(#{@course.theory_duration} + #{@course.exercise_duration}) * #{@course.base_hours}"
-    @range_days = (end_date - start_date) / 3600 / 24
+    @range_days = (class_room.end_date - class_room.start_date) / 3600 / 24
 
     if @range_days * 24 < @total_hours
-      errors.add :not_enough_time_class, I18n.t("class_rooms.errors.not_enough_time_class")
+      errors.add :learning_time_class_not_enough,
+        I18n.t("class_rooms.errors.learning_time_class_not_enough", course: @course.uid)
     else
       if timetable.title.present?
         valid_date_timetable
       end
-    end
-  end
-
-  def verify_presence_date
-    if timetable.date_start.nil?
-      errors.add :date_start, "Can not blank"
-    elsif timetable.date_end.nil?
-      errors.add :date_end, "Can not blank"
-    else
-      verify_date_of_timetable
     end
   end
 
@@ -266,14 +259,16 @@ class NewClassFrom
       verify_presence_date
     elsif timetable.full_day?
       if timetable.date_start.nil?
-        errors.add :date_start, "Can not blank"
+        errors.add :date_start, I18n.t("class_rooms.errors.timetables.date_start")
       elsif timetable.date_end.nil?
-        errors.add :date_end, "Can not blank"
+        errors.add :date_end, I18n.t("class_rooms.errors.timetables.date_end")
       else
         if !(class_room.start_date <= timetable.date_start && class_room.end_date >= timetable.date_end)
-          errors.add :overtime_class, I18n.t("class_rooms.errors.overtime_class")
+          errors.add :time_timetable_overtime_class,
+            I18n.t("class_rooms.errors.timetables.time_timetable_overtime_class", class_name: class_room.uid)
         elsif timetable.date_start > timetable.date_end
-          errors.add :not_valid_date_timetable, I18n.t("class_rooms.errors.verify_date_of_timetable")
+          errors.add :not_valid_date_timetable,
+            I18n.t("class_rooms.errors.timetables.not_valid_date_timetable")
         end
       end
     elsif timetable.repeat?
@@ -281,22 +276,33 @@ class NewClassFrom
     end
   end
 
+  def verify_presence_date
+    if timetable.date_start.nil?
+      errors.add :date_start, I18n.t("class_rooms.errors.timetables.date_start")
+    elsif timetable.date_end.nil?
+      errors.add :date_end, I18n.t("class_rooms.errors.timetables.date_end")
+    else
+      verify_date_of_timetable
+    end
+  end
 
   def verify_date_of_timetable
     if class_room.start_date <= timetable.date_start && class_room.end_date >= timetable.date_end
       if timetable.date_start > timetable.date_end
-        errors.add :not_valid_date_timetable, I18n.t("class_rooms.errors.verify_date_of_timetable")
+        errors.add :not_valid_date_timetable,
+          I18n.t("class_rooms.errors.timetables.not_valid_date_timetable")
       else
         verify_time_of_timetable
       end
     else
-      errors.add :overtime_class, I18n.t("class_rooms.errors.overtime_class")
+      errors.add :time_timetable_overtime_class,
+        I18n.t("class_rooms.errors.timetables.time_timetable_overtime_class", class_name: class_room.uid)
     end
   end
 
   def verify_time_of_timetable
     if timetable.time_start > timetable.time_end
-      errors.add :not_valid_time_timetable, I18n.t("class_rooms.errors.verify_time_of_timetable")
+      errors.add :not_valid_time_timetable, I18n.t("class_rooms.errors.timetables.not_valid_time_timetable")
     else
       not_enough_time_to_learn_course_timetable
     end
@@ -305,13 +311,14 @@ class NewClassFrom
   def not_enough_time_to_learn_course_timetable
     total_hours = (timetable.date_end - timetable.date_start) * ((timetable.time_end - timetable.time_start) / 60 / 60)
     if total_hours < @total_hours
-      errors.add :not_enough_time_class, I18n.t("class_rooms.errors.not_enough_time_class")
+      errors.add :learning_time_class_not_enough,
+        I18n.t("class_rooms.errors.learning_time_class_not_enough", course: @course.uid)
     end
   end
 
   def verify_time_of_timetable_repeat
     if timetable.time_start > timetable.time_end
-      errors.add :not_valid_time_timetable, I18n.t("class_rooms.errors.verify_time_of_timetable")
+      errors.add :not_valid_time_timetable, I18n.t("class_rooms.errors.timetables.not_valid_time_timetable")
     else
       verify_start_date_to_repeat
     end
@@ -322,10 +329,11 @@ class NewClassFrom
       if timetable_repeat.day_start >= class_room.start_date && timetable_repeat.day_start < class_room.end_date
         verify_finish_type
       else
-        errors.add :day_start, "Out of date of class"
+        errors.add :day_start, I18n.t("class_rooms.errors.timetable_repeats.day_start.out_of_class")
       end
     else
-      errors.add :day_start, "Can not blank"
+      errors.add :day_start,
+        I18n.t("class_rooms.errors.timetable_repeats.day_start.cannot_blank")
     end
   end
 
@@ -355,7 +363,7 @@ class NewClassFrom
     end
 
     if day_number * @section_hour > @total_hours
-      errors.add :base, "Overtime of syllabuses"
+      errors.add :base, I18n.t("class_rooms.errors.overtime")
     end
   end
 
@@ -365,17 +373,17 @@ class NewClassFrom
     day_number = timetable_repeat.number_occur
 
     if day_number * @section_hour > @total_hours
-      errors.add :base, "Overtime of syllabuses"
+      errors.add :base, I18n.t("class_rooms.errors.overtime")
     end
   end
 
   def calculate_total_hours_end_in_day
     if timetable_repeat.day_end.present?
       if timetable_repeat.day_end < timetable_repeat.day_start
-        errors.add :day_end, "Must be greater than day start"
+        errors.add :day_end, I18n.t("class_rooms.errors.timetable_repeats.day_end.invalid")
       else
         if timetable_repeat.day_end > class_room.end_date
-          errors.add :day_end, "overtime of class"
+          errors.add :day_end, I18n.t("class_rooms.errors.timetable_repeats.day_end.out_of_class")
         else
           total_days = (timetable_repeat.day_end - timetable_repeat.day_start) / 3600 / 24
 
@@ -389,12 +397,12 @@ class NewClassFrom
           end
 
           if (day_number * @section_hour) > @total_hours
-            errors.add :base, "Overtime of syllabuses"
+            errors.add :base, I18n.t("class_rooms.errors.overtime")
           end
         end
       end
     else
-      errors.add :day_end, "Can not blank"
+      errors.add :day_end, I18n.t("class_rooms.errors.timetable_repeats.day_end.cannot_blank")
     end
   end
 end

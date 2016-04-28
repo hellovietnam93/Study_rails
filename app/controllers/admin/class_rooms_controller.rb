@@ -14,9 +14,6 @@ class Admin::ClassRoomsController < ApplicationController
   def create
     @new_class_form = NewClassFrom.new
     if @new_class_form.submit params[:class_room]
-    #   @class_room_service = ClassRoomService.new @class_room, class_room_params[:teacher]
-    # if @class_room_service.save
-    #   @class_room.create_forum
       redirect_to admin_course_class_rooms_path @course
     else
       flash[:alert] = flash_message "not_created"
@@ -30,9 +27,7 @@ class Admin::ClassRoomsController < ApplicationController
   end
 
   def edit
-    # @semesters = Semester.all.order name: :asc
-    # @course = @class_room.course
-    # @courses = Course.all.order uid: :asc
+
   end
 
   def update
@@ -58,7 +53,6 @@ class Admin::ClassRoomsController < ApplicationController
   end
 
   def load_data
-    # @courses = Course.all.order name: :asc
     @semesters = Semester.all.order name: :asc
   end
 end
