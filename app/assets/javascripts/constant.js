@@ -1,1 +1,1 @@
-BASE_URL = "https://studyhubgrv1.herokuapp.com/"
+BASE_URL = "http://localhost:3000/"

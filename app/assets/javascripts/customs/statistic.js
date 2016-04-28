@@ -72,14 +72,17 @@ $(document).on("page:change", function() {
         },
         title: {
           text: I18n.t("statistic.title.student_chart"),
-          x: -80
+          x: -80,
+          style: {
+            fontWeight: "bold"
+          }
         },
         pane: {
           size: "90%"
         },
         xAxis: {
           categories: keys,
-          tickmarkPlacement: 'on',
+          tickmarkPlacement: "on",
           lineWidth: 0
         },
         yAxis: {
@@ -98,9 +101,9 @@ $(document).on("page:change", function() {
           layout: "vertical"
         },
         series: [{
-            name: I18n.t("statistic.title.student_info"),
-            data: values,
-            pointPlacement: 'on'
+          name: I18n.t("statistic.title.student_info"),
+          data: values,
+          pointPlacement: 'on'
         }]
       });
     }
