@@ -42,7 +42,7 @@ class NewClassFrom
   def submit params
     params.permit!
     @params = params
-    @course = Course.includes(syllabuses: :syllabus_details).find_by params[:course_id]
+    @course = Course.includes(syllabuses: :syllabus_details).find_by_id params[:course_id]
 
     class_room.attributes = params.slice :name, :uid, :description, :course_id, :semester_id, :enroll_key,
       :class_type, :max_student, :status, :end_date, :start_date

@@ -32,6 +32,6 @@ class TimetablesController < ApplicationController
   private
   def timetable_params
     params.require(:timetable).permit :class_room_id, :title,
-      :start_time, :end_time, :content, syllabus_detail_ids: []
+      :time_start, :time_end, :content, syllabus_detail_ids: []
   end
 end
