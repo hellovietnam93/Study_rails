@@ -5,7 +5,7 @@ class StatisticsController < ApplicationController
     @class_room = ClassRoom.includes(:users, :assignment_submits,
       forum: [posts: [comments: :children]]).find_by_id params[:class_room_id]
     @members = @class_room.user_classes.select do |user_class|
-      !user_class.owner && user_class.status == "take_in"
+      user_class.status == "take_in"
     end
     @requests = @class_room.user_classes.select do |user_class|
       user_class.status == "waiting"

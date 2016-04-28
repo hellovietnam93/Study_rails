@@ -1,18 +1,17 @@
 <div class="element-item course-<%= course.id %>">
-  <div class="box">
+  <div class="box box-success">
     <div class="box-header">
       <h3 class="box-title uid">
         <%= link_to course.uid, course %>
       </h3>
-
-      <div class="box-tools pull-right type">
-        <%= course.name %>
-      </div>
     </div>
 
     <div class="box-body">
       <%= link_to image_tag("course.png"), course %>
     </div>
 
+    <div class="box-footer name bg-green-active color-palette">
+      <%= course.name.truncate 25 %>
+    </div>
   </div>
 </div>
