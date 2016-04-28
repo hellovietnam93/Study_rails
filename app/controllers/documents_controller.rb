@@ -6,9 +6,7 @@ class DocumentsController < ApplicationController
   def index
     load_documents
     @document = Document.new
-    @requests = @class_room.user_classes.select do |user_class|
-      user_class.status == "waiting"
-    end
+    find_requests
   end
 
   def create
@@ -18,6 +16,7 @@ class DocumentsController < ApplicationController
         notice: flash_message("created")
     else
       load_documents
+      find_requests
       render :index
     end
   end
@@ -39,5 +38,11 @@ class DocumentsController < ApplicationController
 
   def load_documents
     @documents = @class_room.documents
+  end
+
+  def find_requests
+    @requests = @class_room.user_classes.select do |user_class|
+      user_class.status == "waiting"
+    end
   end
 end

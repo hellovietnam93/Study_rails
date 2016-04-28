@@ -83,8 +83,8 @@ class StatisticsController < ApplicationController
     end
 
     chart_data = {}
-    range = @class_room.semester.start_date..(Date.today < @class_room.semester.end_date ? Date.today :
-      @class_room.semester.end_date)
+    range = @class_room.semester.start_date.strftime(t "date.formats.default").to_date..(Date.today < @class_room.semester.end_date ? Date.today :
+      @class_room.semester.end_date).strftime(t "date.formats.default").to_date
     range.to_a.each do |date|
       if posts[date].nil? && comments[date].present?
         chart_data[date] = comments[date]
