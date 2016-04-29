@@ -110,4 +110,28 @@ module ApplicationHelper
 
     link_to result, event_user_path(notification), method: :put, remote: true
   end
+
+  def link_to_add_fields(name, f, association, parent = nil)
+    new_object = if parent
+      unless parent == :syllabuses
+        f.object.model.send(association).klass.new
+      end
+    else
+      f.object.model.send(association).klass.new
+    end
+    id = new_object.object_id
+    if association == :syllabuses
+      new_object.syllabus_details.new
+    end
+
+    fields = f.fields_for(association, new_object, child_index: id) do |builder|
+      render association.to_s.singularize + "_field", f: builder
+    end
+
+    fields = fields.gsub("[syllabus_details]", "[syllabus_details_attributes][#{id}]")
+    fields = fields.gsub("_syllabus_details_title", "_syllabus_details_attributes_#{id}_title")
+
+    link_to name, "#", class: "add_fields", data: {id: id, fields: fields.gsub("\n", ""),
+      association: (association.to_s if parent)}
+  end
 end

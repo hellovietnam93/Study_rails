@@ -44,6 +44,8 @@ gem "momentjs-rails"
 gem "acts-as-taggable-on"
 gem "highcharts-rails"
 gem "yomu"
+gem "reform"
+gem "reform-rails"
 
 group :development, :test do
   gem "pry"

@@ -7,13 +7,35 @@ class Admin::CoursesController < ApplicationController
   end
 
   def new
+    course_reference = @course.course_references.build
+    syllabus = @course.syllabuses.build
+    syllabus_detail = syllabus.syllabus_details.build
 
+    @course_form = CourseForm.new @course
   end
 
   def create
-    if @course.save
+    course = Course.new
+    @course_params = params[:course].permit!
+
+    @course_params
+
+    params[:course][:course_references_attributes].each do |_, value|
+      course.course_references.build
+    end
+
+    params[:course][:syllabuses_attributes].each do |key, _value|
+      syllabus = course.syllabuses.build
+      _value[:syllabus_details_attributes].each do |_, value|
+        syllabus.syllabus_details.build
+      end
+    end
+
+    @course_form = CourseForm.new course
+    if @course_form.validate params[:course].permit!
+      @course_form.save
       flash[:notice] = flash_message "created"
-      redirect_to [:admin, @course]
+      redirect_to [:admin, course]
     else
       flash[:alert] = flash_message "not_created"
       render :new
@@ -28,18 +50,20 @@ class Admin::CoursesController < ApplicationController
   end
 
   def edit
-
+    @course_form = CourseForm.new @course
   end
 
   def update
-    if @course.update_attributes course_params
+    @course_form = CourseForm.new @course
+
+    if @course_form.validate params[:course].permit!
+      @course_form.save
       flash[:notice] = flash_message "updated"
       redirect_to [:admin, @course]
     else
       flash[:alert] = flash_message "not_updated"
       render :edit
     end
-
   end
 
   def destroy
