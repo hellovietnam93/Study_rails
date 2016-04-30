@@ -1,61 +1,59 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <%= link_to @course.uid, admin_course_path(@course), class: "btn btn-default" %>
-    </div>
+<div class="row">
+  <div class="col-md-4">
+    <%= link_to @course.uid, admin_course_path(@course), class: "btn btn-default" %>
+  </div>
 
-    <div class="col-md-4">
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-    </div>
+  <div class="col-md-4">
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
 
-    <div class="col-md-3">
-      <div class="list_semesters">
-        <div class="col-md-6">
-          <b class="pull-right">
-            <%= t "semesters.semester" %>
-          </b>
-        </div>
-        <div class="col-md-6">
-          <%= select_tag "Semester", options_from_collection_for_select(@semesters,
-            "id", "name"), class: "form-control" %>
-        </div>
+  <div class="col-md-3">
+    <div class="list_semesters">
+      <div class="col-md-6">
+        <b class="pull-right">
+          <%= t "semesters.semester" %>
+        </b>
+      </div>
+      <div class="col-md-6">
+        <%= select_tag "Semester", options_from_collection_for_select(@semesters,
+          "id", "name"), class: "form-control" %>
       </div>
     </div>
+  </div>
 
-    <div class="col-md-1">
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button"
-          id="class_settings" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="true">
-          <i class="glyphicon glyphicon-cog"></i>
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="class_settings">
-          <li>
-            <%= link_to admin_course_class_rooms_path(@course) do %>
-              <%= t "courses.actions.all_classes" %>
-            <% end %>
-          </li>
-          <li role="separator" class="divider"></li>
-          <li>
-            <%= link_to edit_admin_course_path(@course) do %>
-              <%= t "courses.actions.edit" %>
-            <% end %>
-          </li>
-          <li role="separator" class="divider"></li>
-          <li>
-            <%= link_to t("form.buttons.delete"),
-              admin_course_path(@course),
-              data: {confirm: t("form.confirmation")},
-              method: :delete, class: "delete-course" %>
-          </li>
-        </ul>
-      </div>
+  <div class="col-md-1">
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button"
+        id="class_settings" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="true">
+        <i class="glyphicon glyphicon-cog"></i>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="class_settings">
+        <li>
+          <%= link_to admin_course_class_rooms_path(@course) do %>
+            <%= t "courses.actions.all_classes" %>
+          <% end %>
+        </li>
+        <li role="separator" class="divider"></li>
+        <li>
+          <%= link_to edit_admin_course_path(@course) do %>
+            <%= t "courses.actions.edit" %>
+          <% end %>
+        </li>
+        <li role="separator" class="divider"></li>
+        <li>
+          <%= link_to t("form.buttons.delete"),
+            admin_course_path(@course),
+            data: {confirm: t("form.confirmation")},
+            method: :delete, class: "delete-course" %>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

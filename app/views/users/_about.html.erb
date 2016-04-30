@@ -5,13 +5,32 @@
 
   <div class="box-body">
     <strong>
-      <i class="fa fa-book margin-r-5"></i>
-      <%= t "users.title.education" %>
+      <i class="fa fa-university margin-r-5"></i>
+      <%= t "users.fields.school" %>
     </strong>
 
     <p class="text-muted">
       <%= @user.profile.school %>
     </p>
+
+    <hr>
+
+    <strong>
+      <i class="fa fa-graduation-cap margin-r-5"></i>
+      <%= t "users.fields.program" %>
+    </strong>
+
+    <p class="text-muted">
+      <%= @user.profile.program %>
+    </p>
+
+    <hr>
+
+    <strong>
+      <i class="fa fa-book margin-r-5"></i>
+      <%= t "users.fields.class_name" %>
+    </strong>
+
     <p class="text-muted">
       <%= @user.profile.class_name %>
     </p>
