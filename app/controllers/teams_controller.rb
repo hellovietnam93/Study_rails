@@ -44,6 +44,7 @@ class TeamsController < ApplicationController
 
   def edit
     find_members
+    find_request
   end
 
   def update
