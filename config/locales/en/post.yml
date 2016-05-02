@@ -1,8 +1,13 @@
 en:
   posts:
     posts: "Posts"
-    tags: "Tags"
+    tags: "Related Tags"
+    related_post: "Related Posts"
+    top_like_post: "The post is most concerned"
     posted_ago: "Posted %{time} ago"
+    like: "Like"
+    post_number: "post"
+    comment: "Comment"
     header:
       name: "Name"
       content: "Content"

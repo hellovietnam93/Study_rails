@@ -1,8 +1,11 @@
 vi:
   posts:
     posts: "Bài viết"
-    tags: "Thẻ"
+    tags: "Từ khóa liên quan"
+    related_post: "Bài viết liên quan"
+    top_like_post: "Bài viết được quan tâm nhất"
     posted_ago: "Đăng %{time} trước"
+    post_number: "bài viết"
     header:
       name: "Tên"
       content: "Nội dung"

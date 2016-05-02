@@ -1,8 +1,11 @@
 ja:
   posts:
     posts: "投稿"
-    tags: "タグ"
+    tags: "関連するタグ"
+    related_post: "関連記事"
+    top_like_post: "記事では、最も懸念しています"
     posted_ago: "投稿 %{time} 前"
+    post_number: "投稿"
     header:
       name: "名"
       content: "コンテンツ"
