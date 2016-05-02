@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
     resources :forums, only: :show do
       resources :posts
-      resources :tags, only: :index
+      resources :tags
     end
 
     resources :posts do

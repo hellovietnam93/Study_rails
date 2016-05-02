@@ -1,0 +1,78 @@
+<% if post.id.present? %>
+  <div id="post-<%= post.id %>" class="box">
+    <div class="box-body">
+      <div class="col-md-1">
+        <div class="text text-center">
+          <div class="number-likes">
+            <%= post.likes.size %>
+          </div>
+          <div><%= t "posts.like" %></div>
+        </div>
+        <div class="text text-center">
+          <div class="number-comments">
+            <%= post.comments.size %>
+          </div>
+          <div><%= t "posts.comment" %></div>
+        </div>
+      </div>
+
+      <div class="col-md-11">
+        <div class="posts">
+          <div class="post-header">
+            <%= link_to post.name, [forum, post] %>
+            <span class="pull-right dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <% if current_user.lecturer? %>
+                  <li class="approved">
+                    <%= render "posts/approved_link", post: post %>
+                  </li>
+                <% end %>
+                <% if can? :manage, post %>
+                  <li>
+                    <%= link_to edit_post_path(post),
+                      remote: true do %>
+                      <i class="fa fa-pencil-square-o"></i>
+                      <%= t "form.buttons.edit" %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to post_path(post),
+                      method: :delete, confirm: t("form.confirmation") do %>
+                      <i class="fa fa-times"></i>
+                      <%= t "form.buttons.delete" %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </span>
+          </div>
+
+          <div class="post-body">
+            <div class="post-content">
+              <%= post.content %>
+            </div>
+          </div>
+
+          <div class="post-footer">
+            <div class="post-tags">
+              <% post.tag_list.each do |tag| %>
+                <%= link_to tag, forum_tag_path(@forum, tag), class: "tag" %>
+              <% end %>
+            </div>
+            <div class="post-user pull-right">
+              <%= link_to post.user.email, post.user %>
+              <div>
+                <%= t "posts.posted_ago",
+                  time: time_ago_in_words(post.created_at) %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -39,10 +39,11 @@
       <p class="content">
         <%= post.content %>
       </p>
-      <% if forum.present? %>
+      <% if @forum %>
         <p>
-          <%= t "posts.tags" %>:
-          <%= raw post.tag_list.map {|t| link_to t, forum_tags_path(@forum, t)}.join(", ") %>
+          <% post.tag_list.each do |tag| %>
+            <%= link_to tag, forum_tag_path(@forum, tag), class: "tag" %>
+          <% end %>
         </p>
       <% end %>
       <span class="post-like">
