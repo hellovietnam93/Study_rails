@@ -1,80 +1,140 @@
-<%= form_for [:admin, @course] do |f| %>
-  <%= render "shared/errors_messages", object: @course %>
+<div class="row">
+  <%= form_for [:admin, @course_form] do |f| %>
+    <%= render "shared/errors_messages", object: @course_form %>
 
-  <div class="col-xs-4">
-    <div class="form-group">
-      <%= f.label t("courses.fields.uid"), class: "control-label" %>
-      <%= f.text_field :uid, class: "form-control",
-        required: true, autofocus: true %>
-    </div>
-  </div>
+    <div class="col-md-8">
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">
+            <strong><%= t "courses.title.info" %></strong>
+          </h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool"
+              data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool"
+              data-widget="remove">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
 
-  <div class="col-xs-4">
-    <div class="form-group">
-      <%= f.label t("courses.fields.name"), class: "control-label" %>
-      <%= f.text_field :name, class: "form-control", required: true,
-        autofocus: true %>
-    </div>
-  </div>
+        <div class="box-body">
+          <div class="col-xs-4">
+            <div class="form-group">
+              <%= f.label t("courses.fields.uid"), class: "control-label" %>
+              <%= f.text_field :uid, class: "form-control",
+                required: true, autofocus: true %>
+            </div>
+          </div>
 
-  <div class="col-xs-4">
-    <div class="form-group">
-      <%= f.label t("courses.fields.weight"), class: "control-label" %>
-      <%= f.number_field :weight, class: "form-control", required: true,
-        autofocus: true, step: 0.5 %>
-    </div>
-  </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <%= f.label t("courses.fields.name"), class: "control-label" %>
+              <%= f.text_field :name, class: "form-control", required: true,
+                autofocus: true %>
+            </div>
+          </div>
 
-  <div class="col-xs-4">
-    <div class="form-group">
-      <%= f.label t("courses.fields.exercise_duration"),
-        class: "control-label" %>
-      <%= f.number_field :exercise_duration, class: "form-control",
-        required: true, autofocus: true, step: 0.5 %>
-    </div>
-  </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <%= f.label t("courses.fields.weight"), class: "control-label" %>
+              <%= f.number_field :weight, class: "form-control", required: true,
+                autofocus: true, step: 0.1, min: 0.1, max: 0.9 %>
+            </div>
+          </div>
 
-  <div class="col-xs-4">
-    <div class="form-group">
-      <%= f.label t("courses.fields.practice_duration"),
-        class: "control-label" %>
-      <%= f.number_field :practice_duration, class: "form-control",
-        required: true, autofocus: true, step: 0.5 %>
-    </div>
-  </div>
+          <div class="col-xs-3">
+            <div class="form-group">
+              <%= f.label t("courses.fields.theory_duration"), class: "control-label" %>
+              <%= f.number_field :theory_duration, class: "form-control", required: true,
+                autofocus: true, step: 0.5 %>
+            </div>
+          </div>
 
-  <div class="col-xs-4">
-    <div class="form-group">
-      <%= f.label t("courses.fields.theory_duration"), class: "control-label" %>
-      <%= f.number_field :theory_duration, class: "form-control", required: true,
-        autofocus: true, step: 0.5 %>
-    </div>
-  </div>
+          <div class="col-xs-3">
+            <div class="form-group">
+              <%= f.label t("courses.fields.exercise_duration"),
+                class: "control-label" %>
+              <%= f.number_field :exercise_duration, class: "form-control",
+                required: true, autofocus: true, step: 0.5 %>
+            </div>
+          </div>
 
-  <div class="col-xs-6">
-    <div class="form-group">
-      <%= f.label t("courses.fields.evaluation"), class: "control-label" %>
-      <%= f.text_area :evaluation, class: "form-control", required: true,
-        autofocus: true %>
-    </div>
-  </div>
+          <div class="col-xs-3">
+            <div class="form-group">
+              <%= f.label t("courses.fields.practice_duration"),
+                class: "control-label" %>
+              <%= f.number_field :practice_duration, class: "form-control",
+                required: true, autofocus: true, step: 0.5 %>
+            </div>
+          </div>
 
-  <div class="col-xs-6">
-    <div class="form-group">
-      <%= f.label t("courses.fields.description"), class: "control-label" %>
-      <%= f.text_area :description, class: "form-control", required: true,
-        autofocus: true %>
-    </div>
-  </div>
+          <div class="col-xs-3">
+            <div class="form-group">
+              <%= f.label t("courses.fields.base_hours"), class: "control-label" %>
+              <%= f.text_field :base_hours, class: "form-control", required: true,
+                autofocus: true %>
+            </div>
+          </div>
 
-  <div class="col-xs-12">
-    <div class="form-group">
-      <div class="pull-right">
-        <%= f.submit t("form.buttons.save"),
-          data: {disable_with: t("form.buttons.saving")},
-          class: "btn btn-info" %>
-        <%= link_to t("form.buttons.cancel"), :back %>
+          <div class="col-xs-6">
+            <div class="form-group">
+              <%= f.label t("courses.fields.evaluation"), class: "control-label" %>
+              <%= f.text_area :evaluation, class: "form-control", required: true,
+                autofocus: true %>
+            </div>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="form-group">
+              <%= f.label t("courses.fields.description"), class: "control-label" %>
+              <%= f.text_area :description, class: "form-control", required: true,
+                autofocus: true %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+
+    <div class="col-md-4">
+      <div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">
+            <strong><%= t "courses.title.references" %></strong>
+          </h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool"
+              data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool"
+              data-widget="remove">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="box-body">
+          <%= f.fields_for :course_references do |r| %>
+            <%= render "course_reference_fields", f: r %>
+          <% end %>
+          <%= link_to_add_fields t("form.buttons.add_more"),
+            f, :course_references %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+      <div class="form-group">
+        <div class="pull-right">
+          <%= f.submit t("form.buttons.save"),
+            data: {disable_with: t("form.buttons.saving")},
+            class: "btn btn-info" %>
+          <%= link_to t("form.buttons.cancel"), :back %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
