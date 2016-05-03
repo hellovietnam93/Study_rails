@@ -1,21 +1,54 @@
 <div id="courses">
-  <div class="title-course">
-    <h3 class="title">
-      <%= t "courses.all" %>
-      <%= link_to new_admin_course_path do %>
-        <i class="glyphicon glyphicon-plus"></i>
-      <% end %>
-    </h3>
-  </div>
-  <div class="list-all">
-    <div class="devide"></div>
-    <table class="courses table table-header">
-      <thead>
-        <%= render "header" %>
-      </thead>
-      <tbody class="tbody">
-        <%= render @courses %>
-      </tbody>
-    </table>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">
+            <strong><%= t "courses.all" %></strong>
+            <%= link_to new_admin_course_path do %>
+              <i class="glyphicon glyphicon-plus"></i>
+            <% end %>
+          </h3>
+        </div>
+
+        <div class="box-body">
+          <div class="list-all">
+            <div class="devide"></div>
+            <table class="courses table table-header">
+              <thead>
+                <%= render "header" %>
+              </thead>
+              <tbody class="tbody">
+                <%= render @courses %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">
+            <strong><%= t "courses.title.create_by_import" %></strong>
+          </h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool"
+              data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool"
+              data-widget="remove">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="box-body">
+          <%= render "import_syllabus" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

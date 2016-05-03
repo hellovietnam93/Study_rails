@@ -5,11 +5,12 @@ ja:
     class_rooms: "コースのすべてのクラス %{course}"
     references: "リファレンス"
     title:
-      create_by_info: "シラバスせずにコースを作成します。"
+      info: "コース情報"
       create_by_import: "インポートシラバスは、コースを作成します"
       course_syllabus: "学習内容"
       syllabus_week: "週"
       syllabus_content: "コンテンツ"
+      references: "コース参照"
     actions:
       all_classes: "コースのグレード"
       edit: "編集コース情報"

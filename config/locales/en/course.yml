@@ -5,11 +5,12 @@ en:
     class_rooms: "All class in course %{course}"
     references: "References"
     title:
-      create_by_info: "Create course without syllabus"
+      info: "Course information"
       create_by_import: "Import syllabus to create course"
       course_syllabus: "Learning content"
       syllabus_week: "Week"
       syllabus_content: "Content"
+      references: "Course references"
     actions:
       all_classes: "View all class of course"
       edit: "Edit course information"
@@ -23,4 +24,4 @@ en:
       practice_duration: "Practice duration"
       weight: "Weight"
       evaluation: "Evaluation"
-      base_hours: "Total hours"
+      base_hours: "Base hours"

@@ -111,6 +111,7 @@ vi:
       not_found: "Không tìm thấy dữ liệu với mã số %{uid}"
       do_not_have_team: "Bạn chưa được tham gia vào nhóm trong lớp %{class_room}"
       over_range_of_score: "Điểm bài tập phải nằm trong khoảng từ 0 đến 10"
+      cannot_blank: "Không được bỏ trống"
       import:
         success: "%{models_name} đã được nhập thành công!"
         alert: "%{models_name} không thể nhập!"
