@@ -1,0 +1,15 @@
+en:
+  syllabuses:
+    title:
+      new: "Add syllabus"
+      create: "Create and continue"
+      syllabus: "Syllabus information"
+      detail: "Syllabus detail information"
+    fields:
+      title: "Title"
+      week: "Week"
+    errors:
+      week_existed: "Week %{week} has been added"
+  syllabus_details:
+    placeholder:
+      title: "Enter title ..."

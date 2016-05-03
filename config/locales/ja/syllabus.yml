@@ -1,0 +1,15 @@
+ja:
+  syllabuses:
+    title:
+      new: "シラバスを追加"
+      create: "作成して続行"
+      syllabus: "シラバス情報"
+      detail: "シラバスの詳細情報"
+    fields:
+      title: "タイトル"
+      week: "週間"
+    errors:
+      week_existed: "週間%{week}追加されました"
+  syllabus_details:
+    placeholder:
+      title: "タイトルを入力します ..."

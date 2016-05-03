@@ -1,0 +1,15 @@
+vi:
+  syllabuses:
+    title:
+      new: "Thêm giáo trình"
+      create: "Tạo và tiếp tục"
+      syllabus: "Thông tin giáo trình"
+      detail: "Thông tin chi tiết chương trình học"
+    fields:
+      title: "Tiêu đề"
+      week: "Tuần"
+    errors:
+      week_existed: "Tuần %{week} đã được thêm vào"
+  syllabus_details:
+    placeholder:
+      title: "Nhập tiêu đề ..."
