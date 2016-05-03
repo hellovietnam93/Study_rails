@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :semesters
       resources :courses do
         resources :class_rooms
+        resources :syllabuses
       end
       resources :import_syllabuses, only: :create
     end

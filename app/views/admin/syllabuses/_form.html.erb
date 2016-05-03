@@ -1,0 +1,85 @@
+<div class="row">
+  <%= form_for [:admin, @course, @syllabus_form] do |f| %>
+    <%= render "shared/errors_messages", object: @syllabus_form %>
+
+    <div class="col-md-6">
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">
+            <strong><%= t "syllabuses.title.syllabus" %></strong>
+          </h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool"
+              data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool"
+              data-widget="remove">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="box-body">
+          <div class="col-xs-6">
+            <div class="form-group">
+              <%= f.text_field :title, class: "form-control",
+                required: true, autofocus: true,
+                placeholder: t("syllabuses.fields.title") %>
+            </div>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="form-group">
+              <%= f.number_field :week, class: "form-control", required: true,
+                autofocus: true, min: 1,
+                placeholder: t("syllabuses.fields.week") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">
+            <strong><%= t "syllabuses.title.detail" %></strong>
+          </h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool"
+              data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool"
+              data-widget="remove">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="box-body">
+          <%= f.fields_for :syllabus_details do |s| %>
+            <%= render "syllabus_detail_fields", f: s %>
+          <% end %>
+          <%= link_to_add_fields t("form.buttons.add_more"),
+            f, :syllabus_details %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+      <div class="form-group">
+        <div class="pull-right">
+          <%= f.submit t("form.buttons.save"),
+            class: "btn btn-info" %>
+          <% unless f.object.model.persisted? %>
+            <%= f.submit t("syllabuses.title.create"), name: "continue",
+              class: "btn btn-info" %>
+          <% end %>
+          <%= link_to t("form.buttons.cancel"), [:admin, @course] %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
