@@ -1,11 +1,11 @@
 <div class="element-item class_room-<%= class_room.id %>"
   data-status="<%= class_room.status %>" data-type="<%= class_room.class_type %>">
   <% if class_room.theory? %>
-    <div class="box box-info">
+    <div class="box box-info box-solid">
   <% elsif class_room.pratice? %>
-    <div class="box box-success">
+    <div class="box box-success box-solid">
   <% else %>
-    <div class="box box-warning">
+    <div class="box box-warning box-solid">
   <% end %>
     <div class="box-header">
       <h3 class="box-title uid">

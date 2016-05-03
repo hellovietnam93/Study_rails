@@ -1,12 +1,12 @@
 <div id="courses">
   <div class="row">
     <div class="col-md-6">
-      <div class="box box-success">
+      <div class="box box-success box-solid">
         <%= render "course_box" %>
       </div>
 
       <% if @course.course_references.any? %>
-        <div class="box box-warning">
+        <div class="box box-warning box-solid">
           <%= render "references_box" %>
         </div>
       <% end %>

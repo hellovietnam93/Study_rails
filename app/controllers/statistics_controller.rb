@@ -63,7 +63,7 @@ class StatisticsController < ApplicationController
       @lecturer_answers.each do |key, value|
         sum += (value - key.created_at)
       end
-      @average_time = sum.to_f / @lecturer_answers.size
+      @average_time = sum.to_f / @lecturer_answers.size / 3600
     end
   end
 
