@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :class_rooms, only: [:index, :show, :update] do
       resources :assignments
       resources :questions
-      resources :online_tests
+      resources :tests
       resources :assignment_submits
       resources :assignment_histories
       resources :timetables do

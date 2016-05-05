@@ -7,11 +7,13 @@ class CreateClassRooms < ActiveRecord::Migration
       t.references :course, index: true, foreign_key: true
       t.references :semester, index: true, foreign_key: true
       t.string :enroll_key
+      t.string :student_key
       t.integer :class_type
       t.integer :registered_student
       t.integer :max_student
       t.datetime :start_date
       t.datetime :end_date
+      t.integer :status
 
       t.timestamps null: false
     end

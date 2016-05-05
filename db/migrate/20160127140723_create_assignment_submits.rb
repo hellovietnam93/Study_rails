@@ -7,6 +7,7 @@ class CreateAssignmentSubmits < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.decimal :score
+      t.integer :policy
 
       t.timestamps null: false
     end

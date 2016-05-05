@@ -6,6 +6,7 @@ class CreateAssignmentHistories < ActiveRecord::Migration
       t.references :assignment, index: true, foreign_key: true
       t.text :content
       t.references :assignment_submit, index: true, foreign_key: true
+      t.integer :editor
 
       t.timestamps null: false
     end
