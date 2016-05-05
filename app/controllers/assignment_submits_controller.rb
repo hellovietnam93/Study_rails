@@ -8,12 +8,12 @@ class AssignmentSubmitsController < ApplicationController
   end
 
   def new
+    @class_room = @assignment.class_room
     if @assignment.start_time > Time.now
       flash[:alert] = t "assignment_submits.errors.not_time_to_submit_assignment",
         title: @assignment.name
       redirect_to class_room_assignments_path @assignment.class_room
-    elsif @assignment.end_time > Time.now
-      @class_room = @assignment.class_room
+    elsif @assignment.end_time < Time.now
       flash[:alert] = t "assignment_submits.errors.late_to_submit"
     end
   end
@@ -26,6 +26,9 @@ class AssignmentSubmitsController < ApplicationController
     params[:assignment_submit][:class_room_id] = @assignment.class_room_id
     params[:assignment_submit][:assignment_id] = @assignment.id
     params[:assignment_submit][:user_id] = current_user.id
+    if params[:assignment_submit][:policy] == "share_with_team"
+      params[:assignment_submit][:team_id] = (current_user.team_ids & @assignment.class_room.team_ids).first
+    end
     @assignment_submit = AssignmentSubmit.new assignment_submit_params
 
     @assignment_service = AssignmentSubmitService.new @assignment_submit
@@ -39,7 +42,10 @@ class AssignmentSubmitsController < ApplicationController
   end
 
   def update
+    params[:assignment_submit][:class_room_id] = @assignment.class_room_id
+    params[:assignment_submit][:assignment_id] = @assignment.id
     params[:assignment_submit][:user_id] = @assignment_submit.user_id
+    params[:assignment_submit][:team_id] = @assignment_submit.team_id
     @assignment_service = AssignmentSubmitService.new @assignment_submit, assignment_submit_params
     if @assignment_service.update current_user
       flash[:notice] = flash_message "updated"

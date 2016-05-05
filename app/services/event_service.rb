@@ -44,7 +44,7 @@ class EventService
 
     create_event_for_lecturers
     if @object.share_with_team?
-      Team.find_by(user_id: @user_id, class_room_id: @object.class_room_id).class_teams.each do |class_team|
+      @object.team.class_teams.each do |class_team|
         create_event_user class_team.user_id
       end
     end

@@ -4,9 +4,10 @@ class AssignmentSubmit < ActiveRecord::Base
   belongs_to :user
   belongs_to :class_room
   belongs_to :assignment
+  belongs_to :team
 
   ATTRIBUTES_PARAMS = [:content, :class_room_id, :user_id, :assignment_id,
-    :policy, :title, :score]
+    :policy, :title, :score, :team_id]
 
   enum policy: [:share_with_everyone, :share_with_team, :share_with_lecturer]
 

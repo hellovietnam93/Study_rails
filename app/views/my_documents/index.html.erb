@@ -1,0 +1,8 @@
+<div id="documents">
+  <% if current_user.lecturer? %>
+    <%= render "documents" %>
+    <%= render "assignments" %>
+  <% else %>
+    <%= render "assignment_submits" %>
+  <% end %>
+</div>
