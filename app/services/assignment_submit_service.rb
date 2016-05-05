@@ -21,7 +21,7 @@ class AssignmentSubmitService
           AssignmentHistory.transaction(requires_new: true) do
             @assignment.assignment_histories.create! user_id: @assignment.user_id,
               assignment_id: @assignment.assignment_id, class_room_id: @assignment.class_room_id,
-              content: @assignment.content
+              content: @assignment.content, team_id: @assignment.team_id, title: @assignment.title
           end
           true
         rescue

@@ -1,0 +1,43 @@
+<div class="box box-success box-solid">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <strong><%= t "assignments.assignment" %></strong>
+    </h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-box-tool" data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="box-body">
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th><%= t "assignments.fields.name" %></th>
+          <th><%= t "class_rooms.class_room" %></th>
+          <th><%= t "teams.team" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @assignment_submits.each do |assignment_submit| %>
+          <tr>
+            <th><%= assignment_submit.title %></th>
+            <th>
+              <%= link_to assignment_submit.class_room.uid, assignment_submit.class_room %>
+            </th>
+            <th>
+              <% if assignment_submit.team_id.present? %>
+                <%= assignment_submit.team.name %>
+              <% end %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

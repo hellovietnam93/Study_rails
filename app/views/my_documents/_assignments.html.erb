@@ -1,0 +1,37 @@
+<div class="box box-success box-solid">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <strong><%= t "assignments.assignment" %></strong>
+    </h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-box-tool" data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="box-body">
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th><%= t "assignments.fields.name" %></th>
+          <th><%= t "class_rooms.class_room" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @assignments.each do |assignment| %>
+          <tr>
+            <th><%= assignment.name %></th>
+            <th>
+              <%= link_to assignment.class_room.uid, assignment.class_room %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

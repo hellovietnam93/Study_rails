@@ -62,5 +62,6 @@ Rails.application.routes.draw do
     resources :verifications, only: [:create, :new]
     resources :courses, only: [:index, :show]
     resources :marks, only: :update
+    resources :my_documents, only: :index
   end
 end

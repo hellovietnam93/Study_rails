@@ -1,0 +1,41 @@
+<div class="box box-info box-solid">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <strong><%= t "documents.document" %></strong>
+    </h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-box-tool" data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="box-body">
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th><%= t "documents.headers.title" %></th>
+          <th><%= t "documents.headers.download_link" %></th>
+          <th><%= t "class_rooms.class_room" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @documents.each do |document| %>
+          <tr>
+            <th><%= document.title %></th>
+            <th>
+              <%= link_to document.attachment_url, document.attachment_url %>
+            </th>
+            <th>
+              <%= link_to document.class_room.uid, document.class_room %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
