@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20160505035024) do
     t.integer  "assignment_id",        limit: 4
     t.text     "content",              limit: 65535
     t.integer  "assignment_submit_id", limit: 4
+    t.integer  "editor",               limit: 4
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
-    t.integer  "editor",               limit: 4
     t.integer  "team_id",              limit: 4
     t.string   "title",                limit: 255
   end
@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 20160505035024) do
     t.string   "title",         limit: 255
     t.text     "content",       limit: 65535
     t.decimal  "score",                       precision: 10
+    t.integer  "policy",        limit: 4
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
-    t.integer  "policy",        limit: 4
     t.integer  "team_id",       limit: 4
   end
 
@@ -66,9 +66,9 @@ ActiveRecord::Schema.define(version: 20160505035024) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.text     "content",         limit: 65535
+    t.integer  "class_room_id",   limit: 4
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.integer  "class_room_id",   limit: 4
   end
 
   add_index "assignments", ["class_room_id"], name: "index_assignments_on_class_room_id", using: :btree
@@ -96,15 +96,15 @@ ActiveRecord::Schema.define(version: 20160505035024) do
     t.integer  "course_id",          limit: 4
     t.integer  "semester_id",        limit: 4
     t.string   "enroll_key",         limit: 255
+    t.string   "student_key",        limit: 255
     t.integer  "class_type",         limit: 4
     t.integer  "registered_student", limit: 4
     t.integer  "max_student",        limit: 4
     t.datetime "start_date"
     t.datetime "end_date"
+    t.integer  "status",             limit: 4
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "status",             limit: 4
-    t.string   "student_key",        limit: 255
   end
 
   add_index "class_rooms", ["course_id"], name: "index_class_rooms_on_course_id", using: :btree
@@ -281,6 +281,8 @@ ActiveRecord::Schema.define(version: 20160505035024) do
   create_table "prime_users", force: :cascade do |t|
     t.string   "uid",         limit: 255
     t.string   "first_name",  limit: 255
+    t.string   "middle_name", limit: 255
+    t.string   "last_name",   limit: 255
     t.datetime "birthday"
     t.string   "program",     limit: 255
     t.string   "class_name",  limit: 255
@@ -288,8 +290,6 @@ ActiveRecord::Schema.define(version: 20160505035024) do
     t.string   "cohort",      limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.string   "middle_name", limit: 255
-    t.string   "last_name",   limit: 255
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -451,6 +451,7 @@ ActiveRecord::Schema.define(version: 20160505035024) do
     t.string   "encrypted_password",     limit: 255, default: "",    null: false
     t.string   "avatar",                 limit: 255
     t.boolean  "verified",                           default: false
+    t.integer  "role",                   limit: 4
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -468,7 +469,6 @@ ActiveRecord::Schema.define(version: 20160505035024) do
     t.datetime "locked_at"
     t.datetime "created_at",                                         null: false
     t.datetime "updated_at",                                         null: false
-    t.integer  "role",                   limit: 4
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

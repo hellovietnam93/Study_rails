@@ -75,6 +75,7 @@ class Ability
       can :update, EventUser, user_id: user.id
       can [:index, :show], Course
       can [:update], User, id: user.id
+      can [:index, :show, :update, :create], OnlineTest
     end
 
     can [:create, :update], Group, Group.includes(:group_users) do |group|
