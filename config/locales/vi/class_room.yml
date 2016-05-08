@@ -62,6 +62,7 @@ vi:
     statistics: "Thống kê"
     titles:
       class_info: "Tạo thông tin lớp học"
+      join: "Tham gia lớp học"
     errors:
       course_not_found: "Không tìm thấy khóa học"
       existed_in_semester: "%{id} đã tồn tại trong học kỳ %{semester}"

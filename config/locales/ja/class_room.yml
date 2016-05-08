@@ -62,6 +62,7 @@ ja:
     statistics: "統計"
     titles:
       class_info: "教室の情報を作成します。"
+      join: "クラスに入ります"
     errors:
       course_not_found: "コースを見つけることができませんでした"
       existed_in_semester: "%{id} 学期中に撮影されています %{semester}"

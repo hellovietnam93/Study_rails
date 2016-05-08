@@ -1,0 +1,20 @@
+<li class="time-label">
+  <span class="bg-red">
+    <%= user_class.created_at.strftime t("date.formats.short") %>
+  </span>
+</li>
+
+<li>
+  <i class="fa fa-graduation-cap bg-blue"></i>
+  <div class="timeline-item">
+    <span class="time">
+      <i class="fa fa-clock-o"></i>
+      <%= user_class.created_at.strftime t("datepicker.time.short") %>
+    </span>
+
+    <h3 class="timeline-header">
+      <%= t "class_rooms.titles.join" %>
+      <%= link_to user_class.class_room.uid, user_class.class_room %>
+    </h3>
+  </div>
+</li>

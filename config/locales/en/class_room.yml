@@ -62,6 +62,7 @@ en:
     statistics: "Statistics"
     titles:
       class_info: "Create classroom informations"
+      join: "Join class"
     errors:
       course_not_found: "Could not find Course"
       existed_in_semester: "%{id} has been taken in semester %{semester}"
