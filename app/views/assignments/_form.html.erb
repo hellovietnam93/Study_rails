@@ -3,20 +3,10 @@
 
   <%= f.hidden_field :class_room_id, value: @class_room.id %>
 
-  <div class="col-md-6">
+  <div class="col-md-12">
     <div class="form-group">
       <%= f.label :name, t("assignments.fields.name") %>
       <%= f.text_field :name, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="col-md-6">
-    <div class="form-group">
-      <%= f.label :name, t("assignments.fields.assignment_type") %>
-      <%= f.select :assignment_type,
-        options_from_collection_for_select(
-        i18n_enum(:assignments, :assignment_type), :key, :value,
-        f.object.assignment_type), {}, class: "form-control" %>
     </div>
   </div>
 

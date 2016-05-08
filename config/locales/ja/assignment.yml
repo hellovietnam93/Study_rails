@@ -7,9 +7,6 @@ ja:
       start_date: "時間の送信を開始します"
       end_date: "締め切り"
       content: "コンテンツ"
-    assignment_types:
-      single: "Single"
-      multiple: "Multiple"
     actions:
       new: "演習を作成します"
       see_more: "学生が支払います"

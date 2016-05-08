@@ -4,9 +4,7 @@ class Assignment < ActiveRecord::Base
 
   belongs_to :class_room
 
-  ATTRIBUTES_PARAMS = [:name, :class_room_id, :content, :start_time, :end_time, :assignment_type]
-
-  enum assignment_type: [:single, :multiple]
+  ATTRIBUTES_PARAMS = [:name, :class_room_id, :content, :start_time, :end_time]
 
   validate :end_time_must_be_greater_than_start_time
   validate :time_must_be_in_time_of_semester

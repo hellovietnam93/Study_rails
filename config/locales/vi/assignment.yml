@@ -7,9 +7,6 @@ vi:
       start_date: "Thời gian bắt đầu nộp bài"
       end_date: "Hạn chót"
       content: "Nội dung"
-    assignment_types:
-      single: "Single"
-      multiple: "Multiple"
     actions:
       new: "Tạo bài tập"
       see_more: "Sinh viên nộp"
