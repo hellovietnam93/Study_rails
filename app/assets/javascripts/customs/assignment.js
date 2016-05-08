@@ -8,7 +8,6 @@ $(document).on("page:change", function() {
       start_date: function (elem) {
         return Date.parse($(elem).attr("data-start"));
       },
-      type: "[data-type]",
       end_date: function (elem) {
         return Date.parse($(elem).attr("data-end"));
       },

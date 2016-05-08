@@ -2,7 +2,6 @@ class CreateAssignments < ActiveRecord::Migration
   def change
     create_table :assignments do |t|
       t.string :name
-      t.integer :assignment_type
       t.datetime :start_time
       t.datetime :end_time
       t.text :content

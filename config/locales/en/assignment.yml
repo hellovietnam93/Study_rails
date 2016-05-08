@@ -7,9 +7,6 @@ en:
       start_date: "Start"
       end_date: "Finish"
       content: "Content"
-    assignment_types:
-      single: "Single"
-      multiple: "Multiple"
     actions:
       new: "Create assignments"
       see_more: "Student submit"

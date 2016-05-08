@@ -78,7 +78,7 @@ namespace :db do
 
     puts "Create Assignment"
     3.times do |n|
-      Assignment.create name: "Assignment_#{n}", assignment_type: 0,
+      Assignment.create name: "Assignment_#{n}",
         start_time: Time.now + n.day, end_time: Time.now + (2 +n).day,
         content: "Content of assignment #{n}", class_room_id: 1
     end

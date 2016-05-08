@@ -61,14 +61,13 @@ ActiveRecord::Schema.define(version: 20160505035024) do
   add_index "assignment_submits", ["user_id"], name: "index_assignment_submits_on_user_id", using: :btree
 
   create_table "assignments", force: :cascade do |t|
-    t.string   "name",            limit: 255
-    t.integer  "assignment_type", limit: 4
+    t.string   "name",          limit: 255
     t.datetime "start_time"
     t.datetime "end_time"
-    t.text     "content",         limit: 65535
-    t.integer  "class_room_id",   limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.text     "content",       limit: 65535
+    t.integer  "class_room_id", limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "assignments", ["class_room_id"], name: "index_assignments_on_class_room_id", using: :btree
