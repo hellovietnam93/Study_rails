@@ -74,11 +74,13 @@ tags:
   most_used: 5
 import_syllabus:
   name: "Tên học phần:"
-  id: "Mã số:"
+  uid: "Mã số:"
   duration: "Khối lượng:"
   base_hours: "Bài tập/BTL:"
   description: "Nội dung vắn tắt học phần:"
   weight: "Đánh giá kết quả:"
-  references: "Tài liệu học tập"
+  course_references: "Tài liệu học tập"
   learning_method: "Phương pháp học tập và nhiệm vụ của sinh viên"
   evaluation: "Nội dung đề nghị cho bài bài tập lớn"
+  content_plan_details: "Nội dung và kế hoạch học tập cụ thể"
+  edited_groups_outline: "NHÓM BIÊN SOẠN ĐỀ CƯƠNG"

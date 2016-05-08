@@ -190,6 +190,7 @@ class NewClassFrom
         end
 
         timetable_repeat.save!
+        split_syllabus_details_to_timetables
       end
       true
     else
@@ -198,6 +199,20 @@ class NewClassFrom
   end
 
   private
+  def split_syllabus_details_to_timetables
+    timetables = class_room.timetables
+    syllabus_details = @course.syllabuses.map {|syllabus| syllabus.syllabus_details}.flatten
+    num_syllabus_details = syllabus_details.size
+    timetables.each_with_index do |timetable, index|
+      current_index = syllabus_details.size - num_syllabus_details
+      num_itemable = (num_syllabus_details.to_f / (timetables.size - index)).ceil
+      (current_index...(current_index + num_itemable)).each do |index|
+        timetable.timetable_details.create syllabus_detail: syllabus_details[index]
+      end
+      num_syllabus_details -= num_itemable
+    end
+  end
+
   def new_timer date, time
     Time.new date.year, date.month, date.day, time.hour, time.strftime("%M").to_i
   end
