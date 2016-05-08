@@ -4,9 +4,10 @@ class UsersController < ApplicationController
 
   def show
     @timetables = Timetable.where class_room_id: @user.class_room_ids
-    @total_courses = @user.class_rooms.pluck(:course_id).uniq.count
+    @total_courses = @user.class_rooms.map(&:course_id).uniq.count
     @total_current_classes = @user.class_rooms.where(semester_id: Semester.last.id).count
     @edit_user_form = EditUserForm.new @user
+    @user_classes = @user.user_classes.take_in.order created_at: :desc
   end
 
   def update
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
 
   private
   def find_user
-    @user = User.includes(class_rooms: :course).find_by_id params[:id]
+    @user = User.includes(user_classes: [:class_room], class_rooms: :course).find_by_id params[:id]
   end
 
   def user_params
