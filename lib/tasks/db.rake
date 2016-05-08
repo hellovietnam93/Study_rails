@@ -3,6 +3,10 @@ namespace :db do
   task remake_data: :environment do
     Rake::Task["db:migrate:reset"].invoke
 
+    puts "Importing prime user"
+    import = ImportService.new "#{Rails.root}/lib/assets/59.csv", PrimeUser, ["uid"], "prime_user"
+    import.save! if import.valid?
+
     puts "Creating User"
     user = User.create email: "hellovietnam93@gmail.com", password: "12345678", password_confirmation: "12345678",
       role: 0, username: "Admintrator"
