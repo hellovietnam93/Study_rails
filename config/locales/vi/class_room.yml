@@ -35,21 +35,14 @@ vi:
       sign_in: "Đăng kí tham gia lớp học"
       key_not_right: "Mật khẩu tham gia lớp học không đúng!"
     members:
-      all: "Các thành viên trong lớp %{class_room}"
+      all: "Thành viên"
     assignments:
       actions:
         submit: "Nộp bài tập"
     tabs:
       questions: "Câu hỏi"
-      other: "Khác"
-      class_rooms: "Lớp học"
-      assignments: "Bài tập"
-      members: "Thành viên"
     students:
       tabs:
-        class_rooms: "Lớp học"
-        members: "Thành viên"
-        assignments: "Bài tập"
         online_tests: "Test"
     actions:
       detail: "Chi tiết"

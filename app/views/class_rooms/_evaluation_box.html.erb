@@ -1,0 +1,22 @@
+<div class="box box-success box-solid">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <%= t "courses.fields.evaluation" %>
+    </h3>
+  </div>
+
+  <div class="box-body">
+    <table class="table table-border">
+      <tbody>
+        <% @class_room.course.evaluation.split("<br>").each_with_index do |value, index| %>
+          <tr>
+            <td>
+                <strong><%= index + 1 %>.</strong>
+                <%= value %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

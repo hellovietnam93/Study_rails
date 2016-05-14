@@ -1,0 +1,22 @@
+<div class="box box-info box-solid">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <%= t "courses.references" %>
+    </h3>
+  </div>
+
+  <div class="box-body">
+    <table class="table table-border">
+      <tbody>
+        <% @class_room.course.course_references.each_with_index do |reference, index| %>
+          <tr>
+            <td>
+              <strong><%= index + 1 %>.</strong>
+              <%= reference.name %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

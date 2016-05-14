@@ -52,14 +52,6 @@ collum_check_import:
   prime_user: "uid"
   prime_class: "semester"
   question: "question_type"
-class_room:
-  tabs:
-    class_rooms: "Class room"
-    members: "Member"
-  students:
-    tabs:
-      class_rooms: "Class room"
-      members: "Member"
 users:
   tabs:
     - timetables

@@ -42,5 +42,6 @@
       </div>
     </div>
   </div>
+  <%= render "new_timetables_modal" if current_user.lecturer? %>
+  <div class="show"></div>
 </div>
-<%= render "new_timetables_modal" if current_user.lecturer? %>

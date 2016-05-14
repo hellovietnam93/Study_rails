@@ -4,25 +4,26 @@
   </div>
 
   <div class="box-body">
-    <div class="row tab-list">
-      <div class="col-md-12">
-        <ul class="nav nav-tabs" role="tablist" id="tabs">
-          <% Settings.class_room.tabs.each do |key, value|  %>
-            <li role="presentation">
-              <a href="#<%= key %>" aria-controls="home" role="tab" data-toggle="tab">
-                <%= t "class_rooms.tabs.#{key}" %>
-              </a>
-            </li>
-          <% end %>
-        </ul>
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="class_rooms">
-            <%= render "class_room_tab" %>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="members">
-            <%= render "members_tab" %>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="panel">
+          <div class="panel-body">
+            <h1><%= @class_room.name %></h1>
+            <p>
+              <%= @class_room.course.description %>
+            </p>
           </div>
         </div>
+
+        <div class="panel">
+          <!-- Todo list -->
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <%= render "class_rooms/references_box" %>
+        <%= render "class_rooms/evaluation_box" %>
+        <%= render "class_rooms/members_box" %>
       </div>
     </div>
   </div>

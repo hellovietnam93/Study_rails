@@ -1,0 +1,62 @@
+<div id="show-timetable-modal" class="modal fade" role="dialog"
+  data-backdrop="static" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="modal-title"><%= @timetable.title %></h4>
+          </div>
+          <div class="col-md-4">
+            <div class="pull-right">
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="col-md-6">
+          <b><label><h4><%= t "timetables.fields.time_start" %></h4></label></b>
+          <p class="time_start">
+            <%= @timetable.time_start.strftime t("datepicker.time.default") %>
+          </p>
+        </div>
+
+        <div class="col-md-6">
+          <b><label><h4><%= t "timetables.fields.time_end" %></h4></label></b>
+          <p class="time_end">
+            <%= @timetable.time_end.strftime t("datepicker.time.default") %>
+          </p>
+        </div>
+        <div class="col-md-12">
+          <table class="table table-border">
+            <thead>
+              <tr>
+                <th>
+                  <h1><%= t "timetables.title.content" %></h1>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @timetable.timetable_details.each do |timetable_detail| %>
+                <tr>
+                  <td>
+                    <%= timetable_detail.syllabus_detail.title %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <%= link_to t("form.buttons.cancel"), "javascript:void(0)",
+          data: {dismiss: "modal"} %>
+      </div>
+    </div>
+  </div>
+</div>

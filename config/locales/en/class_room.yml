@@ -35,21 +35,14 @@ en:
       sign_in: "Take part in classroom"
       key_not_right: "The enroll key is wrong!"
     members:
-      all: "All members in class %{class_room}"
+      all: "Members"
     assignments:
       actions:
         submit: "Submit assignment"
     tabs:
       questions: "Question"
-      other: "Other"
-      class_rooms: "Classroom"
-      assignments: "Assignments"
-      members: "Members"
     students:
       tabs:
-        class_rooms: "Classroom"
-        members: "Members"
-        assignments: "Assignments"
         online_tests: "Online test"
     actions:
       detail: "Class detail"

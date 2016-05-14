@@ -31,11 +31,11 @@ $(document).on("page:change", function() {
         $(".select2-search__field").css("width", "100%");
       }
     },
-    eventMouseover: function( event, jsEvent, view ) {
+    eventMouseover: function(event, jsEvent, view) {
       console.log(event.content);
     },
     eventClick: function(calEvent, jsEvent, view) {
-      console.log(calEvent);
+      return displayEvent(calEvent);
     },
     eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc) {
       return updateEvent(event);
@@ -83,3 +83,11 @@ updateEvent = function(the_event) {
     }
   });
 };
+
+
+displayEvent = function(event) {
+  $.ajax({
+    type: "GET",
+    url: BASE_URL + "class_rooms/" + event.class_room_id + "/timetables/" + event.id
+  });
+}
