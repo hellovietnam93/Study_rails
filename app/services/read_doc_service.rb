@@ -3,11 +3,13 @@ class ReadDocService
 
   def initialize file_path, course
     load_file file_path
-    array = @content.split "\n"
+    array = index_lines @content.split "\n"
     @course = course
 
     array.each_with_index do |line, index|
-      load_course line, index, array
+      if array[index].is_a? Hash
+        send "handle_import_syllabus_#{array[index][:import_type]}", array[index][:text], index, array
+      end
     end
     @course.save
   end
@@ -18,53 +20,94 @@ class ReadDocService
   end
 
   private
-  def load_course line, index, array
-    if index_name = line.index(Settings.import_syllabus.name)
-      @course.name = line[(index_name + Settings.import_syllabus.name.length + 1)..-1].gsub("\t", "")
-    elsif index_id = line.index(Settings.import_syllabus.id)
-      @course.uid = line[(index_id + Settings.import_syllabus.id.length + 1)..-1].gsub("\t", "")
-    elsif index_weigh = line.index(Settings.import_syllabus.duration)
-      line = line[(index_weigh + Settings.import_syllabus.duration.length)..-1].gsub("\t", "")
-      index_weigh = line.index("(") + 1
-      line[index_weigh..-2]
-      temp = line.split "-"
+  def index_lines array
+    import_syllabus = Settings.import_syllabus.to_h
+    array.each_with_index do |line, index|
+      import_syllabus.each do |key, import|
+        if /#{import}/ =~ line
+          array[index] = {
+            text: array[index],
+            import_type: key
+          }
+          import_syllabus.except! import
+          break
+        end
+      end
+    end
+    array
+  end
+
+  # luu 1 thong tin trong line
+  ["name", "base_hours", "uid"].each do |import_type|
+    define_method "handle_import_syllabus_#{import_type}" do |line, current_index, array|
+      if /#{Settings.import_syllabus.send import_type}(.+)/ =~ line
+        @course.send "#{import_type}=", $1.strip
+      end
+    end
+  end
+
+  # luu nhieu line tiep theo thanh cac belong_to
+  ["course_references"].each do |import_type|
+    define_method "handle_import_syllabus_#{import_type}" do |line, current_index, array|
+      ((current_index + 1)...array.length).each do |index|
+        return if array[index + 1].is_a? Hash
+        @course.send(import_type).send :build, name: array[index] unless array[index].blank?
+      end
+    end
+  end
+
+  # luu nhieu line tiep theo thanh 1 thuoc tinh
+  ["evaluation", "description"].each do |import_type|
+    define_method "handle_import_syllabus_#{import_type}" do |line, current_index, array|
+      result = []
+      ((current_index + 1)...array.length).each do |index|
+        break if array[index + 1].is_a? Hash
+        result << array[index] unless array[index].blank?
+      end
+
+      @course.send "#{import_type}=", result.join("<br>")
+    end
+  end
+
+  # do not anything
+  ["learning_method", "edited_groups_outline"].each do |import_type|
+    define_method "handle_import_syllabus_#{import_type}" do |line, current_index, array|
+
+    end
+  end
+
+  def handle_import_syllabus_duration line, current_index, array
+    if /#{Settings.import_syllabus.duration}.+\((\d+)-(\d+)-(\d+)-(\d+)\)/ =~ line
       ["theory_duration", "exercise_duration", "practice_duration"].each_with_index do |weigh, index|
-        @course.send "#{weigh}=", temp[index] rescue nil
+        @course.send "#{weigh}=", $~[index + 1] rescue nil
       end
-    elsif index_home_work = line.index(Settings.import_syllabus.base_hours)
-      @course.base_hours = line.scan(/\d+/).first
-    elsif index_description = line.index(Settings.import_syllabus.description)
-      while true
-        index += 1
-        if(!array[index].empty?)
-          @course.description = array[index]
-          break
+    end
+  end
+
+  def handle_import_syllabus_weight line, current_index, array
+    if /#{Settings.import_syllabus.weigh}.+\sT\((\d+,\d+)\)/ =~ line
+      @course.weight = $1.gsub(",", ".")
+    end
+  end
+
+  def handle_import_syllabus_content_plan_details line, current_index, array
+    fail_count = (current_index += 1) + 10
+    while current_index < fail_count && !array[current_index].is_a?(Hash)
+      if /\t\d+/ =~ array[current_index]
+        syllabus = @course.syllabuses.build
+        syllabus.week = array[current_index].strip
+        syllabus.title = array[current_index += 1].strip
+        current_index += 1
+        while !array[current_index].is_a?(Hash) && (/\d+\.\d+/ =~ array[current_index] || array[current_index].blank?)
+          unless array[current_index].blank?
+            syllabus.syllabus_details.build title: array[current_index]
+          end
+          current_index += 1
         end
+        fail_count = current_index + 10
+      else
+        current_index += 1
       end
-    elsif index_reference = line.index(Settings.import_syllabus.references)
-      while true
-        index += 1
-        break if array[index + 1].index(Settings.import_syllabus.learning_method)
-        if array[index].index(/[A-Za-z0-9_ÂĂÊƯÔƠĐâăêưôơ]/)
-          @course_reference = @course.course_references.build
-          @course_reference.name = array[index]
-        end
-      end
-    elsif (index_weigh_point = line.index(Settings.import_syllabus.weight))
-      weight = line.scan(/T\(\d+\,\d+\)/).first || line.scan(/T\(\d+\.\d+\)/).first
-      @course.weight = weight.gsub("T(", "").gsub(")", "").gsub(",", ".")
-    elsif line.index(/\t\d+/) == 0
-      @syllabus = @course.syllabuses.build
-      @syllabus.week = line.gsub("\t", "")
-      while true
-        index += 1
-        if array[index].index(/\t[A-Za-z0-9_ÂĂÊƯÔƠĐâăêưôơ]/)
-          @syllabus.title = array[index].gsub("\t", "")
-          break
-        end
-      end
-    elsif line.index(/\d+\.\d+/)
-      @syllabus.syllabus_details.build title: line if @syllabus
     end
   end
 end
