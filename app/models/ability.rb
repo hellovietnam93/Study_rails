@@ -66,7 +66,7 @@ class Ability
       can :manage, Comment, user_id: user.id
       can [:create, :destroy], Like, user_id: user.id
       can :index, Document
-      can :index, Timetable
+      can [:index, :show], Timetable
       can :manage, User, id: user.id
       can [:index, :show], Team, Team do |team|
         user.class_room_ids.include? team.class_room_id

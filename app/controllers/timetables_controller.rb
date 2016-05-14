@@ -29,6 +29,12 @@ class TimetablesController < ApplicationController
     end
   end
 
+  def show
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
   def timetable_params
     params.require(:timetable).permit :class_room_id, :title,

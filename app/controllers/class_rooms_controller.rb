@@ -7,7 +7,7 @@ class ClassRoomsController < ApplicationController
   end
 
   def show
-    @class_room = ClassRoom.includes(user_classes: :user).find params[:id]
+    @class_room = ClassRoom.includes(course: [:course_references], user_classes: :user).find params[:id]
     @members = @class_room.user_classes.select do |user_class|
       !user_class.owner && user_class.status == "take_in"
     end

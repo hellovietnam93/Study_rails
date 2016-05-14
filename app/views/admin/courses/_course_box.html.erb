@@ -53,6 +53,8 @@
               <% if attribute == "weight" %>
                 <%= value %> -
                 <%= eval "1 - #{value}" %>
+              <% elsif attribute == "evaluation" %>
+                <%= value.html_safe %>
               <% else %>
                 <%= value %>
               <% end %>

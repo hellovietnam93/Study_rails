@@ -35,21 +35,14 @@ ja:
       sign_in: "教室に参加します"
       key_not_right: "間違ったパスワード!"
     members:
-      all: "クラスのすべてのメンバー %{class_room}"
+      all: "メンバー"
     assignments:
       actions:
         submit: "割り当て"
     tabs:
       questions: "質問"
-      other: "他の"
-      class_rooms: "教室"
-      assignments: "割り当て"
-      members: "メンバー"
     students:
       tabs:
-        class_rooms: "教室"
-        members: "メンバー"
-        assignments: "割り当て"
         online_tests: "テスト"
     actions:
       detail: "詳細"
