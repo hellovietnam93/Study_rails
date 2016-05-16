@@ -92,7 +92,7 @@ class TeamsController < ApplicationController
   def find_members
     @members = []
     @class_room.user_classes.where(owner: false).each do |user_class|
-      @members << user_class.user unless has_team? user_class
+      @members << user_class.user if user_class.take_in? && !has_team?(user_class)
     end
 
     if params[:action] == "edit" || params[:action] == "update"

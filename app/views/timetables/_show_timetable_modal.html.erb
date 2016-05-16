@@ -12,6 +12,10 @@
               <button type="button" class="close" data-dismiss="modal">
                 &times;
               </button>
+              <%= link_to edit_class_room_timetable_path(@timetable.class_room,
+                @timetable), remote: true do %>
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              <% end %>
             </div>
           </div>
         </div>
