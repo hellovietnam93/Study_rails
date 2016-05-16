@@ -1,0 +1,9 @@
+$("#show-timetable-modal").modal("hide")
+$("#timetables .show").append("<%= j render 'edit_timetable_modal' %>")
+$("#edit-timetable-modal").modal("show")
+$(".select-timetable-details").select2({
+  theme: "bootstrap",
+  width: "100%",
+  dropdownAutoWidth : true,
+  placeholder: I18n.t("timetables.actions.add_syllabus")
+});

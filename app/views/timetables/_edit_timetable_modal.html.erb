@@ -1,0 +1,64 @@
+<div id="edit-timetable-modal" class="modal fade" tabindex="-1" role="dialog"
+  data-backdrop="static">
+  <div class="modal-dialog">
+    <%= form_for [@class_room, @timetable], class: "col-md-12" do |f| %>
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+          <h4 class="modal-title">
+            <%= t "timetables.actions.edit" %>
+          </h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <div id="errors-edit-timetable"></div>
+
+            <div class="form-group">
+              <div class="col-md-12">
+                <%= f.label :title %>
+                <%= f.text_field :title, class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-group col-md-6">
+                <%= f.label :time_start %>
+                <%= f.text_field :time_start, class: "form-control" %>
+              </div>
+
+              <div class="form-group col-md-6">
+                <%= f.label :time_end %>
+                <%= f.text_field :time_end, class: "form-control" %>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="col-md-12">
+                <%= f.select :syllabus_detail_ids,
+                  options_from_collection_for_select(
+                    @syllabus_details, :id, :title,
+                    @timetable.syllabus_detail_ids),
+                  {include_blank: true},
+                  {class: "form-control select-timetable-details",
+                    multiple: "multiple"} %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <%= f.submit t("form.buttons.save"),
+            data: {disable_with: t("form.buttons.saving")},
+            class: "btn btn-primary" %>
+          <%= link_to t("form.buttons.cancel"), "javascript:void(0)",
+            data: {dismiss: "modal"} %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
