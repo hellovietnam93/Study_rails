@@ -1,7 +1,7 @@
 <% provide :title, t("static_page.home") %>
 
 <% if user_signed_in? %>
-  abc
+  <%= render "shared/example_box" %>
 <% else %>
   <div class="center jumbotron">
     <h1><%= t "static_page.fels" %></h1>
@@ -12,6 +12,3 @@
     </p>
   </div>
 <% end %>
-<div class="col-md-12">
-  <%= render "shared/example_box" %>
-</div>
