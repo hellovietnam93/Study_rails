@@ -14,32 +14,34 @@
 
       <% if current_user.lecturer? %>
         <% @statistic_of_member.each do |member, data| %>
-          <div class="col-md-4">
-            <div class="box box-danger box-solid">
-              <div class="box-header with-border">
-                <h3 class="box-title">
-                  <strong><%= member.email %></strong>
-                </h3>
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove">
-                    <i class="fa fa-times"></i>
-                  </button>
+          <% if member.student? %>
+            <div class="col-md-4">
+              <div class="box box-danger box-solid">
+                <div class="box-header with-border">
+                  <h3 class="box-title">
+                    <strong><%= member.email %></strong>
+                  </h3>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </div>
                 </div>
-              </div>
 
-              <div class="box-body">
-                <div id="statistic-member-<%= member.id %>"
-                  data-statistic-keys="<%= data.keys %>"
-                  data-satistic-values="<%= data.values %>"
-                  data-member-id="<%= member.id %>">
+                <div class="box-body">
+                  <div id="statistic-member-<%= member.id %>"
+                    data-statistic-keys="<%= data.keys %>"
+                    data-satistic-values="<%= data.values %>"
+                    data-member-id="<%= member.id %>">
 
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% else %>
         <div class="row">
