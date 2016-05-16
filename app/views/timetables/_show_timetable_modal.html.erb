@@ -23,14 +23,26 @@
 
       <div class="modal-body">
         <div class="col-md-6">
-          <b><label><h4><%= t "timetables.fields.time_start" %></h4></label></b>
+          <b>
+            <label>
+              <h4>
+                <%= t "timetables.fields.time_start" %>
+              </h4>
+            </label>
+          </b>
           <p class="time_start">
             <%= @timetable.time_start.strftime t("datepicker.time.default") %>
           </p>
         </div>
 
         <div class="col-md-6">
-          <b><label><h4><%= t "timetables.fields.time_end" %></h4></label></b>
+          <b>
+            <label>
+              <h4>
+                <%= t "timetables.fields.time_end" %>
+              </h4>
+            </label>
+          </b>
           <p class="time_end">
             <%= @timetable.time_end.strftime t("datepicker.time.default") %>
           </p>
