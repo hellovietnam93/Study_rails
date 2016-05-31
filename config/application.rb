@@ -33,5 +33,7 @@ module Studyhub
     config.middleware.use I18n::JS::Middleware
     config.time_zone = "Hanoi"
     config.active_record.default_timezone = :local
+
+    config.active_job.queue_adapter = :delayed_job
   end
 end

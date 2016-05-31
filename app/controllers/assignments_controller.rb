@@ -21,6 +21,7 @@ class AssignmentsController < ApplicationController
   def create
     if @assignment.save
       EventService.new(current_user.id, @assignment, params[:action]).save
+      NotifyService.new(@assignment).assignment_notify
       @class_room = @assignment.class_room
       redirect_to [@class_room, @assignment]
     else

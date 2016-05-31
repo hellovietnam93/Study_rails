@@ -46,6 +46,7 @@ gem "highcharts-rails"
 gem "yomu"
 gem "reform"
 gem "reform-rails"
+gem "delayed_job_active_record"
 
 group :development, :test do
   gem "pry"

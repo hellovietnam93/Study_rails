@@ -1,0 +1,5 @@
+<h1><%= t "mailers.content.greeting", email: @user.email %></h1>
+<p>
+  <%= t "mailers.content.assignment_deadline.content_details",
+    assignment: @assignment.name, time: @assignment.end_time %>
+</p>

@@ -9,6 +9,7 @@ class ClassRoomRequestsController < ApplicationController
 
   def update
     @user_class.update_attributes status: 1
+    NotifyService.new(@user_class).perform
     redirect_to @user_class.class_room
   end
 
