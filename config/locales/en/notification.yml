@@ -7,3 +7,8 @@ en:
       document: "New document has been uploaded in class %{class_room}"
       new_assignment_submit: "has submited assignment in class %{class_room}"
       edit_assignment_submit: "has edited assignment in class %{class_room}"
+      new_class_assign: "You've been assigned to manage the class %{class_room}"
+      new_team: "You are added to a group in class %{class_room}"
+      new_post: "New post in class %{class_room}"
+      new_comment_post: "New comment in post"
+      new_comment_comment: "New reply comment"

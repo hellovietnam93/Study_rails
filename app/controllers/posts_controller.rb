@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def create
     if @post.save
+      EventService.new(current_user.id, @post).save
       redirect_to :back, notice: flash_message("created")
     else
       flash[:alert] = flash_message "not_created"

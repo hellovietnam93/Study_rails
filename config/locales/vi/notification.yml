@@ -7,3 +7,8 @@ vi:
       document: "Có tài liệu mới được đăng lên trong lớp %{class_room}"
       new_assignment_submit: "Mới có bài tập được nộp trong lớp %{class_room}"
       edit_assignment_submit: "Có bài nộp được cập nhật trong lớp %{class_room}"
+      new_class_assign: "Bạn vừa được giao quản lý lớp học %{class_room}"
+      new_team: "Bạn được thêm vào một nhóm trong lớp %{class_room}"
+      new_post: "Có một bài đăng mới trong lớp %{class_room}"
+      new_comment_post: "Có bình luận mới"
+      new_comment_comment: "Có một trả lời bình luận mới"

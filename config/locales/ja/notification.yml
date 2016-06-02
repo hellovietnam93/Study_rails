@@ -7,3 +7,8 @@ ja:
       document: "新しい文書は、クラスにアップロードされました %{class_room}"
       new_assignment_submit: "クラスに割り当てを提出しました %{class_room}"
       edit_assignment_submit: "クラスの割り当てを編集しました %{class_room}"
+      new_class_assign: "あなたは教室を管理するために割り当てられてきました %{class_room}"
+      new_team: "あなたは、クラスのグループに追加され %{class_room}"
+      new_post: "教室での新しい投稿があります %{class_room}"
+      new_comment_post: "新しいコメントがあります"
+      new_comment_comment: "新しい返信新しいコメントがあります"

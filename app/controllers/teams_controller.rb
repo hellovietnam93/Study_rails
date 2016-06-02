@@ -26,6 +26,7 @@ class TeamsController < ApplicationController
   def create
     if @team.save
       flash[:success] = flash_message "created"
+      EventService.new(current_user.id, @team).save
       redirect_to class_room_team_path @class_room, @team
     else
       flash[:failed] = flash_message "not created"
