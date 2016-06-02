@@ -29,7 +29,7 @@ module ApplicationHelper
     enum = enum.to_s.pluralize
     model_name = model_name.to_s
     model_name.classify.constantize.public_send(enum).keys.map do |key|
-      OpenStruct.new key: key, value: I18n.t("#{model_name.pluralize}.#{enum}.#{key}")
+      OpenStruct.new key: key, value: t("#{model_name.pluralize}.#{enum}.#{key}")
     end.flatten
   end
 
@@ -90,22 +90,37 @@ module ApplicationHelper
     result = case notification.event.event_type
       when "timetable"
         "<i class='fa fa-calendar'></i>".html_safe +
-          I18n.t("notifications.views.timetable", class_room: notification.event.class_room.name)
+          t("notifications.views.timetable", class_room: notification.event.class_room.name)
       when "new_assignment"
         "<i class='fa fa-tasks'></i>".html_safe +
-          I18n.t("notifications.views.new_assignment", class_room: notification.event.class_room.name)
+          t("notifications.views.new_assignment", class_room: notification.event.class_room.name)
       when "edit_assignment"
         "<i class='fa fa-tasks'></i>".html_safe +
-          I18n.t("notifications.views.edit_assignment", class_room: notification.event.class_room.name)
+          t("notifications.views.edit_assignment", class_room: notification.event.class_room.name)
       when "document"
         "<i class='fa fa-book'></i>".html_safe +
-          I18n.t("notifications.views.document", class_room: notification.event.class_room.name)
+          t("notifications.views.document", class_room: notification.event.class_room.name)
       when "new_assignment_submit"
         "<i class='fa fa-tasks'></i>".html_safe +
-          I18n.t("notifications.views.new_assignment_submit", class_room: notification.event.class_room.name)
+          t("notifications.views.new_assignment_submit", class_room: notification.event.class_room.name)
       when "edit_assignment_submit"
         "<i class='fa fa-tasks'></i>".html_safe +
-          I18n.t("notifications.views.edit_assignment_submit", class_room: notification.event.class_room.name)
+          t("notifications.views.edit_assignment_submit", class_room: notification.event.class_room.name)
+      when "new_class_assign"
+        "<i class='fa fa-book'></i>".html_safe +
+          t("notifications.views.new_class_assign", class_room: notification.event.class_room.name)
+      when "new_team"
+        "<i class='fa fa-users'></i>".html_safe +
+          t("notifications.views.new_team", class_room: notification.event.class_room.name)
+      when "new_post"
+        "<i class='fa fa-comments'></i>".html_safe +
+          t("notifications.views.new_post", class_room: notification.event.class_room.name)
+      when "new_comment_post"
+        "<i class='fa fa-comments'></i>".html_safe +
+          t("notifications.views.new_comment_post")
+      when "new_comment_comment"
+        "<i class='fa fa-comments'></i>".html_safe +
+          t("notifications.views.new_comment_comment")
       end
 
     link_to result, event_user_path(notification), method: :put, remote: true

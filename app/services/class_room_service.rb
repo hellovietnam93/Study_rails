@@ -40,11 +40,12 @@ class ClassRoomService
   def assign_to_teacher
     user = User.find_by_email @class_room_params
     if user
-      user.user_classes.create class_room: @class_room, status: 0, owner: true
+      user_class = user.user_classes.create class_room: @class_room, status: 0, owner: true
     else
       user = User.create username: @class_room_params, email: @class_room_params,
         password: "12345678", password_confirmation: "12345678", role: 1
     end
+    EventService.new(nil, user_class).save
     send_mail_to_teacher user
   end
 

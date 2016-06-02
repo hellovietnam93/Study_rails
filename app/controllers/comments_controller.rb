@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource
-  load_and_authorize_resource :post
+  # load_and_authorize_resource :post
   skip_load_resource only: :new
 
   def new
@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
         @comment = @parent.children.build comment_params
       end
       @comment.save
+      EventService.new(current_user.id, @comment).save
       format.js
     end
   end
