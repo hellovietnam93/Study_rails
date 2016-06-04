@@ -1,0 +1,30 @@
+<ul class="timeline timeline-inverse">
+  <% @reminders.each do |date, reminders| %>
+    <li class="time-label">
+      <% if date.to_date > Date.today %>
+        <span class="bg-yellow">
+      <% elsif date.to_date == Date.today %>
+        <span class="bg-green">
+      <% else %>
+        <span class="bg-gray">
+      <% end %>
+        <%= date.strftime t("date.formats.default") %>
+      </span>
+    </li>
+
+    <% reminders.each do |reminder| %>
+      <li>
+        <i class="fa <%= display_reminder_type reminder.remind_type %>"></i>
+        <div class="timeline-item">
+          <h3 class="timeline-header">
+            <%= display_reminder reminder %>
+          </h3>
+        </div>
+      </li>
+    <% end %>
+  <% end %>
+
+  <li>
+    <i class="fa fa-clock-o bg-gray"></i>
+  </li>
+</ul>

@@ -88,40 +88,40 @@ module ApplicationHelper
 
   def display_notification notification
     result = case notification.event.event_type
-      when "timetable"
-        "<i class='fa fa-calendar'></i>".html_safe +
-          t("notifications.views.timetable", class_room: notification.event.class_room.name)
-      when "new_assignment"
-        "<i class='fa fa-tasks'></i>".html_safe +
-          t("notifications.views.new_assignment", class_room: notification.event.class_room.name)
-      when "edit_assignment"
-        "<i class='fa fa-tasks'></i>".html_safe +
-          t("notifications.views.edit_assignment", class_room: notification.event.class_room.name)
-      when "document"
-        "<i class='fa fa-book'></i>".html_safe +
-          t("notifications.views.document", class_room: notification.event.class_room.name)
-      when "new_assignment_submit"
-        "<i class='fa fa-tasks'></i>".html_safe +
-          t("notifications.views.new_assignment_submit", class_room: notification.event.class_room.name)
-      when "edit_assignment_submit"
-        "<i class='fa fa-tasks'></i>".html_safe +
-          t("notifications.views.edit_assignment_submit", class_room: notification.event.class_room.name)
-      when "new_class_assign"
-        "<i class='fa fa-book'></i>".html_safe +
-          t("notifications.views.new_class_assign", class_room: notification.event.class_room.name)
-      when "new_team"
-        "<i class='fa fa-users'></i>".html_safe +
-          t("notifications.views.new_team", class_room: notification.event.class_room.name)
-      when "new_post"
-        "<i class='fa fa-comments'></i>".html_safe +
-          t("notifications.views.new_post", class_room: notification.event.class_room.name)
-      when "new_comment_post"
-        "<i class='fa fa-comments'></i>".html_safe +
-          t("notifications.views.new_comment_post")
-      when "new_comment_comment"
-        "<i class='fa fa-comments'></i>".html_safe +
-          t("notifications.views.new_comment_comment")
-      end
+    when "timetable"
+      "<i class='fa fa-calendar'></i>".html_safe +
+        t("notifications.views.timetable", class_room: notification.event.class_room.name)
+    when "new_assignment"
+      "<i class='fa fa-tasks'></i>".html_safe +
+        t("notifications.views.new_assignment", class_room: notification.event.class_room.name)
+    when "edit_assignment"
+      "<i class='fa fa-tasks'></i>".html_safe +
+        t("notifications.views.edit_assignment", class_room: notification.event.class_room.name)
+    when "document"
+      "<i class='fa fa-book'></i>".html_safe +
+        t("notifications.views.document", class_room: notification.event.class_room.name)
+    when "new_assignment_submit"
+      "<i class='fa fa-tasks'></i>".html_safe +
+        t("notifications.views.new_assignment_submit", class_room: notification.event.class_room.name)
+    when "edit_assignment_submit"
+      "<i class='fa fa-tasks'></i>".html_safe +
+        t("notifications.views.edit_assignment_submit", class_room: notification.event.class_room.name)
+    when "new_class_assign"
+      "<i class='fa fa-book'></i>".html_safe +
+        t("notifications.views.new_class_assign", class_room: notification.event.class_room.name)
+    when "new_team"
+      "<i class='fa fa-users'></i>".html_safe +
+        t("notifications.views.new_team", class_room: notification.event.class_room.name)
+    when "new_post"
+      "<i class='fa fa-comments'></i>".html_safe +
+        t("notifications.views.new_post", class_room: notification.event.class_room.name)
+    when "new_comment_post"
+      "<i class='fa fa-comments'></i>".html_safe +
+        t("notifications.views.new_comment_post")
+    when "new_comment_comment"
+      "<i class='fa fa-comments'></i>".html_safe +
+        t("notifications.views.new_comment_comment")
+    end
 
     link_to result, event_user_path(notification), method: :put, remote: true
   end
@@ -135,5 +135,31 @@ module ApplicationHelper
     end
 
     link_to name, "#", class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")}
+  end
+
+  def display_reminder_type reminder_type
+    case reminder_type
+    when "start_lesson"
+      "fa-book bg-green"
+    when "start_submit"
+      "fa-star bg-green"
+    when "deadline"
+      "fa-bell bg-red"
+    end
+  end
+
+  def display_reminder reminder
+    if reminder.start_lesson?
+      link_to t("reminders.titles.start_lesson", classroom: reminder.reminderable.uid), reminder.reminderable
+    else
+      assignment = reminder.reminderable
+      link_to t("reminders.titles.#{reminder.remind_type}", assignment: reminder.reminderable.name),
+        [assignment.class_room, assignment]
+    end
+  end
+
+  def load_remindes
+    current_user.reminders.where "Date(occur_date) = ? OR Date(occur_date) = ?",
+      Date.today, (Date.today + 1.day)
   end
 end

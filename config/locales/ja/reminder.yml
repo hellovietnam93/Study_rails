@@ -1,0 +1,10 @@
+ja:
+  reminders:
+    titles:
+      start_lesson: "あなたはクラスのレッスンを取得します %{classroom}"
+      start_submit: "宿題の時間を提出する準備 %{assignment}"
+      deadline: "時限割り当てを準備します %{assignment}"
+    remind_types:
+      start_lesson: ""
+      start_submit: ""
+      deadline: ""

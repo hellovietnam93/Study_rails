@@ -57,3 +57,4 @@ en:
         timeline: "Timeline"
         settings: "Settings"
       number_notifications: "You have %{number} notifications"
+      number_reminders: "You have %{number} reminders"
