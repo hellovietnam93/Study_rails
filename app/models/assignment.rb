@@ -1,8 +1,11 @@
 class Assignment < ActiveRecord::Base
   has_many :assignment_submits, dependent: :destroy
   has_many :assignment_histories, dependent: :destroy
+  has_many :reminders, as: :reminderable
+
 
   belongs_to :class_room
+  belongs_to :reminderable, polymorphic: true
 
   ATTRIBUTES_PARAMS = [:name, :class_room_id, :content, :start_time, :end_time]
 
