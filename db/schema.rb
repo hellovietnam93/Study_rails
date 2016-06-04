@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505035024) do
+ActiveRecord::Schema.define(version: 20160604073843) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -321,6 +321,19 @@ ActiveRecord::Schema.define(version: 20160505035024) do
   add_index "questions", ["class_room_id"], name: "index_questions_on_class_room_id", using: :btree
   add_index "questions", ["course_id"], name: "index_questions_on_course_id", using: :btree
 
+  create_table "reminders", force: :cascade do |t|
+    t.integer  "user_id",           limit: 4
+    t.integer  "remind_type",       limit: 4
+    t.integer  "reminderable_id",   limit: 4
+    t.string   "reminderable_type", limit: 255
+    t.datetime "occur_date"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "reminders", ["reminderable_id"], name: "index_reminders_on_reminderable_id", using: :btree
+  add_index "reminders", ["user_id"], name: "index_reminders_on_user_id", using: :btree
+
   create_table "results", force: :cascade do |t|
     t.integer  "question_id",    limit: 4
     t.integer  "answer_id",      limit: 4
@@ -511,6 +524,7 @@ ActiveRecord::Schema.define(version: 20160505035024) do
   add_foreign_key "profiles", "users"
   add_foreign_key "questions", "class_rooms"
   add_foreign_key "questions", "courses"
+  add_foreign_key "reminders", "users"
   add_foreign_key "results", "answers"
   add_foreign_key "results", "online_tests"
   add_foreign_key "results", "questions"

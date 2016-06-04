@@ -13,11 +13,13 @@ class ClassRoom < ActiveRecord::Base
   has_many :documents, dependent: :destroy
   has_many :teams, dependent: :destroy
   has_many :events, dependent: :destroy
+  has_many :reminders, as: :reminderable
 
   has_one :forum, dependent: :destroy
 
   belongs_to :course
   belongs_to :semester
+  belongs_to :reminderable, polymorphic: true
 
   STATUSES = {open: :open, in_progress: :in_progress, pending: :pending, closed: :closed}
   enum status: STATUSES.values

@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :teams, through: :class_teams
   has_many :events, dependent: :destroy
   has_many :event_users, dependent: :destroy
+  has_many :reminders, dependent: :destroy
 
   has_one :profile, dependent: :destroy
 
