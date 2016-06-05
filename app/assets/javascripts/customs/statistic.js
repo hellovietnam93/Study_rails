@@ -68,7 +68,7 @@ $(document).on("page:change", function() {
           spacingTop: 3,
           spacingRight: 10,
           spacingBottom: 3,
-          spacingLeft: 80
+          spacingLeft: 105
         },
         title: {
           text: I18n.t("statistic.title.student_chart"),
@@ -78,7 +78,7 @@ $(document).on("page:change", function() {
           }
         },
         pane: {
-          size: "90%"
+          size: "400%"
         },
         xAxis: {
           categories: keys,
