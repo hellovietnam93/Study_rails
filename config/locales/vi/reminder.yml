@@ -1,0 +1,10 @@
+vi:
+  reminders:
+    titles:
+      start_lesson: "Bạn sẽ có một buổi học ở lớp %{classroom}"
+      start_submit: "Chuẩn bị tới thời gian nộp bài tâp %{assignment}"
+      deadline: "Chuẩn bị hết thời gian nộp bài tập %{assignment}"
+    remind_types:
+      start_lesson: ""
+      start_submit: ""
+      deadline: ""

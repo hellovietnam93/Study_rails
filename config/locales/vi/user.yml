@@ -57,3 +57,4 @@ vi:
         timeline: "Mốc thời gian"
         settings: "Cài đặt"
       number_notifications: "Bạn có %{number} thông báo"
+      number_reminders: "Bạn có %{number} lời nhắc nhở"

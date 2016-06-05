@@ -1,0 +1,10 @@
+en:
+  reminders:
+    titles:
+      start_lesson: "You will have a lesson in class %{classroom}"
+      start_submit: "You need to submit assignment %{assignment}"
+      deadline: "Assignment %{assignment} will be closed"
+    remind_types:
+      start_lesson: "Start lesson"
+      start_submit: "Prepare to submit class"
+      deadline: "Prepare to deadline"
