@@ -2,9 +2,9 @@ en:
   mailers:
     subjects:
       assign_class: "New class has been assigned to you"
-      start_lesson: "Lesson %{lesson} start"
-      assigment_start: "Assignment %{assignment} start submit"
-      assignment_deadline: "Assignment %{assignment} will close"
+      start_lesson: "Lesson start"
+      assigment_start: "Assignment start submit"
+      assignment_deadline: "Assignment will close"
     content:
       greeting: "Hello %{email},"
       assign_class:
