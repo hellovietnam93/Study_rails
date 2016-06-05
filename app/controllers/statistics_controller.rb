@@ -39,7 +39,7 @@ class StatisticsController < ApplicationController
     @user_posts = @posts.group(:user_id).count
     @user_comments = {}
     @posts.each do |post|
-      @user_comments.merge post.comments.group(:user_id).count
+      @user_comments = @user_comments.merge post.comments.group(:user_id).count
     end
   end
 

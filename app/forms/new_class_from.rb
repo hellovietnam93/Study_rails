@@ -40,7 +40,7 @@ class NewClassFrom
   end
 
   def submit params
-    params.permit!
+    params.permit! if params.class.name == "ActionController::Parameters"
     @params = params
     @course = Course.includes(syllabuses: :syllabus_details).find_by_id params[:course_id]
 

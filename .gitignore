@@ -32,3 +32,4 @@ config/environments/*.local.yml
 public/ckeditor_assets/*
 /app/assets/javascripts/i18n/*
 models.svg
+dump.rdb
