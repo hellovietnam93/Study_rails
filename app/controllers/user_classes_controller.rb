@@ -5,6 +5,7 @@ class UserClassesController < ApplicationController
   def create
     if right_key? params[:user_class][:key]
       enroll_class current_user
+      NotifyService.new(@user_class).perform
       redirect_to @class_room
     else
       @user_class.errors.add :base, I18n.t("class_rooms.user_classes.key_not_right")
@@ -36,10 +37,10 @@ class UserClassesController < ApplicationController
 
   def enroll_class current_user
     if current_user.lecturer?
-      user_class = UserClass.find_by user_id: current_user.id, class_room_id: @class_room.id,
+      @user_class = UserClass.find_by user_id: current_user.id, class_room_id: @class_room.id,
         owner: true
-      if user_class
-        user_class.update_attributes status: 1
+      if @user_class
+        @user_class.update_attributes status: 1
       else
         flash[:alert] = t "flashs.messages.not_right_teacher"
       end

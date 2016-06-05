@@ -2,6 +2,9 @@ en:
   mailers:
     subjects:
       assign_class: "New class has been assigned to you"
+      start_lesson: "Lesson %{lesson} start"
+      assigment_start: "Assignment %{assignment} start submit"
+      assignment_deadline: "Assignment %{assignment} will close"
     content:
       greeting: "Hello %{email},"
       assign_class:
@@ -11,4 +14,10 @@ en:
           enroll_key: "Enroll key for you to enter class"
           student_key: "Student key you will send to student who you teacher at school"
           link: "You can go to the class by link below"
+      start_lesson:
+        content_details: "Lesson %{lesson} will start at %{time}"
+      assigment_start:
+        content_details: "Assignment %{assignment} will open at %{time}"
+      assignment_deadline:
+        content_details: "Assignment %{assignment} will close at %{time}"
 

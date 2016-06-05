@@ -1,0 +1,5 @@
+<h1><%= t "mailers.content.greeting", email: @user.email %></h1>
+<p>
+  <%= t "mailers.content.start_lesson.content_details",
+    lesson:  @class_room.name, time: @timetable.time_start %>
+</p>

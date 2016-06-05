@@ -76,3 +76,9 @@ import_syllabus:
   evaluation: "Nội dung đề nghị cho bài bài tập lớn"
   content_plan_details: "Nội dung và kế hoạch học tập cụ thể"
   edited_groups_outline: "NHÓM BIÊN SOẠN ĐỀ CƯƠNG"
+numbers:
+  one: 1
+reminders:
+  start_lesson: "start_lesson"
+  start_submit: "start_submit"
+  deadline: "deadline"

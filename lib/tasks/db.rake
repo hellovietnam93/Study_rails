@@ -29,6 +29,7 @@ namespace :db do
     puts "Create Semester"
     Semester.create name: "20151", start_date: "20150801".to_date, end_date: "20151231".to_date
     Semester.create name: "20152", start_date: "20160101".to_date, end_date: "20160601".to_date
+    Semester.create name: "20163", start_date: "20160601".to_date, end_date: "20161001".to_date
 
     puts "Create Course"
     Course.create name: "Database", uid: "IT3344", description: "2", base_hours: 15,
