@@ -123,7 +123,7 @@ module ApplicationHelper
         t("notifications.views.new_comment_comment")
     end
 
-    link_to result, event_user_path(notification), method: :put, remote: true
+    link_to result, event_user_path(notification), method: :put
   end
 
   def link_to_add_fields name, f, association
