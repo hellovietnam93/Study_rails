@@ -22,7 +22,7 @@ class EventService
     type = @action == "create" ? "new_assignment" : "edit_assignment"
 
     @event = Event.create user_id: @user_id, event_type: type,
-      class_room_id: @object.class_room_id
+      class_room_id: @object.class_room_id, target_id: @object.id
     @object.class_room.user_classes.take_in.each do |user_class|
       create_event_user user_class.user_id
     end
@@ -40,7 +40,7 @@ class EventService
     type = @action == "create" ? "new_assignment_submit" : "edit_assignment_submit"
 
     @event = Event.create user_id: @user_id, event_type: type,
-      class_room_id: @object.class_room_id
+      class_room_id: @object.class_room_id, target_id: @object.id
 
     create_event_for_lecturers
     if @object.share_with_team?
@@ -69,7 +69,8 @@ class EventService
   end
 
   def create_event_posts
-    @event = Event.create user_id: @user_id, event_type: :new_post, class_room_id: @object.class_room_id
+    @event = Event.create user_id: @user_id, event_type: :new_post, class_room_id: @object.class_room_id,
+      target_id: @object.id
 
     @object.class_room.users.each do |user|
       create_event_user user.id unless user.id == @user_id
@@ -78,12 +79,15 @@ class EventService
 
   def create_event_comments
     if @object.parent_id.nil?
-      @event = Event.create user_id: @user_id, event_type: :new_comment_post, class_room_id: @object.post.class_room_id
+      @event = Event.create user_id: @user_id, event_type: :new_comment_post,
+        class_room_id: @object.post.class_room_id, target_id: @object.post_id
       @object.post.comments.each do |comment|
         create_event_user comment.user_id unless comment.user_id == @user_id
       end
     else
-      @event = Event.create user_id: @user_id, event_type: :new_comment_comment, class_room_id: @object.parent.post.class_room_id
+      @event = Event.create user_id: @user_id, event_type: :new_comment_comment,
+        class_room_id: @object.parent.post.class_room_id,
+        target_id: @object.parent.post_id
 
       @object.parent.children.each do |comment|
         create_event_user comment.user_id unless comment.user_id == @user_id
