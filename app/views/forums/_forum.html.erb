@@ -9,5 +9,6 @@
     <% @posts.each do |post| %>
       <%= render "forums/list_post", post: post, forum: forum %>
     <% end %>
+    <%= paginate @posts %>
   <% end %>
 </div>
