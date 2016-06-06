@@ -1,9 +1,13 @@
 <% if @comment.post.present? %>
   $("#comment-new-<%= @comment.post_id %>").
     append("<%= j render @comment %>")
-  $("#post-<%= @comment.post_id %>").find("form")[0].reset()
+  $.each($("#post-<%= @comment.post_id %>").find("form"), function(key, value){
+    value.reset()
+  })
 <% else %>
   $("#comment-children-<%= @parent.id %>").
     append("<%= j render @comment %>")
-  $("#comment-<%= @parent.id %>").find("form")[0].reset()
+  $.each($("#comment-<%= @parent.id %>").find("form"), function(key, value){
+    value.reset()
+  })
 <% end %>
