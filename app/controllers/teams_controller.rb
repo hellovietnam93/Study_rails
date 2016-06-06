@@ -86,7 +86,7 @@ class TeamsController < ApplicationController
 
   def has_team? user_class
     @class_room.teams.find do |team|
-      return team.user_ids.include? user_class.user_id
+      team.user_ids.include? user_class.user_id
     end
   end
 
