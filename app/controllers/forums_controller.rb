@@ -10,7 +10,7 @@ class ForumsController < ApplicationController
     @requests = @class_room.user_classes.select do |user_class|
       user_class.status == "waiting"
     end
-    @posts = @forum.posts.order updated_at: :desc
+    @posts = @forum.posts.order(updated_at: :desc).page params[:page]
     @post = @forum.posts.build
     @comment = current_user.comments.build
 
