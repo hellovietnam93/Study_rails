@@ -13,9 +13,13 @@ namespace :db do
     ClassRoom.first.assignments.each do |assignment|
       ClassRoom.first.user_classes.take_in.each do |user_class|
         if user_class.user.student?
-          assignment.assignment_submits.create user_id: user_class.user_id, class_room_id: classroom.id,
+          submission = assignment.assignment_submits.create user_id: user_class.user_id, class_room_id: classroom.id,
             title: "Submit of user #{user_class.user.email}", content: "Hello", policy: 2,
             score: scores.sample
+
+          submission.assignment_histories.create user_id: submission.user_id,
+            class_room_id: submission.class_room_id, content: submission.content,
+            team_id: submission.team_id, title: submission.title
         end
       end
     end
