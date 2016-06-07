@@ -1,0 +1,2 @@
+$("#comment-<%= @comment.id %> .approved").
+  html("<%= j render 'comments/approved_link', comment: @comment %>")

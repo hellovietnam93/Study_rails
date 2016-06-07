@@ -20,7 +20,12 @@ class CommentsController < ApplicationController
   end
 
   def update
-
+    if params.has_key? "approved"
+      @comment.update_attributes approved: params[:approved]
+      respond_to do |format|
+        format.js
+      end
+    end
   end
 
   def destroy
