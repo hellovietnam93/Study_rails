@@ -14,6 +14,7 @@ class ClassRoomService
 
     if @class_room.save
       assign_to_teacher
+      NotifyService.new(@class_room).update_class_status
       return true
     end
 
