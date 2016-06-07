@@ -78,7 +78,7 @@ $(document).on("page:change", function() {
           }
         },
         pane: {
-          size: "400%"
+          size: "150%"
         },
         xAxis: {
           categories: keys,
