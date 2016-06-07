@@ -38,43 +38,60 @@ class StatisticsController < ApplicationController
   end
 
   def active_member
-    @user_posts = @posts.group(:user_id).size
-    @user_good_posts = @posts.where(approved: true).group(:user_id).size
+    @user_posts = {}
     @user_comments = {}
+    @user_good_posts = {}
     @user_good_comments = {}
+
     @posts.each do |post|
-      post.comments.group(:user_id).size.each do |user_id, numbers|
-        if @user_comments[user_id].present?
-          @user_comments[user_id] += numbers
-        else
-          @user_comments[user_id] = numbers
-        end
-      end
+      @members.each do |member|
+        get_post_by_user post, member
 
-      post.comments.where(approved: true).group(:user_id).size do |user_id, numbers|
-        if @user_comments[user_id].present?
-          @user_good_comments[user_id] += numbers
-        else
-          @user_good_comments[user_id] = numbers
-        end
+        get_comment_by_user post, member
       end
+    end
+  end
 
-      post.comments.each do |comment|
-        comment.children.group(:user_id).size.each do |user_id, numbers|
-          if @user_comments[user_id].present?
-            @user_comments[user_id] += numbers
+  def get_post_by_user post, member
+    if post.user_id == member.user_id
+      if @user_posts[member.user_id].present?
+        @user_posts[member.user_id] += 1
+        if post.approved?
+          if @user_good_posts[member.user_id].present?
+            @user_good_posts[member.user_id] += 1
           else
-            @user_comments[user_id] = numbers
+            @user_good_posts[member.user_id] = 1
           end
         end
-
-        comment.children.where(approved: true).group(:user_id).size do |user_id, numbers|
-        if @user_comments[user_id].present?
-          @user_good_comments[user_id] += numbers
-        else
-          @user_good_comments[user_id] = numbers
-        end
+      else
+        @user_posts[member.user_id] = 1
       end
+    end
+  end
+
+  def get_comment_by_user post, member
+    post.comments.each do |comment|
+      get_comment_per_user comment, member
+
+      comment.children.each do |comment_child|
+        get_comment_per_user comment, member
+      end
+    end
+  end
+
+  def get_comment_per_user comment, member
+    if comment.user_id == member.user_id
+      if @user_comments[member.user_id].present?
+        @user_comments[member.user_id] += 1
+        if comment.approved?
+          if @user_good_comments[member.user_id].present?
+            @user_good_comments[member.user_id] += 1
+          else
+            @user_good_comments[member.user_id] = 1
+          end
+        end
+      else
+        @user_comments[member.user_id] = 1
       end
     end
   end
