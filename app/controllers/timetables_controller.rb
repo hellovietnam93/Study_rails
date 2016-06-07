@@ -13,13 +13,14 @@ class TimetablesController < ApplicationController
   end
 
   def create
+    check_class_status
     @timetable.save
     EventService.new(current_user.id, @timetable).save
     redirect_to class_room_timetables_path @timetable.class_room
   end
 
   def edit
-    @class_room = @timetable.class_room
+    check_class_status
     load_syllabus_details
     respond_to do |format|
       format.js
@@ -27,6 +28,7 @@ class TimetablesController < ApplicationController
   end
 
   def update
+    check_class_status
     @timetable.update timetable_params
     EventService.new(current_user.id, @timetable).save
     redirect_to class_room_timetables_path @timetable.class_room
@@ -48,6 +50,15 @@ class TimetablesController < ApplicationController
     @syllabus_details = []
     @class_room.course.syllabuses.each do |syllabus|
       @syllabus_details += syllabus.syllabus_details
+    end
+  end
+
+  def check_class_status
+    @class_room = @timetable.class_room
+    if @class_room.closed?
+      flash[:dander] = t "flashs.messages.closed",
+        classroom: @class_room.uid
+      redirect_to class_rooms_path
     end
   end
 end

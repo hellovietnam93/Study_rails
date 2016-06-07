@@ -64,6 +64,7 @@ en:
       do_not_have_team: "You have not been involved in any team in the classroom %{class_room}"
       over_range_of_score: "Score must be greater than 0 and smaller than 10"
       cannot_blank: "Cannot blank"
+      closed: "Class %{classroom} was closed!"
       import:
         success: "%{models_name} was imported successfully!"
         alert: "%{models_name} was imported fail!"

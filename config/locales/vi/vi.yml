@@ -114,6 +114,7 @@ vi:
       do_not_have_team: "Bạn chưa được tham gia vào nhóm trong lớp %{class_room}"
       over_range_of_score: "Điểm bài tập phải nằm trong khoảng từ 0 đến 10"
       cannot_blank: "Không được bỏ trống"
+      closed: "Lớp học %{classroom} đã đóng!"
       import:
         success: "%{models_name} đã được nhập thành công!"
         alert: "%{models_name} không thể nhập!"

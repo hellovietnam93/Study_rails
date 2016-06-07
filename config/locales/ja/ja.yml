@@ -64,6 +64,7 @@ ja:
       do_not_have_team: "あなたは、教室内のグループに関与していません %{class_room}"
       over_range_of_score: "スコアは0より大きく10未満である必要があります"
       cannot_blank: "空にすることはできませ"
+      closed: "クラス%{classroom}が閉じられ!"
       import:
         success: "%{models_name} 正常にインポートされました!"
         alert: "%{models_name} 失敗インポートされました!"
