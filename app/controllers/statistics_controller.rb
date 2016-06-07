@@ -15,7 +15,9 @@ class StatisticsController < ApplicationController
 
     @x_axis = get_chart_data.keys.map {|date| date.strftime t("date.formats.default")}
     @y_axis = get_chart_data.values
+
     active_member
+
     if current_user.lecturer?
       statistic_of_member
     else
@@ -36,10 +38,44 @@ class StatisticsController < ApplicationController
   end
 
   def active_member
-    @user_posts = @posts.group(:user_id).count
+    @user_posts = @posts.group(:user_id).size
+    @user_good_posts = @posts.where(approved: true).group(:user_id).size
     @user_comments = {}
+    @user_good_comments = {}
     @posts.each do |post|
-      @user_comments = @user_comments.merge post.comments.group(:user_id).count
+      post.comments.group(:user_id).size.each do |user_id, numbers|
+        if @user_comments[user_id].present?
+          @user_comments[user_id] += numbers
+        else
+          @user_comments[user_id] = numbers
+        end
+      end
+
+      post.comments.where(approved: true).group(:user_id).size do |user_id, numbers|
+        if @user_comments[user_id].present?
+          @user_good_comments[user_id] += numbers
+        else
+          @user_good_comments[user_id] = numbers
+        end
+      end
+
+      post.comments.each do |comment|
+        comment.children.group(:user_id).size.each do |user_id, numbers|
+          if @user_comments[user_id].present?
+            @user_comments[user_id] += numbers
+          else
+            @user_comments[user_id] = numbers
+          end
+        end
+
+        comment.children.where(approved: true).group(:user_id).size do |user_id, numbers|
+        if @user_comments[user_id].present?
+          @user_good_comments[user_id] += numbers
+        else
+          @user_good_comments[user_id] = numbers
+        end
+      end
+      end
     end
   end
 
@@ -49,7 +85,7 @@ class StatisticsController < ApplicationController
     sum = 0
 
     @posts.each do |post|
-      answers = post.comments.where(user_id: @lecturer.user.id)
+      answers = post.comments.where user_id: @lecturer.user_id
       if answers.any?
         @lecturer_answers[post] = answers.minimum :created_at
       end
@@ -63,6 +99,7 @@ class StatisticsController < ApplicationController
       @lecturer_answers.each do |key, value|
         sum += (value - key.created_at)
       end
+
       @average_time = sum.to_f / @lecturer_answers.size / 3600
     end
   end
@@ -104,8 +141,10 @@ class StatisticsController < ApplicationController
 
     @members.each do |member|
       @statistic_of_member[member.user] = {}
-      @statistic_of_member[member.user][t("statistic.title.number_post")] = @user_posts[member.id].nil? ? 0 : @user_posts[member.id]
-      @statistic_of_member[member.user][t("statistic.title.number_comment")] = @user_comments[member.id].nil? ? 0 : @user_comments[member.id]
+      @statistic_of_member[member.user][t("statistic.title.number_post")] = @user_posts[member.user_id].nil? ? 0 : @user_posts[member.user_id]
+      @statistic_of_member[member.user][t("statistic.title.number_good_post")] = @user_good_posts[member.user_id].nil? ? 0 : @user_good_posts[member.user_id]
+      @statistic_of_member[member.user][t("statistic.title.number_comment")] = @user_comments[member.user_id].nil? ? 0 : @user_comments[member.user_id]
+      @statistic_of_member[member.user][t("statistic.title.number_good_comment")] = @user_good_comments[member.user_id].nil? ? 0 : @user_good_comments[member.user_id]
       @statistic_of_member[member.user][t("statistic.title.average_score")] = calculate_average_score_of_assignment member, @class_room
     end
   end
@@ -116,10 +155,10 @@ class StatisticsController < ApplicationController
       if assignment_submit.share_with_team?
         team_id = assignment_submit.user.team_ids & class_room.team_ids
         team = Team.find_by_id team_id
-        if team.user_ids.include? user.id
+        if team.user_ids.include? user.user_id
           scores << (assignment_submit.score.nil? ? 0 : assignment_submit.score)
         end
-      elsif assignment_submit.user_id == user.id
+      elsif assignment_submit.user_id == user.user_id
         scores << (assignment_submit.score.nil? ? 0 : assignment_submit.score)
       end
     end

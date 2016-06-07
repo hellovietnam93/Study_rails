@@ -2,7 +2,9 @@ ja:
   statistic:
     title:
       number_post: "投稿数"
+      number_good_post: "記事の数や"
       number_comment: "回答数"
+      number_good_comment: "回答数"
       post_replied: "総数ポスト講師は答えました"
       average_time: "平均応答時間"
       tags: "最も使用されているタグ"

@@ -1,8 +1,10 @@
 en:
   statistic:
     title:
-      number_post: "Number post"
-      number_comment: "Number comment"
+      number_post: "Number posts"
+      number_good_post: "Number good posts"
+      number_comment: "Number comments"
+      number_good_comment: "Number good comments"
       post_replied: "Total number posts lecturer replied"
       average_time: "Average reply time"
       tags: "The most used tags"
