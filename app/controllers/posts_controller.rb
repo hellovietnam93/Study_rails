@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       @requests = @class_room.user_classes.select do |user_class|
         user_class.status == "waiting"
       end
-      @posts = @forum.posts.order(updated_at: :desc).page params[:page]
+      @posts = @forum.posts.order(updated_at: :desc).paginate page: params[:page], per_page: Settings.per_page
 
       @most_concerned = {}
       @posts.each do |post|

@@ -82,3 +82,4 @@ reminders:
   start_lesson: "start_lesson"
   start_submit: "start_submit"
   deadline: "deadline"
+per_page: 15
