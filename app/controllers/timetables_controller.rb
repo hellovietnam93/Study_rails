@@ -56,8 +56,7 @@ class TimetablesController < ApplicationController
   def check_class_status
     @class_room = @timetable.class_room
     if @class_room.closed?
-      flash[:dander] = t "flashs.messages.closed",
-        classroom: @class_room.uid
+      flash[:dander] = t "flashs.messages.closed", classroom: @class_room.uid
       redirect_to class_rooms_path
     end
   end

@@ -49,8 +49,7 @@ class DocumentsController < ApplicationController
 
   def check_class_status
     if @class_room.closed?
-      flash[:dander] = t "flashs.messages.closed",
-        classroom: @class_room.uid
+      flash[:dander] = t "flashs.messages.closed", classroom: @class_room.uid
       redirect_to class_rooms_path
     end
   end

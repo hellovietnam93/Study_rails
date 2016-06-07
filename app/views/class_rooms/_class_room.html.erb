@@ -1,12 +1,12 @@
 <div class="element-item class_room-<%= class_room.id %>"
   data-status="<%= class_room.status %>"
   data-type="<%= class_room.class_type %>">
-  <% if class_room.theory? %>
+  <% if class_room.open? %>
     <div class="box box-info box-solid">
-  <% elsif class_room.pratice? %>
+  <% elsif class_room.in_progress? %>
     <div class="box box-success box-solid">
   <% else %>
-    <div class="box box-warning box-solid">
+    <div class="box box-default box-solid">
   <% end %>
     <div class="box-header">
       <h3 class="box-title uid">
@@ -22,12 +22,12 @@
       <%= link_to image_tag("class.png"), class_room %>
     </div>
 
-    <% if class_room.theory? %>
+    <% if class_room.open? %>
       <div class="box-footer bg-aqua-active color-palette">
-    <% elsif class_room.pratice? %>
+    <% elsif class_room.in_progress? %>
       <div class="box-footer bg-green-active color-palette">
     <% else %>
-      <div class="box-footer bg-yellow-active color-palette">
+      <div class="box-footer bg-gray-active color-palette">
     <% end %>
       <div class="status pull-right">
         <%= t "class_rooms.statuses.#{class_room.status}" %></div>
