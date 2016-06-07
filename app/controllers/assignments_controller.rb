@@ -2,6 +2,7 @@ class AssignmentsController < ApplicationController
   load_and_authorize_resource
   skip_load_resource only: [:index, :show]
   before_action :find_classroom
+  before_action :check_class_status, except: [:index, :show]
 
   def index
     if check_lecturer_of_class? current_user, @class_room.user_classes
@@ -78,6 +79,14 @@ class AssignmentsController < ApplicationController
     unless @class_room
       flash[:dander] = t "flashs.messages.model_not_found",
         model: "ClassRoom", id: params[:class_room_id]
+      redirect_to class_rooms_path
+    end
+  end
+
+  def check_class_status
+    if @class_room.closed?
+      flash[:dander] = t "flashs.messages.closed",
+        classroom: @class_room.uid
       redirect_to class_rooms_path
     end
   end

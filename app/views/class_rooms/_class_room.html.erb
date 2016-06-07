@@ -1,5 +1,6 @@
 <div class="element-item class_room-<%= class_room.id %>"
-  data-status="<%= class_room.status %>" data-type="<%= class_room.class_type %>">
+  data-status="<%= class_room.status %>"
+  data-type="<%= class_room.class_type %>">
   <% if class_room.theory? %>
     <div class="box box-info box-solid">
   <% elsif class_room.pratice? %>
@@ -18,8 +19,7 @@
     </div>
 
     <div class="box-body">
-      <%= link_to image_tag("class.png"),
-        class_room %>
+      <%= link_to image_tag("class.png"), class_room %>
     </div>
 
     <% if class_room.theory? %>
@@ -31,7 +31,7 @@
     <% end %>
       <div class="status pull-right">
         <%= t "class_rooms.statuses.#{class_room.status}" %></div>
-      <div class="name"><%= class_room.name %></div>
+      <div class="name"><%= class_room.name.truncate 25 %></div>
     </div>
 
   </div>

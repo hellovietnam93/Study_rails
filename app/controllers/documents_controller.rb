@@ -2,6 +2,7 @@ class DocumentsController < ApplicationController
   load_and_authorize_resource
   skip_load_resource only: :index
   before_action :find_class_room
+  before_action :check_class_status, except: [:index]
 
   def index
     load_documents
@@ -43,6 +44,14 @@ class DocumentsController < ApplicationController
   def find_requests
     @requests = @class_room.user_classes.select do |user_class|
       user_class.status == "waiting"
+    end
+  end
+
+  def check_class_status
+    if @class_room.closed?
+      flash[:dander] = t "flashs.messages.closed",
+        classroom: @class_room.uid
+      redirect_to class_rooms_path
     end
   end
 end
