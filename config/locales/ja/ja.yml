@@ -35,6 +35,7 @@ ja:
       submit: "提出します"
       skip: "スキップ"
       remember_me: "私を覚えてますか"
+      load_more: "より多くの結果を取得しています..."
   date:
     formats:
       default: "%Y/%m/%d"

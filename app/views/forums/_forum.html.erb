@@ -6,9 +6,9 @@
 
 <div>
   <% if @posts.any? %>
-    <% @posts.each do |post| %>
-      <%= render "forums/list_post", post: post, forum: forum %>
-    <% end %>
-    <%= paginate @posts %>
+    <div class="posts-list">
+      <%= render "forums/posts" %>
+    </div>
+    <%= will_paginate @posts %>
   <% end %>
 </div>

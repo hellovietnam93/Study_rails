@@ -35,6 +35,7 @@ en:
       submit: "Submit"
       skip: "Skip"
       remember_me: "Remember me"
+      load_more: "Fetching more results..."
   date:
     formats:
       default: "%Y/%m/%d"

@@ -1,0 +1,6 @@
+$(".posts-list").append("<%= j render 'forums/posts' %>");
+<% if @posts.next_page %>
+  $(".pagination").replaceWith("<%= j will_paginate @posts %>");
+<% else %>
+  $(".pagination").remove();
+<% end %>

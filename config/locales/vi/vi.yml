@@ -35,6 +35,7 @@ vi:
       submit: "Xác nhận"
       skip: "Bỏ qua"
       remember_me: "Ghi nhớ đăng nhập"
+      load_more: "Lấy kết quả khác ..."
   datetime:
     distance_in_words:
       about_x_hours:
