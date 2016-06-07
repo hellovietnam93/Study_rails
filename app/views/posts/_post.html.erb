@@ -59,7 +59,9 @@
       <div id="comment-new-<%= post.id %>"></div>
       <%= render post.comments.order(updated_at: :desc) %>
 
-      <%= render "comments/form", post: post %>
+      <div class="comment-form-<%= post.id %>">
+        <%= render "comments/form", post: post %>
+      </div>
     </div>
   </div>
 <% end %>

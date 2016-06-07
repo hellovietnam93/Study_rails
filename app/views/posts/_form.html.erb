@@ -16,7 +16,7 @@
   <% if object.class == Forum %>
     <div class="form-group">
       <%= f.text_field :tag_list, class: "form-control",
-        placeholder: t("posts.header.tags") %>
+        placeholder: t("posts.header.tags"), value: @post.tag_list.join(",") %>
     </div>
   <% end %>
 

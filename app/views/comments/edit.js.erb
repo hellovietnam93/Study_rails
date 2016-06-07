@@ -1,0 +1,5 @@
+<% if @comment.parent_id.present? %>
+  $(".reply-comment-<%= @comment.parent_id %>").html("<%= j render 'comments/reply_form' %>")
+<% else %>
+  $(".comment-form-<%= @comment.post_id %>").html("<%= j render 'comments/reply_form' %>")
+<% end %>

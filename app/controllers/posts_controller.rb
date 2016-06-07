@@ -14,6 +14,22 @@ class PostsController < ApplicationController
   end
 
   def edit
+    if @post.postable_type == "Forum"
+      @forum = @post.postable
+      @class_room = @forum.class_room
+      if @class_room
+        redirect_to @class_room unless user_in_class? current_user, @class_room
+      end
+      @requests = @class_room.user_classes.select do |user_class|
+        user_class.status == "waiting"
+      end
+      @posts = @forum.posts.order(updated_at: :desc).page params[:page]
+
+      @most_concerned = {}
+      @posts.each do |post|
+        @most_concerned[post] = post.likes.size + post.comments.size
+      end
+    end
   end
 
   def update

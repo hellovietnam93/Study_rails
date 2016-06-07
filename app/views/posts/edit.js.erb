@@ -1,1 +1,1 @@
-$("#post-<%= @post.id %>").html("<%= j render 'posts/form' %>")
+$("#post-<%= @post.id %>").html("<%= j render 'posts/form', object: @post.postable %>")
