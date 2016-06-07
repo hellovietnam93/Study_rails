@@ -1,10 +1,12 @@
-<% if post.approved? %>
-  <%= link_to post_path(post, approved: false), method: :put, remote: true do %>
+<% if comment.approved? %>
+  <%= link_to comment_path(comment, approved: false),
+    method: :put, remote: true do %>
     <i class="fa fa-tag" aria-hidden="true"></i>
     <%= t "form.buttons.approved" %>
   <% end %>
 <% else %>
-  <%= link_to post_path(post, approved: true), method: :put, remote: true do %>
+  <%= link_to comment_path(comment, approved: true),
+    method: :put, remote: true do %>
     <i class="fa fa-tags" aria-hidden="true"></i>
     <%= t "form.buttons.approve" %>
   <% end %>

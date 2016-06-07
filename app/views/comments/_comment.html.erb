@@ -3,30 +3,36 @@
     <p>
       <div>
         <%= link_to comment.user.email, comment.user %>
-        <% if can? :manage, comment %>
-          <span class="pull-right dropdown">
-            <% if comment.post.present? %>
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                <i class="fa fa-caret-down"></i>
-              </a>
-              <ul class="dropdown-menu">
+        <span class="pull-right dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <% if current_user.lecturer? %>
+              <li class="approved">
+                <%= render "comments/approved_link", comment: comment %>
+              </li>
+            <% end %>
+            <% if can? :manage, comment %>
+              <% if comment.post.present? %>
                 <li>
-                  <%= link_to edit_post_comment_path(comment.post, comment), remote: true do %>
+                  <%= link_to edit_comment_path(comment), remote: true do %>
                     <i class="fa fa-pencil-square-o"></i>
                     <%= t "form.buttons.edit" %>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to post_comment_path(comment.post, comment),
-                    method: :delete, confirm: t("form.confirmation"), remote: true do %>
+                    method: :delete, confirm: t("form.confirmation"),
+                    remote: true do %>
                     <i class="fa fa-times"></i>
                     <%= t "form.buttons.delete" %>
                   <% end %>
                 </li>
-              </ul>
+              <% end %>
             <% end %>
-          </span>
-        <% end %>
+          </ul>
+        </span>
         <span><%= comment.content %></span>
       </div>
       <span class="comment-like">
