@@ -19,10 +19,16 @@ class Ability
       can :manage, Post, Post do |post|
         (post.user_id == user.id) || (post.class_room.user_classes.find_by user_id: user.id, owner: true)
       end
+      cannot :edit, Post, Post do |post|
+        post.user_id != user.id
+      end
       can :manage, Comment, Comment do |comment|
         (comment.user_id == user.id) ||
         (comment.parent_id.nil? && comment.post.class_room.user_classes.find_by(user_id: user.id, owner: true)) ||
         (comment.parent_id.present? && comment.parent.post.class_room.user_classes.find_by(ser_id: user.id, owner: true))
+      end
+      cannot :edit, Comment, Comment do |comment|
+        comment.user_id != user.id
       end
       can [:create, :destroy], Like, user_id: user.id
       can :manage, Document, user_id: user.id

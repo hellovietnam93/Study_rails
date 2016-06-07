@@ -1,2 +1,19 @@
-$("#comment-<%= @comment.id %> .approved").
-  html("<%= j render 'comments/approved_link', comment: @comment %>")
+<% if params.has_key? "approved" %>
+  $("#comment-<%= @comment.id %> .approved").
+    html("<%= j render 'comments/approved_link', comment: @comment %>")
+<% else %>
+  <% if @comment.post.present? %>
+    $("#comment-<%= @comment.id %>").html("<%= j render @comment %>")
+    <% temp = @comment %>
+    <% @comment = Comment.new %>
+    $(".comment-form-<%= temp.post_id %> form").remove()
+    $(".comment-form-<%= temp.post_id %>").html("<%= j render 'comments/form', post: temp.post %>")
+  <% else %>
+    $("#comment-<%= @comment.id %>").
+      html("<%= j render @comment %>")
+    <% temp = @comment %>
+    <% @comment = Comment.new parent_id: temp.parent_id %>
+    $(".reply-comment-<%= temp.parent_id %>").find("form")[0].remove()
+    $(".reply-comment-<%= temp.parent_id %>").html("<%= j render 'comments/reply_form' %>")
+  <% end %>
+<% end %>

@@ -63,6 +63,6 @@ Rails.application.routes.draw do
     resources :courses, only: [:index, :show]
     resources :marks, only: :update
     resources :my_documents, only: :index
-    resources :comments, only: [:edit, :update]
+    resources :comments, only: [:edit, :update, :destroy]
   end
 end

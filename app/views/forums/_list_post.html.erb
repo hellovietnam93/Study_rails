@@ -32,8 +32,7 @@
                 <% end %>
                 <% if can? :manage, post %>
                   <li>
-                    <%= link_to edit_post_path(post),
-                      remote: true do %>
+                    <%= link_to edit_post_path(post) do %>
                       <i class="fa fa-pencil-square-o"></i>
                       <%= t "form.buttons.edit" %>
                     <% end %>

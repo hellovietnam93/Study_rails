@@ -13,23 +13,23 @@
                 <%= render "comments/approved_link", comment: comment %>
               </li>
             <% end %>
-            <% if can? :manage, comment %>
-              <% if comment.post.present? %>
-                <li>
-                  <%= link_to edit_comment_path(comment), remote: true do %>
-                    <i class="fa fa-pencil-square-o"></i>
-                    <%= t "form.buttons.edit" %>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to post_comment_path(comment.post, comment),
-                    method: :delete, confirm: t("form.confirmation"),
-                    remote: true do %>
-                    <i class="fa fa-times"></i>
-                    <%= t "form.buttons.delete" %>
-                  <% end %>
-                </li>
-              <% end %>
+            <% if can? :edit, comment %>
+              <li>
+                <%= link_to edit_comment_path(comment), remote: true do %>
+                  <i class="fa fa-pencil-square-o"></i>
+                  <%= t "form.buttons.edit" %>
+                <% end %>
+              </li>
+            <% end %>
+            <% if can? :destroy, comment %>
+              <li>
+                <%= link_to comment_path(comment),
+                  method: :delete, confirm: t("form.confirmation"),
+                  remote: true do %>
+                  <i class="fa fa-times"></i>
+                  <%= t "form.buttons.delete" %>
+                <% end %>
+              </li>
             <% end %>
           </ul>
         </span>

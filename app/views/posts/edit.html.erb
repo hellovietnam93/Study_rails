@@ -1,0 +1,80 @@
+<div id="posts">
+  <div class="box">
+    <div class="box-header with-border">
+      <% if current_user.lecturer? %>
+        <%= render "class_rooms/class_header" %>
+      <% else %>
+        <%= render "students/class_rooms/class_header" %>
+      <% end %>
+    </div>
+
+    <div class="box-body">
+      <div id="posts">
+        <div class="row">
+          <div class="col-md-8">
+            <%= render "form", object: @post.postable %>
+          </div>
+
+          <div class="col-md-4"%>
+            <strong class="number-posts">
+              <%= @posts.size %>
+            </strong>
+              <%= t("posts.post_number") %>
+            <div class="box box-info box-solid">
+              <div class="box-header with-border">
+                <h3 class="box-title">
+                  <strong><%= t "posts.tags" %></strong>
+                </h3>
+
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove">
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="box-body">
+                <div id="tag_clound">
+                  <% @posts.tag_counts.order(taggings_count: :desc).limit(10).each do |tag| %>
+                    <div>
+                      <%= link_to tag.name, forum_tag_path(@forum, tag.name), class: "tag" %>
+                      x
+                      <%= tag.taggings_count %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <div class="box box-success box-solid">
+              <div class="box-header with-border">
+                <h3 class="box-title">
+                  <strong><%= t "posts.top_like_post" %></strong>
+                </h3>
+
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove">
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="box-body">
+                <% @most_concerned.sort_by{|post, number| number}.reverse.
+                  first(10).each do |post, number| %>
+                  <div><%= link_to post.name, [@forum, post] %></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

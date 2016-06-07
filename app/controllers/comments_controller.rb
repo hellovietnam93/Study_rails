@@ -7,6 +7,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new parent_id: params[:parent_id]
   end
 
+  def edit
+
+  end
+
   def create
     respond_to do |format|
       if params[:comment].has_key? :parent_id
@@ -25,6 +29,8 @@ class CommentsController < ApplicationController
       respond_to do |format|
         format.js
       end
+    else
+      @comment.update_attributes comment_params
     end
   end
 
