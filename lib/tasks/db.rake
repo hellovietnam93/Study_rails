@@ -64,7 +64,7 @@ namespace :db do
 
     course_ids = [1, 2, 3, 4]
     hours = [7, 8, 9, 10]
-    15.times do |n|
+    10.times do |n|
       course_id = course_ids.sample
       hour = hours.sample
       class_room_params = {uid: "44444#{5 + n}", name: "#{Course.find(course_id).name} #{n}",

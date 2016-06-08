@@ -162,4 +162,8 @@ module ApplicationHelper
     current_user.reminders.where "Date(occur_date) = ? OR Date(occur_date) = ?",
       Date.today, (Date.today + 1.day)
   end
+
+  def can_see_assignment? assignment
+    assignment.closed? || assignment.opening?
+  end
 end

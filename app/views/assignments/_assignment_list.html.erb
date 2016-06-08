@@ -1,8 +1,15 @@
-<% if assignment.id.present? %>
+<% if assignment.id.present? && ((current_user.student? &&
+  can_see_assignment?(assignment)) || current_user.lecturer?) %>
   <div class="element-item assignment-<%= assignment.id %>"
     data-start="<%= assignment.start_time %>"
     data-end="<%= assignment.end_time %>">
-    <div class="box box-success box-solid">
+    <% if assignment.closed? %>
+      <div class="box box-default box-solid">
+    <% elsif assignment.opening? %>
+      <div class="box box-success box-solid">
+    <% else %>
+      <div class="box box-info box-solid">
+    <% end %>
       <div class="box-header">
         <h3 class="box-title name">
           <%= link_to assignment.name, class_room_assignment_path(@class_room, assignment) %>
