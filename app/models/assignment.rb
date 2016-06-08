@@ -7,7 +7,9 @@ class Assignment < ActiveRecord::Base
   belongs_to :class_room
   belongs_to :reminderable, polymorphic: true
 
-  ATTRIBUTES_PARAMS = [:name, :class_room_id, :content, :start_time, :end_time]
+  ATTRIBUTES_PARAMS = [:name, :class_room_id, :content, :start_time, :end_time, :status]
+
+  enum status: [:init, :opening, :closed]
 
   validate :end_time_must_be_greater_than_start_time
   validate :time_must_be_in_time_of_semester

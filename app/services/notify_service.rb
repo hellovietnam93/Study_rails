@@ -16,6 +16,11 @@ class NotifyService
     Delayed::Job.enqueue(ClassroomClosedWorker.new(@object), 0, @object.end_date)
   end
 
+  def update_assignment_status
+    Delayed::Job.enqueue(AssignmentOpeningWorker.new(@object), 0, @object.start_time)
+    Delayed::Job.enqueue(AssignmentClosedWorker.new(@object), 0, @object.end_time)
+  end
+
   private
   def send_notify_user_classes
     @object.class_room.timetables.each do |timetable|

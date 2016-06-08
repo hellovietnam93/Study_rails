@@ -18,10 +18,10 @@ namespace :db do
             content: "Content of post", created_at: date,
             user_id: user_id, class_room_id: 1, postable: ClassRoom.first.forum,
             tag_list: tag_list.drop(tag_drop.sample), approved: [true, false].sample
-          5.times do |m|
+          a.sample.times do |m|
             comment = post.comments.create content: "New comment #{m}",
               user_id: member_ids.sample, created_at: range.to_a.sample, approved: [true, false].sample
-            5.times do |p|
+            a.sample.times do |p|
               comment.children.create content: "Reply #{p} of comment #{comment.id}",
                 user_id: member_ids.sample, created_at: range.to_a.sample, approved: [true, false].sample
             end

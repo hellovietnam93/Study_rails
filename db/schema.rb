@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607011312) do
+ActiveRecord::Schema.define(version: 20160608021509) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535
@@ -66,8 +66,9 @@ ActiveRecord::Schema.define(version: 20160607011312) do
     t.datetime "end_time"
     t.text     "content",       limit: 65535
     t.integer  "class_room_id", limit: 4
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.integer  "status",        limit: 4,     default: 0
   end
 
   add_index "assignments", ["class_room_id"], name: "index_assignments_on_class_room_id", using: :btree
